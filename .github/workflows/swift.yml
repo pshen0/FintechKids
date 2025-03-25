@@ -1,4 +1,4 @@
-name: Swift Build & Test
+name: Xcode Build & Test
 
 on: [push, pull_request]
 
@@ -13,7 +13,13 @@ jobs:
         run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 
       - name: Build project
-        run: swift build
+        run: |
+          xcodebuild -scheme "FintechKids" \
+                     -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+                     clean build
 
       - name: Run tests
-        run: swift test
+        run: |
+          xcodebuild -scheme "FintechKids" \
+                     -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+                     test
