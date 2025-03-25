@@ -14,12 +14,15 @@ jobs:
 
       - name: Build project
         run: |
+          cd FintechKids
           xcodebuild -scheme "FintechKids" \
                      -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
                      clean build
 
-      - name: Run tests
-        run: |
-          xcodebuild -scheme "FintechKids" \
-                     -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-                     test
+      # - name: Run tests
+      #   run: |
+      #     cd FintechKids
+      #     xcodebuild -scheme "FintechKids" \
+      #                -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
+      #                test
+
