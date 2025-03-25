@@ -1,31 +1,23 @@
-name: Xcode Build & Test
+name: Build and Test
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
     runs-on: macos-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Check Xcode version
-        run: xcodebuild -version
-
-      - name: Set up Xcode
-        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+        uses: actions/checkout@v3
 
       - name: Build project
         run: |
           cd FintechKids
-          xcodebuild -scheme "FintechKids" \
-                     -destination 'platform=iOS Simulator,name=iPhone 14,OS=latest' \
+          xcodebuild -project "MyProject.xcodeproj" \
+                     -scheme "FintechKids" \
+                     -sdk iphonesimulator \
+                     -destination 'platform=iOS Simulator,name=iPhone 12,OS=latest' \
                      clean build
-
-      # - name: Run tests
-      #   run: |
-      #     cd FintechKids
-      #     xcodebuild -scheme "FintechKids" \
-      #                -destination 'platform=iOS Simulator,name=iPhone 16,OS=latest' \
-      #                test
-
