@@ -6,63 +6,64 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2EA14FD52D934CA6001ED73E /* FintechKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA14FD42D934CA6001ED73E /* FintechKidsApp.swift */; };
+		2EA14FD72D934CA6001ED73E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA14FD62D934CA6001ED73E /* ContentView.swift */; };
+		2EA14FD92D934CA6001ED73E /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA14FD82D934CA6001ED73E /* Item.swift */; };
+		2EA14FDB2D934CA7001ED73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA14FDA2D934CA7001ED73E /* Assets.xcassets */; };
+		2EA14FDE2D934CA7001ED73E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA14FDD2D934CA7001ED73E /* Preview Assets.xcassets */; };
+		2EA14FE82D934CA7001ED73E /* FintechKidsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA14FE72D934CA7001ED73E /* FintechKidsTests.swift */; };
+		2EA14FF22D934CA7001ED73E /* FintechKidsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA14FF12D934CA7001ED73E /* FintechKidsUITests.swift */; };
+		2EA14FF42D934CA7001ED73E /* FintechKidsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA14FF32D934CA7001ED73E /* FintechKidsUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
-		2EA017872D93306800E8D656 /* PBXContainerItemProxy */ = {
+		2EA14FE42D934CA7001ED73E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2EA0176C2D93306600E8D656 /* Project object */;
+			containerPortal = 2EA14FC92D934CA6001ED73E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2EA017732D93306600E8D656;
+			remoteGlobalIDString = 2EA14FD02D934CA6001ED73E;
 			remoteInfo = FintechKids;
 		};
-		2EA017912D93306800E8D656 /* PBXContainerItemProxy */ = {
+		2EA14FEE2D934CA7001ED73E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 2EA0176C2D93306600E8D656 /* Project object */;
+			containerPortal = 2EA14FC92D934CA6001ED73E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 2EA017732D93306600E8D656;
+			remoteGlobalIDString = 2EA14FD02D934CA6001ED73E;
 			remoteInfo = FintechKids;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2EA017742D93306600E8D656 /* FintechKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EA017862D93306800E8D656 /* FintechKidsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechKidsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EA017902D93306800E8D656 /* FintechKidsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechKidsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EA14FD12D934CA6001ED73E /* FintechKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EA14FD42D934CA6001ED73E /* FintechKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsApp.swift; sourceTree = "<group>"; };
+		2EA14FD62D934CA6001ED73E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2EA14FD82D934CA6001ED73E /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		2EA14FDA2D934CA7001ED73E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2EA14FDD2D934CA7001ED73E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2EA14FE32D934CA7001ED73E /* FintechKidsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechKidsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EA14FE72D934CA7001ED73E /* FintechKidsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsTests.swift; sourceTree = "<group>"; };
+		2EA14FED2D934CA7001ED73E /* FintechKidsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechKidsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EA14FF12D934CA7001ED73E /* FintechKidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITests.swift; sourceTree = "<group>"; };
+		2EA14FF32D934CA7001ED73E /* FintechKidsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		2EA017762D93306600E8D656 /* FintechKids */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FintechKids;
-			sourceTree = "<group>";
-		};
-		2EA017892D93306800E8D656 /* FintechKidsTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FintechKidsTests;
-			sourceTree = "<group>";
-		};
-		2EA017932D93306800E8D656 /* FintechKidsUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FintechKidsUITests;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		2EA017712D93306600E8D656 /* Frameworks */ = {
+		2EA14FCE2D934CA6001ED73E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EA017832D93306800E8D656 /* Frameworks */ = {
+		2EA14FE02D934CA7001ED73E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EA0178D2D93306800E8D656 /* Frameworks */ = {
+		2EA14FEA2D934CA7001ED73E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -72,157 +73,180 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2EA0176B2D93306600E8D656 = {
+		2EA14FC82D934CA6001ED73E = {
 			isa = PBXGroup;
 			children = (
-				2EA017762D93306600E8D656 /* FintechKids */,
-				2EA017892D93306800E8D656 /* FintechKidsTests */,
-				2EA017932D93306800E8D656 /* FintechKidsUITests */,
-				2EA017752D93306600E8D656 /* Products */,
+				2EA14FD32D934CA6001ED73E /* FintechKids */,
+				2EA14FE62D934CA7001ED73E /* FintechKidsTests */,
+				2EA14FF02D934CA7001ED73E /* FintechKidsUITests */,
+				2EA14FD22D934CA6001ED73E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		2EA017752D93306600E8D656 /* Products */ = {
+		2EA14FD22D934CA6001ED73E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2EA017742D93306600E8D656 /* FintechKids.app */,
-				2EA017862D93306800E8D656 /* FintechKidsTests.xctest */,
-				2EA017902D93306800E8D656 /* FintechKidsUITests.xctest */,
+				2EA14FD12D934CA6001ED73E /* FintechKids.app */,
+				2EA14FE32D934CA7001ED73E /* FintechKidsTests.xctest */,
+				2EA14FED2D934CA7001ED73E /* FintechKidsUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2EA14FD32D934CA6001ED73E /* FintechKids */ = {
+			isa = PBXGroup;
+			children = (
+				2EA14FD42D934CA6001ED73E /* FintechKidsApp.swift */,
+				2EA14FD62D934CA6001ED73E /* ContentView.swift */,
+				2EA14FD82D934CA6001ED73E /* Item.swift */,
+				2EA14FDA2D934CA7001ED73E /* Assets.xcassets */,
+				2EA14FDC2D934CA7001ED73E /* Preview Content */,
+			);
+			path = FintechKids;
+			sourceTree = "<group>";
+		};
+		2EA14FDC2D934CA7001ED73E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				2EA14FDD2D934CA7001ED73E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2EA14FE62D934CA7001ED73E /* FintechKidsTests */ = {
+			isa = PBXGroup;
+			children = (
+				2EA14FE72D934CA7001ED73E /* FintechKidsTests.swift */,
+			);
+			path = FintechKidsTests;
+			sourceTree = "<group>";
+		};
+		2EA14FF02D934CA7001ED73E /* FintechKidsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2EA14FF12D934CA7001ED73E /* FintechKidsUITests.swift */,
+				2EA14FF32D934CA7001ED73E /* FintechKidsUITestsLaunchTests.swift */,
+			);
+			path = FintechKidsUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2EA017732D93306600E8D656 /* FintechKids */ = {
+		2EA14FD02D934CA6001ED73E /* FintechKids */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EA0179A2D93306800E8D656 /* Build configuration list for PBXNativeTarget "FintechKids" */;
+			buildConfigurationList = 2EA14FF72D934CA7001ED73E /* Build configuration list for PBXNativeTarget "FintechKids" */;
 			buildPhases = (
-				2EA017702D93306600E8D656 /* Sources */,
-				2EA017712D93306600E8D656 /* Frameworks */,
-				2EA017722D93306600E8D656 /* Resources */,
+				2EA14FCD2D934CA6001ED73E /* Sources */,
+				2EA14FCE2D934CA6001ED73E /* Frameworks */,
+				2EA14FCF2D934CA6001ED73E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				2EA017762D93306600E8D656 /* FintechKids */,
 			);
 			name = FintechKids;
-			packageProductDependencies = (
-			);
 			productName = FintechKids;
-			productReference = 2EA017742D93306600E8D656 /* FintechKids.app */;
+			productReference = 2EA14FD12D934CA6001ED73E /* FintechKids.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2EA017852D93306800E8D656 /* FintechKidsTests */ = {
+		2EA14FE22D934CA7001ED73E /* FintechKidsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EA0179D2D93306800E8D656 /* Build configuration list for PBXNativeTarget "FintechKidsTests" */;
+			buildConfigurationList = 2EA14FFA2D934CA7001ED73E /* Build configuration list for PBXNativeTarget "FintechKidsTests" */;
 			buildPhases = (
-				2EA017822D93306800E8D656 /* Sources */,
-				2EA017832D93306800E8D656 /* Frameworks */,
-				2EA017842D93306800E8D656 /* Resources */,
+				2EA14FDF2D934CA7001ED73E /* Sources */,
+				2EA14FE02D934CA7001ED73E /* Frameworks */,
+				2EA14FE12D934CA7001ED73E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2EA017882D93306800E8D656 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2EA017892D93306800E8D656 /* FintechKidsTests */,
+				2EA14FE52D934CA7001ED73E /* PBXTargetDependency */,
 			);
 			name = FintechKidsTests;
-			packageProductDependencies = (
-			);
 			productName = FintechKidsTests;
-			productReference = 2EA017862D93306800E8D656 /* FintechKidsTests.xctest */;
+			productReference = 2EA14FE32D934CA7001ED73E /* FintechKidsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		2EA0178F2D93306800E8D656 /* FintechKidsUITests */ = {
+		2EA14FEC2D934CA7001ED73E /* FintechKidsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EA017A02D93306800E8D656 /* Build configuration list for PBXNativeTarget "FintechKidsUITests" */;
+			buildConfigurationList = 2EA14FFD2D934CA7001ED73E /* Build configuration list for PBXNativeTarget "FintechKidsUITests" */;
 			buildPhases = (
-				2EA0178C2D93306800E8D656 /* Sources */,
-				2EA0178D2D93306800E8D656 /* Frameworks */,
-				2EA0178E2D93306800E8D656 /* Resources */,
+				2EA14FE92D934CA7001ED73E /* Sources */,
+				2EA14FEA2D934CA7001ED73E /* Frameworks */,
+				2EA14FEB2D934CA7001ED73E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2EA017922D93306800E8D656 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2EA017932D93306800E8D656 /* FintechKidsUITests */,
+				2EA14FEF2D934CA7001ED73E /* PBXTargetDependency */,
 			);
 			name = FintechKidsUITests;
-			packageProductDependencies = (
-			);
 			productName = FintechKidsUITests;
-			productReference = 2EA017902D93306800E8D656 /* FintechKidsUITests.xctest */;
+			productReference = 2EA14FED2D934CA7001ED73E /* FintechKidsUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		2EA0176C2D93306600E8D656 /* Project object */ = {
+		2EA14FC92D934CA6001ED73E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					2EA017732D93306600E8D656 = {
-						CreatedOnToolsVersion = 16.2;
+					2EA14FD02D934CA6001ED73E = {
+						CreatedOnToolsVersion = 15.4;
 					};
-					2EA017852D93306800E8D656 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 2EA017732D93306600E8D656;
+					2EA14FE22D934CA7001ED73E = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 2EA14FD02D934CA6001ED73E;
 					};
-					2EA0178F2D93306800E8D656 = {
-						CreatedOnToolsVersion = 16.2;
-						TestTargetID = 2EA017732D93306600E8D656;
+					2EA14FEC2D934CA7001ED73E = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 2EA14FD02D934CA6001ED73E;
 					};
 				};
 			};
-			buildConfigurationList = 2EA0176F2D93306600E8D656 /* Build configuration list for PBXProject "FintechKids" */;
+			buildConfigurationList = 2EA14FCC2D934CA6001ED73E /* Build configuration list for PBXProject "FintechKids" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = 2EA0176B2D93306600E8D656;
-			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
-			productRefGroup = 2EA017752D93306600E8D656 /* Products */;
+			mainGroup = 2EA14FC82D934CA6001ED73E;
+			productRefGroup = 2EA14FD22D934CA6001ED73E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2EA017732D93306600E8D656 /* FintechKids */,
-				2EA017852D93306800E8D656 /* FintechKidsTests */,
-				2EA0178F2D93306800E8D656 /* FintechKidsUITests */,
+				2EA14FD02D934CA6001ED73E /* FintechKids */,
+				2EA14FE22D934CA7001ED73E /* FintechKidsTests */,
+				2EA14FEC2D934CA7001ED73E /* FintechKidsUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2EA017722D93306600E8D656 /* Resources */ = {
+		2EA14FCF2D934CA6001ED73E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EA14FDE2D934CA7001ED73E /* Preview Assets.xcassets in Resources */,
+				2EA14FDB2D934CA7001ED73E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EA14FE12D934CA7001ED73E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EA017842D93306800E8D656 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2EA0178E2D93306800E8D656 /* Resources */ = {
+		2EA14FEB2D934CA7001ED73E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -232,44 +256,50 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2EA017702D93306600E8D656 /* Sources */ = {
+		2EA14FCD2D934CA6001ED73E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA14FD72D934CA6001ED73E /* ContentView.swift in Sources */,
+				2EA14FD92D934CA6001ED73E /* Item.swift in Sources */,
+				2EA14FD52D934CA6001ED73E /* FintechKidsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EA017822D93306800E8D656 /* Sources */ = {
+		2EA14FDF2D934CA7001ED73E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA14FE82D934CA7001ED73E /* FintechKidsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2EA0178C2D93306800E8D656 /* Sources */ = {
+		2EA14FE92D934CA7001ED73E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA14FF22D934CA7001ED73E /* FintechKidsUITests.swift in Sources */,
+				2EA14FF42D934CA7001ED73E /* FintechKidsUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2EA017882D93306800E8D656 /* PBXTargetDependency */ = {
+		2EA14FE52D934CA7001ED73E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2EA017732D93306600E8D656 /* FintechKids */;
-			targetProxy = 2EA017872D93306800E8D656 /* PBXContainerItemProxy */;
+			target = 2EA14FD02D934CA6001ED73E /* FintechKids */;
+			targetProxy = 2EA14FE42D934CA7001ED73E /* PBXContainerItemProxy */;
 		};
-		2EA017922D93306800E8D656 /* PBXTargetDependency */ = {
+		2EA14FEF2D934CA7001ED73E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2EA017732D93306600E8D656 /* FintechKids */;
-			targetProxy = 2EA017912D93306800E8D656 /* PBXContainerItemProxy */;
+			target = 2EA14FD02D934CA6001ED73E /* FintechKids */;
+			targetProxy = 2EA14FEE2D934CA7001ED73E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		2EA017982D93306800E8D656 /* Debug */ = {
+		2EA14FF52D934CA7001ED73E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -321,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -332,7 +362,7 @@
 			};
 			name = Debug;
 		};
-		2EA017992D93306800E8D656 /* Release */ = {
+		2EA14FF62D934CA7001ED73E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -378,7 +408,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -388,7 +418,7 @@
 			};
 			name = Release;
 		};
-		2EA0179B2D93306800E8D656 /* Debug */ = {
+		2EA14FF82D934CA7001ED73E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -417,7 +447,7 @@
 			};
 			name = Debug;
 		};
-		2EA0179C2D93306800E8D656 /* Release */ = {
+		2EA14FF92D934CA7001ED73E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -446,15 +476,16 @@
 			};
 			name = Release;
 		};
-		2EA0179E2D93306800E8D656 /* Debug */ = {
+		2EA14FFB2D934CA7001ED73E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XNT88MR9C6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hse.se.FintechKidsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -465,15 +496,16 @@
 			};
 			name = Debug;
 		};
-		2EA0179F2D93306800E8D656 /* Release */ = {
+		2EA14FFC2D934CA7001ED73E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XNT88MR9C6;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = hse.se.FintechKidsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,9 +516,10 @@
 			};
 			name = Release;
 		};
-		2EA017A12D93306800E8D656 /* Debug */ = {
+		2EA14FFE2D934CA7001ED73E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XNT88MR9C6;
@@ -501,9 +534,10 @@
 			};
 			name = Debug;
 		};
-		2EA017A22D93306800E8D656 /* Release */ = {
+		2EA14FFF2D934CA7001ED73E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = XNT88MR9C6;
@@ -521,43 +555,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2EA0176F2D93306600E8D656 /* Build configuration list for PBXProject "FintechKids" */ = {
+		2EA14FCC2D934CA6001ED73E /* Build configuration list for PBXProject "FintechKids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2EA017982D93306800E8D656 /* Debug */,
-				2EA017992D93306800E8D656 /* Release */,
+				2EA14FF52D934CA7001ED73E /* Debug */,
+				2EA14FF62D934CA7001ED73E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EA0179A2D93306800E8D656 /* Build configuration list for PBXNativeTarget "FintechKids" */ = {
+		2EA14FF72D934CA7001ED73E /* Build configuration list for PBXNativeTarget "FintechKids" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2EA0179B2D93306800E8D656 /* Debug */,
-				2EA0179C2D93306800E8D656 /* Release */,
+				2EA14FF82D934CA7001ED73E /* Debug */,
+				2EA14FF92D934CA7001ED73E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EA0179D2D93306800E8D656 /* Build configuration list for PBXNativeTarget "FintechKidsTests" */ = {
+		2EA14FFA2D934CA7001ED73E /* Build configuration list for PBXNativeTarget "FintechKidsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2EA0179E2D93306800E8D656 /* Debug */,
-				2EA0179F2D93306800E8D656 /* Release */,
+				2EA14FFB2D934CA7001ED73E /* Debug */,
+				2EA14FFC2D934CA7001ED73E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2EA017A02D93306800E8D656 /* Build configuration list for PBXNativeTarget "FintechKidsUITests" */ = {
+		2EA14FFD2D934CA7001ED73E /* Build configuration list for PBXNativeTarget "FintechKidsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2EA017A12D93306800E8D656 /* Debug */,
-				2EA017A22D93306800E8D656 /* Release */,
+				2EA14FFE2D934CA7001ED73E /* Debug */,
+				2EA14FFF2D934CA7001ED73E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 2EA0176C2D93306600E8D656 /* Project object */;
+	rootObject = 2EA14FC92D934CA6001ED73E /* Project object */;
 }
