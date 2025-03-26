@@ -16,6 +16,9 @@
 		2EA1509A2D9353DD001ED73E /* FintechKidsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */; };
 		2EA1509C2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */; };
 		2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150AE2D9387E7001ED73E /* TapBar.swift */; };
+		CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F182D943CE20038AEAD /* Image+extension.swift */; };
+		CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F272D943DDA0038AEAD /* ChatScreen.swift */; };
+		CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F292D943DE60038AEAD /* ChatViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,9 @@
 		2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITests.swift; sourceTree = "<group>"; };
 		2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2EA150AE2D9387E7001ED73E /* TapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBar.swift; sourceTree = "<group>"; };
+		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
+		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
+		CF964F292D943DE60038AEAD /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +105,9 @@
 			isa = PBXGroup;
 			children = (
 				2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */,
+				CF964F172D943CCE0038AEAD /* Image+extension */,
 				2EA1507E2D9353DC001ED73E /* ContentView.swift */,
+				CF964F262D943D920038AEAD /* ChatScreen */,
 				2EA150AB2D9386EE001ED73E /* Components */,
 				2EA150802D9353DC001ED73E /* Item.swift */,
 				2EA150822D9353DD001ED73E /* Assets.xcassets */,
@@ -139,6 +147,23 @@
 				2EA150AE2D9387E7001ED73E /* TapBar.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		CF964F172D943CCE0038AEAD /* Image+extension */ = {
+			isa = PBXGroup;
+			children = (
+				CF964F182D943CE20038AEAD /* Image+extension.swift */,
+			);
+			path = "Image+extension";
+			sourceTree = "<group>";
+		};
+		CF964F262D943D920038AEAD /* ChatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				CF964F272D943DDA0038AEAD /* ChatScreen.swift */,
+				CF964F292D943DE60038AEAD /* ChatViewModel.swift */,
+			);
+			path = ChatScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +297,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
+				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
+				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
+				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */,
 				2EA150812D9353DC001ED73E /* Item.swift in Sources */,
 				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
