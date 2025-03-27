@@ -9,7 +9,7 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @State var index = 0
+    @State var index = 1
     
     var body: some View {
         VStack {
@@ -17,7 +17,7 @@ struct ContentView: View {
             case 0:
                 GoalsView()
             case 1:
-                ChatScreen(viewModel: ChatViewModel())
+                HomeView()
             case 2:
                 AnalyticsView()
             default:
