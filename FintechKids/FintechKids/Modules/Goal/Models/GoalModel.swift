@@ -15,3 +15,9 @@ struct GoalModel {
     var image: String
     var date: Date
 }
+
+enum AimImportantLevels {
+    case high
+    case mid
+    case low
+}

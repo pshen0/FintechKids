@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct BackSideGoalCardView: View {
-    let width: CGFloat
     @Binding var goal: GoalModel
     let formatter = DateFormatter()
     
@@ -23,7 +22,7 @@ struct BackSideGoalCardView: View {
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .onTapGesture {
                         print("Tap")
-                        // Здесь будет какая-нить popview на 90% ширины экрана для изменения данных
+                        // TODO: Здесь будет какая-нить popview для изменения данных
                     }
             }
             Spacer()
@@ -35,10 +34,5 @@ struct BackSideGoalCardView: View {
             
             Spacer()
         }
-        .frame(width: width * 0.9, height: width * 0.9)
     }
-}
-
-#Preview {
-    ContentView()
 }

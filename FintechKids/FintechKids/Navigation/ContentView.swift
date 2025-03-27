@@ -25,7 +25,7 @@ struct ContentView: View {
             }
             Spacer()
             
-            TapBar(index: $index)
+            TabBar(index: $index)
         }
         .frame(maxWidth: .infinity)
         .background(Color("backgroundColor"))

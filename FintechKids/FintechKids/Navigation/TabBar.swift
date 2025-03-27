@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TapBar: View {
+struct TabBar: View {
     @Binding var index: Int
     let icons: [SystemImages] = [.aimsScreen, .chatScreen, .statisticScreen]
     
@@ -29,7 +29,7 @@ struct TapBar: View {
         }
         .padding()
         .frame(width: UIScreen.main.bounds.width * 0.83, height: 58)
-        .background(Color("tapbarColor"))
+        .background(Color("tabbarColor"))
         .cornerRadius(100)
     }
 }

@@ -12,6 +12,8 @@
 		0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1D2D95B946007CB69B /* HomeView.swift */; };
 		0FC6DA202D95C8E7007CB69B /* HomeCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1F2D95C8E7007CB69B /* HomeCustomButton.swift */; };
 		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
+		2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */; };
+		2E5BA62D2D9605D30015C665 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BA62C2D9605D30015C665 /* ProgressBar.swift */; };
 		2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */; };
 		2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507E2D9353DC001ED73E /* ContentView.swift */; };
 		2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150822D9353DD001ED73E /* Assets.xcassets */; };
@@ -19,7 +21,7 @@
 		2EA150902D9353DD001ED73E /* FintechKidsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1508F2D9353DD001ED73E /* FintechKidsTests.swift */; };
 		2EA1509A2D9353DD001ED73E /* FintechKidsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */; };
 		2EA1509C2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */; };
-		2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150AE2D9387E7001ED73E /* TapBar.swift */; };
+		2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150AE2D9387E7001ED73E /* TabBar.swift */; };
 		2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */; };
 		2EA1515E2D94B5FE001ED73E /* FrontSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */; };
 		2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */; };
@@ -60,6 +62,8 @@
 		0FC6DA1D2D95B946007CB69B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0FC6DA1F2D95C8E7007CB69B /* HomeCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomButton.swift; sourceTree = "<group>"; };
 		0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocumentPicker.swift; sourceTree = "<group>"; };
+		2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
+		2E5BA62C2D9605D30015C665 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2EA150792D9353DC001ED73E /* FintechKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsApp.swift; sourceTree = "<group>"; };
 		2EA1507E2D9353DC001ED73E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -70,7 +74,7 @@
 		2EA150952D9353DD001ED73E /* FintechKidsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FintechKidsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITests.swift; sourceTree = "<group>"; };
 		2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2EA150AE2D9387E7001ED73E /* TapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBar.swift; sourceTree = "<group>"; };
+		2EA150AE2D9387E7001ED73E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
 		2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontSideGoalCardView.swift; sourceTree = "<group>"; };
 		2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSideGoalCardView.swift; sourceTree = "<group>"; };
@@ -140,6 +144,35 @@
 			path = HomeModule;
 			sourceTree = "<group>";
 		};
+		2E1F4BFE2D95EFBA0024F7B2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2EA151652D954C5B001ED73E /* GoalModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2E1F4BFF2D95F3960024F7B2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		2E1F4C042D95F3C20024F7B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2EA151612D9536B6001ED73E /* FlipOpacity.swift */,
+				2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */,
+				2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */,
+				2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */,
+				2EA1516A2D958124001ED73E /* GoalsView.swift */,
+				2E5BA62C2D9605D30015C665 /* ProgressBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		2EA150702D9353DC001ED73E = {
 			isa = PBXGroup;
 			children = (
@@ -201,9 +234,9 @@
 		2EA151552D94A977001ED73E /* Goal */ = {
 			isa = PBXGroup;
 			children = (
-				2EA151672D954CF1001ED73E /* Models */,
-				2EA1515C2D94B5E4001ED73E /* GoalCard */,
-				2EA1516A2D958124001ED73E /* GoalsView.swift */,
+				2E1F4C042D95F3C20024F7B2 /* View */,
+				2E1F4BFF2D95F3960024F7B2 /* ViewModels */,
+				2E1F4BFE2D95EFBA0024F7B2 /* Models */,
 			);
 			path = Goal;
 			sourceTree = "<group>";
@@ -241,28 +274,9 @@
 			isa = PBXGroup;
 			children = (
 				2EA1507E2D9353DC001ED73E /* ContentView.swift */,
-				2EA150AE2D9387E7001ED73E /* TapBar.swift */,
+				2EA150AE2D9387E7001ED73E /* TabBar.swift */,
 			);
 			path = Navigation;
-			sourceTree = "<group>";
-		};
-		2EA1515C2D94B5E4001ED73E /* GoalCard */ = {
-			isa = PBXGroup;
-			children = (
-				2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */,
-				2EA151612D9536B6001ED73E /* FlipOpacity.swift */,
-				2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */,
-				2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */,
-			);
-			path = GoalCard;
-			sourceTree = "<group>";
-		};
-		2EA151672D954CF1001ED73E /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				2EA151652D954C5B001ED73E /* GoalModel.swift */,
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		56A2DDE52D95831900F853B3 /* SettingsModule */ = {
@@ -444,16 +458,18 @@
 				83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
-				2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */,
+				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
 				2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */,
 				2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */,
 				0FC6DA202D95C8E7007CB69B /* HomeCustomButton.swift in Sources */,
 				0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */,
+				2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */,
 				2EA151622D9536B6001ED73E /* FlipOpacity.swift in Sources */,
 				2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */,
 				2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */,
 				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
 				56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */,
+				2E5BA62D2D9605D30015C665 /* ProgressBar.swift in Sources */,
 				0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
