@@ -33,9 +33,11 @@ struct AnalyticsView: View {
     }
     
     
-    @State private var showSheet = false
+    @State private var showAddingExpenseScreen = false
+    @State private var showDocumentPicker = false
     @State private var unloadRequestText = ""
     @State private var charIndex = 0
+    @State private var selectedFileURL: URL?
     
     var body: some View {
         VStack {
@@ -47,7 +49,7 @@ struct AnalyticsView: View {
             Spacer()
             
             Button(action: {
-                
+                showDocumentPicker = true
             }) {
                 Text(Constants.addingFileText)
                     .font(.system(size: Constants.buttonTextSize, weight: .bold))
@@ -57,9 +59,15 @@ struct AnalyticsView: View {
                     .foregroundColor(Constants.brown)
                     .cornerRadius(Constants.buttonCornerRadius)
             }
-
+            .sheet(isPresented: $showDocumentPicker) {
+                DocumentPicker { url in
+                    selectedFileURL = url
+                    showDocumentPicker = false
+                }
+            }
+            
             Button(action: {
-                showSheet = true
+                showAddingExpenseScreen = true
             }) {
                 Text(Constants.addingExpenseText)
                     .font(.system(size: Constants.buttonTextSize, weight: .bold))
@@ -69,10 +77,10 @@ struct AnalyticsView: View {
                     .foregroundColor(Constants.brown)
                     .cornerRadius(Constants.buttonCornerRadius)
             }
-            .sheet(isPresented: $showSheet) {
+            .sheet(isPresented: $showAddingExpenseScreen) {
                 AddingExpensesView()
             }
-
+            
             Spacer()
             HStack {
                 Spacer()
@@ -108,19 +116,19 @@ struct AnalyticsView: View {
     }
     
     func startTypingAnimation() {
-            unloadRequestText = ""
-            charIndex = 0
-            
-            Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { timer in
-                if charIndex < Constants.unloadRequestText.count {
-                    let index = Constants.unloadRequestText.index(Constants.unloadRequestText.startIndex, offsetBy: charIndex)
-                    unloadRequestText.append(Constants.unloadRequestText[index])
-                    charIndex += 1
-                } else {
-                    timer.invalidate()
-                }
+        unloadRequestText = ""
+        charIndex = 0
+        
+        Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { timer in
+            if charIndex < Constants.unloadRequestText.count {
+                let index = Constants.unloadRequestText.index(Constants.unloadRequestText.startIndex, offsetBy: charIndex)
+                unloadRequestText.append(Constants.unloadRequestText[index])
+                charIndex += 1
+            } else {
+                timer.invalidate()
             }
         }
+    }
 }
 
 
