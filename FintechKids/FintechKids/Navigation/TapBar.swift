@@ -9,18 +9,18 @@ import SwiftUI
 
 struct TapBar: View {
     @Binding var index: Int
-    let icons: [String] = ["gamecontroller", "rublesign.circle", "person"]
+    let icons: [SystemImages] = [.aimsScreen, .chatScreen, .statisticScreen]
     
     var body: some View {
-        HStack(spacing: UIScreen.main.bounds.width / 4) {
+        HStack(spacing: UIScreen.main.bounds.width / 6) {
             ForEach(0..<icons.count, id: \.self) {current in
                 Button(action: {
                     index = current
                 }) {
-                    Image(systemName: index != current ? icons[current] : (icons[current] + ".fill"))
+                    Image.load(icons[current], isSelected: index == current)
                         .resizable()
-                        .frame(width: current == 0 ? 30 : 25, height: 25)
-                        .scaleEffect(index != current ? 1.0 : 1.2)
+                        .frame(width: 35, height: 35)
+                        .scaleEffect(index != current ? 1.0 : 1.1)
                         .animation(.spring(response: 0.3, dampingFraction: 0.6), value: index)
                 }
                 .tint(.black)
@@ -28,8 +28,8 @@ struct TapBar: View {
             }
         }
         .padding()
-        .frame(width: UIScreen.main.bounds.width * 0.95, height: 50)
-        .background(Color(red: 240 / 255, green: 228 / 255, blue: 228 / 255, opacity: 0.5))
-        .cornerRadius(20)
+        .frame(width: UIScreen.main.bounds.width * 0.83, height: 58)
+        .background(Color("tapbarColor"))
+        .cornerRadius(100)
     }
 }

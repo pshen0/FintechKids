@@ -15,7 +15,13 @@
 		2EA1509A2D9353DD001ED73E /* FintechKidsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */; };
 		2EA1509C2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */; };
 		2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150AE2D9387E7001ED73E /* TapBar.swift */; };
-		2EA151542D943870001ED73E /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151532D943870001ED73E /* GoalView.swift */; };
+		2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */; };
+		2EA1515E2D94B5FE001ED73E /* FrontSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */; };
+		2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */; };
+		2EA151622D9536B6001ED73E /* FlipOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151612D9536B6001ED73E /* FlipOpacity.swift */; };
+		2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151632D954BA7001ED73E /* DateExtension.swift */; };
+		2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151652D954C5B001ED73E /* GoalModel.swift */; };
+		2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1516A2D958124001ED73E /* GoalsView.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameModel.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
@@ -54,7 +60,13 @@
 		2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITests.swift; sourceTree = "<group>"; };
 		2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2EA150AE2D9387E7001ED73E /* TapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBar.swift; sourceTree = "<group>"; };
-		2EA151532D943870001ED73E /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
+		2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontSideGoalCardView.swift; sourceTree = "<group>"; };
+		2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSideGoalCardView.swift; sourceTree = "<group>"; };
+		2EA151612D9536B6001ED73E /* FlipOpacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipOpacity.swift; sourceTree = "<group>"; };
+		2EA151632D954BA7001ED73E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		2EA151652D954C5B001ED73E /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
+		2EA1516A2D958124001ED73E /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		83869DA82D9499D2000A1EFD /* CardGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameModel.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
@@ -113,11 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */,
-				CF964F172D943CCE0038AEAD /* Image+extension */,
-				2EA1507E2D9353DC001ED73E /* ContentView.swift */,
-				CF964F262D943D920038AEAD /* ChatScreen */,
-				2EA151532D943870001ED73E /* GoalView.swift */,
-				2EA150AB2D9386EE001ED73E /* Components */,
+				2EA151572D94A9B1001ED73E /* Shared */,
+				2EA151562D94A98B001ED73E /* Modules */,
+				2EA151592D94ABDF001ED73E /* Navigation */,
 				2EA150822D9353DD001ED73E /* Assets.xcassets */,
 				83869DAD2D9499D2000A1EFD /* CardsGame */,
 				2EA150842D9353DD001ED73E /* Preview Content */,
@@ -151,12 +161,67 @@
 			path = FintechKidsUITests;
 			sourceTree = "<group>";
 		};
-		2EA150AB2D9386EE001ED73E /* Components */ = {
+		2EA151552D94A977001ED73E /* Goal */ = {
 			isa = PBXGroup;
 			children = (
+				2EA151672D954CF1001ED73E /* Models */,
+				2EA1515C2D94B5E4001ED73E /* GoalCard */,
+				2EA1516A2D958124001ED73E /* GoalsView.swift */,
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
+		2EA151562D94A98B001ED73E /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				CF964F262D943D920038AEAD /* ChatScreen */,
+				2EA151552D94A977001ED73E /* Goal */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		2EA151572D94A9B1001ED73E /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2EA151582D94A9B6001ED73E /* Extensions */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2EA151582D94A9B6001ED73E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CF964F172D943CCE0038AEAD /* Image+extension */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2EA151592D94ABDF001ED73E /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				2EA1507E2D9353DC001ED73E /* ContentView.swift */,
 				2EA150AE2D9387E7001ED73E /* TapBar.swift */,
 			);
-			path = Components;
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		2EA1515C2D94B5E4001ED73E /* GoalCard */ = {
+			isa = PBXGroup;
+			children = (
+				2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */,
+				2EA151612D9536B6001ED73E /* FlipOpacity.swift */,
+				2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */,
+				2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */,
+			);
+			path = GoalCard;
+			sourceTree = "<group>";
+		};
+		2EA151672D954CF1001ED73E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2EA151652D954C5B001ED73E /* GoalModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		83869DAD2D9499D2000A1EFD /* CardsGame */ = {
@@ -173,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				CF964F182D943CE20038AEAD /* Image+extension.swift */,
+				2EA151632D954BA7001ED73E /* DateExtension.swift */,
 			);
 			path = "Image+extension";
 			sourceTree = "<group>";
@@ -317,14 +383,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
+				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
+				2EA1515E2D94B5FE001ED73E /* FrontSideGoalCardView.swift in Sources */,
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */,
-				2EA151542D943870001ED73E /* GoalView.swift in Sources */,
+				2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */,
+				2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */,
+				2EA151622D9536B6001ED73E /* FlipOpacity.swift in Sources */,
+				2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */,
+				2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */,
 				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

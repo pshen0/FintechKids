@@ -15,11 +15,11 @@ struct ContentView: View {
         VStack {
             switch index {
             case 0:
-                CardGameView()
+                GoalsView(index: $index)
             case 1:
-                GoalView(index: $index)
+                ChatScreen()
             case 2:
-                GoalView(index: $index)
+                CardGameView()
             default:
                 Text("AAA")
             }
@@ -27,11 +27,11 @@ struct ContentView: View {
             
             TapBar(index: $index)
         }
-        .padding(.bottom, 5)
-        .background(Color.beige)
+        .frame(maxWidth: .infinity)
+        .background(Color("backgroundColor"))
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(index: 0)
 }
