@@ -13,7 +13,6 @@ struct ChatScreen: View {
     @State private var text: String = ""
     @State private var keyboardHeight: CGFloat = 0
     @ObservedObject var viewModel: ChatViewModel
-    @Binding var isKeyBoardVisible: Bool
     
     var body: some View {
         NavigationStack {
@@ -59,7 +58,6 @@ struct ChatScreen: View {
                         
                         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
                             withAnimation(.spring) {
-                                isKeyBoardVisible = true
                                 keyboardHeight = keyboardFrame.height - ChatScreen.bottomInset
                             }
                         }
@@ -70,7 +68,6 @@ struct ChatScreen: View {
                     object: nil,
                     queue: .main) { _ in
                         withAnimation(.snappy) {
-                            isKeyBoardVisible = false
                             self.keyboardHeight = 0
                         }
                     }

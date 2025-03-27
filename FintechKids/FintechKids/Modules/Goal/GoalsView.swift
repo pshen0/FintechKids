@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct GoalsView: View {
-    @Binding var index: Int
     @State var goalId = 0
     @State var goals: [GoalModel] = [GoalModel(name: "PSP", goalSum: 50000, level: AimImportantLevels.high, current: 5000, image: "aims_screen_image_selected", date: Date.now)]
     

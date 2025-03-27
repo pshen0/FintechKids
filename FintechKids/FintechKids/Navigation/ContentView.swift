@@ -15,15 +15,17 @@ struct ContentView: View {
         VStack {
             switch index {
             case 0:
-                GoalsView(index: $index)
+                GoalsView()
             case 1:
-                ChatScreen()
+                ChatScreen(viewModel: ChatViewModel())
             case 2:
-                CardGameView()
+                AnalyticsView()
             default:
                 Text("AAA")
             }
             Spacer()
+            
+            TapBar(index: $index)
         }
         .frame(maxWidth: .infinity)
         .background(Color("backgroundColor"))
