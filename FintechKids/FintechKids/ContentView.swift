@@ -10,12 +10,12 @@ import SwiftData
 
 struct ContentView: View {
     @State var index = 0
-
+    
     var body: some View {
         VStack {
             switch index {
             case 0:
-                GoalView(index: $index)
+                CardGameView()
             case 1:
                 GoalView(index: $index)
             case 2:
@@ -28,6 +28,7 @@ struct ContentView: View {
             TapBar(index: $index)
         }
         .padding(.bottom, 5)
+        .background(Color.beige)
     }
 }
 
