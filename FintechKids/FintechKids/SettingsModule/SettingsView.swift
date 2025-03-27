@@ -22,7 +22,6 @@ struct ProfileSettingsView: View {
     
     @State private var isEditing = false
     
-    // Проверка заполненности обязательных полей
     var isFormValid: Bool {
         !name.isEmpty && !age.isEmpty && !hobbies.isEmpty
     }
@@ -125,7 +124,6 @@ struct ProfileSettingsView: View {
                 if isEditing {
                     Section {
                         Button(role: .destructive) {
-                            // Сброс аватарки
                             avatarImage = nil
                             selectedAvatar = "person.crop.circle.fill"
                             avatarItem = nil
@@ -156,18 +154,23 @@ struct ProfileSettingsView: View {
                         isEditing.toggle()
                     }
                     .fontWeight(.medium)
-                    .disabled(isEditing && !isFormValid) // Блокировка кнопки если форма не валидна
+                    .disabled(isEditing && !isFormValid)
                 }
             }
             .onChange(of: avatarItem) {
                 Task {
-                    if let data = try? await avatarItem?.loadTransferable(type: Data.self),
-                       let uiImage = UIImage(data: data) {
-                        avatarImage = uiImage
-                        selectedAvatar = "photo"
-                    }
+                    await loadSelectedImage()
                 }
             }
+        }
+    }
+    
+    @MainActor
+    private func loadSelectedImage() async {
+        if let data = try? await avatarItem?.loadTransferable(type: Data.self),
+           let uiImage = UIImage(data: data) {
+            avatarImage = uiImage
+            selectedAvatar = "photo"
         }
     }
 }
@@ -228,4 +231,3 @@ struct ProfileSettingsView_Previews: PreviewProvider {
         ProfileSettingsView()
     }
 }
-
