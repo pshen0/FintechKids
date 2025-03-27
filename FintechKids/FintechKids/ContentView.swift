@@ -19,7 +19,7 @@ struct ContentView: View {
             case 1:
                 GoalView(index: $index)
             case 2:
-                GoalView(index: $index)
+                AnalyticsView()
             default:
                 Text("AAA")
             }
