@@ -24,8 +24,6 @@ struct ContentView: View {
                 Text("AAA")
             }
             Spacer()
-            
-            TapBar(index: $index)
         }
         .frame(maxWidth: .infinity)
         .background(Color("backgroundColor"))
