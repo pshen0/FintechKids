@@ -9,46 +9,109 @@ import SwiftUI
 import UIKit
 
 struct ChatScreen: View {
-    @State private var text: String = ""
-    @State private var keyboardHeight = bottomInset
     
-
+    @State private var text: String = ""
+    @State private var keyboardHeight: CGFloat = 0
+    @ObservedObject var viewModel: ChatViewModel
+    @Binding var isKeyBoardVisible: Bool
+    
     var body: some View {
-        VStack {
-            Spacer()
-            Group {
-                Divider()
-                
-                TextField("Напиши Финику", text: $text)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .background(Color.white)
-                    .offset(y: -keyboardHeight)
-                    .padding(.horizontal, 10)
-            }
-        }
-        .onAppear {
-            NotificationCenter.default.addObserver(
-                forName: UIResponder.keyboardWillShowNotification,
-                object: nil,
-                queue: .main) { notification in
-                if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-                    keyboardHeight = keyboardFrame.height
+        NavigationStack {
+            VStack {
+                ScrollViewReader { proxy in
+                    Group {
+                        
+                        List {
+                            ForEach(viewModel.data) { message in
+                                MessageView(message: message)
+                                    .listRowSeparator(.hidden)
+                            }
+                        }
+                        .listStyle(.plain)
+                        .scrollIndicators(.hidden)
+                        .navigationTitle("Чат с Фиником")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .onAppear {
+                            if let lastMessage = viewModel.data.last {
+                                proxy.scrollTo(lastMessage.id, anchor: .bottom)
+                            }
+                        }
+                        .onChange(of: viewModel.data, { oldValue, newValue in
+                            proxy.scrollTo(newValue.last!.id, anchor: .bottom)
+                        })
+                        .onTapGesture {
+                            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder),
+                                                            to: nil,
+                                                            from: nil,
+                                                            for: nil)
+                        }
+                        
+                        textField(proxy: proxy, viewModel: viewModel, text: $text)
+                            .offset(y: -keyboardHeight / 100)
+                    }
                 }
             }
-
-            NotificationCenter.default.addObserver(
-                forName: UIResponder.keyboardWillHideNotification,
-                object: nil,
-                queue: .main) { _ in
-                self.keyboardHeight = 30
+            .onAppear {
+                NotificationCenter.default.addObserver(
+                    forName: UIResponder.keyboardWillShowNotification,
+                    object: nil,
+                    queue: .main) { notification in
+                        
+                        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                            withAnimation(.spring) {
+                                isKeyBoardVisible = true
+                                keyboardHeight = keyboardFrame.height - ChatScreen.bottomInset
+                            }
+                        }
+                    }
+                
+                NotificationCenter.default.addObserver(
+                    forName: UIResponder.keyboardWillHideNotification,
+                    object: nil,
+                    queue: .main) { _ in
+                        withAnimation(.snappy) {
+                            isKeyBoardVisible = false
+                            self.keyboardHeight = 0
+                        }
+                    }
+            }
+            .onDisappear {
+                NotificationCenter.default.removeObserver(self)
             }
         }
-        .edgesIgnoringSafeArea(.bottom) // Игнорируем нижнюю безопасную зону для корректного отображения
     }
-}
-
-#Preview {
-    ChatScreen()
+    
+    struct textField: View {
+        var proxy: SwiftUI.ScrollViewProxy
+        var viewModel: ChatViewModel
+        @Binding var text: String
+        
+        var body: some View {
+            HStack {
+                TextField("Спроси у Финика", text: $text)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 15)
+                    .background(Color(UIColor.systemGray6))
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .shadow(color: .black.opacity(0.1), radius: 5)
+                
+                Button(action: {
+                    if !text.isEmpty {
+                        let createdMessageId = viewModel.createMessage(text: &text)
+                        proxy.scrollTo(createdMessageId, anchor: .bottom)
+                    }
+                }) {
+                    Image(systemName: "paperplane.fill")
+                        .font(.system(size: 20, weight: .medium))
+                        .foregroundColor(text.isEmpty ? Color.gray : Color.blue)
+                }
+                .disabled(text.isEmpty)
+            }
+            .padding(.horizontal, 15)
+            .padding(.vertical, 10)
+            .background(Color.white)
+        }
+    }
 }
 
 extension ChatScreen {
