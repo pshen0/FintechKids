@@ -84,7 +84,7 @@ struct ProfileSettingsView: View {
                                     .frame(maxWidth: .infinity)
                             }
                             .buttonStyle(.bordered)
-                            .tint(.gray) // Серый цвет кнопки
+                            .tint(.gray)
                             
                             Button {
                                 showingAvatarPicker.toggle()
@@ -93,7 +93,7 @@ struct ProfileSettingsView: View {
                                     .frame(maxWidth: .infinity)
                             }
                             .buttonStyle(.bordered)
-                            .tint(.gray) // Серый цвет кнопки
+                            .tint(.gray)
                             .sheet(isPresented: $showingAvatarPicker) {
                                 AvatarPickerView(selectedAvatar: $selectedAvatar, avatars: systemAvatars)
                                     .onDisappear {
@@ -109,9 +109,6 @@ struct ProfileSettingsView: View {
                 
                 Section("Основная информация") {
                     TextField("Имя*", text: $name)
-                        .disabled(!isEditing)
-                    
-                    TextField("Город", text: $city)
                         .disabled(!isEditing)
                     
                     TextField("Возраст*", text: $age)
