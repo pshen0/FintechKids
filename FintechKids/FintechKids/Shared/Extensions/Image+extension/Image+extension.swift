@@ -20,7 +20,6 @@ enum SystemImages: String {
 }
 
 extension Image {
-
     static func load(_ systemImage: SystemImages, isSelected: Bool) -> Image {
         let imageName = systemImage.getImageName(isSelected)
         return Image(imageName)

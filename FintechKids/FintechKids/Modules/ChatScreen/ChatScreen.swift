@@ -13,7 +13,7 @@ struct ChatScreen: View {
     @State private var text: String = ""
     @State private var keyboardHeight: CGFloat = 0
     @ObservedObject var viewModel: ChatViewModel
-    @Binding var isKeyBoardVisible: Bool
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -31,6 +31,19 @@ struct ChatScreen: View {
                         .scrollIndicators(.hidden)
                         .navigationTitle("Чат с Фиником")
                         .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                Button {
+                                    dismiss()
+                                } label: {
+                                    HStack(spacing: 4) {
+                                        Image(systemName: "chevron.left")
+                                            .fontWeight(.medium)
+                                        Text("Назад")
+                                    }
+                                }
+                            }
+                        }
                         .onAppear {
                             if let lastMessage = viewModel.data.last {
                                 proxy.scrollTo(lastMessage.id, anchor: .bottom)
@@ -51,6 +64,7 @@ struct ChatScreen: View {
                     }
                 }
             }
+            
             .onAppear {
                 NotificationCenter.default.addObserver(
                     forName: UIResponder.keyboardWillShowNotification,
@@ -59,7 +73,6 @@ struct ChatScreen: View {
                         
                         if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
                             withAnimation(.spring) {
-                                isKeyBoardVisible = true
                                 keyboardHeight = keyboardFrame.height - ChatScreen.bottomInset
                             }
                         }
@@ -70,7 +83,6 @@ struct ChatScreen: View {
                     object: nil,
                     queue: .main) { _ in
                         withAnimation(.snappy) {
-                            isKeyBoardVisible = false
                             self.keyboardHeight = 0
                         }
                     }
