@@ -29,7 +29,7 @@ struct TabBar: View {
         }
         .padding()
         .frame(width: UIScreen.main.bounds.width * 0.83, height: 58)
-        .background(Color("tabbarColor"))
+        .background(Color.customBlue)
         .cornerRadius(100)
     }
 }
