@@ -16,11 +16,14 @@
 		2EA1509C2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */; };
 		2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150AE2D9387E7001ED73E /* TapBar.swift */; };
 		2EA151542D943870001ED73E /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151532D943870001ED73E /* GoalView.swift */; };
-		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameModel.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
 		83A6E9622D952B100007B577 /* CardsGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6E9612D952B100007B577 /* CardsGameTests.swift */; };
+		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
+		CF1A23D22D966B410032844E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D12D966B410032844E /* Message.swift */; };
+		CF1A23D42D966BCE0032844E /* ChatDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D32D966BCE0032844E /* ChatDataMock.swift */; };
+		CF1A23D62D966C1D0032844E /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D52D966C1D0032844E /* Formatter.swift */; };
 		CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F182D943CE20038AEAD /* Image+extension.swift */; };
 		CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F272D943DDA0038AEAD /* ChatScreen.swift */; };
 		CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F292D943DE60038AEAD /* ChatViewModel.swift */; };
@@ -56,11 +59,14 @@
 		2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2EA150AE2D9387E7001ED73E /* TapBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBar.swift; sourceTree = "<group>"; };
 		2EA151532D943870001ED73E /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
-		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		83869DA82D9499D2000A1EFD /* CardGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameModel.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
 		83A6E9612D952B100007B577 /* CardsGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsGameTests.swift; sourceTree = "<group>"; };
+		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		CF1A23D12D966B410032844E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CF1A23D32D966BCE0032844E /* ChatDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataMock.swift; sourceTree = "<group>"; };
+		CF1A23D52D966C1D0032844E /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
 		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		CF964F292D943DE60038AEAD /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -171,6 +177,16 @@
 			path = CardsGame;
 			sourceTree = "<group>";
 		};
+		CF1A23D02D966B380032844E /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A23D12D966B410032844E /* Message.swift */,
+				CF1A23D32D966BCE0032844E /* ChatDataMock.swift */,
+				CF1A23D52D966C1D0032844E /* Formatter.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		CF964F172D943CCE0038AEAD /* Image+extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,6 +198,7 @@
 		CF964F262D943D920038AEAD /* ChatScreen */ = {
 			isa = PBXGroup;
 			children = (
+				CF1A23D02D966B380032844E /* Modal */,
 				CF964F272D943DDA0038AEAD /* ChatScreen.swift */,
 				CF1A23922D9461360032844E /* MessageView.swift */,
 				CF964F292D943DE60038AEAD /* ChatViewModel.swift */,
@@ -328,7 +345,10 @@
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TapBar.swift in Sources */,
+				CF1A23D22D966B410032844E /* Message.swift in Sources */,
+				CF1A23D62D966C1D0032844E /* Formatter.swift in Sources */,
 				2EA151542D943870001ED73E /* GoalView.swift in Sources */,
+				CF1A23D42D966BCE0032844E /* ChatDataMock.swift in Sources */,
 				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

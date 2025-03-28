@@ -46,7 +46,7 @@ struct ChatScreen: View {
                                                             for: nil)
                         }
                         
-                        textField(proxy: proxy, viewModel: viewModel, text: $text)
+                        CustomTextField(proxy: proxy, viewModel: viewModel, text: $text)
                             .offset(y: -keyboardHeight / 100)
                     }
                 }
@@ -81,7 +81,7 @@ struct ChatScreen: View {
         }
     }
     
-    struct textField: View {
+    struct CustomTextField: View {    
         var proxy: SwiftUI.ScrollViewProxy
         var viewModel: ChatViewModel
         @Binding var text: String
@@ -125,4 +125,8 @@ extension ChatScreen {
         }
         return window.safeAreaInsets.bottom
     }
+}
+
+#Preview {
+    ChatScreen(viewModel: ChatViewModel(), isKeyBoardVisible: .constant(false))
 }

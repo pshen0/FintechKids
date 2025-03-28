@@ -28,7 +28,7 @@ struct MessageView: View {
                 VStack(alignment: message.isYour ? .trailing : .leading, spacing: 5) {
                     Text(message.title)
                         .padding(8)
-                        .foregroundStyle(message.isYour ? .white : .white)
+                        .foregroundStyle(.white)
                         .background {
                             RoundedRectangle(cornerRadius: 10)
                                 .fill(message.isYour ? .gray : .blue)
@@ -41,7 +41,6 @@ struct MessageView: View {
                 
                 if !message.isYour { Spacer() }
             }
-            //.padding(.horizontal)
         }
     }
 }
