@@ -101,7 +101,7 @@ struct CardGameView: View {
     }
     
     private func endEditing() {
-        UIApplication.shared.endEditing()
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
 
