@@ -28,7 +28,7 @@ struct ContentView: View {
             TabBar(index: $index)
         }
         .frame(maxWidth: .infinity)
-        .background(Color.customWhite)
+        .background(Color.background)
     }
 }
 
