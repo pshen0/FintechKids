@@ -10,11 +10,14 @@ import SwiftUI
 struct CardGameView: View {
     @ObservedObject private var viewModel = CardGameViewModel(model: CardGameModel(name: "батон белого хлеба", image: Image("BreadImage"), cost: 150))
     @FocusState private var focusedField
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         ZStack {
             Color.beige
                 .ignoresSafeArea()
             VStack {
+                backButton
                 attemptsLeft
                 productImage
                 questionText
@@ -24,6 +27,22 @@ struct CardGameView: View {
             }
             .padding()
         }
+    }
+    
+    private var backButton: some View {
+        HStack {
+            Button {
+                dismiss()
+            } label: {
+                HStack(spacing: 4) {
+                    Image(systemName: "chevron.left")
+                        .fontWeight(.medium)
+                    Text("Назад")
+                }
+            }
+            Spacer()
+        }
+        .frame(maxWidth: .infinity)
     }
     
     private var attemptsLeft: some View {

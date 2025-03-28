@@ -9,29 +9,29 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @State var index = 0
+    @State var index = 1
     
     var body: some View {
         VStack {
             switch index {
             case 0:
-                CardGameView()
+                GoalsView()
             case 1:
-                GoalView(index: $index)
+                HomeView()
             case 2:
-                GoalView(index: $index)
+                AnalyticsView()
             default:
                 Text("AAA")
             }
             Spacer()
             
-            TapBar(index: $index)
+            TabBar(index: $index)
         }
-        .padding(.bottom, 5)
-        .background(Color.beige)
+        .frame(maxWidth: .infinity)
+        .background(Color("backgroundColor"))
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(index: 0)
 }
