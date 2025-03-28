@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @ObservedObject var viewModel: CardGameViewModel
     enum Constants {
         static let buttonTextSize: CGFloat = 17
         static let buttonVPadding: CGFloat = 15
@@ -26,13 +27,9 @@ struct HomeView: View {
         VStack {
             Spacer()
             CustomButton(title: "Чат с Фиником", isPresented: $showChat, destination: ChatScreen(viewModel: ChatViewModel()))
-            CustomButton(title: "Игра с карточками", isPresented: $showGame, destination: CardGameView())
+            CustomButton(title: "Игра с карточками", isPresented: $showGame, destination: CardGameView(viewModel: viewModel))
             CustomButton(title: "Профиль", isPresented: $showProfile, destination: ProfileSettingsView())
             Spacer()
         }
     }
-}
-
-#Preview {
-    HomeView()
 }

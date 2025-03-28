@@ -30,9 +30,11 @@
 		2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151652D954C5B001ED73E /* GoalModel.swift */; };
 		2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1516A2D958124001ED73E /* GoalsView.swift */; };
 		56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2DDE62D95833500F853B3 /* SettingsView.swift */; };
-		83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameModel.swift */; };
+		83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameRound.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
+		83A6E9642D95889E0007B577 /* CardGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83A6E9632D9588930007B577 /* CardGame.txt */; };
+		83A6E9662D95945E0007B577 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6E9652D95945E0007B577 /* Storage.swift */; };
 		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
 		CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F182D943CE20038AEAD /* Image+extension.swift */; };
 		CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F272D943DDA0038AEAD /* ChatScreen.swift */; };
@@ -83,9 +85,11 @@
 		2EA151652D954C5B001ED73E /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		2EA1516A2D958124001ED73E /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		83869DA82D9499D2000A1EFD /* CardGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameModel.swift; sourceTree = "<group>"; };
+		83869DA82D9499D2000A1EFD /* CardGameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameRound.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
+		83A6E9632D9588930007B577 /* CardGame.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CardGame.txt; sourceTree = "<group>"; };
+		83A6E9652D95945E0007B577 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = FintechKids/StorageModule/Storage.swift; sourceTree = "<group>"; };
 		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
 		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
@@ -176,6 +180,7 @@
 		2EA150702D9353DC001ED73E = {
 			isa = PBXGroup;
 			children = (
+				83A6E9652D95945E0007B577 /* Storage.swift */,
 				2EA1507B2D9353DC001ED73E /* FintechKids */,
 				2EA1508E2D9353DD001ED73E /* FintechKidsTests */,
 				2EA150982D9353DD001ED73E /* FintechKidsUITests */,
@@ -290,9 +295,10 @@
 		83869DAD2D9499D2000A1EFD /* CardsGame */ = {
 			isa = PBXGroup;
 			children = (
-				83869DA82D9499D2000A1EFD /* CardGameModel.swift */,
+				83869DA82D9499D2000A1EFD /* CardGameRound.swift */,
 				83869DA92D9499D2000A1EFD /* CardGameView.swift */,
 				83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */,
+				83A6E9632D9588930007B577 /* CardGame.txt */,
 			);
 			path = CardsGame;
 			sourceTree = "<group>";
@@ -421,6 +427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA150862D9353DD001ED73E /* Preview Assets.xcassets in Resources */,
+				83A6E9642D95889E0007B577 /* CardGame.txt in Resources */,
 				2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,13 +456,15 @@
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
 				0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */,
 				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
+				83A6E9662D95945E0007B577 /* Storage.swift in Sources */,
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
 				2EA1515E2D94B5FE001ED73E /* FrontSideGoalCardView.swift in Sources */,
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
 				0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
-				83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */,
+				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
+				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,

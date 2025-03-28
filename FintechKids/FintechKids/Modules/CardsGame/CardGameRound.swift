@@ -2,7 +2,7 @@
 //  Untitled.swift
 //  FintechKids
 //
-//  Created by Yandex Event on 26.03.2025.
+//  Created by Margarita Usova on 26.03.2025.
 //
 
 import SwiftUI

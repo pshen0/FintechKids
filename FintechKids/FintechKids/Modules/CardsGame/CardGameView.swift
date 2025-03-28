@@ -2,13 +2,13 @@
 //  CardGameView.swift
 //  FintechKids
 //
-//  Created by Yandex Event on 26.03.2025.
+//  Created by Margarita Usova on 26.03.2025.
 //
 
 import SwiftUI
 
 struct CardGameView: View {
-    @ObservedObject private var viewModel = CardGameViewModel(model: CardGameModel(name: "батон белого хлеба", image: Image("BreadImage"), cost: 150))
+    @ObservedObject var viewModel: CardGameViewModel
     @FocusState private var focusedField
     @Environment(\.dismiss) var dismiss
     
@@ -26,6 +26,10 @@ struct CardGameView: View {
                 feedBackText
             }
             .padding()
+            .animation(.easeInOut, value: viewModel.showNext)
+        }
+        .onTapGesture {
+            endEditing()
         }
     }
     
@@ -54,7 +58,7 @@ struct CardGameView: View {
     }
     
     private var productImage: some View {
-        viewModel.model.image
+        Image(viewModel.model.imageName)
             .resizable()
             .scaledToFit()
             .frame(height: 150)
@@ -75,14 +79,6 @@ struct CardGameView: View {
             .keyboardType(.numberPad)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
-//            .toolbar {
-//                ToolbarItem(placement: .keyboard) {
-//                    Button("Готово") {
-//                        focusedField.toggle()
-//                    }
-//                     .frame(alignment: .leading)
-//                }
-//            }
     }
     
     private var checkButton: some View {
@@ -98,11 +94,19 @@ struct CardGameView: View {
     private var feedBackText: some View {
         Text(viewModel.feedback)
             .font(.headline)
+            .fixedSize(horizontal: false, vertical: true)
+            .multilineTextAlignment(.center)
             .foregroundColor(.red)
             .padding()
     }
+    
+    private func endEditing() {
+        UIApplication.shared.endEditing()
+    }
 }
 
-#Preview {
-    CardGameView()
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
 }
