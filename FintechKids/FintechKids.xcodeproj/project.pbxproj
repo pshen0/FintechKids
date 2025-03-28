@@ -13,7 +13,12 @@
 		0FC6DA202D95C8E7007CB69B /* HomeCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1F2D95C8E7007CB69B /* HomeCustomButton.swift */; };
 		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
 		2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */; };
-		2E5BA62D2D9605D30015C665 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BA62C2D9605D30015C665 /* ProgressBar.swift */; };
+		2E2551CC2D96C8F00007B2D9 /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */; };
+		2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */; };
+		2E2551CE2D96C8F00007B2D9 /* FrontSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C72D96C8F00007B2D9 /* FrontSideGoalCardView.swift */; };
+		2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */; };
+		2E2551D02D96C8F00007B2D9 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C92D96C8F00007B2D9 /* GoalsView.swift */; };
+		2E2551D12D96C8F00007B2D9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */; };
 		2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */; };
 		2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507E2D9353DC001ED73E /* ContentView.swift */; };
 		2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150822D9353DD001ED73E /* Assets.xcassets */; };
@@ -22,13 +27,8 @@
 		2EA1509A2D9353DD001ED73E /* FintechKidsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */; };
 		2EA1509C2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */; };
 		2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA150AE2D9387E7001ED73E /* TabBar.swift */; };
-		2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */; };
-		2EA1515E2D94B5FE001ED73E /* FrontSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */; };
-		2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */; };
-		2EA151622D9536B6001ED73E /* FlipOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151612D9536B6001ED73E /* FlipOpacity.swift */; };
 		2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151632D954BA7001ED73E /* DateExtension.swift */; };
 		2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151652D954C5B001ED73E /* GoalModel.swift */; };
-		2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1516A2D958124001ED73E /* GoalsView.swift */; };
 		56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2DDE62D95833500F853B3 /* SettingsView.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameModel.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
@@ -63,7 +63,12 @@
 		0FC6DA1F2D95C8E7007CB69B /* HomeCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomButton.swift; sourceTree = "<group>"; };
 		0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocumentPicker.swift; sourceTree = "<group>"; };
 		2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
-		2E5BA62C2D9605D30015C665 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSideGoalCardView.swift; sourceTree = "<group>"; };
+		2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipOpacity.swift; sourceTree = "<group>"; };
+		2E2551C72D96C8F00007B2D9 /* FrontSideGoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontSideGoalCardView.swift; sourceTree = "<group>"; };
+		2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
+		2E2551C92D96C8F00007B2D9 /* GoalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
+		2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		2EA150792D9353DC001ED73E /* FintechKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsApp.swift; sourceTree = "<group>"; };
 		2EA1507E2D9353DC001ED73E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,13 +80,8 @@
 		2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITests.swift; sourceTree = "<group>"; };
 		2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		2EA150AE2D9387E7001ED73E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
-		2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FrontSideGoalCardView.swift; sourceTree = "<group>"; };
-		2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackSideGoalCardView.swift; sourceTree = "<group>"; };
-		2EA151612D9536B6001ED73E /* FlipOpacity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipOpacity.swift; sourceTree = "<group>"; };
 		2EA151632D954BA7001ED73E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2EA151652D954C5B001ED73E /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
-		2EA1516A2D958124001ED73E /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		83869DA82D9499D2000A1EFD /* CardGameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameModel.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
@@ -160,17 +160,17 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
-		2E1F4C042D95F3C20024F7B2 /* View */ = {
+		2E2551CB2D96C8F00007B2D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2EA151612D9536B6001ED73E /* FlipOpacity.swift */,
-				2EA1515D2D94B5FE001ED73E /* FrontSideGoalCardView.swift */,
-				2EA1515F2D94B617001ED73E /* BackSideGoalCardView.swift */,
-				2EA1515A2D94AE2C001ED73E /* GoalCardView.swift */,
-				2EA1516A2D958124001ED73E /* GoalsView.swift */,
-				2E5BA62C2D9605D30015C665 /* ProgressBar.swift */,
+				2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */,
+				2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */,
+				2E2551C72D96C8F00007B2D9 /* FrontSideGoalCardView.swift */,
+				2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */,
+				2E2551C92D96C8F00007B2D9 /* GoalsView.swift */,
+				2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		2EA150702D9353DC001ED73E = {
@@ -234,7 +234,7 @@
 		2EA151552D94A977001ED73E /* Goal */ = {
 			isa = PBXGroup;
 			children = (
-				2E1F4C042D95F3C20024F7B2 /* View */,
+				2E2551CB2D96C8F00007B2D9 /* Views */,
 				2E1F4BFF2D95F3960024F7B2 /* ViewModels */,
 				2E1F4BFE2D95EFBA0024F7B2 /* Models */,
 			);
@@ -446,30 +446,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */,
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
 				0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */,
+				2E2551D02D96C8F00007B2D9 /* GoalsView.swift in Sources */,
 				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
-				2EA1515E2D94B5FE001ED73E /* FrontSideGoalCardView.swift in Sources */,
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
 				0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
+				2E2551CC2D96C8F00007B2D9 /* BackSideGoalCardView.swift in Sources */,
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
+				2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
-				2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */,
-				2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */,
 				0FC6DA202D95C8E7007CB69B /* HomeCustomButton.swift in Sources */,
 				0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */,
 				2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */,
-				2EA151622D9536B6001ED73E /* FlipOpacity.swift in Sources */,
 				2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */,
-				2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */,
 				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
 				56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */,
-				2E5BA62D2D9605D30015C665 /* ProgressBar.swift in Sources */,
+				2E2551CE2D96C8F00007B2D9 /* FrontSideGoalCardView.swift in Sources */,
+				2E2551D12D96C8F00007B2D9 /* ProgressBar.swift in Sources */,
 				0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
