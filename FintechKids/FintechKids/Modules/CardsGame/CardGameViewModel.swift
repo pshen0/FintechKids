@@ -12,7 +12,7 @@ final class CardGameViewModel: ObservableObject {
     @Published var feedback = ""
     @Published var attempts = 3
     @Published var showNext = false
-    private var rounds: [CardGameRound]
+    private let rounds: [CardGameRound]
     private var currentRound = 0
     
     init(rounds: [CardGameRound]) {
@@ -30,7 +30,6 @@ final class CardGameViewModel: ObservableObject {
             feedback = getFeedback(for: guessedPrice)
         }
     }
-    
     
     private func getFeedback(for guessedPrice: Int) -> String {
         if guessedPrice == model.cost || attempts == 0 || isCloseEnough(guessedPrice) {
@@ -71,7 +70,4 @@ final class CardGameViewModel: ObservableObject {
         }
         showNext.toggle()
     }
-    
-    
-    
 }
