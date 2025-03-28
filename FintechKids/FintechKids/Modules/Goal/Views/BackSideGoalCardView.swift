@@ -9,27 +9,30 @@ import SwiftUI
 
 struct BackSideGoalCardView: View {
     @Binding var goal: GoalModel
+    @State var isEdit = false
     let formatter = DateFormatter()
     
     var body: some View {
         VStack {
             HStack {
-                Text(goal.name)
+                TextField(goal.name, text: $goal.name)
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .disabled(!isEdit)
             }
             .overlay {
                 Image(systemName: "pencil")
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .onTapGesture {
-                        print("Tap")
+                        isEdit.toggle()
                         // TODO: Здесь будет какая-нить popview для изменения данных
                     }
             }
             Spacer()
             VStack(alignment: .leading) {
-                Text("Сумма \(goal.current)")
                 Text("Дата: \(goal.date.formattedDate())")
-                Text("Сумма \(goal.current)")
+                Text("Накоплено: \(goal.current)")
+                Text("Цель: \(goal.goalSum)")
+                Text("Прогресс: \(goal.progress)")
             }
             
             Spacer()

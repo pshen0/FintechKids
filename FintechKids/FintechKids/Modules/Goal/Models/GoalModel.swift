@@ -7,13 +7,19 @@
 
 import Foundation
 
-struct GoalModel {
+struct GoalModel: Hashable {
     var name: String
     var goalSum: Int
     var level: AimImportantLevels
     var current: Int
     var image: String
     var date: Date
+    
+    var progress: Int {
+        get {
+            return Int(Double(current) / Double(goalSum) * 100)
+        }
+    }
 }
 
 enum AimImportantLevels {

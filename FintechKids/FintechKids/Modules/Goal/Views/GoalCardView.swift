@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct GoalCardView: View {
-    @Binding var goalIndex: Int
+    var goalIndex: Int
     @State private var isFlipped = false
     @Binding var goals: [GoalModel]
     
@@ -20,7 +20,7 @@ struct GoalCardView: View {
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
                     .fill(Color.white)
-                    .frame(width: width * 0.95, height: height)
+                    .frame(width: width, height: height)
                 
                 FrontSideGoalCardView(height: height, width: width, goal: $goals[goalIndex])
                     .modifier(FlipOpacity(percentage: isFlipped ? 0 : 1))
