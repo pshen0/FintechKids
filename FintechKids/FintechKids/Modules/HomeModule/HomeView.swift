@@ -8,28 +8,143 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var viewModel: CardGameViewModel
     enum Constants {
+        static let greetingTextSize: CGFloat = 35
         static let buttonTextSize: CGFloat = 17
-        static let buttonVPadding: CGFloat = 15
-        static let buttonCornerRadius: CGFloat = 100
-        
-        static let brown: Color = Color(red: 89/255, green: 51/255, blue: 22/255)
-        static let beige: Color = Color(red: 255/255, green: 246/255, blue: 235/255)
-        static let lightBeige: Color = Color(red: 249/255, green: 220/255, blue: 184/255)
+        static let buttonCornerRadius: CGFloat = 20
+        static let buttonHeight: CGFloat = 150
+        static let buttonWidth: CGFloat = 150
+        static let profileHeight: CGFloat = 40
+        static let profileWidth: CGFloat = 40
+        static let catWidth: CGFloat = 126
+        static let catHeight: CGFloat = 157
+        static let catLPadding: CGFloat = 20
     }
     
+    @ObservedObject var viewModel: CardGameViewModel
     @State var showChat: Bool = false
     @State var showGame: Bool = false
     @State var showProfile: Bool = false
     
     var body: some View {
-        VStack {
-            Spacer()
-            CustomButton(title: "Чат с Фиником", isPresented: $showChat, destination: ChatScreen(viewModel: ChatViewModel()))
-            CustomButton(title: "Игра с карточками", isPresented: $showGame, destination: CardGameView(viewModel: viewModel))
-            CustomButton(title: "Профиль", isPresented: $showProfile, destination: ProfileSettingsView())
-            Spacer()
+        NavigationStack {
+            ZStack {
+                LinearGradient (
+                    gradient: Gradient(stops: [
+                        .init(color: Color.highlightedBackground, location: 0.2),
+                        .init(color: Color.background, location: 0.6),
+                    ]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                ).ignoresSafeArea()
+                VStack {
+                    catView
+                    greetingView
+                    HStack {
+                        Spacer()
+                        chatButton
+                        Spacer()
+                        gameButton
+                        Spacer()
+                    }.padding(.top, 30)
+                    Spacer()
+                }
+            }
+            .toolbarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing, content: {
+                    profileButton
+                })
+            }
+        }
+    }
+    
+    private var profileButton: some View {
+        Button(action: {
+            showProfile = true
+        }) {
+            Image(systemName: "person.crop.circle")
+                .resizable()
+                .scaledToFit()
+                .frame(width: Constants.profileWidth, height: Constants.profileHeight)
+                .tint(Color.text)
+        }
+        .fullScreenCover(isPresented: $showProfile) {
+            ProfileSettingsView()
+                .interactiveDismissDisabled(true)
+        }
+    }
+    
+    private var chatButton: some View {
+        Button(action: {
+            showChat = true
+        }) {
+            VStack {
+                Text("Чат с Фиником")
+                    .font(.system(size: HomeView.Constants.buttonTextSize, weight: .bold))
+                    .foregroundColor(Color.text)
+                    .frame(width: Constants.buttonWidth / 1.5)
+                    .padding(.top, 20)
+                Spacer()
+                Image("catChat")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: Constants.buttonWidth / 1.5)
+                    .padding(.bottom, 20)
+            }
+            .frame(width: Constants.buttonWidth, height: Constants.buttonHeight)
+            .background(Color.highlightedBackground)
+            .cornerRadius(Constants.buttonCornerRadius)
+        }
+        .fullScreenCover(isPresented: $showChat) {
+            ChatScreen(viewModel: ChatViewModel())
+                .interactiveDismissDisabled(true)
+        }
+    }
+    
+    private var gameButton: some View {
+        Button(action: {
+            showGame = true
+        }) {
+            VStack {
+                Text("Игра \"Карточки\"")
+                    .font(.system(size: Constants.buttonTextSize, weight: .bold))
+                    .foregroundColor(Color.text)
+                    .frame(width: Constants.buttonWidth / 1.5)
+                    .padding(.top, 20)
+                Spacer()
+                Image("catCards")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: Constants.buttonWidth / 2.5)
+                    .padding(.bottom, 20)
+            }
+            .frame(width: Constants.buttonWidth, height: Constants.buttonHeight)
+            .background(Color.highlightedBackground)
+            .cornerRadius(Constants.buttonCornerRadius)
+        }
+        .fullScreenCover(isPresented: $showGame) {
+            CardGameView(viewModel: viewModel)
+                .interactiveDismissDisabled(true)
+        }
+    }
+    
+    private var catView: some View {
+        Image("cat")
+            .resizable()
+            .scaledToFit()
+            .frame(width: Constants.catWidth, height: Constants.catHeight)
+            .padding(.top, 80)
+    }
+    
+    private var greetingView: some View {
+        VStack(alignment: .leading) {
+            Text("Привет!")
+                .font(.system(size: Constants.greetingTextSize, weight: .bold))
+                .foregroundColor(Color.text)
+            Text("Выбери, чем хочешь сегодня заняться:")
+                .font(.system(size: Constants.buttonTextSize, weight: .bold))
+                .foregroundColor(Color.text)
         }
     }
 }

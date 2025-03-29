@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F71F7352D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F71F7342D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf */; };
 		0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA172D949037007CB69B /* AnalyticsView.swift */; };
 		0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */; };
 		0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1D2D95B946007CB69B /* HomeView.swift */; };
-		0FC6DA202D95C8E7007CB69B /* HomeCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1F2D95C8E7007CB69B /* HomeCustomButton.swift */; };
 		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
 		2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */; };
 		2E5BA62D2D9605D30015C665 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BA62C2D9605D30015C665 /* ProgressBar.swift */; };
@@ -59,10 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F71F7342D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ofont.ru_Deledda Open.ttf"; sourceTree = "<group>"; };
+		0F71F7362D97D53D00A1A407 /* customFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = customFont.ttf; sourceTree = "<group>"; };
 		0FC6DA172D949037007CB69B /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingExpensesView.swift; sourceTree = "<group>"; };
 		0FC6DA1D2D95B946007CB69B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		0FC6DA1F2D95C8E7007CB69B /* HomeCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomButton.swift; sourceTree = "<group>"; };
 		0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocumentPicker.swift; sourceTree = "<group>"; };
 		2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		2E5BA62C2D9605D30015C665 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				0FC6DA1D2D95B946007CB69B /* HomeView.swift */,
-				0FC6DA1F2D95C8E7007CB69B /* HomeCustomButton.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -205,6 +205,7 @@
 				2EA151572D94A9B1001ED73E /* Shared */,
 				2EA151562D94A98B001ED73E /* Modules */,
 				2EA151592D94ABDF001ED73E /* Navigation */,
+				0F71F7362D97D53D00A1A407 /* customFont.ttf */,
 				2EA150822D9353DD001ED73E /* Assets.xcassets */,
 				2EA150842D9353DD001ED73E /* Preview Content */,
 			);
@@ -230,6 +231,7 @@
 		2EA150982D9353DD001ED73E /* FintechKidsUITests */ = {
 			isa = PBXGroup;
 			children = (
+				0F71F7342D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf */,
 				2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */,
 				2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */,
 			);
@@ -426,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F71F7352D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf in Resources */,
 				2EA150862D9353DD001ED73E /* Preview Assets.xcassets in Resources */,
 				83A6E9642D95889E0007B577 /* CardGame.txt in Resources */,
 				2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */,
@@ -470,7 +473,6 @@
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
 				2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */,
 				2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */,
-				0FC6DA202D95C8E7007CB69B /* HomeCustomButton.swift in Sources */,
 				0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */,
 				2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */,
 				2EA151622D9536B6001ED73E /* FlipOpacity.swift in Sources */,
