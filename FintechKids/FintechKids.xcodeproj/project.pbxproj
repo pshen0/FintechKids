@@ -19,6 +19,11 @@
 		2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */; };
 		2E2551D02D96C8F00007B2D9 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C92D96C8F00007B2D9 /* GoalsView.swift */; };
 		2E2551D12D96C8F00007B2D9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */; };
+		2E2551D32D96D1100007B2D9 /* TextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551D22D96D1100007B2D9 /* TextFieldExtension.swift */; };
+		2E2551D52D96D4310007B2D9 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551D42D96D4310007B2D9 /* GoalViewModel.swift */; };
+		2E2551D72D975C210007B2D9 /* GoalCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551D62D975C210007B2D9 /* GoalCardRow.swift */; };
+		2E2551D92D97608A0007B2D9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551D82D97608A0007B2D9 /* CustomTextField.swift */; };
+		2E2551DC2D97703F0007B2D9 /* CustomImageEditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551DB2D97703F0007B2D9 /* CustomImageEditButton.swift */; };
 		2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */; };
 		2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507E2D9353DC001ED73E /* ContentView.swift */; };
 		2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150822D9353DD001ED73E /* Assets.xcassets */; };
@@ -69,6 +74,11 @@
 		2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
 		2E2551C92D96C8F00007B2D9 /* GoalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
 		2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		2E2551D22D96D1100007B2D9 /* TextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextFieldExtension.swift; path = "../../../../../../../.Trash/FintechKids 15.11.42/FintechKids/FintechKids/Shared/Extensions/Image+extension/TextFieldExtension.swift"; sourceTree = "<group>"; };
+		2E2551D42D96D4310007B2D9 /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GoalViewModel.swift; path = "../../../../../../../.Trash/FintechKids 15.11.42/FintechKids/FintechKids/Modules/Goal/ViewModels/GoalViewModel.swift"; sourceTree = "<group>"; };
+		2E2551D62D975C210007B2D9 /* GoalCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardRow.swift; sourceTree = "<group>"; };
+		2E2551D82D97608A0007B2D9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2E2551DB2D97703F0007B2D9 /* CustomImageEditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageEditButton.swift; sourceTree = "<group>"; };
 		2EA150792D9353DC001ED73E /* FintechKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsApp.swift; sourceTree = "<group>"; };
 		2EA1507E2D9353DC001ED73E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -156,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */,
+				2E2551D42D96D4310007B2D9 /* GoalViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -163,14 +174,25 @@
 		2E2551CB2D96C8F00007B2D9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2E2551DA2D9760C40007B2D9 /* Custom */,
 				2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */,
-				2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */,
 				2E2551C72D96C8F00007B2D9 /* FrontSideGoalCardView.swift */,
 				2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */,
 				2E2551C92D96C8F00007B2D9 /* GoalsView.swift */,
-				2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */,
+				2E2551D62D975C210007B2D9 /* GoalCardRow.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		2E2551DA2D9760C40007B2D9 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */,
+				2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */,
+				2E2551D82D97608A0007B2D9 /* CustomTextField.swift */,
+				2E2551DB2D97703F0007B2D9 /* CustomImageEditButton.swift */,
+			);
+			path = Custom;
 			sourceTree = "<group>";
 		};
 		2EA150702D9353DC001ED73E = {
@@ -302,6 +324,7 @@
 			children = (
 				CF964F182D943CE20038AEAD /* Image+extension.swift */,
 				2EA151632D954BA7001ED73E /* DateExtension.swift */,
+				2E2551D22D96D1100007B2D9 /* TextFieldExtension.swift */,
 			);
 			path = "Image+extension";
 			sourceTree = "<group>";
@@ -448,19 +471,23 @@
 			files = (
 				2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */,
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
+				2E2551D52D96D4310007B2D9 /* GoalViewModel.swift in Sources */,
 				0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */,
 				2E2551D02D96C8F00007B2D9 /* GoalsView.swift in Sources */,
+				2E2551D92D97608A0007B2D9 /* CustomTextField.swift in Sources */,
 				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
 				0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
+				2E2551D32D96D1100007B2D9 /* TextFieldExtension.swift in Sources */,
 				2E2551CC2D96C8F00007B2D9 /* BackSideGoalCardView.swift in Sources */,
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
 				2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
+				2E2551D72D975C210007B2D9 /* GoalCardRow.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
 				0FC6DA202D95C8E7007CB69B /* HomeCustomButton.swift in Sources */,
 				0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */,
@@ -468,6 +495,7 @@
 				2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */,
 				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
 				56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */,
+				2E2551DC2D97703F0007B2D9 /* CustomImageEditButton.swift in Sources */,
 				2E2551CE2D96C8F00007B2D9 /* FrontSideGoalCardView.swift in Sources */,
 				2E2551D12D96C8F00007B2D9 /* ProgressBar.swift in Sources */,
 				0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */,

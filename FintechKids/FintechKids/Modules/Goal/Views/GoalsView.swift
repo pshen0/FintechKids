@@ -11,6 +11,7 @@ struct GoalsView: View {
     @StateObject private var viewModel = GoalsViewModel()
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
+    @State var offset: CGFloat = 0
     
     var body: some View {
         VStack {
@@ -20,26 +21,18 @@ struct GoalsView: View {
                 .bold()
                 .frame(maxWidth: width * 0.9, alignment: .leading)
             List {
-                ForEach(0..<viewModel.goals.count, id: \.self) {i in
-                    GoalCardView(goalIndex: i, goals: $viewModel.goals)
-                        .swipeActions {
-                            Button {
-                                viewModel.deleteGoal(at: i)
-                            } label: {
-                                Image(systemName: "trash.fill")
-                            }
-                            .tint(.red)
-                        }
+                ForEach($viewModel.goals, id: \.id) { $goal in
+                    GoalCardRow(viewModel: GoalViewModel(goal: $goal), height: height, width: width) {
+                        viewModel.deleteGoal(at: goal.id)
+                    }
                 }
-                .frame(width: 0.9 * width, height: 0.2 * height)
+
                 .listRowBackground(Color.clear)
                 .listRowSeparator(.hidden)
             }
             .scrollContentBackground(.hidden)
             .background(Color.clear)
             .listStyle(PlainListStyle())
-            .listRowSeparator(.hidden)
-            .navigationTitle("Цели")
         }
     }
 }

@@ -8,34 +8,52 @@
 import SwiftUI
 
 struct BackSideGoalCardView: View {
-    @Binding var goal: GoalModel
-    @State var isEdit = false
+    @StateObject var viewModel: GoalViewModel
+    let width: CGFloat
     let formatter = DateFormatter()
+    
+    @Namespace private var animationNamespace
     
     var body: some View {
         VStack {
             HStack {
-                TextField(goal.name, text: $goal.name)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .disabled(!isEdit)
-            }
-            .overlay {
-                Image(systemName: "pencil")
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .onTapGesture {
-                        isEdit.toggle()
-                        // TODO: Здесь будет какая-нить popview для изменения данных
-                    }
+                CustomtextField(text: $viewModel.name, flag: $viewModel.isEdit, width: width)
+                    .bold()
+                    .animation(.easeInOut(duration: 0.3), value: viewModel.isEdit)
+                
+                switch viewModel.isEdit {
+                case false:
+                    CustomImageEditButton(flag: $viewModel.isEdit, update: viewModel.updateGoal)
+                        .matchedGeometryEffect(id: "editButton", in: animationNamespace)
+                case true:
+                    CustomImageEditButton(flag: $viewModel.isEdit, update: viewModel.updateGoal)
+                        .matchedGeometryEffect(id: "editButton", in: animationNamespace)
+                }
+                
+                
+                
             }
             Spacer()
             VStack(alignment: .leading) {
-                Text("Дата: \(goal.date.formattedDate())")
-                Text("Накоплено: \(goal.current)")
-                Text("Цель: \(goal.goalSum)")
-                Text("Прогресс: \(goal.progress)")
+                Text("Дата: \(String(describing: viewModel.goal.date.formattedDate()))")
+                    .opacity(viewModel.isEdit ? 0.5 : 1)
+                HStack {
+                    Text("Накоплено: ")
+                    CustomtextField(text: $viewModel.current, flag: $viewModel.isEdit, /*font: $font,*/ width: .infinity)
+                }
+                HStack {
+                    Text("Цель: ")
+                    CustomtextField(text: $viewModel.goalSum, flag: $viewModel.isEdit, /*font: $font,*/ width: .infinity)
+                }
+                Text("Прогресс: \(String(describing: viewModel.goal.progress))%")
+                    .opacity(viewModel.isEdit ? 0.5 : 1)
             }
             
             Spacer()
         }
     }
+}
+
+#Preview {
+    GoalsView()
 }
