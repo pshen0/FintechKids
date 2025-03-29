@@ -12,15 +12,26 @@ final class CardGameViewModel: ObservableObject {
     @Published var feedback = ""
     @Published var attempts = 3
     @Published var showNext = false
-    private let rounds: [CardGameRound]
+    @Published private(set) var screenData: ScreenData
     private var currentRound = 0
     
-    init(rounds: [CardGameRound]) {
-        self.rounds = rounds.shuffled()
+    init(screen: Screens) {
+        self.screenData = ScreenFactory.createScreen(for: screen)
     }
+
     
     var model: CardGameRound {
-        rounds[currentRound]
+        switch screenData {
+        case .CardsGame(let array):
+            return array[currentRound]
+        }
+    }
+    
+    var roundsLen: Int {
+        switch screenData {
+        case .CardsGame(let array):
+            return array.count
+        }
     }
     
     func checkPrice() {
@@ -63,7 +74,7 @@ final class CardGameViewModel: ObservableObject {
         attempts = 3
         userInput = ""
         feedback = ""
-        if currentRound >= rounds.count - 1{
+        if currentRound >= roundsLen - 1{
             currentRound = 0
         } else {
             currentRound += 1

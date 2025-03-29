@@ -8,7 +8,12 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var viewModel: CardGameViewModel
+    @ObservedObject private var viewModel: CardGameViewModel
+    
+    init(screen: Screens) {
+        self.viewModel = CardGameViewModel(screen: screen)
+    }
+    
     enum Constants {
         static let buttonTextSize: CGFloat = 17
         static let buttonVPadding: CGFloat = 15

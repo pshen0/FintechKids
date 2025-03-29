@@ -33,6 +33,7 @@
 		83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameRound.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
+		838CD9462D96E9A7006F1661 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CD9452D96E9A7006F1661 /* ScreenFactory.swift */; };
 		83A6E9642D95889E0007B577 /* CardGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83A6E9632D9588930007B577 /* CardGame.txt */; };
 		83A6E9662D95945E0007B577 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6E9652D95945E0007B577 /* Storage.swift */; };
 		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
@@ -88,8 +89,9 @@
 		83869DA82D9499D2000A1EFD /* CardGameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameRound.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
+		838CD9452D96E9A7006F1661 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenFactory.swift; path = StorageModule/ScreenFactory.swift; sourceTree = "<group>"; };
 		83A6E9632D9588930007B577 /* CardGame.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CardGame.txt; sourceTree = "<group>"; };
-		83A6E9652D95945E0007B577 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = FintechKids/StorageModule/Storage.swift; sourceTree = "<group>"; };
+		83A6E9652D95945E0007B577 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = StorageModule/Storage.swift; sourceTree = "<group>"; };
 		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
 		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
@@ -180,7 +182,6 @@
 		2EA150702D9353DC001ED73E = {
 			isa = PBXGroup;
 			children = (
-				83A6E9652D95945E0007B577 /* Storage.swift */,
 				2EA1507B2D9353DC001ED73E /* FintechKids */,
 				2EA1508E2D9353DD001ED73E /* FintechKidsTests */,
 				2EA150982D9353DD001ED73E /* FintechKidsUITests */,
@@ -201,12 +202,14 @@
 		2EA1507B2D9353DC001ED73E /* FintechKids */ = {
 			isa = PBXGroup;
 			children = (
+				83A6E9652D95945E0007B577 /* Storage.swift */,
 				2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */,
 				2EA151572D94A9B1001ED73E /* Shared */,
 				2EA151562D94A98B001ED73E /* Modules */,
 				2EA151592D94ABDF001ED73E /* Navigation */,
 				2EA150822D9353DD001ED73E /* Assets.xcassets */,
 				2EA150842D9353DD001ED73E /* Preview Content */,
+				838CD9452D96E9A7006F1661 /* ScreenFactory.swift */,
 			);
 			path = FintechKids;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			files = (
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
 				0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */,
+				838CD9462D96E9A7006F1661 /* ScreenFactory.swift in Sources */,
 				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
 				83A6E9662D95945E0007B577 /* Storage.swift in Sources */,
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
