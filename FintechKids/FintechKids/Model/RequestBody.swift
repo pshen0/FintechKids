@@ -9,5 +9,5 @@ import Foundation
 
 struct RequestBody: Codable {
     let model: String
-    let messages: [Message]
+    let messages: [MessageRequest]
 }

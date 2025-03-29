@@ -1,5 +1,5 @@
 //
-//  PDFService.swift
+//  StatementPDFToStringConverter.swift
 //  LLMServiceTest
 //
 //  Created by Тагир Файрушин on 27.03.2025.
@@ -8,12 +8,9 @@
 import Foundation
 import PDFKit
 
-class PDFService {
+enum StatementPDFToStringConverter {
     
-    static let shared = PDFService()
-    private init() {}
-    
-    func extractText(from pdfURL: URL) async throws -> String {
+    static func extractText(from pdfURL: URL) async throws -> String {
         guard let document = PDFDocument(url: pdfURL) else {
             throw PDFError.invalidDocument
         }
@@ -29,7 +26,7 @@ class PDFService {
         return formatOperations(from: extractedText)
     }
     
-    private func formatOperations(from text: String) -> String {
+    private static func formatOperations(from text: String) -> String {
         let pattern = #"(\d{2}\.\d{2}\.\d{4})\n(\d{2}:\d{2})\n(\d{2}\.\d{2}\.\d{4})\n(\d{2}:\d{2})\n([+-]?\d{1,3}(?:\s?\d{3})*\.\d{2} ₽) ([+-]?\d{1,3}(?:\s?\d{3})*\.\d{2} ₽) (.+)"#
    
         guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {

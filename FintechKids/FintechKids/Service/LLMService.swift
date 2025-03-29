@@ -15,7 +15,7 @@ class LLMService {
     
     private init() {}
     
-    func analyzeTransactions(_ transactions: String) async throws -> [Transaction] {
+    func getMessage(_ prompt: String) async throws -> String {
         let url = URL(string: "https://openrouter.ai/api/v1/chat/completions")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -25,10 +25,10 @@ class LLMService {
         let requestBody = RequestBody(
             model: "google/gemini-2.0-flash-thinking-exp:free",
             messages: [
-                Message(
+                MessageRequest(
                     role: "user",
                     content: [
-                        MessageContent(type: "text", text: Prompt.csv(transactions).getPromt)
+                        MessageContent(type: "text", text: prompt)
                     ]
                 )
             ]
@@ -47,29 +47,8 @@ class LLMService {
             
             do {
                 let apiResponse = try decoder.decode(APIResponse.self, from: data)
-                let transactionLines = apiResponse.choices.first?.message.content.split(separator: "\n")
-                var transactions: [Transaction] = [Transaction]()
-                if let transactionLines {
-                    for index in 2..<transactionLines.count - 1 {
-                        let transactionData = transactionLines[index].split(separator: ",")
-              
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "dd.MM.yyyy"
-                    
-                        if let date = dateFormatter.date(from: String(transactionData[2])), let amount = Double(transactionData[1]) {
-                            transactions.append(
-                                Transaction(date: date, amount: amount, category: String(transactionData[2]))
-                            )
-                        } else {
-                            print("Date conversion error: \(transactionData[2])")
-                        }
-                    }
-                }
-                if let text = apiResponse.choices.first?.message.content {
-                    try FileService.shared.writeCSV(textFile: text)
-                }
-                
-                return transactions
+                return apiResponse.choices.first?.message.content ?? ""
+                            
             } catch {
                 throw NetworkingError.decodingError(error as! DecodingError)
             }
@@ -78,4 +57,5 @@ class LLMService {
         }
     }
 }
+
 
