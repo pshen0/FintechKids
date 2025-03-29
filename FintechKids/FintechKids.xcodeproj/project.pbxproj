@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F71F7352D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F71F7342D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf */; };
 		0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA172D949037007CB69B /* AnalyticsView.swift */; };
 		0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */; };
 		0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1D2D95B946007CB69B /* HomeView.swift */; };
@@ -76,7 +75,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F71F7342D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ofont.ru_Deledda Open.ttf"; sourceTree = "<group>"; };
 		0F71F7362D97D53D00A1A407 /* customFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = customFont.ttf; sourceTree = "<group>"; };
 		0FC6DA172D949037007CB69B /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingExpensesView.swift; sourceTree = "<group>"; };
@@ -268,7 +266,6 @@
 		2EA150982D9353DD001ED73E /* FintechKidsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				0F71F7342D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf */,
 				2EA150992D9353DD001ED73E /* FintechKidsUITests.swift */,
 				2EA1509B2D9353DD001ED73E /* FintechKidsUITestsLaunchTests.swift */,
 			);
@@ -503,7 +500,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F71F7352D97D4ED00A1A407 /* ofont.ru_Deledda Open.ttf in Resources */,
 				2EA150862D9353DD001ED73E /* Preview Assets.xcassets in Resources */,
 				83A6E9642D95889E0007B577 /* CardGame.txt in Resources */,
 				2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */,
