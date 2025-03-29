@@ -29,14 +29,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient (
-                    gradient: Gradient(stops: [
-                        .init(color: Color.highlightedBackground, location: 0.2),
-                        .init(color: Color.background, location: 0.6),
-                    ]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                ).ignoresSafeArea()
+                gradient
                 VStack {
                     catView
                     greetingView
@@ -57,6 +50,17 @@ struct HomeView: View {
                 })
             }
         }
+    }
+    
+    private var gradient: some View {
+        LinearGradient (
+            gradient: Gradient(stops: [
+                .init(color: Color.highlightedBackground, location: 0.2),
+                .init(color: Color.background, location: 0.6),
+            ]),
+            startPoint: .top,
+            endPoint: .bottom
+        ).ignoresSafeArea()
     }
     
     private var profileButton: some View {

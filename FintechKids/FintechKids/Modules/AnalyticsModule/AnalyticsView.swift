@@ -16,7 +16,7 @@ struct AnalyticsView: View {
         static let unloadRequestText: String = "Чтобы начать отслеживать финансы, необходимо выгрузить траты"
         
         static let catImageName: String = "cat"
-        static let speachImageName: String = "speech"
+        static let speechImageName: String = "speech"
         
         static let buttonTextSize: CGFloat = 17
         static let buttonCornerRadius: CGFloat = 100
@@ -25,11 +25,7 @@ struct AnalyticsView: View {
         static let catWidth: CGFloat = 126
         static let catHeight: CGFloat = 157
         static let catLPadding: CGFloat = 20
-        static let speachHeight: CGFloat = 93
-        
-        static let brown: Color = Color(red: 89/255, green: 51/255, blue: 22/255)
-        static let beige: Color = Color(red: 255/255, green: 246/255, blue: 235/255)
-        static let lightBeige: Color = Color(red: 249/255, green: 220/255, blue: 184/255)
+        static let speechHeight: CGFloat = 93
     }
     
     
@@ -40,79 +36,115 @@ struct AnalyticsView: View {
     @State private var selectedFileURL: URL?
     
     var body: some View {
-        VStack {
-            Text(Constants.screenNameText)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding()
-                .foregroundColor(Constants.brown)
-            Spacer()
-            
-            Button(action: {
-                showDocumentPicker = true
-            }) {
-                Text(Constants.addingFileText)
-                    .font(.system(size: Constants.buttonTextSize, weight: .bold))
-                    .padding(.vertical, Constants.buttonVPadding)
-                    .frame(width: 250)
-                    .background(Constants.beige)
-                    .foregroundColor(Constants.brown)
-                    .cornerRadius(Constants.buttonCornerRadius)
-            }
-            .sheet(isPresented: $showDocumentPicker) {
-                DocumentPicker { url in
-                    selectedFileURL = url
-                    showDocumentPicker = false
-                }
-            }
-            
-            Button(action: {
-                showAddingExpenseScreen = true
-            }) {
-                Text(Constants.addingExpenseText)
-                    .font(.system(size: Constants.buttonTextSize, weight: .bold))
-                    .padding(.vertical, Constants.buttonVPadding)
-                    .frame(width: 250)
-                    .background(Constants.beige)
-                    .foregroundColor(Constants.brown)
-                    .cornerRadius(Constants.buttonCornerRadius)
-            }
-            .sheet(isPresented: $showAddingExpenseScreen) {
-                AddingExpensesView()
-            }
-            
-            Spacer()
-            HStack {
+        ZStack {
+            Color.background
+                .ignoresSafeArea()
+            gradient
+            VStack {
+                screenName
                 Spacer()
-                Image(Constants.catImageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: Constants.catWidth, height: Constants.catHeight)
-                    .padding(.leading, Constants.catLPadding)
-                ZStack {
-                    Image(Constants.speachImageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: Constants.speachHeight)
-                        .padding(.trailing, 20)
-                    Text(unloadRequestText)
-                        .font(.system(size: 15, weight: .light))
-                        .foregroundColor(Constants.brown)
-                        .padding(.trailing, 20)
-                        .multilineTextAlignment(.center)
-                        .padding(.leading, 8.5)
-                        .onAppear {
-                            startTypingAnimation()
-                        }
-                }
-                .padding(.trailing, 20)
-                .frame(width: 250, height: 300)
+                documentPickButton
+                addingExpenseButton
                 Spacer()
+                HStack {
+                    Spacer()
+                    catImage
+                    ZStack {
+                        speechImage
+                        unloadText
+                    }
+                    .padding(.trailing, 20)
+                    .frame(width: 250, height: 300)
+                    Spacer()
+                }
+                .padding(.bottom, -30)
             }
-            .padding(.bottom, -30)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Constants.lightBeige)
+    }
+    
+    private var gradient: some View {
+        LinearGradient (
+            gradient: Gradient(stops: [
+                .init(color: Color.highlightedBackground, location: 0.2),
+                .init(color: Color.background, location: 0.6),
+            ]),
+            startPoint: .top,
+            endPoint: .bottom
+        ).ignoresSafeArea()
+    }
+    
+    private var screenName: some View {
+        Text(Constants.screenNameText)
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding()
+            .foregroundColor(Color.text)
+    }
+    
+    private var documentPickButton: some View {
+        Button(action: {
+            showDocumentPicker = true
+        }) {
+            Text(Constants.addingFileText)
+                .font(.system(size: Constants.buttonTextSize, weight: .bold))
+                .padding(.vertical, Constants.buttonVPadding)
+                .frame(width: 250)
+                .background(Color.highlightedBackground)
+                .foregroundColor(Color.text)
+                .cornerRadius(Constants.buttonCornerRadius)
+        }
+        .sheet(isPresented: $showDocumentPicker) {
+            DocumentPicker { url in
+                selectedFileURL = url
+                showDocumentPicker = false
+            }
+        }
+    }
+    
+    private var addingExpenseButton: some View {
+        Button(action: {
+            showAddingExpenseScreen = true
+        }) {
+            Text(Constants.addingExpenseText)
+                .font(.system(size: Constants.buttonTextSize, weight: .bold))
+                .padding(.vertical, Constants.buttonVPadding)
+                .frame(width: 250)
+                .background(Color.highlightedBackground)
+                .foregroundColor(Color.text)
+                .cornerRadius(Constants.buttonCornerRadius)
+        }
+        .sheet(isPresented: $showAddingExpenseScreen) {
+            AddingExpensesView()
+        }
+    }
+    
+    private var catImage: some View {
+        Image(Constants.catImageName)
+            .resizable()
+            .scaledToFit()
+            .frame(width: Constants.catWidth, height: Constants.catHeight)
+            .padding(.leading, Constants.catLPadding)
+    }
+    
+    private var speechImage: some View {
+        Image(Constants.speechImageName)
+            .resizable()
+            .scaledToFit()
+            .frame(height: Constants.speechHeight)
+            .padding(.trailing, 20)
+    }
+    
+    private var unloadText: some View {
+        Text(unloadRequestText)
+            .font(.system(size: 15, weight: .light))
+            .foregroundColor(Color.text)
+            .padding(.trailing, 20)
+            .multilineTextAlignment(.center)
+            .padding(.leading, 8.5)
+            .onAppear {
+                startTypingAnimation()
+            }
     }
     
     func startTypingAnimation() {
