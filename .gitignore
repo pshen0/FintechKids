@@ -91,3 +91,4 @@ xcuserdata
 ####
 # Xcode 5 - Dirt
 *.xccheckout
+*.xcuserstate
