@@ -34,9 +34,11 @@
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
 		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
-		CF1A23D62D966C1D0032844E /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D52D966C1D0032844E /* Formatter.swift */; };
-		CF1A23D42D966BCE0032844E /* ChatDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D32D966BCE0032844E /* ChatDataMock.swift */; };
-		CF1A23D22D966B410032844E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D12D966B410032844E /* Message.swift */; };
+		CF1A23DB2D96B8100032844E /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D92D96B8100032844E /* Formatter.swift */; };
+		CF1A23DC2D96B8100032844E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23DA2D96B8100032844E /* Message.swift */; };
+		CF1A23DD2D96B8100032844E /* ChatDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D82D96B8100032844E /* ChatDataMock.swift */; };
+		CF1A241C2D97BA410032844E /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A241B2D97BA410032844E /* Modifiers.swift */; };
+		CF1A241E2D97D1F20032844E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A241D2D97D1F20032844E /* Extensions.swift */; };
 		CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F182D943CE20038AEAD /* Image+extension.swift */; };
 		CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F272D943DDA0038AEAD /* ChatScreen.swift */; };
 		CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F292D943DE60038AEAD /* ChatViewModel.swift */; };
@@ -90,9 +92,11 @@
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
 		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		CF1A23D32D966BCE0032844E /* ChatDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataMock.swift; sourceTree = "<group>"; };
-		CF1A23D52D966C1D0032844E /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
-		CF1A23D12D966B410032844E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CF1A23D82D96B8100032844E /* ChatDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataMock.swift; sourceTree = "<group>"; };
+		CF1A23D92D96B8100032844E /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		CF1A23DA2D96B8100032844E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CF1A241B2D97BA410032844E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
+		CF1A241D2D97D1F20032844E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
 		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		CF964F292D943DE60038AEAD /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -254,7 +258,7 @@
 				56A2DDE52D95831900F853B3 /* SettingsModule */,
 				0FC6DA162D94900F007CB69B /* AnalyticsModule */,
 				83869DAD2D9499D2000A1EFD /* CardsGame */,
-				CF964F262D943D920038AEAD /* ChatScreen */,
+				CF964F262D943D920038AEAD /* ChatModule */,
 				2EA151552D94A977001ED73E /* Goal */,
 			);
 			path = Modules;
@@ -303,14 +307,23 @@
 			path = CardsGame;
 			sourceTree = "<group>";
 		};
-		CF1A23D02D966B380032844E /* Modal */ = {
+		CF1A23D72D96B80B0032844E /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				CF1A23D12D966B410032844E /* Message.swift */,
-				CF1A23D32D966BCE0032844E /* ChatDataMock.swift */,
-				CF1A23D52D966C1D0032844E /* Formatter.swift */,
+				CF1A241D2D97D1F20032844E /* Extensions.swift */,
+				CF1A23D82D96B8100032844E /* ChatDataMock.swift */,
+				CF1A23D92D96B8100032844E /* Formatter.swift */,
+				CF1A23DA2D96B8100032844E /* Message.swift */,
 			);
 			path = Modal;
+			sourceTree = "<group>";
+		};
+		CF1A241A2D97BA320032844E /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				CF1A241B2D97BA410032844E /* Modifiers.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 		CF964F172D943CCE0038AEAD /* Image+extension */ = {
@@ -322,15 +335,16 @@
 			path = "Image+extension";
 			sourceTree = "<group>";
 		};
-		CF964F262D943D920038AEAD /* ChatScreen */ = {
+		CF964F262D943D920038AEAD /* ChatModule */ = {
 			isa = PBXGroup;
 			children = (
-				CF1A23D02D966B380032844E /* Modal */,
+				CF1A241A2D97BA320032844E /* Modifiers */,
+				CF1A23D72D96B80B0032844E /* Modal */,
 				CF964F272D943DDA0038AEAD /* ChatScreen.swift */,
 				CF1A23922D9461360032844E /* MessageView.swift */,
 				CF964F292D943DE60038AEAD /* ChatViewModel.swift */,
 			);
-			path = ChatScreen;
+			path = ChatModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -471,6 +485,10 @@
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
 				0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
+				CF1A241C2D97BA410032844E /* Modifiers.swift in Sources */,
+				CF1A23DB2D96B8100032844E /* Formatter.swift in Sources */,
+				CF1A23DC2D96B8100032844E /* Message.swift in Sources */,
+				CF1A23DD2D96B8100032844E /* ChatDataMock.swift in Sources */,
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
@@ -484,9 +502,7 @@
 				2EA151622D9536B6001ED73E /* FlipOpacity.swift in Sources */,
 				2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */,
 				2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */,
-				CF1A23D22D966B410032844E /* Message.swift in Sources */,
-				CF1A23D62D966C1D0032844E /* Formatter.swift in Sources */,
-				CF1A23D42D966BCE0032844E /* ChatDataMock.swift in Sources */,
+				CF1A241E2D97D1F20032844E /* Extensions.swift in Sources */,
 				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
 				56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */,
 				2E5BA62D2D9605D30015C665 /* ProgressBar.swift in Sources */,

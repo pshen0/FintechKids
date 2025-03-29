@@ -34,7 +34,7 @@ struct MessageView: View {
                                 .fill(message.isYour ? .gray : .blue)
                         }
                     
-                    Text(Formatter.formatDate(date: message.date))
+                    Text(Formatter.formatTimeDate(date: message.date))
                         .font(.caption)
                         .foregroundStyle(.secondary)
                 }
