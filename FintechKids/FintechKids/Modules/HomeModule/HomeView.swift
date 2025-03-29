@@ -16,8 +16,8 @@ struct HomeView: View {
         static let buttonWidth: CGFloat = 150
         static let profileHeight: CGFloat = 40
         static let profileWidth: CGFloat = 40
-        static let catWidth: CGFloat = 126
-        static let catHeight: CGFloat = 157
+        static let catWidth: CGFloat = 135
+        static let catHeight: CGFloat = 231
         static let catLPadding: CGFloat = 20
     }
     
