@@ -8,13 +8,6 @@
 import SwiftUI
 
 struct AddingExpensesView: View {
-    
-    enum Constants {
-        static let brown: Color = Color(red: 89/255, green: 51/255, blue: 22/255)
-        static let lightBeige: Color = Color(red: 255/255, green: 246/255, blue: 235/255)
-        static let beige: Color = Color(red: 249/255, green: 220/255, blue: 184/255)
-    }
-    
     enum FocusableField {
         case cost, category, date
     }
@@ -29,7 +22,7 @@ struct AddingExpensesView: View {
                 .fontWeight(.bold)
                 .padding(.bottom, 50)
                 .padding(.top, 30)
-                .foregroundColor(Constants.brown)
+                .foregroundColor(Color.text)
             List {
                 AddingExpensesFieldCoast(text: "Сумма траты:")
                 AddingExpensesFieldCategory(text: "Категория:")
@@ -38,37 +31,25 @@ struct AddingExpensesView: View {
             .listStyle(.plain)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Constants.beige)
+        .background(Color.highlightedBackground)
         
     }
 }
 
 struct AddingExpensesFieldCoast: View {
-    enum Constants {
-        static let brown: Color = Color(red: 89/255, green: 51/255, blue: 22/255)
-        static let lightBeige: Color = Color(red: 255/255, green: 246/255, blue: 235/255)
-        static let beige: Color = Color(red: 249/255, green: 220/255, blue: 184/255)
-    }
-    
     let text: String
     @State private var input: String = ""
     
     var body: some View {
         TextField(text, text: $input)
-            .foregroundStyle(text.isEmpty ? Constants.brown : Constants.brown)
-            .listRowBackground(Constants.beige)
+            .foregroundStyle(Color.text)
+            .listRowBackground(Color.highlightedBackground)
             .keyboardType(.numberPad)
-            .tint(Constants.brown)
+            .tint(Color.text)
     }
 }
 
 struct AddingExpensesFieldCategory: View {
-    enum Constants {
-        static let brown: Color = Color(red: 89/255, green: 51/255, blue: 22/255)
-        static let lightBeige: Color = Color(red: 255/255, green: 246/255, blue: 235/255)
-        static let beige: Color = Color(red: 249/255, green: 220/255, blue: 184/255)
-    }
-    
     let text: String
     @State private var selectedOption: String = ""
     @State var isMenuOpen: Bool = false
@@ -86,10 +67,10 @@ struct AddingExpensesFieldCategory: View {
             } label: {
                 HStack {
                     Text(selectedOption.isEmpty ? text : selectedOption)
-                        .foregroundColor(selectedOption.isEmpty ? .secondary.opacity(0.5) : Constants.brown)
+                        .foregroundColor(selectedOption.isEmpty ? .secondary.opacity(0.5) : Color.text)
                     Spacer()
                 }
-                .background(Constants.beige)
+                .background(Color.highlightedBackground)
                 .cornerRadius(10)
             }
             .simultaneousGesture(TapGesture().onEnded {
@@ -104,17 +85,11 @@ struct AddingExpensesFieldCategory: View {
         .onTapGesture {
             isMenuOpen = false
         }
-        .listRowBackground(Constants.beige)
+        .listRowBackground(Color.highlightedBackground)
     }
 }
 
 struct AddingExpensesFieldDate: View {
-    enum Constants {
-        static let brown: Color = Color(red: 89/255, green: 51/255, blue: 22/255)
-        static let lightBeige: Color = Color(red: 255/255, green: 246/255, blue: 235/255)
-        static let beige: Color = Color(red: 249/255, green: 220/255, blue: 184/255)
-    }
-    
     let text: String
     @State private var input: Date = Date()
     
@@ -126,11 +101,11 @@ struct AddingExpensesFieldDate: View {
             DatePicker("", selection: $input, displayedComponents: [.date])
                 .labelsHidden()
                 .foregroundColor(.secondary.opacity(0.5))
-                .foregroundStyle(Constants.brown)
-                .tint(Constants.brown)
+                .foregroundStyle(Color.text)
+                .tint(Color.text)
             Spacer()
         }
-        .listRowBackground(Constants.beige)
+        .listRowBackground(Color.highlightedBackground)
     }
 }
 
