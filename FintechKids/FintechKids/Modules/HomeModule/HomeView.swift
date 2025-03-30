@@ -85,7 +85,8 @@ struct HomeView: View {
         }) {
             VStack {
                 Text("Чат с Фиником")
-                    .font(.system(size: HomeView.Constants.buttonTextSize, weight: .bold))
+                    .font(Font.custom("DeleddaOpen-Light", size: Constants.buttonTextSize))
+                    .fontWeight(.bold)
                     .foregroundColor(Color.text)
                     .frame(width: Constants.buttonWidth / 1.5)
                     .padding(.top, 20)
@@ -112,7 +113,7 @@ struct HomeView: View {
         }) {
             VStack {
                 Text("Игра \"Карточки\"")
-                    .font(.system(size: Constants.buttonTextSize, weight: .bold))
+                    .font(Font.custom("DeleddaOpen-Light", size: HomeView.Constants.buttonTextSize))
                     .foregroundColor(Color.text)
                     .frame(width: Constants.buttonWidth / 1.5)
                     .padding(.top, 20)
@@ -144,10 +145,10 @@ struct HomeView: View {
     private var greetingView: some View {
         VStack(alignment: .leading) {
             Text("Привет!")
-                .font(.system(size: Constants.greetingTextSize, weight: .bold))
+                .font(Font.custom("DeleddaOpen-Light", size: Constants.greetingTextSize))
                 .foregroundColor(Color.text)
             Text("Выбери, чем хочешь сегодня заняться:")
-                .font(.system(size: Constants.buttonTextSize, weight: .bold))
+                .font(Font.custom("DeleddaOpen-Light", size: Constants.buttonTextSize))
                 .foregroundColor(Color.text)
         }
     }
