@@ -81,7 +81,8 @@ struct HomeView: View {
         }) {
             VStack {
                 Text("Чат с Фиником")
-                    .font(.system(size: HomeView.Constants.buttonTextSize, weight: .bold))
+                    .font(Font.custom("DeleddaOpen-Light", size: HomeView.Constants.buttonTextSize))
+                    .fontWeight(.bold)
                     .foregroundColor(Color.text)
                     .frame(width: Constants.buttonWidth / 1.5)
                     .padding(.top, 20)
