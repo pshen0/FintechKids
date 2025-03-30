@@ -8,17 +8,17 @@
 import Foundation
 
 final class ScreenFactory: ObservableObject {
-    private static var cachedData: [Screens: ScreenData] = [:]
+    private static var cachedData: [Screen: ScreenData] = [:]
     
-    static func createScreen(for screen: Screens) -> ScreenData {
-        if let data = cachedData[screen] {
+    static func createScreen(ofType screenType: Screen) -> ScreenData {
+        if let data = cachedData[screenType] {
             return data
         }
         
         let newData: ScreenData
-        switch screen {
-        case .Analytics:
-            newData = .CardsGame([
+        switch screenType {
+        case .analytics:
+            newData = .cardsGame([
                 CardGameRound(
                     name: "батон белого хлеба",
                     imageName: "BreadImage",
@@ -40,23 +40,29 @@ final class ScreenFactory: ObservableObject {
                     cost: 90
                 )
             ])
-        default:
-            newData = .CardsGame([])
+        case .cardsGame:
+            newData = .cardsGame([])
+        case .chat:
+            newData = .cardsGame([])
+        case .goals:
+            newData = .cardsGame([])
+        case .settings:
+            newData = .cardsGame([])
         }
         
-        cachedData[screen] = newData
+        cachedData[screenType] = newData
         return newData
     }
 }
 
 enum ScreenData {
-    case CardsGame([CardGameRound])
+    case cardsGame([CardGameRound])
 }
 
-enum Screens {
-    case Analytics
-    case Goals
-    case Chat
-    case CardsGame
-    case Settings
+enum Screen {
+    case analytics
+    case goals
+    case chat
+    case cardsGame
+    case settings
 }

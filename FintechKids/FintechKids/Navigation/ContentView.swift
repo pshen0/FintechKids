@@ -17,7 +17,7 @@ struct ContentView: View {
             case 0:
                 GoalsView()
             case 1:
-                HomeView(screen: .Analytics)
+                HomeView(screen: .analytics)
             case 2:
                 AnalyticsView()
             default:
@@ -30,8 +30,4 @@ struct ContentView: View {
         .frame(maxWidth: .infinity)
         .background(Color.background)
     }
-}
-
-#Preview {
-    ContentView(index: 0)
 }

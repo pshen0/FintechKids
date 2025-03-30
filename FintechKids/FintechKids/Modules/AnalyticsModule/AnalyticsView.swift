@@ -16,7 +16,7 @@ struct AnalyticsView: View {
         static let unloadRequestText: String = "Чтобы начать отслеживать финансы, необходимо выгрузить траты"
         
         static let catImageName: String = "cat"
-        static let speachImageName: String = "speach"
+        static let speachImageName: String = "speech"
         
         static let buttonTextSize: CGFloat = 17
         static let buttonCornerRadius: CGFloat = 100

@@ -12,25 +12,25 @@ final class CardGameViewModel: ObservableObject {
     @Published var feedback = ""
     @Published var attempts = 3
     @Published var showNext = false
-    @Published private(set) var screenData: ScreenData
+    @Published private(set) var screen: ScreenData
     private var currentRound = 0
     
-    init(screen: Screens) {
-        self.screenData = ScreenFactory.createScreen(for: screen)
+    init(screen: Screen) {
+        self.screen = ScreenFactory.createScreen(ofType: screen)
     }
 
     
     var model: CardGameRound {
-        switch screenData {
-        case .CardsGame(let array):
-            return array[currentRound]
+        switch screen {
+        case .cardsGame(let gameRounds):
+            return gameRounds[currentRound]
         }
     }
     
-    var roundsLen: Int {
-        switch screenData {
-        case .CardsGame(let array):
-            return array.count
+    var roundsCount: Int {
+        switch screen {
+        case .cardsGame(let gameRounds):
+            return gameRounds.count
         }
     }
     
@@ -74,7 +74,7 @@ final class CardGameViewModel: ObservableObject {
         attempts = 3
         userInput = ""
         feedback = ""
-        if currentRound >= roundsLen - 1{
+        if currentRound >= roundsCount - 1{
             currentRound = 0
         } else {
             currentRound += 1

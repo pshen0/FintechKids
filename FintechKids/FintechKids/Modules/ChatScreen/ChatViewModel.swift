@@ -42,7 +42,7 @@ class ChatViewModel: ObservableObject {
         Message(title: "OOOh i feel my self bla bla fladjf dklsajfklasdjfklasdjf klasjfd kladjf lkasdjf klajdf kladsjf lkasjdf klasjdflk asjdfl kjasdlk fjsdakl fjaslkd fjalksd jflaksd jfaklsdj faskld jfaskldfj alskd j", isYour: false),
         Message(title: "Wow", isYour: false),
         Message(title: "Yep", isYour: true),
-    ] 
+    ]
     
     func createMessage(text: inout String) -> UUID {
         let message = Message(title: text, isYour: true)
