@@ -12,11 +12,20 @@ struct CustomtextField: View {
     @Binding var flag: Bool
     let width: CGFloat
     
+    @Namespace private var namespace
+    
     var body: some View {
-        TextField("Goal", text: $text)
-            .editingStyle(if: !flag)
-            .frame(maxWidth: .infinity, alignment: .center)
-            .disabled(!flag)
-            .frame(width: 0.8 * width)
+        switch flag {
+        case false:
+            Text(text)
+                .matchedGeometryEffect(id: "text", in: namespace)
+        case true:
+            TextField("Goal", text: $text)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .frame(maxWidth: .infinity, alignment: .center)
+                .disabled(!flag)
+                .frame(width: 0.8 * width)
+                .matchedGeometryEffect(id: "text", in: namespace)
+        }
     }
 }

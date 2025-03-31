@@ -12,28 +12,52 @@ struct GoalsView: View {
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     @State var offset: CGFloat = 0
+    @State var isAddingNew: Bool = false
+    
+    @Namespace private var namespace
     
     var body: some View {
         VStack {
+            header
+            
+            scrollGoals
+        }
+    }
+    
+    private var header: some View {
+        HStack {
             Text("Цели")
-                .font(.largeTitle)
-                .foregroundColor(Color("customBrown"))
-                .bold()
-                .frame(maxWidth: width * 0.9, alignment: .leading)
-            List {
-                ForEach($viewModel.goals, id: \.id) { $goal in
-                    GoalCardRow(viewModel: GoalViewModel(goal: $goal), height: height, width: width) {
+            Spacer()
+            buttonForAdding
+        }
+        .frame(width: 0.9 * width)
+        .font(.largeTitle)
+        .bold()
+        .foregroundColor(Color.customBrown)
+    }
+    
+    private var scrollGoals: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach($viewModel.goalViewModels, id: \.id) { $goal in
+                    GoalCardRow(viewModel: goal, height: height, width: width) {
                         viewModel.deleteGoal(at: goal.id)
                     }
+                    .transition(.scale.combined(with: .opacity))
                 }
-
-                .listRowBackground(Color.clear)
-                .listRowSeparator(.hidden)
+                .frame(width: width)
             }
-            .scrollContentBackground(.hidden)
-            .background(Color.clear)
-            .listStyle(PlainListStyle())
         }
+    }
+    
+    var buttonForAdding: some View {
+        Image(systemName: "plus")
+            .onTapGesture {
+                    let goal = GoalViewModel(id: viewModel.currentID, goal: GoalModel(), isEdit: true, isFlipped: true)
+                withAnimation {
+                    viewModel.addNew(goal: goal)
+                }
+            }
     }
 }
 

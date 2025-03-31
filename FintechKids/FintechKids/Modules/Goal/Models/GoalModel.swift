@@ -8,12 +8,11 @@
 import Foundation
 
 class GoalModel: ObservableObject {
-    @Published var id: Int
-    @Published var name: String = ""
-    @Published var goalSum: Int = 0
+    @Published var name: String = "Goal"
+    @Published var goalSum: Int = 1
     @Published var level: AimImportantLevels = .high
     @Published var current: Int = 0
-    @Published var image: String = ""
+    @Published var image: String = "templateGoal.jpg"
     @Published var date: Date = Date.now
     
     var progress: Int {
@@ -22,8 +21,7 @@ class GoalModel: ObservableObject {
         }
     }
     
-    init(id: Int, name: String = "", goalSum: Int = 0, current: Int = 0, level: AimImportantLevels = .high, image: String = "", date: Date = Date.now) {
-        self.id = id
+    init(name: String = "", goalSum: Int = 0, current: Int = 0, level: AimImportantLevels = .high, image: String = "", date: Date = Date.now) {
         self.name = name
         self.goalSum = goalSum
         self.current = current
@@ -31,6 +29,8 @@ class GoalModel: ObservableObject {
         self.image = image
         self.date = date
     }
+    
+    init() { }
 }
 
 enum AimImportantLevels {
