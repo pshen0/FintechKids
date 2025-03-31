@@ -2,143 +2,169 @@
 //  AnalyticsView.swift
 //  FintechKids
 //
-//  Created by Анна Сазонова on 26.03.2025.
+//  Created by Анна Сазонова on 31.03.2025.
 //
 
 import SwiftUI
 
+enum Fonts {
+    static let deledda: String = "DeleddaOpen-Light"
+}
+
 struct AnalyticsView: View {
-    
-    enum Constants {
-        static let screenNameText: String = "Аналитика трат"
-        static let addingFileText: String = "Добавить выгрузку трат"
-        static let addingExpenseText: String = "Добавить новую трату"
-        static let unloadRequestText: String = "Чтобы начать отслеживать финансы, необходимо выгрузить траты"
-        
-        static let catImageName: String = "cat"
-        static let speachImageName: String = "speech"
-        
-        static let buttonTextSize: CGFloat = 17
-        static let buttonCornerRadius: CGFloat = 100
-        static let buttonHPadding: CGFloat = 40
-        static let buttonVPadding: CGFloat = 15
-        static let catWidth: CGFloat = 126
-        static let catHeight: CGFloat = 157
-        static let catLPadding: CGFloat = 20
-        static let speachHeight: CGFloat = 93
-        
-        static let brown: Color = Color(red: 89/255, green: 51/255, blue: 22/255)
-        static let beige: Color = Color(red: 255/255, green: 246/255, blue: 235/255)
-        static let lightBeige: Color = Color(red: 249/255, green: 220/255, blue: 184/255)
-    }
-    
     
     @State private var showAddingExpenseScreen = false
     @State private var showDocumentPicker = false
-    @State private var unloadRequestText = ""
-    @State private var charIndex = 0
     @State private var selectedFileURL: URL?
+    @State private var progress: Double = 0.0
+    
+    private var values: [Double] = [50.0, 50.0, 50, 50, 50.0]
     
     var body: some View {
-        VStack {
-            Text(Constants.screenNameText)
-                .font(.largeTitle)
-                .fontWeight(.bold)
-                .padding()
-                .foregroundColor(Constants.brown)
-            Spacer()
-            
-            Button(action: {
-                showDocumentPicker = true
-            }) {
-                Text(Constants.addingFileText)
-                    .font(.system(size: Constants.buttonTextSize, weight: .bold))
-                    .padding(.vertical, Constants.buttonVPadding)
-                    .frame(width: 250)
-                    .background(Constants.beige)
-                    .foregroundColor(Constants.brown)
-                    .cornerRadius(Constants.buttonCornerRadius)
-            }
-            .sheet(isPresented: $showDocumentPicker) {
-                DocumentPicker { url in
-                    selectedFileURL = url
-                    let statement = StatementController(statementService: StatementService(llmService: LLMService.shared), statementFileStore: StatementFileStore())
-                    Task {
-                        try await statement.processStatement(pdfURL: url)
-                    }
-                    
-                    
-                    showDocumentPicker = false
-                }
-            }
-            
-            Button(action: {
-                showAddingExpenseScreen = true
-            }) {
-                Text(Constants.addingExpenseText)
-                    .font(.system(size: Constants.buttonTextSize, weight: .bold))
-                    .padding(.vertical, Constants.buttonVPadding)
-                    .frame(width: 250)
-                    .background(Constants.beige)
-                    .foregroundColor(Constants.brown)
-                    .cornerRadius(Constants.buttonCornerRadius)
-            }
-            .sheet(isPresented: $showAddingExpenseScreen) {
-                AddingExpensesView()
-            }
-            
-            Spacer()
-            HStack {
+        ZStack {
+            screenName
+            Color.background.ignoresSafeArea()
+            gradient
+            VStack {
+                screenName
                 Spacer()
-                Image(Constants.catImageName)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: Constants.catWidth, height: Constants.catHeight)
-                    .padding(.leading, Constants.catLPadding)
-                ZStack {
-                    Image(Constants.speachImageName)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(height: Constants.speachHeight)
-                        .padding(.trailing, 20)
-                    Text(unloadRequestText)
-                        .font(.system(size: 15, weight: .light))
-                        .foregroundColor(Constants.brown)
-                        .padding(.trailing, 20)
-                        .multilineTextAlignment(.center)
-                        .padding(.leading, 8.5)
-                        .onAppear {
-                            startTypingAnimation()
-                        }
-                }
-                .padding(.trailing, 20)
-                .frame(width: 250, height: 300)
+                plot
                 Spacer()
+                HStack {
+                    Spacer()
+                    documentPickButton
+                    Spacer()
+                    addingExpenseButton
+                    Spacer()
+                }
+                catImage
             }
-            .padding(.bottom, -30)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Constants.lightBeige)
     }
     
-    func startTypingAnimation() {
-        unloadRequestText = ""
-        charIndex = 0
-        
-        Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { timer in
-            if charIndex < Constants.unloadRequestText.count {
-                let index = Constants.unloadRequestText.index(Constants.unloadRequestText.startIndex, offsetBy: charIndex)
-                unloadRequestText.append(Constants.unloadRequestText[index])
-                charIndex += 1
-            } else {
-                timer.invalidate()
+    private var gradient: some View {
+        LinearGradient (
+            gradient: Gradient(stops: [
+                .init(color: Color.highlightedBackground, location: 0.2),
+                .init(color: Color.background, location: 0.6),
+            ]),
+            startPoint: .top,
+            endPoint: .bottom
+        ).ignoresSafeArea()
+    }
+    
+    private var screenName: some View {
+        Text(screenNameText)
+            .font(Font.custom(Fonts.deledda, size: screenNameSize))
+            .padding()
+            .foregroundColor(Color.text)
+    }
+    
+    private var documentPickButton: some View {
+        Button(action: {
+            showDocumentPicker = true
+        }) {
+            Text(addingFileText)
+                .font(Font.custom(Fonts.deledda, size: buttonTextSize))
+                .frame(width: buttonWidth, height: buttonHeight)
+                .background(Color.highlightedBackground)
+                .foregroundColor(Color.text)
+                .cornerRadius(buttonCornerRadius)
+            
+        }
+        .sheet(isPresented: $showDocumentPicker) {
+            DocumentPicker { url in
+                selectedFileURL = url
+                showDocumentPicker = false
             }
         }
     }
+    
+    private var addingExpenseButton: some View {
+        Button(action: {
+            showAddingExpenseScreen = true
+        }) {
+            Text(addingExpenseText)
+                .font(Font.custom(Fonts.deledda, size: buttonTextSize))
+                .frame(width: buttonWidth, height: buttonHeight)
+                .background(Color.highlightedBackground)
+                .foregroundColor(Color.text)
+                .cornerRadius(buttonCornerRadius)
+        }
+        .sheet(isPresented: $showAddingExpenseScreen) {
+            AddingExpensesView()
+        }
+    }
+    
+    private var catImage: some View {
+        HStack {
+            Image(catImageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: catWidth, height: catHeight)
+                .padding(.leading, catLPadding)
+                .padding(.bottom, catBPadding)
+            Spacer()
+        }
+    }
+    
+    private var plot: some View {
+        ZStack {
+            CoordinateAxes()
+                .stroke(Color.gray, lineWidth: 2)
+                .frame(width: plotWidth, height: plotHeight)
+            
+            Plot(values)
+                .fill(
+                    LinearGradient(
+                        gradient: Gradient(stops: [
+                            .init(color: color1, location: progress),
+                            .init(color: color2, location: 0.2 + progress),
+                            .init(color: color3, location: 0.4 + progress),
+                            .init(color: color4, location: 0.6 + progress),
+                            .init(color: color5, location: 0.8 + progress),
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                )
+                .frame(width: plotWidth, height: plotHeight)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
+                        progress = 0.5
+                    }
+                }
+        }
+    }
+    
+    //MARK: - Constants
+
+    private let screenNameText: String = " Аналитика трат "
+    private let addingFileText: String = "Добавить выгрузку трат"
+    private let addingExpenseText: String = "Добавить новую трату"
+    
+    private let catImageName: String = "cat"
+    
+    private let screenNameSize: CGFloat = 40
+    private let buttonTextSize: CGFloat = 15
+    private let buttonWidth: CGFloat = 150
+    private let buttonHeight: CGFloat = 40
+    private let buttonCornerRadius: CGFloat = 40
+    private let catWidth: CGFloat = 70
+    private let catHeight: CGFloat = 120
+    private let catLPadding: CGFloat = 20
+    private let catBPadding: CGFloat = 20
+    
+    private let plotWidth: CGFloat = 360
+    private let plotHeight: CGFloat = 360
+    private let plotStroke: CGFloat = 1
+    
+    private let color1 =  Color.init(red: 209/255, green: 129/255, blue: 240/255)
+    private let color2 =  Color.init(red: 115/255, green: 163/255, blue: 239/255)
+    private let color3 =  Color.init(red: 182/255, green: 224/255, blue: 155/255)
+    private let color4 =  Color.init(red: 255/255, green: 231/255, blue: 110/255)
+    private let color5 =  Color.init(red: 242/255, green: 151/255, blue: 76/255)
 }
-
-
-
 
 #Preview {
     AnalyticsView()
