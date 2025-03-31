@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension MessageListView {
+extension MessageList {
     
     func scrollToLastMessage(proxy: ScrollViewProxy, animation: Bool = true) {
         if let message = viewModel.getCarefulLast() {

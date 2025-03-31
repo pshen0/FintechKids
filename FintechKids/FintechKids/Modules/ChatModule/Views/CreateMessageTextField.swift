@@ -8,11 +8,37 @@
 import SwiftUI
 
 struct CreateMessageTextField: View {
+    
+    @Binding var text: String
+    @Binding var lastMessageCount: Int
+    let proxy: ScrollViewProxy
+    let viewModel: ChatViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            TextField("Спроси у Финика", text: $text)
+                .modifier(CreateMessageTextFieldModifier())
+            
+            SendButton
+        }
+        .padding(.horizontal, 15)
+        .padding(.vertical, 10)
+        .background(.clear)
     }
-}
-
-#Preview {
-    CreateMessageTextField()
+    
+    private var SendButton: some View {
+        Button(action: sendMessage) {
+            Image(systemName: SystemImage.sendMessage.getSystemName)
+                .font(.system(size: Font.big, weight: .medium))
+                .foregroundColor(text.isEmpty ? .highlightedBackground : .text)
+        }
+        .disabled(text.isEmpty)
+    }
+    
+    private func sendMessage() {
+        if !text.isEmpty {
+            viewModel.createMessage(text: &text)
+            lastMessageCount += 1
+        }
+    }
 }

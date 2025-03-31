@@ -7,12 +7,16 @@
 
 import SwiftUI
 
-struct MessageCorner: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+struct MessageCorner: Shape {
+    var radius: CGFloat = 20
+    var corners: UIRectCorner = .allCorners
 
-#Preview {
-    MessageCorner()
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(
+            roundedRect: rect,
+            byRoundingCorners: corners,
+            cornerRadii: CGSize(width: radius, height: radius)
+        )
+        return Path(path.cgPath)
+    }
 }

@@ -12,9 +12,13 @@ struct MessagesDateModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.system(size: 13, weight: .medium))
-            .foregroundColor(.gray)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 8)
+            .foregroundColor(.white)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 6)
+            .background(
+                Capsule()
+                    .fill(Color(UIColor.systemGray4))
+                )
     }
 }
 
@@ -26,6 +30,7 @@ struct CreateMessageTextFieldModifier: ViewModifier {
             .background(Color(UIColor.systemGray6))
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .shadow(color: .black.opacity(0.1), radius: 5)
+            .modifier(CustomFont(size: 16))
     }
 }
 
@@ -34,18 +39,28 @@ struct ListWithMessagesModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
+            .padding(.horizontal, 2)
             .listStyle(.plain)
             .scrollIndicators(.hidden)
             .navigationTitle("Чат с Фиником")
             .navigationBarTitleDisplayMode(.inline)
+            .background(.clear)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
                     } label: {
-                        ButtonLabel()
+                        DismissButtonLabel()
                     }
                 }
             }
+    }
+}
+
+struct CustomFont: ViewModifier {
+    var size: CGFloat
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("customFont", size: size))
     }
 }

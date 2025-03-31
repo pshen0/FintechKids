@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DismissButtonLabel: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(spacing: Padding.small) {
+            Image(systemName: SystemImage.goBack.getSystemName)
+                .fontWeight(.medium)
+            Text("Назад")
+        }
     }
-}
-
-#Preview {
-    DismissButtonLabel()
 }

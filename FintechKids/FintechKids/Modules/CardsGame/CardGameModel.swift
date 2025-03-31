@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct CardGameModel {
+struct CardGameRound: Codable {
     var name: String
-    var image: Image
+    var imageName: String
     var cost: Int
 }
