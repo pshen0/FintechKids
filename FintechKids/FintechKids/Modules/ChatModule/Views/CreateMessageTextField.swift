@@ -10,7 +10,6 @@ import SwiftUI
 struct CreateMessageTextField: View {
     
     @Binding var text: String
-    @Binding var lastMessageCount: Int
     let proxy: ScrollViewProxy
     let viewModel: ChatViewModel
     

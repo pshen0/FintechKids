@@ -11,9 +11,10 @@ struct Padding {
     
     static let small: CGFloat = 5
     static let `default`: CGFloat = 10
+    static let medium: CGFloat = 15
 }
 
-struct Font {
+struct FontValues {
     
     static let time: CGFloat = 12
     static let `default`: CGFloat = 16

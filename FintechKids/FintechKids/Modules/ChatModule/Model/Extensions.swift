@@ -10,13 +10,16 @@ import SwiftUI
 extension MessageList {
     
     func scrollToLastMessage(proxy: ScrollViewProxy, animation: Bool = true) {
-        if let message = viewModel.getCarefulLast() {
-            if animation {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.025) {
+            
+            if let message = viewModel.lastMessage {
+                if animation {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                        proxy.scrollTo(message, anchor: .top)
+                    }
+                } else {
                     proxy.scrollTo(message, anchor: .bottom)
                 }
-            } else {
-                proxy.scrollTo(message, anchor: .bottom)
             }
         }
     }
