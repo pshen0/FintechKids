@@ -8,7 +8,7 @@
 import SwiftUI
 
 #Preview {
-    ChatScreen(viewModel: ChatViewModel())
+    ChatScreen(viewModel: ChatViewModel(chatService: ChatService()))
 }
 
 struct ChatScreen: View {
@@ -37,14 +37,7 @@ struct ChatScreen: View {
                     ForEach(0...10, id: \.self) { number in
                         HStack {
                             if number % 2 == 0 { Spacer() }
-                            
-                            Image(systemName: SystemImage.cloud.getSystemName)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(width: Double.random(in: 40...120))
-                                .foregroundStyle(.white.opacity(Double.random(in: 0.5...1)))
-                                .padding(.horizontal, Double.random(in: 2...5) * 20.0)
-                            
+                            Cloud()
                             if number % 2 != 0 { Spacer() }
                         }
                     }
@@ -53,17 +46,15 @@ struct ChatScreen: View {
                 VStack {
                     ScrollViewReader { proxy in
                         MessageList(
-                            shouldScrollToBottom: $shouldScrollToBottom,
-                            lastMessageCount: $lastMessageCount,
-                            proxy: proxy,
                             viewModel: viewModel,
+                            shouldScrollToBottom: $shouldScrollToBottom,
+                            proxy: proxy,
                             dismiss: { dismiss() })
                         
                         CreateMessageTextField(
+                            viewModel: viewModel,
                             text: $text,
-                            lastMessageCount: $lastMessageCount,
-                            proxy: proxy,
-                            viewModel: viewModel)
+                            proxy: proxy)
                         .offset(y: -keyboardHeight / 100)
                     }
                     .background(.clear)

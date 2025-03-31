@@ -8,53 +8,45 @@
 import SwiftUI
 
 struct MessageView: View {
-    
-    var message: Message
+    let message: Message
     
     var body: some View {
         VStack {
             HStack(alignment: .bottom) {
                 if message.isYour { Spacer() }
                 else {
-                    Image(.cat)
-                        .resizable()
-                        .frame(width: ChatConstants.finikAvatar.width, height: ChatConstants.finikAvatar.height)
-                        .aspectRatio(contentMode: .fill)
-                        .padding(Padding.small)
-                        .background {
-                            Circle()
-                                .fill(.background.opacity(0.8).gradient)
+                    Circle()
+                        .fill(.background.opacity(0.8).gradient)
+                        .frame(height: ChatConstants.finikAvatar.height)
+                        .overlay {
+                            Image(.cat)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .padding(Padding.small)
                         }
                 }
                 
-                VStack(alignment: message.isYour ? .trailing : .leading) {
+                VStack(alignment: MessageModel.getMessageStackAlignment(isYour: message.isYour)) {
                     Text(message.title)
-                        .modifier(CustomFont(size: Font.default))
+                        .modifier(CustomFont(size: FontValues.default))
                         .padding(Padding.default)
                         .foregroundStyle(.white)
                         .background {
                             MessageCorner(
-                                radius: Font.default,
-                                corners: message.isYour ? [.topLeft, .topRight, .bottomLeft] :                              [.topRight, .topLeft, .bottomRight]
+                                radius: FontValues.default,
+                                corners: MessageModel.getMessageViewEdges(isYour: message.isYour)
                             )
-                            .fill(message.isYour ? .text : .highlightedBackground)
+                            .fill(MessageModel.getMessageColor(isYour: message.isYour))
+                            .shadow(radius: 2)
                         }
                     
                     Text(Formatter.formatTimeDate(date: message.date))
-                        .modifier(CustomFont(size: Font.time))
+                        .modifier(CustomFont(size: FontValues.time))
                         .foregroundStyle(.secondary)
-                }
-                
+                } 
                 if !message.isYour { Spacer() }
             }
             .background(.clear)
         }
-    }
-}
-
-#Preview {
-    Group {
-        MessageView(message: Message(title: "1", isYour: true))
-        MessageView(message: Message(title: "123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789123456789", isYour: false))
     }
 }

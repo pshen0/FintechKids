@@ -10,29 +10,60 @@ import SwiftUI
 final class ChatViewModel: ObservableObject {
     
     @Published var data: [(Date, [Message])] = ChatDataMock.getMessagesByDay()
+    @Published var isManagerProcessing: Bool = false
+    @Published var lastMessage: Message?
     
-    func createMessage(text: inout String) {
-        let newMessage = Message(title: text, isYour: true)
-        let calendar = Calendar.current
-        let today = calendar.startOfDay(for: newMessage.date)
-        
-        if let index = data.firstIndex(where: { calendar.isDate($0.0, inSameDayAs: today) }) {
-            data[index].1.append(newMessage)
-        } else {
-            data.append((today, [newMessage]))
-        }
-        
-        text = ""
+    var chatService: ChatService
+    
+    init(chatService: ChatService) {
+        self.chatService = chatService
+        lastMessage = data.last?.1.last
     }
     
-    func getCarefulLast() -> Message? {
-        guard let lastGroup = data.last, let lastMessage = lastGroup.1.last else {
-            return nil
+    @MainActor
+    func createMessage(messageText: String) async {
+        guard !messageText.isEmpty else { return }
+        let newMessage = Message(id: UUID(), title: messageText, isYour: true),
+            calendar = Calendar.current,
+            today = calendar.startOfDay(for: newMessage.date)
+        
+        lastMessage = newMessage
+        createMessage(calendar: calendar, currentDay: today, newMessage: newMessage)
+        Task {
+            do {
+                isManagerProcessing = true
+                // Mock
+                let data = try await chatService.getFinickMessage(promt: Prompt.message("Данил", "19", "Программировать", messageText))
+                let newMessage = Message(id: UUID(), title: data, isYour: false)
+                
+                createMessage(calendar: calendar, currentDay: today, newMessage: newMessage)
+                lastMessage = newMessage
+                self.isManagerProcessing = false
+            } catch {
+                // TODO: alert
+            }
         }
-        return lastMessage
     }
     
-    func getForceLast() -> Message {
-        return data.last!.1.last!
+    func isSendingMessagesEnable(text: String) -> Bool {
+        text.isEmpty || isManagerProcessing
+    }
+    
+    deinit {
+        // TODO: Save data to storage
+        print("saved")
+    }
+}
+
+private extension ChatViewModel {
+    
+    func createMessage(calendar: Calendar, currentDay: Date, newMessage: Message) {
+        DispatchQueue.main.async {
+            if let index = self.data.firstIndex(where: { calendar.isDate($0.0, inSameDayAs: currentDay) }) {
+                self.data[index].1.append(newMessage)
+            } else {
+                self.data.append((currentDay, [newMessage]))
+            }
+        }
     }
 }

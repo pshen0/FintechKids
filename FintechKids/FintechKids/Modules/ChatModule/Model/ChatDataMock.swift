@@ -12,6 +12,7 @@ enum ChatDataMock {
     
     static let `default`: [Message] = [
         Message(
+            id: UUID(),
             title: """
             Привет! Я котенок Финик - твой друг. 
             
@@ -30,7 +31,6 @@ enum ChatDataMock {
         }
         
         let sorted = groupedDict.sorted { $0.key < $1.key }
-        
         return sorted
     }
 }

@@ -42,7 +42,6 @@ struct ListWithMessagesModifier: ViewModifier {
             .padding(.horizontal, 2)
             .listStyle(.plain)
             .scrollIndicators(.hidden)
-            .navigationTitle("Чат с Фиником")
             .navigationBarTitleDisplayMode(.inline)
             .background(.clear)
             .toolbar {
@@ -61,6 +60,6 @@ struct CustomFont: ViewModifier {
     var size: CGFloat
     func body(content: Content) -> some View {
         content
-            .font(.custom("customFont", size: size))
+            .font(.custom("DeleddaOpen-Light", size: size))
     }
 }

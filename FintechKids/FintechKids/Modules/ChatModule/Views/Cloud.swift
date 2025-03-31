@@ -9,10 +9,11 @@ import SwiftUI
 
 struct Cloud: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Image(systemName: SystemImage.cloud.getSystemName)
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: Double.random(in: 40...120))
+            .foregroundStyle(.white.opacity(Double.random(in: 0.5...1)))
+            .padding(.horizontal, Double.random(in: 2...5) * 20.0)
     }
-}
-
-#Preview {
-    Cloud()
 }

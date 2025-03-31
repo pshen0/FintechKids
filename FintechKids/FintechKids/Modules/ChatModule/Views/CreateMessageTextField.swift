@@ -8,36 +8,34 @@
 import SwiftUI
 
 struct CreateMessageTextField: View {
-    
+    @ObservedObject var viewModel: ChatViewModel
     @Binding var text: String
     let proxy: ScrollViewProxy
-    let viewModel: ChatViewModel
     
     var body: some View {
         HStack {
             TextField("Спроси у Финика", text: $text)
                 .modifier(CreateMessageTextFieldModifier())
-            
             SendButton
         }
-        .padding(.horizontal, 15)
-        .padding(.vertical, 10)
+        .padding(.horizontal, Padding.medium)
+        .padding(.vertical, Padding.default)
         .background(.clear)
     }
     
     private var SendButton: some View {
         Button(action: sendMessage) {
             Image(systemName: SystemImage.sendMessage.getSystemName)
-                .font(.system(size: Font.big, weight: .medium))
-                .foregroundColor(text.isEmpty ? .highlightedBackground : .text)
+                .font(.system(size: FontValues.big, weight: .medium))
+                .foregroundColor(viewModel.isSendingMessagesEnable(text: text) ? .highlightedBackground : .text)
         }
-        .disabled(text.isEmpty)
+        .disabled(viewModel.isSendingMessagesEnable(text: text))
     }
     
     private func sendMessage() {
-        if !text.isEmpty {
-            viewModel.createMessage(text: &text)
-            lastMessageCount += 1
-        }
+        let messageText = text
+        text = ""
+        
+        Task { await viewModel.createMessage(messageText: messageText) }
     }
 }

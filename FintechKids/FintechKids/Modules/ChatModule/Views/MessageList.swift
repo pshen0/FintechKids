@@ -8,25 +8,22 @@
 import SwiftUI
 
 #Preview {
-    ChatScreen(viewModel: ChatViewModel())
+    ChatScreen(viewModel: ChatViewModel(chatService: ChatService()))
 }
 
 struct MessageList: View {
-    
+    @ObservedObject var viewModel: ChatViewModel
     @Binding var shouldScrollToBottom: Bool
-    @Binding var lastMessageCount: Int
     var proxy: ScrollViewProxy
-    var viewModel: ChatViewModel
     var dismiss: (() -> Void)
     
     var body: some View {
         List {
-            
             ForEach(viewModel.data, id: \.0) { (date, messages) in
-                
                 Section {
                     HStack(alignment: .center) {
                         Spacer()
+                        
                         Text(Formatter.formatDayDate(date: date))
                             .font(.caption)
                             .bold()
@@ -37,6 +34,7 @@ struct MessageList: View {
                                     .fill(Color(.text.opacity(0.25)))
                             )
                             .shadow(radius: Padding.small)
+                        
                         Spacer()
                     }
                     .listRowBackground(Color.clear)
@@ -48,9 +46,21 @@ struct MessageList: View {
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
                 }
+                
+                if viewModel.isManagerProcessing {
+                    HStack {
+                        Spacer()
+                        
+                        TypingIndicator()
+                            .padding(.top, Padding.default)
+                        
+                        Spacer()
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                }
             }
         }
-        .scrollContentBackground(.hidden)
         .background(.clear)
         .onAppear {
             scrollToLastMessage(proxy: proxy)
@@ -60,7 +70,7 @@ struct MessageList: View {
                 scrollToLastMessage(proxy: proxy)
             }
         }
-        .onChange(of: lastMessageCount) { _, _ in
+        .onChange(of: viewModel.lastMessage) { _, _ in
             scrollToLastMessage(proxy: proxy)
         }
         .onTapGesture {
