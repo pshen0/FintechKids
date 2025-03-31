@@ -11,6 +11,11 @@ import PDFKit
 enum StatementPDFToStringConverter {
     
     static func extractText(from pdfURL: URL) async throws -> String {
+        
+        guard pdfURL.startAccessingSecurityScopedResource() else {
+                throw PDFError.accessDenied
+            }
+        
         guard let document = PDFDocument(url: pdfURL) else {
             throw PDFError.invalidDocument
         }
@@ -27,8 +32,8 @@ enum StatementPDFToStringConverter {
     }
     
     private static func formatOperations(from text: String) -> String {
-        let pattern = #"(\d{2}\.\d{2}\.\d{4})\n(\d{2}:\d{2})\n(\d{2}\.\d{2}\.\d{4})\n(\d{2}:\d{2})\n([+-]?\d{1,3}(?:\s?\d{3})*\.\d{2} ₽) ([+-]?\d{1,3}(?:\s?\d{3})*\.\d{2} ₽) (.+)"#
-   
+        let pattern = #"((?:\d{2}[./-]\d{2}[./-]\d{4}|\d{4}-\d{2}-\d{2}))\n(\d{2}:\d{2})\n((?:\d{2}[./-]\d{2}[./-]\d{4}|\d{4}-\d{2}-\d{2}))\n(\d{2}:\d{2})\n([+-]?\d{1,3}(?:\s?\d{3})*\.\d{2})\s*(?:₽)?\s*([+-]?\d{1,3}(?:\s?\d{3})*\.\d{2})\s*(?:₽)?\s*(.+)"#
+        
         guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {
             return text
         }

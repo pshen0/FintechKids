@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TextToTransactionConverter {
+final class TextToTransactionConverter {
     
     private lazy var dateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()

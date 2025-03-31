@@ -28,10 +28,8 @@
 		2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151632D954BA7001ED73E /* DateExtension.swift */; };
 		2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151652D954C5B001ED73E /* GoalModel.swift */; };
 		2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1516A2D958124001ED73E /* GoalsView.swift */; };
-		53B3D6F82D96CA1E00B31D2D /* StatementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6F32D96CA1E00B31D2D /* StatementController.swift */; };
-		53B3D6F92D96CA1E00B31D2D /* StatementPDFToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6F62D96CA1E00B31D2D /* StatementPDFToStringConverter.swift */; };
+		536509A52D9A9E7300797B3C /* TextToTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536509A32D9A9E7300797B3C /* TextToTransactionConverter.swift */; };
 		53B3D6FA2D96CA1E00B31D2D /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6F52D96CA1E00B31D2D /* LLMService.swift */; };
-		53B3D6FB2D96CA1E00B31D2D /* StatementFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6F42D96CA1E00B31D2D /* StatementFileStore.swift */; };
 		53B3D7002D96CA3900B31D2D /* FileServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6FC2D96CA3900B31D2D /* FileServiceError.swift */; };
 		53B3D7012D96CA3900B31D2D /* PDFError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6FE2D96CA3900B31D2D /* PDFError.swift */; };
 		53B3D7022D96CA3900B31D2D /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6FD2D96CA3900B31D2D /* NetworkingError.swift */; };
@@ -43,8 +41,12 @@
 		53B3D7102D96CA6600B31D2D /* MessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7072D96CA6600B31D2D /* MessageResponse.swift */; };
 		53B3D7112D96CA6600B31D2D /* RequestBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7092D96CA6600B31D2D /* RequestBody.swift */; };
 		53B3D7132D96CB4F00B31D2D /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7122D96CB4F00B31D2D /* Transaction.swift */; };
-		53B3D7172D96E9AE00B31D2D /* StatementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7162D96E9AE00B31D2D /* StatementService.swift */; };
-		53B3D7272D97CFEF00B31D2D /* TextToTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7262D97CFEF00B31D2D /* TextToTransactionConverter.swift */; };
+		53B3D7412D986DA900B31D2D /* LLMKeyProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7402D986DA900B31D2D /* LLMKeyProvider.swift */; };
+		53B3D7472D986E2D00B31D2D /* StatementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7422D986E2D00B31D2D /* StatementController.swift */; };
+		53B3D7482D986E2D00B31D2D /* StatementFileStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7432D986E2D00B31D2D /* StatementFileStore.swift */; };
+		53B3D7492D986E2D00B31D2D /* StatementPDFToStringConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7442D986E2D00B31D2D /* StatementPDFToStringConverter.swift */; };
+		53B3D74A2D986E2D00B31D2D /* StatementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7452D986E2D00B31D2D /* StatementService.swift */; };
+		53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D74E2D99A26900B31D2D /* ChatService.swift */; };
 		56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2DDE62D95833500F853B3 /* SettingsView.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameRound.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
@@ -101,10 +103,8 @@
 		2EA151632D954BA7001ED73E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2EA151652D954C5B001ED73E /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		2EA1516A2D958124001ED73E /* GoalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
-		53B3D6F32D96CA1E00B31D2D /* StatementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementController.swift; sourceTree = "<group>"; };
-		53B3D6F42D96CA1E00B31D2D /* StatementFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementFileStore.swift; sourceTree = "<group>"; };
+		536509A32D9A9E7300797B3C /* TextToTransactionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToTransactionConverter.swift; sourceTree = "<group>"; };
 		53B3D6F52D96CA1E00B31D2D /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
-		53B3D6F62D96CA1E00B31D2D /* StatementPDFToStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementPDFToStringConverter.swift; sourceTree = "<group>"; };
 		53B3D6FC2D96CA3900B31D2D /* FileServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileServiceError.swift; sourceTree = "<group>"; };
 		53B3D6FD2D96CA3900B31D2D /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
 		53B3D6FE2D96CA3900B31D2D /* PDFError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFError.swift; sourceTree = "<group>"; };
@@ -116,8 +116,12 @@
 		53B3D7082D96CA6600B31D2D /* Prompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prompt.swift; sourceTree = "<group>"; };
 		53B3D7092D96CA6600B31D2D /* RequestBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBody.swift; sourceTree = "<group>"; };
 		53B3D7122D96CB4F00B31D2D /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		53B3D7162D96E9AE00B31D2D /* StatementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementService.swift; sourceTree = "<group>"; };
-		53B3D7262D97CFEF00B31D2D /* TextToTransactionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToTransactionConverter.swift; sourceTree = "<group>"; };
+		53B3D7402D986DA900B31D2D /* LLMKeyProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMKeyProvider.swift; sourceTree = "<group>"; };
+		53B3D7422D986E2D00B31D2D /* StatementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementController.swift; sourceTree = "<group>"; };
+		53B3D7432D986E2D00B31D2D /* StatementFileStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementFileStore.swift; sourceTree = "<group>"; };
+		53B3D7442D986E2D00B31D2D /* StatementPDFToStringConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementPDFToStringConverter.swift; sourceTree = "<group>"; };
+		53B3D7452D986E2D00B31D2D /* StatementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementService.swift; sourceTree = "<group>"; };
+		53B3D74E2D99A26900B31D2D /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		83869DA82D9499D2000A1EFD /* CardGameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameRound.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
@@ -236,9 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				8390DB9E2D9869F900A414FD /* Info.plist */,
-				53B3D70A2D96CA6600B31D2D /* Model */,
-				53B3D6F72D96CA1E00B31D2D /* Service */,
-				53B3D6FF2D96CA3900B31D2D /* Errors */,
+				53B3D73E2D986CE300B31D2D /* Networking */,
 				2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */,
 				2EA151572D94A9B1001ED73E /* Shared */,
 				2EA151562D94A98B001ED73E /* Modules */,
@@ -323,17 +325,20 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		53B3D6F72D96CA1E00B31D2D /* Service */ = {
+		536509A42D9A9E7300797B3C /* Converter */ = {
 			isa = PBXGroup;
 			children = (
-				53B3D7262D97CFEF00B31D2D /* TextToTransactionConverter.swift */,
-				53B3D6F32D96CA1E00B31D2D /* StatementController.swift */,
-				53B3D6F42D96CA1E00B31D2D /* StatementFileStore.swift */,
-				53B3D6F52D96CA1E00B31D2D /* LLMService.swift */,
-				53B3D6F62D96CA1E00B31D2D /* StatementPDFToStringConverter.swift */,
-				53B3D7162D96E9AE00B31D2D /* StatementService.swift */,
+				536509A32D9A9E7300797B3C /* TextToTransactionConverter.swift */,
 			);
-			path = Service;
+			path = Converter;
+			sourceTree = "<group>";
+		};
+		53B3D6F72D96CA1E00B31D2D /* LLMService */ = {
+			isa = PBXGroup;
+			children = (
+				53B3D6F52D96CA1E00B31D2D /* LLMService.swift */,
+			);
+			path = LLMService;
 			sourceTree = "<group>";
 		};
 		53B3D6FF2D96CA3900B31D2D /* Errors */ = {
@@ -359,6 +364,39 @@
 				53B3D7122D96CB4F00B31D2D /* Transaction.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		53B3D73E2D986CE300B31D2D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				53B3D70A2D96CA6600B31D2D /* Model */,
+				53B3D6F72D96CA1E00B31D2D /* LLMService */,
+				53B3D6FF2D96CA3900B31D2D /* Errors */,
+				536509A42D9A9E7300797B3C /* Converter */,
+				53B3D74F2D99A26900B31D2D /* Chat */,
+				53B3D7462D986E2D00B31D2D /* Statement */,
+				53B3D7402D986DA900B31D2D /* LLMKeyProvider.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		53B3D7462D986E2D00B31D2D /* Statement */ = {
+			isa = PBXGroup;
+			children = (
+				53B3D7422D986E2D00B31D2D /* StatementController.swift */,
+				53B3D7432D986E2D00B31D2D /* StatementFileStore.swift */,
+				53B3D7442D986E2D00B31D2D /* StatementPDFToStringConverter.swift */,
+				53B3D7452D986E2D00B31D2D /* StatementService.swift */,
+			);
+			path = Statement;
+			sourceTree = "<group>";
+		};
+		53B3D74F2D99A26900B31D2D /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				53B3D74E2D99A26900B31D2D /* ChatService.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		56A2DDE52D95831900F853B3 /* SettingsModule */ = {
@@ -532,27 +570,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
-				53B3D7172D96E9AE00B31D2D /* StatementService.swift in Sources */,
 				0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */,
 				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
 				83A6E9662D95945E0007B577 /* Storage.swift in Sources */,
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
 				2EA1515E2D94B5FE001ED73E /* FrontSideGoalCardView.swift in Sources */,
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
-				53B3D6F82D96CA1E00B31D2D /* StatementController.swift in Sources */,
-				53B3D6F92D96CA1E00B31D2D /* StatementPDFToStringConverter.swift in Sources */,
 				53B3D6FA2D96CA1E00B31D2D /* LLMService.swift in Sources */,
-				53B3D6FB2D96CA1E00B31D2D /* StatementFileStore.swift in Sources */,
 				0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
+				536509A52D9A9E7300797B3C /* TextToTransactionConverter.swift in Sources */,
 				53B3D7002D96CA3900B31D2D /* FileServiceError.swift in Sources */,
+				53B3D7412D986DA900B31D2D /* LLMKeyProvider.swift in Sources */,
 				53B3D7012D96CA3900B31D2D /* PDFError.swift in Sources */,
+				53B3D7472D986E2D00B31D2D /* StatementController.swift in Sources */,
+				53B3D7482D986E2D00B31D2D /* StatementFileStore.swift in Sources */,
+				53B3D7492D986E2D00B31D2D /* StatementPDFToStringConverter.swift in Sources */,
+				53B3D74A2D986E2D00B31D2D /* StatementService.swift in Sources */,
 				53B3D7022D96CA3900B31D2D /* NetworkingError.swift in Sources */,
-				53B3D7272D97CFEF00B31D2D /* TextToTransactionConverter.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
+				53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
 				2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */,
@@ -737,7 +777,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = XNT88MR9C6;
+				DEVELOPMENT_TEAM = FZ98CZDGW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -752,7 +792,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hse.se.FintechKids;
+				PRODUCT_BUNDLE_IDENTIFIER = org.tag.FintechKids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -768,7 +808,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = XNT88MR9C6;
+				DEVELOPMENT_TEAM = FZ98CZDGW9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -783,7 +823,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hse.se.FintechKids;
+				PRODUCT_BUNDLE_IDENTIFIER = org.tag.FintechKids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

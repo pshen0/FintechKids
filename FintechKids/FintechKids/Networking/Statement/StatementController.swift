@@ -7,7 +7,7 @@
 
 import Foundation
 
-class StatementController {
+final class StatementController {
     
     private var statementService: StatementService
     private var statementFileStore: StatementFileStore
@@ -20,7 +20,7 @@ class StatementController {
     public func processStatement(pdfURL: URL) async throws {
         do {
             let formattedTextPDF = try await StatementPDFToStringConverter.extractText(from: pdfURL)
-            let csvFormattedText = try await statementService.processStatement(text: formattedTextPDF)
+            let csvFormattedText = try await statementService.processStatement(prompt: .csv(formattedTextPDF))
             try statementFileStore.writeCSV(textFile: csvFormattedText)
         } catch {
             print("Error processing statement: \(error)")
