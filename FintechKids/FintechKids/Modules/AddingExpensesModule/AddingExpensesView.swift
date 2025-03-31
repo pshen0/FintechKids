@@ -17,16 +17,16 @@ struct AddingExpensesView: View {
     
     var body: some View {
         VStack {
-            Text("Добавление новой траты")
-                .font(.title3)
+            Text(addingExpensesText)
+                .font(Font.custom(Fonts.deledda, size: addingExpensesSize))
                 .fontWeight(.bold)
-                .padding(.bottom, 50)
-                .padding(.top, 30)
+                .padding(.bottom, bPadding)
+                .padding(.top, tPadding)
                 .foregroundColor(Color.text)
             List {
-                AddingExpensesFieldCoast(text: "Сумма траты:")
-                AddingExpensesFieldCategory(text: "Категория:")
-                AddingExpensesFieldDate(text: "Дата:")
+                AddingExpensesFieldCoast(text: addingCoastText)
+                AddingExpensesFieldCategory(text: addingCategoryText)
+                AddingExpensesFieldDate(text: addingDateText)
             }
             .listStyle(.plain)
         }
@@ -34,6 +34,16 @@ struct AddingExpensesView: View {
         .background(Color.highlightedBackground)
         
     }
+    
+    // MARK: - Constants
+    
+    private let addingExpensesText: String = "Добавление новой траты"
+    private let addingCoastText: String = "Сумма траты:"
+    private let addingCategoryText: String = "Категория:"
+    private let addingDateText: String = "Дата:"
+    private let addingExpensesSize: CGFloat = 25
+    private let bPadding: CGFloat = 50
+    private let tPadding: CGFloat = 30
 }
 
 struct AddingExpensesFieldCoast: View {
@@ -67,11 +77,11 @@ struct AddingExpensesFieldCategory: View {
             } label: {
                 HStack {
                     Text(selectedOption.isEmpty ? text : selectedOption)
-                        .foregroundColor(selectedOption.isEmpty ? .secondary.opacity(0.5) : Color.text)
+                        .foregroundColor(selectedOption.isEmpty ? .secondary.opacity(opacity) : Color.text)
                     Spacer()
                 }
                 .background(Color.highlightedBackground)
-                .cornerRadius(10)
+                .cornerRadius(cornerRadius)
             }
             .simultaneousGesture(TapGesture().onEnded {
                 isMenuOpen.toggle()
@@ -79,14 +89,21 @@ struct AddingExpensesFieldCategory: View {
             
             Rectangle()
                 .fill(Color.clear)
-                .frame(height: isMenuOpen ? 150 : 0)
-                .animation(.easeInOut(duration: 0.3), value: isMenuOpen)
+                .frame(height: isMenuOpen ? rectangleHeight : 0)
+                .animation(.easeInOut(duration: duration), value: isMenuOpen)
         }
         .onTapGesture {
             isMenuOpen = false
         }
         .listRowBackground(Color.highlightedBackground)
     }
+    
+    // MARK: - Constants
+    
+    private let opacity: CGFloat = 0.5
+    private let cornerRadius: CGFloat = 10
+    private let rectangleHeight: CGFloat = 150
+    private let duration: Double = 0.3
 }
 
 struct AddingExpensesFieldDate: View {
@@ -96,17 +113,22 @@ struct AddingExpensesFieldDate: View {
     var body: some View {
         HStack {
             Text(text)
-                .foregroundColor(.secondary.opacity(0.5))
-                .padding(.trailing, 20)
+                .foregroundColor(.secondary.opacity(opacity))
+                .padding(.trailing, tPadding)
             DatePicker("", selection: $input, displayedComponents: [.date])
                 .labelsHidden()
-                .foregroundColor(.secondary.opacity(0.5))
+                .foregroundColor(.secondary.opacity(opacity))
                 .foregroundStyle(Color.text)
                 .tint(Color.text)
             Spacer()
         }
         .listRowBackground(Color.highlightedBackground)
     }
+    
+    // MARK: - Constants
+    
+    private let opacity: CGFloat = 0.5
+    private let tPadding: CGFloat = 20
 }
 
 #Preview {

@@ -7,50 +7,40 @@
 
 import SwiftUI
 
-enum PlotConstants {
-    static let radiusRatio: Double = 2
-    static let controlPointRatio: Double = 3.5
-    static let pointsNum: Int = 5
-    static let quarters: [Double] = [4.0, 2.0, (4/3.0), 1.0]
-    static let maxValue: Double = 50
-    static let markRadius: Double = 5
-}
-
 struct Plot: Shape {
-    
     private var values: [Double] = []
     
     init(_ values: [Double]) {
         self.values = values
     }
     
-    func path(in rect: CGRect) -> Path {
+    func drawPlot(in rect: CGRect) -> Path {
         var path = Path()
         let center = CGPoint(x: rect.midX, y: rect.midY)
         let radius = min(rect.width, rect.height) / PlotConstants.radiusRatio
-        let points = PlotConstants.pointsNum
+        let points = PlotConstants.pointsCount
         let angle = Double.pi * 2 / Double(points)
-
+        
         var positions: [CGPoint] = []
-
+        
         for i in 0..<points {
             let length = radius / (values.max() ?? PlotConstants.maxValue) * values[i]
             let x = center.x + cos(Double(i) * angle - Double.pi / 2) * length
             let y = center.y + sin(Double(i) * angle - Double.pi / 2) * length
             positions.append(CGPoint(x: x, y: y))
         }
-
+        
         path.move(to: positions[0])
-
+        
         for i in 0..<points {
             let nextIndex = (i + 1) % points
             let controlRadius = radius / PlotConstants.controlPointRatio
             let controlAngle = Double(i) * angle + (angle / 2) - Double.pi / 2
             let controlPoint = CGPoint(
-                x: center.x + cos(Double(controlAngle)) * controlRadius,
+                x: center.x + cos(controlAngle) * controlRadius,
                 y: center.y + sin(controlAngle) * controlRadius
             )
-
+            
             path.addQuadCurve(to: positions[nextIndex], control: controlPoint)
         }
         
@@ -64,21 +54,26 @@ struct Plot: Shape {
         path.closeSubpath()
         return path
     }
+    
+    func path(in rect: CGRect) -> Path {
+        return drawPlot(in: rect)
+    }
 }
 
 struct CoordinateAxes: Shape {
-    func path(in rect: CGRect) -> Path {
+    func drawCoordinateAxes(in rect: CGRect) -> Path {
         var path = Path()
         let center = CGPoint(x: rect.midX, y: rect.midY)
         let radius = min(rect.width, rect.height) / PlotConstants.radiusRatio
-        let points = PlotConstants.pointsNum
+        let points = PlotConstants.pointsCount
         let angle = Double.pi * 2 / Double(points)
-
+        
         for i in 0..<points {
-            let x = center.x + CGFloat(cos(Double(i) * angle - Double.pi / 2)) * radius
-            let y = center.y + CGFloat(sin(Double(i) * angle - Double.pi / 2)) * radius
+            let tempAngle = Double(i) * angle - Double.pi / 2
+            let x = center.x + CGFloat(cos(tempAngle)) * radius
+            let y = center.y + CGFloat(sin(tempAngle)) * radius
             let point = CGPoint(x: x, y: y)
-
+            
             path.move(to: center)
             path.addLine(to: point)
         }
@@ -93,4 +88,19 @@ struct CoordinateAxes: Shape {
         }
         return path
     }
+    
+    func path(in rect: CGRect) -> Path {
+        return drawCoordinateAxes(in: rect)
+    }
+}
+
+//MARK: - Constants
+
+enum PlotConstants {
+    static let radiusRatio: Double = 2
+    static let controlPointRatio: Double = 3.5
+    static let pointsCount = 5
+    static let quarters: [Double] = [4.0, 2.0, (4/3.0), 1.0]
+    static let maxValue: Double = 50
+    static let markRadius: Double = 5
 }

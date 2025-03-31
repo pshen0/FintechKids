@@ -12,33 +12,13 @@ enum Fonts {
 }
 
 struct AnalyticsView: View {
-    enum Constants {
-        static let screenNameText: String = " Аналитика трат "
-        static let addingFileText: String = "Добавить выгрузку трат"
-        static let addingExpenseText: String = "Добавить новую трату"
-        
-        static let catImageName: String = "cat"
-        
-        static let screenNameSize: CGFloat = 40
-        static let buttonTextSize: CGFloat = 15
-        static let buttonWidth: CGFloat = 150
-        static let buttonHeight: CGFloat = 40
-        static let buttonCornerRadius: CGFloat = 40
-        static let catWidth: CGFloat = 70
-        static let catHeight: CGFloat = 120
-        static let catLPadding: CGFloat = 20
-        static let catBPadding: CGFloat = 20
-        
-        static let plotWidth: CGFloat = 360
-        static let plotHeight: CGFloat = 360
-        static let plotStroke: CGFloat = 1
-    }
     
     @State private var showAddingExpenseScreen = false
     @State private var showDocumentPicker = false
     @State private var selectedFileURL: URL?
+    @State private var progress: Double = 0.0
     
-    private var values: [Double] = [45.0, 50.0, 14.89, 35.9, 37.0]
+    private var values: [Double] = [50.0, 50.0, 50, 50, 50.0]
     
     var body: some View {
         ZStack {
@@ -74,8 +54,8 @@ struct AnalyticsView: View {
     }
     
     private var screenName: some View {
-        Text(Constants.screenNameText)
-            .font(Font.custom(Fonts.deledda, size: Constants.screenNameSize))
+        Text(screenNameText)
+            .font(Font.custom(Fonts.deledda, size: screenNameSize))
             .padding()
             .foregroundColor(Color.text)
     }
@@ -84,12 +64,12 @@ struct AnalyticsView: View {
         Button(action: {
             showDocumentPicker = true
         }) {
-            Text(Constants.addingFileText)
-                .font(Font.custom(Fonts.deledda, size: Constants.buttonTextSize))
-                .frame(width: Constants.buttonWidth, height: Constants.buttonHeight)
+            Text(addingFileText)
+                .font(Font.custom(Fonts.deledda, size: buttonTextSize))
+                .frame(width: buttonWidth, height: buttonHeight)
                 .background(Color.highlightedBackground)
                 .foregroundColor(Color.text)
-                .cornerRadius(Constants.buttonCornerRadius)
+                .cornerRadius(buttonCornerRadius)
             
         }
         .sheet(isPresented: $showDocumentPicker) {
@@ -104,12 +84,12 @@ struct AnalyticsView: View {
         Button(action: {
             showAddingExpenseScreen = true
         }) {
-            Text(Constants.addingExpenseText)
-                .font(Font.custom(Fonts.deledda, size: Constants.buttonTextSize))
-                .frame(width: Constants.buttonWidth, height: Constants.buttonHeight)
+            Text(addingExpenseText)
+                .font(Font.custom(Fonts.deledda, size: buttonTextSize))
+                .frame(width: buttonWidth, height: buttonHeight)
                 .background(Color.highlightedBackground)
                 .foregroundColor(Color.text)
-                .cornerRadius(Constants.buttonCornerRadius)
+                .cornerRadius(buttonCornerRadius)
         }
         .sheet(isPresented: $showAddingExpenseScreen) {
             AddingExpensesView()
@@ -118,28 +98,72 @@ struct AnalyticsView: View {
     
     private var catImage: some View {
         HStack {
-            Image(Constants.catImageName)
+            Image(catImageName)
                 .resizable()
                 .scaledToFit()
-                .frame(width: Constants.catWidth, height: Constants.catHeight)
-                .padding(.leading, Constants.catLPadding)
-                .padding(.bottom, Constants.catBPadding)
+                .frame(width: catWidth, height: catHeight)
+                .padding(.leading, catLPadding)
+                .padding(.bottom, catBPadding)
             Spacer()
         }
     }
     
     private var plot: some View {
         ZStack {
+            CoordinateAxes()
+                .stroke(Color.gray, lineWidth: 2)
+                .frame(width: plotWidth, height: plotHeight)
+            
             Plot(values)
                 .fill(
-                    Gradient(colors: [Color.text, Color.highlightedBackground, Color.red])
+                    LinearGradient(
+                        gradient: Gradient(stops: [
+                            .init(color: color1, location: progress),
+                            .init(color: color2, location: 0.2 + progress),
+                            .init(color: color3, location: 0.4 + progress),
+                            .init(color: color4, location: 0.6 + progress),
+                            .init(color: color5, location: 0.8 + progress),
+                        ]),
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
                 )
-                .frame(width: Constants.plotWidth, height: Constants.plotHeight)
-            CoordinateAxes()
-                .stroke(Color.text, lineWidth: Constants.plotStroke)
-                .frame(width: Constants.plotWidth, height: Constants.plotHeight)
+                .frame(width: plotWidth, height: plotHeight)
+                .onAppear {
+                    withAnimation(.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
+                        progress = 0.5
+                    }
+                }
         }
     }
+    
+    //MARK: - Constants
+
+    private let screenNameText: String = " Аналитика трат "
+    private let addingFileText: String = "Добавить выгрузку трат"
+    private let addingExpenseText: String = "Добавить новую трату"
+    
+    private let catImageName: String = "cat"
+    
+    private let screenNameSize: CGFloat = 40
+    private let buttonTextSize: CGFloat = 15
+    private let buttonWidth: CGFloat = 150
+    private let buttonHeight: CGFloat = 40
+    private let buttonCornerRadius: CGFloat = 40
+    private let catWidth: CGFloat = 70
+    private let catHeight: CGFloat = 120
+    private let catLPadding: CGFloat = 20
+    private let catBPadding: CGFloat = 20
+    
+    private let plotWidth: CGFloat = 360
+    private let plotHeight: CGFloat = 360
+    private let plotStroke: CGFloat = 1
+    
+    private let color1 =  Color.init(red: 209/255, green: 129/255, blue: 240/255)
+    private let color2 =  Color.init(red: 115/255, green: 163/255, blue: 239/255)
+    private let color3 =  Color.init(red: 182/255, green: 224/255, blue: 155/255)
+    private let color4 =  Color.init(red: 255/255, green: 231/255, blue: 110/255)
+    private let color5 =  Color.init(red: 242/255, green: 151/255, blue: 76/255)
 }
 
 #Preview {

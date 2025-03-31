@@ -9,29 +9,9 @@ import SwiftUI
 
 struct StartAnalyticsView: View {
     
-    enum Constants {
-        static let screenNameText: String = "Аналитика трат"
-        static let addingFileText: String = "Добавить выгрузку трат"
-        static let addingExpenseText: String = "Добавить новую трату"
-        static let unloadRequestText: String = "Чтобы начать отслеживать финансы, необходимо выгрузить траты"
-        
-        static let catImageName: String = "cat"
-        static let speechImageName: String = "speech"
-        
-        static let buttonTextSize: CGFloat = 17
-        static let buttonCornerRadius: CGFloat = 100
-        static let buttonHPadding: CGFloat = 40
-        static let buttonVPadding: CGFloat = 15
-        static let catWidth: CGFloat = 126
-        static let catHeight: CGFloat = 157
-        static let catLPadding: CGFloat = 20
-        static let speechHeight: CGFloat = 93
-    }
-    
-    
     @State private var showAddingExpenseScreen = false
     @State private var showDocumentPicker = false
-    @State private var unloadRequestText = ""
+    @State private var unloadRequest = ""
     @State private var charIndex = 0
     @State private var selectedFileURL: URL?
     
@@ -75,9 +55,8 @@ struct StartAnalyticsView: View {
     }
     
     private var screenName: some View {
-        Text(Constants.screenNameText)
-            .font(.largeTitle)
-            .fontWeight(.bold)
+        Text(screenNameText)
+            .font(Font.custom(Fonts.deledda, size: screenNameSize))
             .padding()
             .foregroundColor(Color.text)
     }
@@ -86,13 +65,13 @@ struct StartAnalyticsView: View {
         Button(action: {
             showDocumentPicker = true
         }) {
-            Text(Constants.addingFileText)
-                .font(.system(size: Constants.buttonTextSize, weight: .bold))
-                .padding(.vertical, Constants.buttonVPadding)
-                .frame(width: 250)
+            Text(addingFileText)
+                .font(Font.custom(Fonts.deledda, size: buttonTextSize))
+                .padding(.vertical, buttonVPadding)
+                .frame(width: buttonWidth)
                 .background(Color.highlightedBackground)
                 .foregroundColor(Color.text)
-                .cornerRadius(Constants.buttonCornerRadius)
+                .cornerRadius(buttonCornerRadius)
         }
         .sheet(isPresented: $showDocumentPicker) {
             DocumentPicker { url in
@@ -106,13 +85,13 @@ struct StartAnalyticsView: View {
         Button(action: {
             showAddingExpenseScreen = true
         }) {
-            Text(Constants.addingExpenseText)
-                .font(.system(size: Constants.buttonTextSize, weight: .bold))
-                .padding(.vertical, Constants.buttonVPadding)
-                .frame(width: 250)
+            Text(addingExpenseText)
+                .font(Font.custom(Fonts.deledda, size: buttonTextSize))
+                .padding(.vertical, buttonVPadding)
+                .frame(width: buttonWidth)
                 .background(Color.highlightedBackground)
                 .foregroundColor(Color.text)
-                .cornerRadius(Constants.buttonCornerRadius)
+                .cornerRadius(buttonCornerRadius)
         }
         .sheet(isPresented: $showAddingExpenseScreen) {
             AddingExpensesView()
@@ -120,24 +99,24 @@ struct StartAnalyticsView: View {
     }
     
     private var catImage: some View {
-        Image(Constants.catImageName)
+        Image(catImageName)
             .resizable()
             .scaledToFit()
-            .frame(width: Constants.catWidth, height: Constants.catHeight)
-            .padding(.leading, Constants.catLPadding)
+            .frame(width: catWidth, height: catHeight)
+            .padding(.leading, catLPadding)
     }
     
     private var speechImage: some View {
-        Image(Constants.speechImageName)
+        Image(speechImageName)
             .resizable()
             .scaledToFit()
-            .frame(height: Constants.speechHeight)
+            .frame(height: speechHeight)
             .padding(.trailing, 20)
     }
     
     private var unloadText: some View {
         Text(unloadRequestText)
-            .font(.system(size: 15, weight: .light))
+            .font(Font.custom(Fonts.deledda, size: 15))
             .foregroundColor(Color.text)
             .padding(.trailing, 20)
             .multilineTextAlignment(.center)
@@ -148,21 +127,40 @@ struct StartAnalyticsView: View {
     }
     
     private func startTypingAnimation() {
-        unloadRequestText = ""
+        unloadRequest = ""
         charIndex = 0
         
-        Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { timer in
-            if charIndex < Constants.unloadRequestText.count {
-                let index = Constants.unloadRequestText.index(Constants.unloadRequestText.startIndex, offsetBy: charIndex)
-                unloadRequestText.append(Constants.unloadRequestText[index])
+        Timer.scheduledTimer(withTimeInterval: typingAnimationDuration, repeats: true) { timer in
+            if charIndex < unloadRequestText.count {
+                let index = unloadRequestText.index(unloadRequestText.startIndex, offsetBy: charIndex)
+                unloadRequest.append(unloadRequestText[index])
                 charIndex += 1
             } else {
                 timer.invalidate()
             }
         }
     }
+    
+    private let screenNameText: String = "Аналитика трат"
+    private let addingFileText: String = "Добавить выгрузку трат"
+    private let addingExpenseText: String = "Добавить новую трату"
+    private let unloadRequestText: String = "Чтобы начать отслеживать финансы, необходимо выгрузить траты"
+    
+    private let catImageName: String = "cat"
+    private let speechImageName: String = "speech"
+    
+    private let screenNameSize: CGFloat = 40
+    private let buttonTextSize: CGFloat = 17
+    private let buttonCornerRadius: CGFloat = 100
+    private let buttonVPadding: CGFloat = 15
+    private let catWidth: CGFloat = 126
+    private let catHeight: CGFloat = 157
+    private let catLPadding: CGFloat = 20
+    private let speechHeight: CGFloat = 93
+    private let buttonWidth: CGFloat = 250
+    
+    private let typingAnimationDuration: Double = 0.03
 }
-
 
 #Preview {
     StartAnalyticsView()
