@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class CardGameViewModel: ObservableObject {
     @Published var userInput = ""
@@ -13,10 +14,12 @@ final class CardGameViewModel: ObservableObject {
     @Published var attempts = 3
     @Published var showNext = false
     @Published private(set) var screen: ScreenData
+    @ObservedObject var screenFactory: ScreenFactory
     private var currentRound = 0
     
-    init(screen: Screen) {
-        self.screen = ScreenFactory.createScreen(ofType: screen)
+    init(screen: Screen, screenFactory: ScreenFactory) {
+        self.screenFactory = screenFactory
+        self.screen = screenFactory.createScreen(ofType: screen)
     }
 
     

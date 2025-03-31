@@ -22,9 +22,11 @@ struct HomeView: View {
     }
     
     @ObservedObject private var viewModel: CardGameViewModel
-
-       init(screen: Screen) {
-           self.viewModel = CardGameViewModel(screen: screen)
+    @ObservedObject var screenFactory: ScreenFactory
+    
+    init(screen: Screen, screenFactory: ScreenFactory) {
+        self.screenFactory = screenFactory
+        self.viewModel = CardGameViewModel(screen: screen, screenFactory: screenFactory)
        }
 
     @State var showChat: Bool = false

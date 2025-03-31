@@ -8,14 +8,14 @@
 import Foundation
 
 final class ScreenFactory: ObservableObject {
-    private static var cachedData: [Screen: ScreenData] = [:]
+    private var cachedData: [Screen: ScreenData] = [:]
     
-    private static var analyticsData: [CardGameRound] {
+    lazy private var analyticsData: [CardGameRound] = {
         let storage = Storage()
         return storage.loadFromBundle()
-    }
+    }()
     
-    static func createScreen(ofType screenType: Screen) -> ScreenData {
+    func createScreen(ofType screenType: Screen) -> ScreenData {
         if let data = cachedData[screenType] {
             return data
         }

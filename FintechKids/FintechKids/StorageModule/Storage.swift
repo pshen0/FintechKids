@@ -10,7 +10,7 @@ import Foundation
 class Storage {
     func loadFromBundle() -> [CardGameRound] {
         guard let url = Bundle.main.url(forResource: "CardGame", withExtension: "txt") else {
-            print("Файл CardGame.txt не найден в Bundle!")
+            assertionFailure("Файл CardGame.txt не найден в Bundle!")
             return []
         }
         

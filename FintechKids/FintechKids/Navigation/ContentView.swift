@@ -17,7 +17,7 @@ struct ContentView: View {
             case 0:
                 GoalsView()
             case 1:
-                HomeView(screen: .analytics)
+                HomeView(screen: .analytics, screenFactory: screenFactory)
             case 2:
                 AnalyticsView()
             default:
