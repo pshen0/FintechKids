@@ -10,6 +10,11 @@ import Foundation
 final class ScreenFactory: ObservableObject {
     private static var cachedData: [Screen: ScreenData] = [:]
     
+    private static var analyticsData: [CardGameRound] {
+        let storage = Storage()
+        return storage.loadFromBundle()
+    }
+    
     static func createScreen(ofType screenType: Screen) -> ScreenData {
         if let data = cachedData[screenType] {
             return data
@@ -18,28 +23,7 @@ final class ScreenFactory: ObservableObject {
         let newData: ScreenData
         switch screenType {
         case .analytics:
-            newData = .cardsGame([
-                CardGameRound(
-                    name: "батон белого хлеба",
-                    imageName: "BreadImage",
-                    cost: 80
-                ),
-                CardGameRound(
-                    name: "мороженое",
-                    imageName: "IceCreamImage",
-                    cost: 100
-                ),
-                CardGameRound(
-                    name: "ветка бананов",
-                    imageName: "BreadImage",
-                    cost: 180
-                ),
-                CardGameRound(
-                    name: "бутылка молока",
-                    imageName: "BreadImage",
-                    cost: 90
-                )
-            ])
+            newData = .cardsGame(analyticsData)
         case .cardsGame:
             newData = .cardsGame([])
         case .chat:

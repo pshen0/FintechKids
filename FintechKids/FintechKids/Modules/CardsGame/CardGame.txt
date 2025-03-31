@@ -1,1 +1,22 @@
-
+[
+    {
+        "name": "батон белого хлеба",
+        "imageName": "BreadImage",
+        "cost": 80
+    },
+    {
+        "name": "мороженое",
+        "imageName": "IceCreamImage",
+        "cost": 100
+    },
+    {
+        "name": "ветка бананов",
+        "imageName": "BreadImage",
+        "cost": 180
+    },
+    {
+        "name": "бутылка молока",
+        "imageName": "BreadImage",
+        "cost": 90
+    }
+]
