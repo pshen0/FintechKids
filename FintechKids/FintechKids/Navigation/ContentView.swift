@@ -19,7 +19,7 @@ struct ContentView: View {
             case 1:
                 HomeView(viewModel: storage.cardGameViewModel)
             case 2:
-                StartAnalyticsView()
+                AnalyticsView()
             default:
                 Text("AAA")
             }
