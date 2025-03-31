@@ -13,6 +13,7 @@ enum NetworkingError: Error {
     case serverError
     case invalidResponseFormat
     case decodingError(DecodingError)
+    case encodingError(EncodingError)
     
     var errorMessage: String {
         switch self {
@@ -24,6 +25,8 @@ enum NetworkingError: Error {
             return "Invalid response format from API"
         case .decodingError(let error):
             return "Failed to decode response: \(error.localizedDescription)"
+        case .encodingError(let error):
+            return "Failed to encode request: \(error.localizedDescription)"
         }
     }
 }
