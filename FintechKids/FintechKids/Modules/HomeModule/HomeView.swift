@@ -9,8 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     enum Constants {
-        static let greetingTextSize: CGFloat = 35
-        static let buttonTextSize: CGFloat = 17
+        static let greetingTextSize: CGFloat = 40
+        static let buttonTextSize: CGFloat = 18
         static let buttonCornerRadius: CGFloat = 20
         static let buttonHeight: CGFloat = 150
         static let buttonWidth: CGFloat = 150
@@ -84,7 +84,7 @@ struct HomeView: View {
             showChat = true
         }) {
             VStack {
-                Text("Чат с Фиником")
+                Text("Чат с Фиником AA")
                     .font(Font.custom("DeleddaOpen-Light", size: Constants.buttonTextSize))
                     .fontWeight(.bold)
                     .foregroundColor(Color.text)
@@ -147,9 +147,11 @@ struct HomeView: View {
             Text("Привет!")
                 .font(Font.custom("DeleddaOpen-Light", size: Constants.greetingTextSize))
                 .foregroundColor(Color.text)
+                .padding(.bottom, 5)
             Text("Выбери, чем хочешь сегодня заняться:")
                 .font(Font.custom("DeleddaOpen-Light", size: Constants.buttonTextSize))
                 .foregroundColor(Color.text)
         }
     }
 }
+
