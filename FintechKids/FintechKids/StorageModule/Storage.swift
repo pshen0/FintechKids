@@ -12,24 +12,24 @@ final class Storage: ObservableObject {
     @Published var cardGameViewModel = CardGameViewModel(
         rounds: [
             CardGameRound(
-                name: "батон белого хлеба",
-                imageName: "BreadImage",
-                cost: 80
+                name: "1 кг яблок",
+                imageName: "AppleImage",
+                cost: 70
             ),
             CardGameRound(
-                name: "мороженое",
-                imageName: "IceCreamImage",
-                cost: 100
+                name: "1 литр молока",
+                imageName: "MilkImage",
+                cost: 110
             ),
             CardGameRound(
-                name: "ветка бананов",
-                imageName: "BreadImage",
+                name: "1 авокадо",
+                imageName: "AvocadoImage",
+                cost: 130
+            ),
+            CardGameRound(
+                name: "1 кокос",
+                imageName: "CoconutImage",
                 cost: 180
-            ),
-            CardGameRound(
-                name: "бутылка молока",
-                imageName: "BreadImage",
-                cost: 90
             )
         ]
     )

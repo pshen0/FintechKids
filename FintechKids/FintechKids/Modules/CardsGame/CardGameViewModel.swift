@@ -12,6 +12,8 @@ final class CardGameViewModel: ObservableObject {
     @Published var feedback = ""
     @Published var attempts = 3
     @Published var showNext = false
+    @Published var isCorrect = false
+
     private let rounds: [CardGameRound]
     private var currentRound = 0
     
@@ -23,20 +25,25 @@ final class CardGameViewModel: ObservableObject {
         rounds[currentRound]
     }
     
-    func checkPrice() {
-        guard let guessedPrice = Int(userInput) else { return }
+    func checkPrice() -> Bool {
+        guard let guessedPrice = Int(userInput) else { return false }
         if attempts > 0 {
             attempts -= 1
             feedback = getFeedback(for: guessedPrice)
         }
-    }
-    
-    private func getFeedback(for guessedPrice: Int) -> String {
-        if guessedPrice == model.cost || attempts == 0 || isCloseEnough(guessedPrice) {
+        
+        let isCorrect = guessedPrice == model.cost
+        if isCorrect || attempts == 0 || isCloseEnough(guessedPrice) {
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.nextCard()
             }
         }
+        
+        self.isCorrect = isCorrect
+        return isCorrect
+    }
+    
+    private func getFeedback(for guessedPrice: Int) -> String {
         switch guessedPrice {
         case model.cost:
             return "Правильно! 🎉"

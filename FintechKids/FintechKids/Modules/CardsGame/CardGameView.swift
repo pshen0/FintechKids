@@ -11,49 +11,72 @@ struct CardGameView: View {
     @ObservedObject var viewModel: CardGameViewModel
     @FocusState private var focusedField
     @Environment(\.dismiss) var dismiss
+    @State private var keyboardOffset: CGFloat = 0
     
     var body: some View {
-        ZStack {
-            Color.beige
-                .ignoresSafeArea()
-            VStack {
-                backButton
-                attemptsLeft
-                productImage
-                questionText
-                priceInputField
-                checkButton
-                feedBackText
+        NavigationStack {
+            ZStack {
+                LinearGradient (
+                    gradient: Gradient(stops: [
+                        .init(color: Color.highlightedBackground, location: 0.2),
+                        .init(color: Color.background, location: 0.6),
+                    ]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                ).ignoresSafeArea()
+                
+                VStack {
+                    attemptsLeft
+                        .padding(.top, 100)
+                        .padding(.bottom, 5)
+                    productImage
+                        .padding(.top, 10)
+                    questionText
+                    priceInputField
+                    checkButton
+                    feedBackText
+                    Spacer()
+                }
+                .padding(.bottom, keyboardOffset)
+                .animation(.easeInOut, value: keyboardOffset)
             }
-            .padding()
-            .animation(.easeInOut, value: viewModel.showNext)
-        }
-        .onTapGesture {
-            endEditing()
-        }
-    }
-    
-    private var backButton: some View {
-        HStack {
-            Button {
-                dismiss()
-            } label: {
-                HStack(spacing: 4) {
-                    Image(systemName: "chevron.left")
-                        .fontWeight(.medium)
-                    Text("Назад")
+            .onTapGesture {
+                endEditing()
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { notification in
+                if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                    keyboardOffset = keyboardFrame.height / 2
                 }
             }
-            Spacer()
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                keyboardOffset = 0
+            }
+            .toolbarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack(spacing: 4) {
+                            Image(systemName: "chevron.left")
+                                .fontWeight(.medium)
+                            Text("Назад")
+                        }
+                    }
+                    .font(Font.custom("DeleddaOpen-Light", size: 20))
+                    .fontWeight(.bold)
+                    .foregroundStyle(Color.text)
+                }
+            }
         }
-        .frame(maxWidth: .infinity)
     }
     
     private var attemptsLeft: some View {
         Text("Осталось попыток: \(viewModel.attempts)")
-            .font(.title2)
+            .font(Font.custom("DeleddaOpen-Light", size: 30))
+            .fontWeight(.bold)
+            .foregroundColor(Color.text)
             .multilineTextAlignment(.center)
-            .padding()
             .padding(.top, 60)
     }
     
@@ -62,22 +85,38 @@ struct CardGameView: View {
             .resizable()
             .scaledToFit()
             .frame(height: 150)
-            .padding()
+            .scaleEffect(viewModel.showNext ? 0.1 : 1)
+            .opacity(viewModel.showNext ? 0 : 1)
+            .animation(.easeInOut(duration: 0.5), value: viewModel.showNext)
+            .onChange(of: viewModel.showNext) { newValue in
+                if newValue {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        viewModel.showNext = false
+                    }
+                }
+            }
     }
     
     private var questionText: some View {
         Text("Сколько стоит \(viewModel.model.name)?")
+            .font(Font.custom("DeleddaOpen-Light", size: 20))
+            .fontWeight(.medium)
+            .foregroundColor(Color.text)
             .fixedSize(horizontal: false, vertical: true)
-            .font(.title2)
             .multilineTextAlignment(.center)
-            .padding()
     }
     
     private var priceInputField: some View {
         TextField("Введи цену", text: $viewModel.userInput)
+            .font(Font.custom("DeleddaOpen-Light", size: 15))
+            .fontWeight(.medium)
+            .padding(.vertical, 10)
+            .padding(.horizontal, 15)
+            .background(Color(UIColor.systemGray6))
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .shadow(color: .black.opacity(0.1), radius: 5)
             .focused($focusedField)
             .keyboardType(.numberPad)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
     }
     
@@ -86,14 +125,17 @@ struct CardGameView: View {
             viewModel.checkPrice()
         }
         .padding()
-        .background(Color.primaryOrange)
-        .foregroundColor(.white)
+        .font(Font.custom("DeleddaOpen-Light", size: 20))
+        .fontWeight(.bold)
+        .background(Color.highlightedBackground)
+        .foregroundColor(Color.text)
         .cornerRadius(10)
     }
     
     private var feedBackText: some View {
         Text(viewModel.feedback)
-            .font(.headline)
+            .font(Font.custom("DeleddaOpen-Light", size: 20))
+            .fontWeight(.bold)
             .fixedSize(horizontal: false, vertical: true)
             .multilineTextAlignment(.center)
             .foregroundColor(.red)
@@ -102,11 +144,5 @@ struct CardGameView: View {
     
     private func endEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
-}
-
-extension UIApplication {
-    func endEditing() {
-        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
