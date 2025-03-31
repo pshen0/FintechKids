@@ -7,16 +7,15 @@
 
 import Foundation
 
-class StatementService {
+final class StatementService {
     private let llmService: LLMService
     
     init(llmService: LLMService) {
         self.llmService = llmService
     }
     
-    func processStatement(text: String) async throws -> String {
-        let prompt = Prompt.csv(text).getPromt
-        let response = try await llmService.getMessage(prompt)
+    func processStatement(prompt: Prompt) async throws -> String {
+        let response = try await llmService.getMessage(prompt.getPromt)
         
         guard !response.isEmpty else {
             throw NetworkingError.invalidResponseFormat

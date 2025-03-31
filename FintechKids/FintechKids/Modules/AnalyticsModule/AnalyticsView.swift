@@ -62,6 +62,12 @@ struct AnalyticsView: View {
             .sheet(isPresented: $showDocumentPicker) {
                 DocumentPicker { url in
                     selectedFileURL = url
+                    let statement = StatementController(statementService: StatementService(llmService: LLMService.shared), statementFileStore: StatementFileStore())
+                    Task {
+                        try await statement.processStatement(pdfURL: url)
+                    }
+                    
+                    
                     showDocumentPicker = false
                 }
             }

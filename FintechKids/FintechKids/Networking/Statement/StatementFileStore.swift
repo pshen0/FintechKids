@@ -47,4 +47,16 @@ final class StatementFileStore {
             throw FileServiceError.fileReadingFailed(error)
         }
     }
+    
+    func addToCSV(textToAdd: String) throws {
+        guard let fileURL else {
+            throw FileServiceError.documentsDirectoryNotFound
+        }
+        
+        let existingContent = try readCSV()
+        
+        let newContent = existingContent + "\n" + textToAdd
+        try newContent.write(to: fileURL, atomically: true, encoding: .utf8)
+        cache = nil
+    }
 }

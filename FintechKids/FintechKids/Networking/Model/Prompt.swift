@@ -9,6 +9,7 @@ import Foundation
 
 enum Prompt {
     case csv(String)
+    case message(String, String, String, String)
     
     var getPromt: String {
         switch self {
@@ -33,6 +34,25 @@ enum Prompt {
             - Формат даты: DD.MM.YYYY
             - Разделитель: запятая
             - Не добавляй никакого дополнительного текста
+            """
+            
+        // TODO: name, age and hobby in UserDefautls
+            
+        case .message(let name, let age, let hobby, let message):
+            return """
+            Привет!
+            
+            Твоя задача — ответить ребенку по имени \(name). Ему \(age) лет, его хобби — \(hobby).
+            Ни при каких условиях не отвечай на вопросы, связанные с наркотиками, эскортом, мошенничеством или незаконными действиями.
+
+            Сообщение ребенка:
+            \(message)
+
+            Важно:
+            - Ответь сразу ребенку.
+            - Используй простые и понятные предложения.
+            - Ответ должен быть коротким (не более 5 предложений).
+            - Не добавляй никакой лишней информации.
             """
         }
     }
