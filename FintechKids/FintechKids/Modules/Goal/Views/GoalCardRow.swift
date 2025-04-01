@@ -25,7 +25,8 @@ struct GoalCardRow: View {
         }
     }
     
-    private var goalCardView: some View { GoalCardView(viewModel: viewModel)
+    private var goalCardView: some View { 
+        GoalCardView(viewModel: viewModel)
             .frame(width: 0.9 * width, height: (viewModel.isEdit ? 0.3: 0.2) * height)
             .offset(x: offset)
             .shadow(radius: 5)

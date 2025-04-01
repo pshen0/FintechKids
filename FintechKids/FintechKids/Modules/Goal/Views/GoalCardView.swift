@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GoalCardView: View {
     @StateObject var viewModel: GoalViewModel
-    @State private var rotation: Double = 0
+    @State private var rotation: Double = -180
     
     var body: some View {
         GeometryReader { size in
@@ -29,13 +29,14 @@ struct GoalCardView: View {
                     .frame(width: 0.9 * width, height: 0.8 * height)
                     .modifier(FlipOpacity(percentage: viewModel.isFlipped ? 1 : 0))
                     .rotation3DEffect(
-                        .degrees(-180), // Поворачиваем в обратную сторону
+                        .degrees(180),
                         axis: (x: 1.0, y: 0.001, z: 0.001)
                     )
             }
-            .rotation3DEffect(.degrees(rotation), axis: (1, 0.001, 0.001), perspective: 0.5)
+            .rotation3DEffect(.degrees(viewModel.isFlipped ? 180: 360), axis: (1, 0.001, 0.001), perspective: 0.5)
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.8)) {
+                    // TODO: нужно сделать какую-нить анимацию, чтобы показать пользователю что надо закомитить изменения (тыкнуть галку) перед тем как переворачивать
                     if !viewModel.isEdit {
                         viewModel.isFlipped.toggle()
                         rotation = viewModel.isFlipped ? -180 : 0
