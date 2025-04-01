@@ -229,6 +229,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView(viewModel: CardGameViewModel(rounds: []))
+    HomeView(screen: .analytics, screenFactory: ScreenFactory())
 }
 
