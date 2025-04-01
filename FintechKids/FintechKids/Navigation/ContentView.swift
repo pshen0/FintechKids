@@ -9,15 +9,15 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @EnvironmentObject var screenFactory: ScreenFactory
     @State var index = 1
-    @EnvironmentObject var storage: Storage
     var body: some View {
         VStack {
             switch index {
             case 0:
                 GoalsView()
             case 1:
-                HomeView(viewModel: storage.cardGameViewModel)
+                HomeView(screen: .analytics, screenFactory: screenFactory)
             case 2:
                 AnalyticsView()
             default:
@@ -30,8 +30,4 @@ struct ContentView: View {
         .frame(maxWidth: .infinity)
         .background(Color.background)
     }
-}
-
-#Preview {
-    ContentView(index: 0)
 }

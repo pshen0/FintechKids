@@ -8,7 +8,27 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var viewModel: CardGameViewModel
+    enum Constants {
+        static let greetingTextSize: CGFloat = 35
+        static let buttonTextSize: CGFloat = 17
+        static let buttonCornerRadius: CGFloat = 20
+        static let buttonHeight: CGFloat = 150
+        static let buttonWidth: CGFloat = 150
+        static let profileHeight: CGFloat = 40
+        static let profileWidth: CGFloat = 40
+        static let catWidth: CGFloat = 135
+        static let catHeight: CGFloat = 231
+        static let catLPadding: CGFloat = 20
+    }
+    
+    @ObservedObject private var viewModel: CardGameViewModel
+    @ObservedObject var screenFactory: ScreenFactory
+    
+    init(screen: Screen, screenFactory: ScreenFactory) {
+        self.screenFactory = screenFactory
+        self.viewModel = CardGameViewModel(screen: screen, screenFactory: screenFactory)
+       }
+
     @State var showChat: Bool = false
     @State var showCardGame: Bool = false
     @State var showShoppingGame: Bool = false
