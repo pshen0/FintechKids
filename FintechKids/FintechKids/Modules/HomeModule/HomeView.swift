@@ -21,7 +21,14 @@ struct HomeView: View {
         static let catLPadding: CGFloat = 20
     }
     
-    @ObservedObject var viewModel: CardGameViewModel
+    @ObservedObject private var viewModel: CardGameViewModel
+    @ObservedObject var screenFactory: ScreenFactory
+    
+    init(screen: Screen, screenFactory: ScreenFactory) {
+        self.screenFactory = screenFactory
+        self.viewModel = CardGameViewModel(screen: screen, screenFactory: screenFactory)
+       }
+
     @State var showChat: Bool = false
     @State var showGame: Bool = false
     @State var showProfile: Bool = false
@@ -29,14 +36,7 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                LinearGradient (
-                    gradient: Gradient(stops: [
-                        .init(color: Color.highlightedBackground, location: 0.2),
-                        .init(color: Color.background, location: 0.6),
-                    ]),
-                    startPoint: .top,
-                    endPoint: .bottom
-                ).ignoresSafeArea()
+                gradient
                 VStack {
                     catView
                     greetingView
@@ -59,14 +59,25 @@ struct HomeView: View {
         }
     }
     
+    private var gradient: some View {
+        LinearGradient (
+            gradient: Gradient(stops: [
+                .init(color: Color.highlightedBackground, location: 0.2),
+                .init(color: Color.background, location: 0.6),
+            ]),
+            startPoint: .top,
+            endPoint: .bottom
+        ).ignoresSafeArea()
+    }
+    
     private var profileButton: some View {
         Button(action: {
             showProfile = true
         }) {
-            Image(systemName: "person.crop.circle")
+            Image(systemName: profileImage)
                 .resizable()
                 .scaledToFit()
-                .frame(width: Constants.profileWidth, height: Constants.profileHeight)
+                .frame(width: profileWidth, height: profileHeight)
                 .tint(Color.text)
         }
         .fullScreenCover(isPresented: $showProfile) {
@@ -80,22 +91,22 @@ struct HomeView: View {
             showChat = true
         }) {
             VStack {
-                Text("Чат с Фиником")
-                    .font(Font.custom("DeleddaOpen-Light", size: HomeView.Constants.buttonTextSize))
+                Text(chatButtonText)
+                    .font(Font.custom(Fonts.deledda, size: buttonTextSize))
                     .fontWeight(.bold)
                     .foregroundColor(Color.text)
-                    .frame(width: Constants.buttonWidth / 1.5)
-                    .padding(.top, 20)
+                    .frame(width: buttonWidth / 1.5)
+                    .padding(.top, buttonTPadding)
                 Spacer()
-                Image("catChat")
+                Image(chatButtonImage)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: Constants.buttonWidth / 1.5)
-                    .padding(.bottom, 20)
+                    .frame(width: buttonWidth / 1.5)
+                    .padding(.bottom, buttonBPadding)
             }
-            .frame(width: Constants.buttonWidth, height: Constants.buttonHeight)
+            .frame(width: buttonWidth, height: buttonHeight)
             .background(Color.highlightedBackground)
-            .cornerRadius(Constants.buttonCornerRadius)
+            .cornerRadius(buttonCornerRadius)
         }
         .fullScreenCover(isPresented: $showChat) {
             ChatScreen(viewModel: ChatViewModel())
@@ -108,22 +119,21 @@ struct HomeView: View {
             showGame = true
         }) {
             VStack {
-                Text("Игра \"Карточки\"")
-                    .font(Font.custom("DeleddaOpen-Light", size: HomeView.Constants.buttonTextSize))
-                    .fontWeight(.bold)
+                Text(gameButtonText)
+                    .font(Font.custom(Fonts.deledda, size: buttonTextSize))
                     .foregroundColor(Color.text)
-                    .frame(width: Constants.buttonWidth / 1.5)
-                    .padding(.top, 20)
+                    .frame(width: buttonWidth / 1.5)
+                    .padding(.top, buttonTPadding)
                 Spacer()
-                Image("catCards")
+                Image(gameButtonImage)
                     .resizable()
                     .scaledToFit()
-                    .frame(width: Constants.buttonWidth / 2.5)
-                    .padding(.bottom, 20)
+                    .frame(width: buttonWidth / 2.5)
+                    .padding(.bottom, buttonBPadding)
             }
-            .frame(width: Constants.buttonWidth, height: Constants.buttonHeight)
+            .frame(width: buttonWidth, height: buttonHeight)
             .background(Color.highlightedBackground)
-            .cornerRadius(Constants.buttonCornerRadius)
+            .cornerRadius(buttonCornerRadius)
         }
         .fullScreenCover(isPresented: $showGame) {
             CardGameView(viewModel: viewModel)
@@ -132,21 +142,49 @@ struct HomeView: View {
     }
     
     private var catView: some View {
-        Image("cat")
+        Image(catImage)
             .resizable()
             .scaledToFit()
-            .frame(width: Constants.catWidth, height: Constants.catHeight)
-            .padding(.top, 80)
+            .frame(width: catWidth, height: catHeight)
+            .padding(.top, catTPadding)
     }
     
     private var greetingView: some View {
         VStack(alignment: .leading) {
-            Text("Привет!")
-                .font(.system(size: Constants.greetingTextSize, weight: .bold))
+            Text(greetingText1)
+                .font(Font.custom(Fonts.deledda, size: greetingTextSize))
                 .foregroundColor(Color.text)
-            Text("Выбери, чем хочешь сегодня заняться:")
-                .font(.system(size: Constants.buttonTextSize, weight: .bold))
+                .padding(.bottom, greetingBPadding)
+            Text(greetingText2)
+                .font(Font.custom(Fonts.deledda, size: buttonTextSize))
                 .foregroundColor(Color.text)
         }
     }
+    
+    //MARK: - Constants
+    
+    private let profileImage: String = "person.crop.circle"
+    private let chatButtonText: String = "Чат с Фиником"
+    private let chatButtonImage: String = "catChat"
+    private let gameButtonText: String = "Игра \"Карточки\""
+    private let gameButtonImage: String = "catCards"
+    private let catImage: String = "cat"
+    private let greetingText1: String = "Привет!"
+    private let greetingText2: String = "Выбери, чем хочешь сегодня заняться:"
+    
+    private let greetingTextSize: CGFloat = 40
+    private let greetingBPadding: CGFloat = 5
+    private let buttonTextSize: CGFloat = 18
+    private let buttonCornerRadius: CGFloat = 20
+    private let buttonBPadding: CGFloat = 20
+    private let buttonTPadding: CGFloat = 20
+    private let buttonHeight: CGFloat = 150
+    private let buttonWidth: CGFloat = 150
+    private let profileHeight: CGFloat = 40
+    private let profileWidth: CGFloat = 40
+    private let catWidth: CGFloat = 135
+    private let catHeight: CGFloat = 231
+    private let catLPadding: CGFloat = 20
+    private let catTPadding: CGFloat = 80
 }
+

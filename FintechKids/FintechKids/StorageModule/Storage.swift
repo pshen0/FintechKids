@@ -6,32 +6,21 @@
 //
 
 import Foundation
-import SwiftUI
 
-final class Storage: ObservableObject {
-    @Published var cardGameViewModel = CardGameViewModel(
-        rounds: [
-            CardGameRound(
-                name: "1 кг яблок",
-                imageName: "AppleImage",
-                cost: 70
-            ),
-            CardGameRound(
-                name: "1 литр молока",
-                imageName: "MilkImage",
-                cost: 110
-            ),
-            CardGameRound(
-                name: "1 авокадо",
-                imageName: "AvocadoImage",
-                cost: 130
-            ),
-            CardGameRound(
-                name: "1 кокос",
-                imageName: "CoconutImage",
-                cost: 180
-            )
-        ]
-    )
-    
+class Storage {
+    func loadFromBundle() -> [CardGameRound] {
+        guard let url = Bundle.main.url(forResource: "CardGame", withExtension: "txt") else {
+            assertionFailure("Файл CardGame.txt не найден в Bundle!")
+            return []
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let rounds = try JSONDecoder().decode([CardGameRound].self, from: data)
+            return rounds
+        } catch {
+            print("Ошибка при загрузке данных из Bundle: \(error)")
+            return []
+        }
+    }
 }

@@ -43,14 +43,7 @@ struct CardGameView: View {
             .onTapGesture {
                 endEditing()
             }
-            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { notification in
-                if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
-                    keyboardOffset = keyboardFrame.height / 2
-                }
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
-                keyboardOffset = 0
-            }
+            .keyboardAwarePadding($keyboardOffset)
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -63,7 +56,7 @@ struct CardGameView: View {
                             Text("Назад")
                         }
                     }
-                    .font(Font.custom("DeleddaOpen-Light", size: 20))
+                    .font(Font.custom(Fonts.deledda, size: 20))
                     .fontWeight(.bold)
                     .foregroundStyle(Color.text)
                 }
@@ -73,7 +66,7 @@ struct CardGameView: View {
     
     private var attemptsLeft: some View {
         Text("Осталось попыток: \(viewModel.attempts)")
-            .font(Font.custom("DeleddaOpen-Light", size: 30))
+            .font(Font.custom(Fonts.deledda, size: 30))
             .fontWeight(.bold)
             .foregroundColor(Color.text)
             .multilineTextAlignment(.center)
@@ -99,7 +92,7 @@ struct CardGameView: View {
     
     private var questionText: some View {
         Text("Сколько стоит \(viewModel.model.name)?")
-            .font(Font.custom("DeleddaOpen-Light", size: 20))
+            .font(Font.custom(Fonts.deledda, size: 20))
             .fontWeight(.medium)
             .foregroundColor(Color.text)
             .fixedSize(horizontal: false, vertical: true)
@@ -108,7 +101,7 @@ struct CardGameView: View {
     
     private var priceInputField: some View {
         TextField("Введи цену", text: $viewModel.userInput)
-            .font(Font.custom("DeleddaOpen-Light", size: 15))
+            .font(Font.custom(Fonts.deledda, size: 15))
             .fontWeight(.medium)
             .padding(.vertical, 10)
             .padding(.horizontal, 15)
@@ -125,7 +118,7 @@ struct CardGameView: View {
             viewModel.checkPrice()
         }
         .padding()
-        .font(Font.custom("DeleddaOpen-Light", size: 20))
+        .font(Font.custom(Fonts.deledda, size: 20))
         .fontWeight(.bold)
         .background(Color.highlightedBackground)
         .foregroundColor(Color.text)
@@ -134,7 +127,7 @@ struct CardGameView: View {
     
     private var feedBackText: some View {
         Text(viewModel.feedback)
-            .font(Font.custom("DeleddaOpen-Light", size: 20))
+            .font(Font.custom(Fonts.deledda, size: 20))
             .fontWeight(.bold)
             .fixedSize(horizontal: false, vertical: true)
             .multilineTextAlignment(.center)
@@ -144,5 +137,19 @@ struct CardGameView: View {
     
     private func endEditing() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+extension View {
+    func keyboardAwarePadding(_ keyboardOffset: Binding<CGFloat>) -> some View {
+        self
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification)) { notification in
+                if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
+                    keyboardOffset.wrappedValue = keyboardFrame.height / 2
+                }
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillHideNotification)) { _ in
+                keyboardOffset.wrappedValue = 0
+            }
     }
 }

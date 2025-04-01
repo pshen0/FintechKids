@@ -6,23 +6,36 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class CardGameViewModel: ObservableObject {
     @Published var userInput = ""
     @Published var feedback = ""
     @Published var attempts = 3
     @Published var showNext = false
+    @Published private(set) var screen: ScreenData
+    @ObservedObject var screenFactory: ScreenFactory
     @Published var isCorrect = false
-
-    private let rounds: [CardGameRound]
     private var currentRound = 0
     
-    init(rounds: [CardGameRound]) {
-        self.rounds = rounds.shuffled()
+    init(screen: Screen, screenFactory: ScreenFactory) {
+        self.screenFactory = screenFactory
+        self.screen = screenFactory.createScreen(ofType: screen)
     }
+
     
     var model: CardGameRound {
-        rounds[currentRound]
+        switch screen {
+        case .cardsGame(let gameRounds):
+            return gameRounds[currentRound]
+        }
+    }
+    
+    var roundsCount: Int {
+        switch screen {
+        case .cardsGame(let gameRounds):
+            return gameRounds.count
+        }
     }
     
     func checkPrice() -> Bool {
@@ -70,7 +83,7 @@ final class CardGameViewModel: ObservableObject {
         attempts = 3
         userInput = ""
         feedback = ""
-        if currentRound >= rounds.count - 1{
+        if currentRound >= roundsCount - 1{
             currentRound = 0
         } else {
             currentRound += 1
