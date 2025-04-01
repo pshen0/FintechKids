@@ -2,7 +2,7 @@ import SwiftUI
 import PhotosUI
 
 struct CustomImagePickerView: View {
-    @Binding var imageName: String
+    var imageName: String
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImage: UIImage? = nil
     @State private var isCropping = false

@@ -81,5 +81,5 @@ struct CropView: View {
 
 #Preview {
     GoalsView()
-        .background(Color("backgroundColor"))
+        .background(Color.background)
 }

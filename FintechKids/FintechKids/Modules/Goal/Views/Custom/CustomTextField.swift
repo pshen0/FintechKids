@@ -10,7 +10,7 @@ import SwiftUI
 struct CustomtextField: View {
     @Binding var text: String
     @Binding var flag: Bool
-    let width: CGFloat
+    let width: CGFloat?
     
     @Namespace private var namespace
     
@@ -22,9 +22,7 @@ struct CustomtextField: View {
         case true:
             TextField("Goal", text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
-                .frame(maxWidth: .infinity, alignment: .center)
-                .disabled(!flag)
-                .frame(width: 0.8 * width)
+                .frame(width: width == nil ? nil: width! * 0.8)
                 .matchedGeometryEffect(id: "text", in: namespace)
         }
     }

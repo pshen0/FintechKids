@@ -12,7 +12,7 @@ class GoalModel: ObservableObject {
     @Published var goalSum: Int = 1
     @Published var level: AimImportantLevels = .high
     @Published var current: Int = 0
-    @Published var image: String = "templateGoal.jpg"
+    @Published var image: String = "templateGoal"
     @Published var date: Date = Date.now
     
     var progress: Int {

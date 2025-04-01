@@ -12,7 +12,7 @@ extension View {
         let filepath = getDocumentsDirectory().appendingPathComponent(imageName)
         guard let data = try? Data(contentsOf: filepath),
               let image = UIImage(data: data) else {
-            return UIImage(systemName: "photo")!
+            return UIImage(named: "templateGoal")!
         }
         return image
     }

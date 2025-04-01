@@ -10,7 +10,7 @@ import SwiftUI
 struct ThickLinearProgressViewStyle: ProgressViewStyle {
     var height: CGFloat = 100
     var progressColor: Color = Color("customBrown")
-    var backgroundColor: Color = Color("backgroundColor")
+    var backgroundColor: Color = Color.background
     var width: CGFloat = 20
 
     func makeBody(configuration: Configuration) -> some View {

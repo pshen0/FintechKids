@@ -43,7 +43,7 @@ struct BackSideGoalCardView: View {
                 CustomImageEditButton(flag: $viewModel.isEdit, update: viewModel.updateGoal)
                     .matchedGeometryEffect(id: "editButton", in: animationNamespace)
             case true:
-                CustomImagePickerView(imageName: $viewModel.goal.image)
+                CustomImagePickerView(imageName: viewModel.goal.image)
                 CustomImageEditButton(flag: $viewModel.isEdit, update: viewModel.updateGoal)
                     .matchedGeometryEffect(id: "editButton", in: animationNamespace)
             }
@@ -56,12 +56,12 @@ struct BackSideGoalCardView: View {
                 .opacity(viewModel.isEdit ? 0.5 : 1)
             HStack {
                 Text("Накоплено: ")
-                CustomtextField(text: $viewModel.current, flag: $viewModel.isEdit,  width: .infinity)
+                CustomtextField(text: $viewModel.current, flag: $viewModel.isEdit,  width: nil)
                     .keyboardType(.numberPad)
             }
             HStack {
                 Text("Цель: ")
-                CustomtextField(text: $viewModel.goalSum, flag: $viewModel.isEdit,  width: .infinity)
+                CustomtextField(text: $viewModel.goalSum, flag: $viewModel.isEdit, width: nil)
                     .keyboardType(.numberPad)
             }
             Text("Прогресс: \(String(describing: viewModel.goal.progress))%")

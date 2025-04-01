@@ -12,7 +12,6 @@ struct GoalsView: View {
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
     @State var offset: CGFloat = 0
-    @State var isAddingNew: Bool = false
     
     @Namespace private var namespace
     
@@ -31,9 +30,8 @@ struct GoalsView: View {
             buttonForAdding
         }
         .frame(width: 0.9 * width)
-        .font(.largeTitle)
-        .bold()
-        .foregroundColor(Color.customBrown)
+        .font(Font.custom(Fonts.deledda, size: height * 0.05))
+        .foregroundColor(Color.text)
     }
     
     private var scrollGoals: some View {
@@ -63,5 +61,5 @@ struct GoalsView: View {
 
 #Preview {
     GoalsView()
-        .background(Color("backgroundColor"))
+        .background(Color.background)
 }
