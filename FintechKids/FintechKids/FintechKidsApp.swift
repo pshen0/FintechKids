@@ -13,7 +13,7 @@ struct FintechKidsApp: App {
     @StateObject private var screenFactory = ScreenFactory()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            SplashScreen()
                 .environmentObject(screenFactory)
         }
     }

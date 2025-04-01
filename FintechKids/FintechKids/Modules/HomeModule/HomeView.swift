@@ -113,7 +113,7 @@ struct HomeView: View {
             .cornerRadius(buttonCornerRadius)
         }
         .fullScreenCover(isPresented: $showChat) {
-            ChatScreen(viewModel: ChatViewModel())
+            ChatScreen(viewModel: ChatViewModel(chatService: ChatService()))
                 .interactiveDismissDisabled(true)
         }
         .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
