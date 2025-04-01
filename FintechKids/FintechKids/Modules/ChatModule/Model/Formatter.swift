@@ -8,11 +8,11 @@
 import Foundation
 
 enum Formatter {
-    static func formatTimeDate(date: Date) -> String {
+    static func formatTime(date: Date) -> String {
         timeFormatter.string(from: date)
     }
     
-    static func formatDayDate(date: Date) -> String {
+    static func formatDay(date: Date) -> String {
         dayFormatter.string(from: date)
     }
     

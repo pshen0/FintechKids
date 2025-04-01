@@ -9,7 +9,7 @@ import SwiftUI
 
 final class ChatViewModel: ObservableObject {
     
-    @Published var data: [(Date, [Message])] = ChatDataMock.getMessagesByDay()
+    private(set) var data: [(Date, [Message])] = ChatDataMock.getMessagesByDay() // 1?
     @Published var isManagerProcessing: Bool = false
     @Published var lastMessage: Message?
     
@@ -23,24 +23,21 @@ final class ChatViewModel: ObservableObject {
     @MainActor
     func createMessage(messageText: String) async {
         guard !messageText.isEmpty else { return }
-        let newMessage = Message(id: UUID(), title: messageText, isYour: true),
-            calendar = Calendar.current,
-            today = calendar.startOfDay(for: newMessage.date)
+        let newMessage = Message(id: UUID(), title: messageText, isYours: true)
         
         lastMessage = newMessage
-        createMessage(calendar: calendar, currentDay: today, newMessage: newMessage)
+        createMessage(newMessage: newMessage)
         Task {
             do {
                 isManagerProcessing = true
-                // Mock
                 let data = try await chatService.getFinickMessage(promt: Prompt.message("Данил", "19", "Программировать", messageText))
-                let newMessage = Message(id: UUID(), title: data, isYour: false)
+                let newMessage = Message(id: UUID(), title: data, isYours: false)
                 
-                createMessage(calendar: calendar, currentDay: today, newMessage: newMessage)
+                createMessage(newMessage: newMessage)
                 lastMessage = newMessage
                 self.isManagerProcessing = false
             } catch {
-                // TODO: alert
+                alertMessage()
             }
         }
     }
@@ -48,22 +45,27 @@ final class ChatViewModel: ObservableObject {
     func isSendingMessagesEnable(text: String) -> Bool {
         text.isEmpty || isManagerProcessing
     }
-    
-    deinit {
-        // TODO: Save data to storage
-        print("saved")
-    }
 }
 
 private extension ChatViewModel {
     
-    func createMessage(calendar: Calendar, currentDay: Date, newMessage: Message) {
-        DispatchQueue.main.async {
-            if let index = self.data.firstIndex(where: { calendar.isDate($0.0, inSameDayAs: currentDay) }) {
-                self.data[index].1.append(newMessage)
-            } else {
-                self.data.append((currentDay, [newMessage]))
-            }
+    @MainActor
+    func createMessage(newMessage: Message) {
+        let date = Calendar.current.startOfDay(for: newMessage.date)
+        if let index = self.data.firstIndex(where: { Calendar.current.isDate($0.0, inSameDayAs: date) }) {
+            self.data[index].1.append(newMessage)
+        } else {
+            self.data.append((date, [newMessage]))
         }
+    }
+    
+    @MainActor
+    func alertMessage() {
+        isManagerProcessing = false
+        let alertMessage = Message(id: UUID(),
+                title: "Упс... Технические неполадки! Проверь интернет соединение и попробуй еще раз🌐",
+                isYours: false)
+        createMessage(newMessage: alertMessage)
+        lastMessage = alertMessage
     }
 }

@@ -20,7 +20,7 @@ enum ChatDataMock {
             Задай мне любой вопрос, я постараюсь на него  ответить 🐱
             """,
                 
-            isYour: false),
+            isYours: false),
     ]
     
     static func getMessagesByDay() -> [(Date, [Message])] {

@@ -26,7 +26,7 @@ struct CreateMessageTextField: View {
     private var SendButton: some View {
         Button(action: sendMessage) {
             Image(systemName: SystemImage.sendMessage.getSystemName)
-                .font(.system(size: FontValues.big, weight: .medium))
+                .font(.system(size: FontSizes.big, weight: .medium))
                 .foregroundColor(viewModel.isSendingMessagesEnable(text: text) ? .highlightedBackground : .text)
         }
         .disabled(viewModel.isSendingMessagesEnable(text: text))

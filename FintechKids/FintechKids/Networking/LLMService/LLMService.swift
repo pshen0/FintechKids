@@ -16,8 +16,7 @@ class LLMService {
     
     private func encodeRequest(prompt: String) throws -> Data {
         let requestBody = RequestBody(
-//            model: "google/gemini-2.0-flash-thinking-exp:free",
-            model: "qwen/qwen2.5-vl-3b-instruct:free",
+            model: "google/gemini-2.0-flash-thinking-exp:free",
             messages: [
                 MessageRequest(
                     role: "user",

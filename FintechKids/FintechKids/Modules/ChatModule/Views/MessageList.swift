@@ -24,7 +24,7 @@ struct MessageList: View {
                     HStack(alignment: .center) {
                         Spacer()
                         
-                        Text(Formatter.formatDayDate(date: date))
+                        Text(Formatter.formatDay(date: date))
                             .font(.caption)
                             .bold()
                             .foregroundStyle(.white)

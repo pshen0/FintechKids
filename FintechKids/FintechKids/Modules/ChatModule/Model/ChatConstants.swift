@@ -14,7 +14,7 @@ struct Padding {
     static let medium: CGFloat = 15
 }
 
-struct FontValues {
+struct FontSizes {
     
     static let time: CGFloat = 12
     static let `default`: CGFloat = 16
@@ -39,10 +39,13 @@ enum SystemImage {
     }
 }
 
+struct ScreenSize {
+    
+    static let screenWidth = UIScreen.main.bounds.width
+    static let screenHeight = UIScreen.main.bounds.width
+}
+
 struct ChatConstants {
     
-    static let width = UIScreen.main.bounds.width
-    static let height = UIScreen.main.bounds.width
-    
-    static let finikAvatar: (width: CGFloat, height: CGFloat) = (ChatConstants.width / 10, ChatConstants.width / 10)
+    static let finikAvatar: CGSize = CGSize(width: ScreenSize.screenWidth / 10, height: ScreenSize.screenWidth / 10)
 }

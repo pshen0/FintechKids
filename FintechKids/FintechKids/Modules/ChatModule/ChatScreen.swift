@@ -13,10 +13,10 @@ import SwiftUI
 
 struct ChatScreen: View {
     
-    @State private var text: String = ""
+    @State private var text = ""
     @State private var keyboardHeight: CGFloat = 0
-    @State private var shouldScrollToBottom: Bool = false
-    @State private var lastMessageCount: Int = 0
+    @State private var shouldScrollToBottom = false
+    @State private var lastMessageCount = 0
     @ObservedObject var viewModel: ChatViewModel
     @Environment(\.dismiss) var dismiss
     
@@ -31,7 +31,6 @@ struct ChatScreen: View {
                     startPoint: .top,
                     endPoint: .bottom
                 ).ignoresSafeArea()
-                
                 
                 VStack {
                     ForEach(0...10, id: \.self) { number in

@@ -11,5 +11,5 @@ struct Message: Hashable, Identifiable {
     let id: UUID
     let title: String
     let date = Date()
-    let isYour: Bool
+    let isYours: Bool
 }

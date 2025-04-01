@@ -9,11 +9,11 @@ import SwiftUI
 
 extension MessageList {
     
-    func scrollToLastMessage(proxy: ScrollViewProxy, animation: Bool = true) {
+    func scrollToLastMessage(proxy: ScrollViewProxy, animated: Bool = true) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.025) {
             
             if let message = viewModel.lastMessage {
-                if animation {
+                if animated {
                     withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
                         proxy.scrollTo(message, anchor: .top)
                     }
@@ -26,8 +26,10 @@ extension MessageList {
 }
 
 extension View {
-    func setupKeyboardObservers(keyboardHeight:       Binding<CGFloat>,
-                                shouldScrollToBottom: Binding<Bool>) -> some View {
+    func setupKeyboardObservers(
+        keyboardHeight: Binding<CGFloat>,
+        shouldScrollToBottom: Binding<Bool>
+    ) -> some View {
         onAppear {
             NotificationCenter.default.addObserver(
                 forName: UIResponder.keyboardWillShowNotification,

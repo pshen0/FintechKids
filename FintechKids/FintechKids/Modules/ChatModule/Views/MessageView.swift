@@ -13,7 +13,7 @@ struct MessageView: View {
     var body: some View {
         VStack {
             HStack(alignment: .bottom) {
-                if message.isYour { Spacer() }
+                if message.isYours { Spacer() }
                 else {
                     Circle()
                         .fill(.background.opacity(0.8).gradient)
@@ -26,25 +26,25 @@ struct MessageView: View {
                         }
                 }
                 
-                VStack(alignment: MessageModel.getMessageStackAlignment(isYour: message.isYour)) {
+                VStack(alignment: MessageModel.getMessageStackAlignment(isYour: message.isYours)) {
                     Text(message.title)
-                        .modifier(CustomFont(size: FontValues.default))
+                        .modifier(CustomFont(size: FontSizes.default))
                         .padding(Padding.default)
                         .foregroundStyle(.white)
                         .background {
                             MessageCorner(
-                                radius: FontValues.default,
-                                corners: MessageModel.getMessageViewEdges(isYour: message.isYour)
+                                radius: FontSizes.default,
+                                corners: MessageModel.getMessageViewEdges(isYour: message.isYours)
                             )
-                            .fill(MessageModel.getMessageColor(isYour: message.isYour))
+                            .fill(MessageModel.getMessageColor(isYour: message.isYours))
                             .shadow(radius: 2)
                         }
                     
-                    Text(Formatter.formatTimeDate(date: message.date))
-                        .modifier(CustomFont(size: FontValues.time))
+                    Text(Formatter.formatTime(date: message.date))
+                        .modifier(CustomFont(size: FontSizes.time))
                         .foregroundStyle(.secondary)
                 } 
-                if !message.isYour { Spacer() }
+                if !message.isYours { Spacer() }
             }
             .background(.clear)
         }
