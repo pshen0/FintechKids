@@ -18,7 +18,7 @@ struct AnalyticsView: View {
     @State private var selectedFileURL: URL?
     @State private var progress: Double = 0.0
     
-    private var values: [Double] = [50.0, 50.0, 50, 50, 50.0]
+    private var values: [Double] = [50.0, 20.0, 50, 30, 40.0]
     
     var body: some View {
         ZStack {
@@ -78,6 +78,7 @@ struct AnalyticsView: View {
                 showDocumentPicker = false
             }
         }
+        .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }
     
     private var addingExpenseButton: some View {
@@ -94,6 +95,7 @@ struct AnalyticsView: View {
         .sheet(isPresented: $showAddingExpenseScreen) {
             AddingExpensesView()
         }
+        .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }
     
     private var catImage: some View {
@@ -111,7 +113,7 @@ struct AnalyticsView: View {
     private var plot: some View {
         ZStack {
             CoordinateAxes()
-                .stroke(Color.gray, lineWidth: 2)
+                .stroke(Color.text, lineWidth: 1)
                 .frame(width: plotWidth, height: plotHeight)
             
             Plot(values)
@@ -130,7 +132,7 @@ struct AnalyticsView: View {
                 )
                 .frame(width: plotWidth, height: plotHeight)
                 .onAppear {
-                    withAnimation(.easeInOut(duration: 4).repeatForever(autoreverses: true)) {
+                    withAnimation(.easeInOut(duration: plotAnimationDuration ).repeatForever(autoreverses: true)) {
                         progress = 0.5
                     }
                 }
@@ -154,6 +156,8 @@ struct AnalyticsView: View {
     private let catHeight: CGFloat = 120
     private let catLPadding: CGFloat = 20
     private let catBPadding: CGFloat = 20
+    private let shadowButtonRadius: CGFloat = 6
+    private let plotAnimationDuration: Double = 10
     
     private let plotWidth: CGFloat = 360
     private let plotHeight: CGFloat = 360

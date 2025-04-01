@@ -67,16 +67,19 @@ struct CoordinateAxes: Shape {
         let radius = min(rect.width, rect.height) / PlotConstants.radiusRatio
         let points = PlotConstants.pointsCount
         let angle = Double.pi * 2 / Double(points)
+        var positions: [CGPoint] = []
         
         for i in 0..<points {
             let tempAngle = Double(i) * angle - Double.pi / 2
             let x = center.x + CGFloat(cos(tempAngle)) * radius
             let y = center.y + CGFloat(sin(tempAngle)) * radius
             let point = CGPoint(x: x, y: y)
+            positions.append(point)
             
             path.move(to: center)
             path.addLine(to: point)
         }
+        
         
         for i in PlotConstants.quarters {
             path.addEllipse(in: CGRect(
@@ -86,6 +89,7 @@ struct CoordinateAxes: Shape {
                 height: (radius / i) * 2
             ))
         }
+        
         return path
     }
     
