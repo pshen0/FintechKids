@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var index = 1
     @EnvironmentObject var storage: Storage
     var body: some View {
-        VStack {
+        ZStack {
             switch index {
             case 0:
                 GoalsView()
@@ -23,9 +23,11 @@ struct ContentView: View {
             default:
                 Text("AAA")
             }
-            Spacer()
-            
-            TabBar(index: $index)
+            VStack {
+                Spacer()
+                
+                TabBar(index: $index)
+            }
         }
         .frame(maxWidth: .infinity)
         .background(Color.background)
