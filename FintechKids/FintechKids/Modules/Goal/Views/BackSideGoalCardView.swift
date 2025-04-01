@@ -40,14 +40,17 @@ struct BackSideGoalCardView: View {
         HStack {
             switch viewModel.isEdit {
             case false:
-                CustomImageEditButton(flag: $viewModel.isEdit, update: viewModel.updateGoal)
-                    .matchedGeometryEffect(id: "editButton", in: animationNamespace)
+                editButton
             case true:
                 CustomImagePickerView(imageName: viewModel.goal.image)
-                CustomImageEditButton(flag: $viewModel.isEdit, update: viewModel.updateGoal)
-                    .matchedGeometryEffect(id: "editButton", in: animationNamespace)
+                editButton
             }
         }
+    }
+    
+    private var editButton: some View {
+        CustomImageEditButton(flag: $viewModel.isEdit, update: viewModel.updateGoal)
+            .matchedGeometryEffect(id: "editButton", in: animationNamespace)
     }
     
     private var infoStack: some View {
