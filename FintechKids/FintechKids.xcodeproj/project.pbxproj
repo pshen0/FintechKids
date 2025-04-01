@@ -29,6 +29,7 @@
 		2E5799C92D9BF50B00994E20 /* FintechKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */; };
 		2E5799CA2D9BF51900994E20 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2DDE62D95833500F853B3 /* SettingsView.swift */; };
 		2E5799CB2D9BF57A00994E20 /* StartAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA172D949037007CB69B /* StartAnalyticsView.swift */; };
+		2E5799CD2D9C147600994E20 /* CustomDropDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5799CC2D9C147600994E20 /* CustomDropDownList.swift */; };
 		2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507E2D9353DC001ED73E /* ContentView.swift */; };
 		2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150822D9353DD001ED73E /* Assets.xcassets */; };
 		2EA150862D9353DD001ED73E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150852D9353DD001ED73E /* Preview Assets.xcassets */; };
@@ -109,6 +110,7 @@
 		2E2551E12D9A79290007B2D9 /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
 		2E2551E32D9AA0780007B2D9 /* ViewExtensionForLoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensionForLoadImage.swift; sourceTree = "<group>"; };
 		2E5799C72D9BF3CA00994E20 /* GoalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		2E5799CC2D9C147600994E20 /* CustomDropDownList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownList.swift; sourceTree = "<group>"; };
 		2EA150792D9353DC001ED73E /* FintechKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsApp.swift; sourceTree = "<group>"; };
 		2EA1507E2D9353DC001ED73E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 			children = (
 				2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */,
 				2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */,
+				2E5799CC2D9C147600994E20 /* CustomDropDownList.swift */,
 				2E2551D82D97608A0007B2D9 /* CustomTextField.swift */,
 				2E2551E12D9A79290007B2D9 /* CropView.swift */,
 				2E2551DF2D9A11C30007B2D9 /* CustomImagePicker.swift */,
@@ -625,9 +628,6 @@
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
 				2E2551D02D96C8F00007B2D9 /* GoalsView.swift in Sources */,
 				2E2551D92D97608A0007B2D9 /* CustomTextField.swift in Sources */,
-				0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */,
-				53B3D7172D96E9AE00B31D2D /* StatementService.swift in Sources */,
-				0FC6DA182D949037007CB69B /* StartAnalyticsView.swift in Sources */,
 				838CD9462D96E9A7006F1661 /* ScreenFactory.swift in Sources */,
 				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
 				83A6E9662D95945E0007B577 /* Storage.swift in Sources */,
@@ -658,6 +658,7 @@
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2E2551D72D975C210007B2D9 /* GoalCardRow.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
+				2E5799CD2D9C147600994E20 /* CustomDropDownList.swift in Sources */,
 				53B3D70B2D96CA6600B31D2D /* Prompt.swift in Sources */,
 				53B3D70C2D96CA6600B31D2D /* APIResponse.swift in Sources */,
 				53B3D70D2D96CA6600B31D2D /* MessageContent.swift in Sources */,

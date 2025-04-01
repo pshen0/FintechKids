@@ -10,8 +10,8 @@ import _PhotosUI_SwiftUI
 
 struct BackSideGoalCardView: View {
     @StateObject var viewModel: GoalViewModel
-    let width: CGFloat
-    let formatter = DateFormatter()
+    let contentWidth: CGFloat
+    
     @State private var avatarItem: PhotosPickerItem?
     
     @Namespace private var animationNamespace
@@ -20,19 +20,24 @@ struct BackSideGoalCardView: View {
         VStack {
             HStack {
                 name
+                    .font(Font.custom(Fonts.deledda, size: 30))
+                    .foregroundColor(Color.text)
+                    .bold()
                 
                 editButtons
             }
             Spacer()
             
             infoStack
+                .font(Font.custom(Fonts.deledda, size: 15))
+                .foregroundColor(Color.text)
             
             Spacer()
         }
     }
     
     private var name: some View {
-        CustomtextField(text: $viewModel.name, flag: $viewModel.isEdit, width: width)
+        CustomtextField(text: $viewModel.name, flag: $viewModel.isEdit, width: contentWidth)
             .bold()
     }
     
@@ -54,21 +59,31 @@ struct BackSideGoalCardView: View {
     }
     
     private var infoStack: some View {
-        VStack(alignment: .leading) {
-            Text("Дата: \(String(describing: viewModel.goal.date.formattedDate()))")
-                .opacity(viewModel.isEdit ? 0.5 : 1)
-            HStack {
-                Text("Накоплено: ")
+        HStack {
+            VStack {
                 CustomtextField(text: $viewModel.current, flag: $viewModel.isEdit,  width: nil)
                     .keyboardType(.numberPad)
+                    .font(Font.custom(Fonts.deledda, size: 40))
+                    .foregroundColor(Color.text)
+                    .bold()
+                HStack {
+                    Text("из ")
+                    CustomtextField(text: $viewModel.goalSum, flag: $viewModel.isEdit, width: nil)
+                        .keyboardType(.numberPad)
+                }
+                .font(Font.custom(Fonts.deledda, size: 20))
+                .foregroundColor(Color.text)
             }
-            HStack {
-                Text("Цель: ")
-                CustomtextField(text: $viewModel.goalSum, flag: $viewModel.isEdit, width: nil)
-                    .keyboardType(.numberPad)
+            .frame(maxWidth: .infinity, alignment: .center)
+            VStack(alignment: .leading) {
+                Text("Прогресс: \(String(describing: viewModel.goal.progress))%")
+                    .opacity(viewModel.isEdit ? 0.5 : 1)
+                HStack {
+                    Text("Приоритет: ")
+                }
+                Text("Дата: \(String(describing: viewModel.goal.date.formattedDate()))")
+                    .opacity(viewModel.isEdit ? 0.5 : 1)
             }
-            Text("Прогресс: \(String(describing: viewModel.goal.progress))%")
-                .opacity(viewModel.isEdit ? 0.5 : 1)
         }
     }
 }
@@ -76,3 +91,4 @@ struct BackSideGoalCardView: View {
 #Preview {
     GoalsView()
 }
+

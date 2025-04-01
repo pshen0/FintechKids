@@ -48,7 +48,7 @@ struct GoalsView: View {
         }
     }
     
-    var buttonForAdding: some View {
+    private var buttonForAdding: some View {
         Image(systemName: "plus")
             .onTapGesture {
                     let goal = GoalViewModel(id: viewModel.currentID, goal: GoalModel(), isEdit: true, isFlipped: true)
