@@ -79,6 +79,7 @@ struct StartAnalyticsView: View {
                 showDocumentPicker = false
             }
         }
+        .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }
     
     private var addingExpenseButton: some View {
@@ -96,6 +97,7 @@ struct StartAnalyticsView: View {
         .sheet(isPresented: $showAddingExpenseScreen) {
             AddingExpensesView()
         }
+        .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }
     
     private var catImage: some View {
@@ -141,7 +143,7 @@ struct StartAnalyticsView: View {
         }
     }
     
-    private let screenNameText: String = "Аналитика трат"
+    private let screenNameText: String = " Аналитика трат "
     private let addingFileText: String = "Добавить выгрузку трат"
     private let addingExpenseText: String = "Добавить новую трату"
     private let unloadRequestText: String = "Чтобы начать отслеживать финансы, необходимо выгрузить траты"
@@ -158,7 +160,7 @@ struct StartAnalyticsView: View {
     private let catLPadding: CGFloat = 20
     private let speechHeight: CGFloat = 93
     private let buttonWidth: CGFloat = 250
-    
+    private let shadowButtonRadius: CGFloat = 6
     private let typingAnimationDuration: Double = 0.03
 }
 
