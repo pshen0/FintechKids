@@ -6,28 +6,36 @@
 //
 
 import SwiftUI
+import SwiftData
 
 final class ChatViewModel: ObservableObject {
     
-    private(set) var data: [(Date, [Message])] = ChatDataMock.getMessagesByDay()
     @Published var isManagerProcessing: Bool = false
-    @Published var lastMessage: Message?
+    @Published var messages: [Message] = []
     
+    private let modelContext: ModelContext
+    
+    var lastMessage: Message?
     var chatService: ChatService
     
-    init(chatService: ChatService) {
+    init(chatService: ChatService, modelContext: ModelContext) {
         self.chatService = chatService
-        lastMessage = data.last?.1.last
+        self.modelContext = modelContext
+        loadMessages()
     }
     
     @MainActor
     func createMessage(messageText: String) async {
         guard !messageText.isEmpty else { return }
-        let newMessage = Message(id: UUID(), title: messageText, isYours: true)
         
+        let newMessage = Message(title: messageText, isYours: true)
+        modelContext.insert(newMessage)
+        messages.append(newMessage)
         lastMessage = newMessage
-        createMessage(newMessage: newMessage)
-        Task {
+        
+        saveContext()
+        
+        let obtainMessageTask = Task {
             do {
                 isManagerProcessing = true
                 let settings = UserSettingsManager.shared
@@ -41,11 +49,23 @@ final class ChatViewModel: ObservableObject {
                 )
                 let newMessage = Message(id: UUID(), title: data, isYours: false)
                 
-                createMessage(newMessage: newMessage)
+                //let newMessage = Message(title: data, isYours: false)
+                
+                modelContext.insert(newMessage)
+                messages.append(newMessage)
                 lastMessage = newMessage
+                saveContext()
                 self.isManagerProcessing = false
             } catch {
                 alertMessage()
+            }
+        }
+        /// Если думает больше 15 секунд - свапаем запрос
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            if !obtainMessageTask.isCancelled && self.isManagerProcessing {
+                obtainMessageTask.cancel()
+                self.isManagerProcessing = false
+                self.alertMessage()
             }
         }
     }
@@ -57,23 +77,33 @@ final class ChatViewModel: ObservableObject {
 
 private extension ChatViewModel {
     
-    @MainActor
-    func createMessage(newMessage: Message) {
-        let date = Calendar.current.startOfDay(for: newMessage.date)
-        if let index = self.data.firstIndex(where: { Calendar.current.isDate($0.0, inSameDayAs: date) }) {
-            self.data[index].1.append(newMessage)
-        } else {
-            self.data.append((date, [newMessage]))
+    func loadMessages() {
+        do {
+            messages = try modelContext.fetch(.init())
+            lastMessage = messages.max { $0.date < $1.date }
+        } catch {
+            print("Error loading messages: \(error.localizedDescription)")
+        }
+    }
+    
+    func saveContext() {
+        do {
+            try modelContext.save()
+        } catch {
+            print("Error of saving data: \(error.localizedDescription)")
         }
     }
     
     @MainActor
     func alertMessage() {
         isManagerProcessing = false
-        let alertMessage = Message(id: UUID(),
-                title: "Упс... Технические неполадки! Проверь интернет соединение и попробуй еще раз🌐",
-                isYours: false)
-        createMessage(newMessage: alertMessage)
+        let alertMessage = Message(
+            title: "Упс... Технические неполадки! Проверь интернет соединение и попробуй еще раз 🌐",
+            isYours: false
+        )
+        modelContext.insert(alertMessage)
+        messages.append(alertMessage)
         lastMessage = alertMessage
+        saveContext()
     }
 }

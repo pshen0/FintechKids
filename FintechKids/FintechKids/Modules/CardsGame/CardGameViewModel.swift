@@ -13,6 +13,7 @@ final class CardGameViewModel: ObservableObject {
     @Published var feedback = ""
     @Published var attempts = 3
     @Published var showNext = false
+    @Published var wrongAnswer = false
     @Published private(set) var screen: ScreenData
     @ObservedObject var screenFactory: ScreenFactory
     @Published var isCorrect = false
@@ -63,10 +64,13 @@ final class CardGameViewModel: ObservableObject {
         case let price where isCloseEnough(price):
             return "Почти правильно! 🎉 Верный ответ: \(model.cost)"
         case let price where price != model.cost && attempts == 0:
+            wrongAnswer.toggle()
             return "Попытки закончились! Верный ответ: \(model.cost)"
         case let price where price > model.cost:
+            wrongAnswer.toggle()
             return "Слишком дорого! Попробуй снова."
         case let price where price < model.cost:
+            wrongAnswer.toggle()
             return "Слишком дешево! Попробуй снова."
         default:
             return "Неправильно! Верный ответ: \(model.cost)"

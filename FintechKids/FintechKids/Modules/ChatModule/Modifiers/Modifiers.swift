@@ -30,7 +30,7 @@ struct CreateMessageTextFieldModifier: ViewModifier {
             .background(Color(UIColor.systemGray6))
             .clipShape(RoundedRectangle(cornerRadius: 15))
             .shadow(color: .black.opacity(0.1), radius: 5)
-            .modifier(CustomFont(size: 16))
+            .font(Font.custom(Fonts.deledda, size: FontSizes.default))
     }
 }
 
@@ -53,13 +53,5 @@ struct ListWithMessagesModifier: ViewModifier {
                     }
                 }
             }
-    }
-}
-
-struct CustomFont: ViewModifier {
-    var size: CGFloat
-    func body(content: Content) -> some View {
-        content
-            .font(.custom("DeleddaOpen-Light", size: size))
     }
 }

@@ -15,11 +15,9 @@ extension MessageList {
             if let message = viewModel.lastMessage {
                 if animated {
                     withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                        proxy.scrollTo(message, anchor: .top)
+                        proxy.scrollTo(message.id, anchor: .top)
                     }
-                } else {
-                    proxy.scrollTo(message, anchor: .bottom)
-                }
+                } else { proxy.scrollTo(message.id, anchor: .bottom) }
             }
         }
     }
