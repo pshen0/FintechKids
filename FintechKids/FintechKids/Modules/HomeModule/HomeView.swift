@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HomeView: View {
     enum Constants {
@@ -93,7 +94,16 @@ struct HomeView: View {
     }
     
     private var chatButton: some View {
-        Button(action: {
+        
+        lazy var container: ModelContainer = {
+            do {
+                return try ModelContainer(for: Message.self)
+            } catch {
+                fatalError("Error of creating container")
+            }
+        }()
+        
+        return Button(action: {
             showChat = true
         }) {
             VStack {
@@ -116,7 +126,8 @@ struct HomeView: View {
             .cornerRadius(buttonCornerRadius)
         }
         .fullScreenCover(isPresented: $showChat) {
-            ChatScreen(viewModel: ChatViewModel(chatService: ChatService()))
+            ChatScreen(viewModel: ChatViewModel(chatService: ChatService(), modelContext: container.mainContext))
+                .modelContainer(container)
                 .interactiveDismissDisabled(true)
         }
         .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)

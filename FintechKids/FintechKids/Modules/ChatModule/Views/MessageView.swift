@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+#Preview {
+    MessageView(message: Message(title: "Lol", isYours: false))
+}
+
 struct MessageView: View {
     let message: Message
     
@@ -15,22 +19,14 @@ struct MessageView: View {
             HStack(alignment: .bottom) {
                 if message.isYours { Spacer() }
                 else {
-                    Circle()
-                        .fill(.background.opacity(0.8).gradient)
-                        .frame(height: ChatConstants.finikAvatar.height)
-                        .overlay {
-                            Image(.cat)
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .padding(Padding.small)
-                        }
+                    FinikAvatar()
                 }
                 
                 VStack(alignment: MessageModel.getMessageStackAlignment(isYour: message.isYours)) {
                     Text(message.title)
-                        .modifier(CustomFont(size: FontSizes.default))
+                        .font(Font.custom(Fonts.deledda, size: FontSizes.default))
                         .padding(Padding.default)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(MessageModel.getTextColor(isYour: message.isYours))
                         .background {
                             MessageCorner(
                                 radius: FontSizes.default,
@@ -41,9 +37,9 @@ struct MessageView: View {
                         }
                     
                     Text(Formatter.formatTime(date: message.date))
-                        .modifier(CustomFont(size: FontSizes.time))
+                        .font(Font.custom(Fonts.deledda, size: FontSizes.time))
                         .foregroundStyle(.secondary)
-                } 
+                }
                 if !message.isYours { Spacer() }
             }
             .background(.clear)
