@@ -38,9 +38,18 @@ final class ChatViewModel: ObservableObject {
         let obtainMessageTask = Task {
             do {
                 isManagerProcessing = true
+                let settings = UserSettingsManager.shared
+                let data = try await chatService.getFinickMessage(
+                    promt: Prompt.message(
+                        settings.userName,
+                        settings.userAge,
+                        settings.userHobbies,
+                        messageText
+                    )
+                )
+                let newMessage = Message(id: UUID(), title: data, isYours: false)
                 
-                let data = try await chatService.getFinickMessage(promt: Prompt.message("Данил", "19", "Программировать", messageText))
-                let newMessage = Message(title: data, isYours: false)
+                //let newMessage = Message(title: data, isYours: false)
                 
                 modelContext.insert(newMessage)
                 messages.append(newMessage)
