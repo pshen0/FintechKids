@@ -90,6 +90,6 @@ struct MessageList: View {
         }
         .modifier(ListWithMessagesModifier(dismiss: {
             dismiss()
-        }))
+        }, viewModel: viewModel))
     }
 }

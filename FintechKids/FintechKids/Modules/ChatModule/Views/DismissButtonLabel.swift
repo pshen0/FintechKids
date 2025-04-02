@@ -9,11 +9,12 @@ import SwiftUI
 
 struct DismissButtonLabel: View {
     var body: some View {
-        HStack(spacing: Padding.small) {
-            Image(systemName: SystemImage.goBack.getSystemName)
-                .fontWeight(.medium)
+        HStack(spacing: 4) {
+            Image(systemName: "chevron.left")
             Text("Назад")
-                .font(Font.custom(Fonts.deledda, size: FontSizes.default))
         }
+        .foregroundStyle(.text)
+        .padding(Padding.default)
+        .font(Font.custom(Fonts.deledda, size: FontSizes.default))
     }
 }

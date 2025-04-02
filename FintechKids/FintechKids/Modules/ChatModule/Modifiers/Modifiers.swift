@@ -35,7 +35,11 @@ struct CreateMessageTextFieldModifier: ViewModifier {
 }
 
 struct ListWithMessagesModifier: ViewModifier {
+
     let dismiss: (() -> Void)
+    let viewModel: ChatViewModel
+    
+    @State private var confirmDeleting: Bool = false
     
     func body(content: Content) -> some View {
         content
@@ -52,6 +56,22 @@ struct ListWithMessagesModifier: ViewModifier {
                         DismissButtonLabel()
                     }
                 }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        confirmDeleting = true
+                    } label: {
+                        ClearChatLabel(viewModel: viewModel)
+                    }
+                }
             }
+            .alert(isPresented: $confirmDeleting) {
+                Alert(title: Text("Ты уверен?"),
+                      message: Text("Удаленную переписку нельзя восстановить"),
+                      primaryButton: .destructive(Text("Очистить")) {
+                    viewModel.clearStorage()
+                }, secondaryButton: .cancel(Text("Отменить")))
+            }
+            .disabled(viewModel.messages.isEmpty)
     }
 }

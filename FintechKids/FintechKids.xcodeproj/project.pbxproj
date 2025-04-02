@@ -12,7 +12,6 @@
 		0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */; };
 		0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1D2D95B946007CB69B /* HomeView.swift */; };
 		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
-		0FE3EF0B2D9D52B4007DBD20 /* BubbleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3EF0A2D9D52B4007DBD20 /* BubbleAnimationView.swift */; };
 		2E136FAA2D9D5A3600089A4A /* CustomDropDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */; };
 		2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */; };
 		2E2551CC2D96C8F00007B2D9 /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */; };
@@ -98,6 +97,7 @@
 		CF1A25DA2D9B4A7C0032844E /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A25D92D9B4A7C0032844E /* Cloud.swift */; };
 		CF7CA0232D9D3AF80035DEA0 /* FinikAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0222D9D3AF80035DEA0 /* FinikAvatar.swift */; };
 		CF7CA0242D9D58880035DEA0 /* BubbleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3EF0A2D9D52B4007DBD20 /* BubbleAnimationView.swift */; };
+		CF7CA0262D9D656E0035DEA0 /* ClearChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */; };
 		CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F182D943CE20038AEAD /* Image+extension.swift */; };
 		CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F272D943DDA0038AEAD /* ChatScreen.swift */; };
 		CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F292D943DE60038AEAD /* ChatViewModel.swift */; };
@@ -215,6 +215,7 @@
 		CF1A25D72D9B47BA0032844E /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		CF1A25D92D9B4A7C0032844E /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		CF7CA0222D9D3AF80035DEA0 /* FinikAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinikAvatar.swift; sourceTree = "<group>"; };
+		CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearChatLabel.swift; sourceTree = "<group>"; };
 		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
 		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		CF964F292D943DE60038AEAD /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -632,6 +633,7 @@
 				CF1A245E2D9829A30032844E /* MessageList.swift */,
 				CF1A24602D9829C50032844E /* CreateMessageTextField.swift */,
 				CF1A24622D9829E90032844E /* DismissButtonLabel.swift */,
+				CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */,
 				CF1A24792D986D0C0032844E /* MessageCorner.swift */,
 				CF1A25962D9ADD820032844E /* TypingIndicator.swift */,
 				CF1A25D92D9B4A7C0032844E /* Cloud.swift */,
@@ -855,6 +857,7 @@
 				CF1A25D82D9B47BA0032844E /* MessageModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */,
+				CF7CA0262D9D656E0035DEA0 /* ClearChatLabel.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2E2551D72D975C210007B2D9 /* GoalCardRow.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
