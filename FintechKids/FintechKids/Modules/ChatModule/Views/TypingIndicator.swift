@@ -7,20 +7,16 @@
 
 import SwiftUI
 
+#Preview {
+    TypingIndicator()
+}
+
 struct TypingIndicator: View {
     @State private var animationOffset: CGFloat = 0
     
     var body: some View {
         HStack {
-            Circle()
-                .fill(.background.opacity(0.8).gradient)
-                .frame(height: ChatConstants.finikAvatar.height)
-                .overlay {
-                    Image(.cat)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(Padding.small)
-                }
+            FinikAvatar()
             
             HStack(spacing: Padding.small) {
                 ForEach(0 ..< 3) { index in

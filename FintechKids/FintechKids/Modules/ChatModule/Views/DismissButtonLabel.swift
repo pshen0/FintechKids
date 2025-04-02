@@ -13,7 +13,7 @@ struct DismissButtonLabel: View {
             Image(systemName: SystemImage.goBack.getSystemName)
                 .fontWeight(.medium)
             Text("Назад")
-                .modifier(CustomFont(size: FontSizes.default))
+                .font(Font.custom(Fonts.deledda, size: FontSizes.default))
         }
     }
 }
