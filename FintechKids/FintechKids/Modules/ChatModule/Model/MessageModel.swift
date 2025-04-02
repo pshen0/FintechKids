@@ -14,7 +14,11 @@ struct MessageModel {
     }
     
     static func getMessageColor(isYour: Bool) -> Color {
-        isYour ? .text : .highlightedBackground
+        isYour ? .text : .message
+    }
+    
+    static func getTextColor(isYour: Bool) -> Color {
+        isYour ? .white : .text
     }
     
     static func getMessageStackAlignment(isYour: Bool) -> HorizontalAlignment {

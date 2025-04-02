@@ -9,5 +9,5 @@ import Foundation
 
 /// Тебе надо сгенерить свой ключь у себя! https://openrouter.ai/models?max_price=0
 enum LLMKeyProvider: String {
-    case apiKey = "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"
+    case apiKey = "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"
 }

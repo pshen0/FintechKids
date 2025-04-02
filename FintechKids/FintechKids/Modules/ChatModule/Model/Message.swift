@@ -6,10 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Message: Hashable, Identifiable {
-    let id: UUID
-    let title: String
-    let date = Date()
-    let isYours: Bool
+@Model
+final class Message: Hashable, Identifiable {
+    var id: UUID
+    var title: String
+    var date: Date
+    var isYours: Bool
+    
+    init(id: UUID = UUID(), title: String, date: Date = Date(), isYours: Bool) {
+        self.id = id
+        self.title = title
+        self.date = date
+        self.isYours = isYours
+    }
 }
