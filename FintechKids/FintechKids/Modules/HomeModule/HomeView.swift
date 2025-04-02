@@ -184,9 +184,10 @@ struct HomeView: View {
             .background(Color.highlightedBackground)
             .cornerRadius(buttonCornerRadius)
         }
-//        .fullScreenCover(isPresented: $showShoppingGame) {
-//        
-//        }
+        .fullScreenCover(isPresented: $showShoppingGame) {
+            ShoppingGameView(viewModel: ShoppingGameViewModel())
+                .interactiveDismissDisabled(true)
+        }
         .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }
     
