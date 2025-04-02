@@ -27,13 +27,12 @@ struct CardGameView: View {
                 
                 VStack {
                     attemptsLeft
-                        .padding(.top, 100)
+                        .padding(.top, 30)
                         .padding(.bottom, 5)
                     productImage
                         .padding(.top, 10)
                     questionText
                     priceInputField
-                    checkButton
                     feedBackText
                     Spacer()
                 }
@@ -81,10 +80,20 @@ struct CardGameView: View {
             .scaleEffect(viewModel.showNext ? 0.1 : 1)
             .opacity(viewModel.showNext ? 0 : 1)
             .animation(.easeInOut(duration: 0.5), value: viewModel.showNext)
+            .offset(x: viewModel.wrongAnswer ? -5 : 5)
+            .animation(viewModel.wrongAnswer ? Animation.easeInOut(duration: 0.1).repeatCount(5) : .default, value: viewModel.wrongAnswer)
+        
             .onChange(of: viewModel.showNext) { newValue in
                 if newValue {
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                         viewModel.showNext = false
+                    }
+                }
+            }
+            .onChange(of: viewModel.wrongAnswer) { newValue in
+                if newValue {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        viewModel.wrongAnswer = false
                     }
                 }
             }
@@ -100,17 +109,21 @@ struct CardGameView: View {
     }
     
     private var priceInputField: some View {
-        TextField("Введи цену", text: $viewModel.userInput)
-            .font(Font.custom(Fonts.deledda, size: 15))
-            .fontWeight(.medium)
-            .padding(.vertical, 10)
-            .padding(.horizontal, 15)
-            .background(Color(UIColor.systemGray6))
-            .clipShape(RoundedRectangle(cornerRadius: 15))
-            .shadow(color: .black.opacity(0.1), radius: 5)
-            .focused($focusedField)
-            .keyboardType(.numberPad)
-            .padding()
+        HStack {
+            TextField("Введи цену", text: $viewModel.userInput)
+                .font(Font.custom(Fonts.deledda, size: 15))
+                .fontWeight(.medium)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 15)
+                .background(Color(UIColor.systemGray6))
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .shadow(color: .black.opacity(0.1), radius: 5)
+                .focused($focusedField)
+                .keyboardType(.numberPad)
+                .padding()
+            checkButton
+        }
+        .padding()
     }
     
     private var checkButton: some View {
