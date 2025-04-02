@@ -9,7 +9,7 @@ import SwiftUI
 
 final class ChatViewModel: ObservableObject {
     
-    private(set) var data: [(Date, [Message])] = ChatDataMock.getMessagesByDay() // 1?
+    private(set) var data: [(Date, [Message])] = ChatDataMock.getMessagesByDay()
     @Published var isManagerProcessing: Bool = false
     @Published var lastMessage: Message?
     
@@ -30,7 +30,15 @@ final class ChatViewModel: ObservableObject {
         Task {
             do {
                 isManagerProcessing = true
-                let data = try await chatService.getFinickMessage(promt: Prompt.message("Данил", "19", "Программировать", messageText))
+                let settings = UserSettingsManager.shared
+                let data = try await chatService.getFinickMessage(
+                    promt: Prompt.message(
+                        settings.userName,
+                        settings.userAge,
+                        settings.userHobbies,
+                        messageText
+                    )
+                )
                 let newMessage = Message(id: UUID(), title: data, isYours: false)
                 
                 createMessage(newMessage: newMessage)

@@ -59,6 +59,7 @@
 		53B3D74A2D986E2D00B31D2D /* StatementService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D7452D986E2D00B31D2D /* StatementService.swift */; };
 		53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D74E2D99A26900B31D2D /* ChatService.swift */; };
 		560775192D9C017A004EA190 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560775182D9C017A004EA190 /* SplashScreen.swift */; };
+		5607751B2D9C9D94004EA190 /* UserSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameRound.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
@@ -158,6 +159,7 @@
 		53B3D7452D986E2D00B31D2D /* StatementService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatementService.swift; sourceTree = "<group>"; };
 		53B3D74E2D99A26900B31D2D /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		560775182D9C017A004EA190 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
 		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		83869DA82D9499D2000A1EFD /* CardGameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameRound.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
@@ -546,6 +548,7 @@
 		CF964F262D943D920038AEAD /* ChatModule */ = {
 			isa = PBXGroup;
 			children = (
+				5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */,
 				CF1A245D2D9829910032844E /* Views */,
 				CF1A241A2D97BA320032844E /* Modifiers */,
 				CF1A23D72D96B80B0032844E /* Model */,
@@ -711,6 +714,7 @@
 				CF1A23DB2D96B8100032844E /* Formatter.swift in Sources */,
 				CF1A23DC2D96B8100032844E /* Message.swift in Sources */,
 				CF1A23DD2D96B8100032844E /* ChatDataMock.swift in Sources */,
+				5607751B2D9C9D94004EA190 /* UserSettingsManager.swift in Sources */,
 				CF1A247A2D986D0C0032844E /* MessageCorner.swift in Sources */,
 				CF1A254B2D999F990032844E /* ChatConstants.swift in Sources */,
 				CF1A245F2D9829A30032844E /* MessageList.swift in Sources */,
