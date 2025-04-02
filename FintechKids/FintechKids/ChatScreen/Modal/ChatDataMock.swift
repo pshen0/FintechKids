@@ -1,35 +1,14 @@
 //
-//  ChatViewModel.swift
+//  ChatDataMock.swift
 //  FintechKids
 //
-//  Created by Данил Забинский on 26.03.2025.
+//  Created by Данил Забинский on 28.03.2025.
 //
 
-import SwiftUI
+import Foundation
 
-struct Message: Hashable, Identifiable {
-    let id = UUID()
-    let title: String
-    let date = Date()
-    let isYour: Bool
-}
-
-class Formatter {
-    static func formatDate(date: Date) -> String {
-        timeFormatter.string(from: date)
-    }
-    
-    static var timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        formatter.locale = .current
-        return formatter
-    }()
-}
-
-class ChatViewModel: ObservableObject {
-    
-    @Published var data: [Message] = [
+enum ChatDataMock {
+    static let `default`: [Message] = [
         Message(title: "HI", isYour: true),
         Message(title: "How are you", isYour: false),
         Message(title: "Im fine and you", isYour: true),
@@ -43,15 +22,4 @@ class ChatViewModel: ObservableObject {
         Message(title: "Wow", isYour: false),
         Message(title: "Yep", isYour: true),
     ]
-    
-    func createMessage(text: inout String) -> UUID {
-        let message = Message(title: text, isYour: true)
-        data.append(message)
-        text = ""
-        return message.id
-    }
-    
-    func a() {
-        data.append(Message(title: "", isYour: true))
-    }
 }
