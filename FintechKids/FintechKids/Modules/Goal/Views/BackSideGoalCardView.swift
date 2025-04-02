@@ -76,7 +76,7 @@ struct BackSideGoalCardView: View {
             }
             .frame(maxWidth: .infinity, alignment: .center)
             VStack(alignment: .leading) {
-                Text("Прогресс: \(String(describing: viewModel.goal.progress))%")
+                Text("Прогресс \(String(describing: viewModel.goal.progress))%")
                     .opacity(viewModel.isEdit ? 0.5 : 1)
                 HStack {
                     Text("Приоритет: ")
