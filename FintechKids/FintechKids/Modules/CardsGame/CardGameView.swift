@@ -73,7 +73,7 @@ struct CardGameView: View {
     }
     
     private var productImage: some View {
-        Image(viewModel.model.imageName)
+        Image(viewModel.model?.imageName ?? "")
             .resizable()
             .scaledToFit()
             .frame(height: 150)
@@ -100,7 +100,7 @@ struct CardGameView: View {
     }
     
     private var questionText: some View {
-        Text("Сколько стоит \(viewModel.model.name)?")
+        Text("Сколько стоит \(viewModel.model?.name ?? "no name")?")
             .font(Font.custom(Fonts.deledda, size: 20))
             .fontWeight(.medium)
             .foregroundColor(Color.text)

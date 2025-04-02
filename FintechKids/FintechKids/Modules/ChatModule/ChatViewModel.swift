@@ -68,7 +68,7 @@ final class ChatViewModel: ObservableObject {
                 alertMessage()
             }
         }
-        /// Если думает больше 15 секунд - свапаем запрос
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
             if !obtainMessageTask.isCancelled && self.isManagerProcessing {
                 obtainMessageTask.cancel()
@@ -130,5 +130,6 @@ private extension ChatViewModel {
                 """,
             isYours: false)
         ]
+        lastMessage = messages[0]
     }
 }
