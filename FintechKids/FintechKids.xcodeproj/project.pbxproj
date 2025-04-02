@@ -310,9 +310,6 @@
 			isa = PBXGroup;
 			children = (
 				8390DB9E2D9869F900A414FD /* Info.plist */,
-				53B3D70A2D96CA6600B31D2D /* Model */,
-				53B3D6F72D96CA1E00B31D2D /* LLMService */,
-				53B3D6FF2D96CA3900B31D2D /* Errors */,
 				83A6E9652D95945E0007B577 /* Storage.swift */,
 				2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */,
 				2EA151572D94A9B1001ED73E /* Shared */,
@@ -417,8 +414,7 @@
 			children = (
 				53B3D6F52D96CA1E00B31D2D /* LLMService.swift */,
 			);
-			name = LLMService;
-			path = Networking/LLMService;
+			path = LLMService;
 			sourceTree = "<group>";
 		};
 		53B3D6FF2D96CA3900B31D2D /* Errors */ = {
@@ -428,8 +424,7 @@
 				53B3D6FD2D96CA3900B31D2D /* NetworkingError.swift */,
 				53B3D6FE2D96CA3900B31D2D /* PDFError.swift */,
 			);
-			name = Errors;
-			path = Networking/Errors;
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		53B3D70A2D96CA6600B31D2D /* Model */ = {
@@ -444,8 +439,7 @@
 				53B3D7092D96CA6600B31D2D /* RequestBody.swift */,
 				53B3D7122D96CB4F00B31D2D /* Transaction.swift */,
 			);
-			name = Model;
-			path = Networking/Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		53B3D73E2D986CE300B31D2D /* Networking */ = {
@@ -455,6 +449,9 @@
 				53B3D74F2D99A26900B31D2D /* Chat */,
 				53B3D7462D986E2D00B31D2D /* Statement */,
 				53B3D7402D986DA900B31D2D /* LLMKeyProvider.swift */,
+				53B3D70A2D96CA6600B31D2D /* Model */,
+				53B3D6F72D96CA1E00B31D2D /* LLMService */,
+				53B3D6FF2D96CA3900B31D2D /* Errors */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -691,10 +688,6 @@
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
 				2E2551D02D96C8F00007B2D9 /* GoalsView.swift in Sources */,
 				2E2551D92D97608A0007B2D9 /* CustomTextField.swift in Sources */,
-				0FC6DA182D949037007CB69B /* AnalyticsView.swift in Sources */,
-				53B3D7172D96E9AE00B31D2D /* StatementService.swift in Sources */,
-				0FC6DA182D949037007CB69B /* StartAnalyticsView.swift in Sources */,
-				0FC6DA182D949037007CB69B /* StartAnalyticsView.swift in Sources */,
 				838CD9462D96E9A7006F1661 /* ScreenFactory.swift in Sources */,
 				2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */,
 				CF1A24612D9829C50032844E /* CreateMessageTextField.swift in Sources */,
@@ -738,8 +731,6 @@
 				2E2551D72D975C210007B2D9 /* GoalCardRow.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
 				CF1A24632D9829E90032844E /* DismissButtonLabel.swift in Sources */,
-				2EA151602D94B617001ED73E /* BackSideGoalCardView.swift in Sources */,
-				2EA1516B2D958124001ED73E /* GoalsView.swift in Sources */,
 				53B3D70B2D96CA6600B31D2D /* Prompt.swift in Sources */,
 				53B3D70C2D96CA6600B31D2D /* APIResponse.swift in Sources */,
 				53B3D70D2D96CA6600B31D2D /* MessageContent.swift in Sources */,
@@ -756,11 +747,7 @@
 				2E2551CE2D96C8F00007B2D9 /* FrontSideGoalCardView.swift in Sources */,
 				2E2551D12D96C8F00007B2D9 /* ProgressBar.swift in Sources */,
 				53B3D7132D96CB4F00B31D2D /* Transaction.swift in Sources */,
-				2EA1515B2D94AE2C001ED73E /* GoalCardView.swift in Sources */,
 				CF1A241E2D97D1F20032844E /* Extensions.swift in Sources */,
-				2EA1507D2D9353DC001ED73E /* FintechKidsApp.swift in Sources */,
-				56A2DDE72D95833500F853B3 /* SettingsView.swift in Sources */,
-				2E5BA62D2D9605D30015C665 /* ProgressBar.swift in Sources */,
 				0F71F7502D9AC97100A1A407 /* Plot.swift in Sources */,
 				0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */,
 			);

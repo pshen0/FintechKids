@@ -30,7 +30,7 @@ struct MessageView: View {
                     Text(message.title)
                         .modifier(CustomFont(size: FontSizes.default))
                         .padding(Padding.default)
-                        .foregroundStyle(.white)
+                        .foregroundStyle(MessageModel.getTextColor(isYour: message.isYours))
                         .background {
                             MessageCorner(
                                 radius: FontSizes.default,
@@ -43,7 +43,7 @@ struct MessageView: View {
                     Text(Formatter.formatTime(date: message.date))
                         .modifier(CustomFont(size: FontSizes.time))
                         .foregroundStyle(.secondary)
-                } 
+                }
                 if !message.isYours { Spacer() }
             }
             .background(.clear)

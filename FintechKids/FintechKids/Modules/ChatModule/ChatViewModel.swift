@@ -24,20 +24,27 @@ final class ChatViewModel: ObservableObject {
     func createMessage(messageText: String) async {
         guard !messageText.isEmpty else { return }
         let newMessage = Message(id: UUID(), title: messageText, isYours: true)
-        
         lastMessage = newMessage
         createMessage(newMessage: newMessage)
-        Task {
+        
+        let obtainMessageTask = Task {
             do {
                 isManagerProcessing = true
-                let data = try await chatService.getFinickMessage(promt: Prompt.message("Данил", "19", "Программировать", messageText))
-                let newMessage = Message(id: UUID(), title: data, isYours: false)
-                
-                createMessage(newMessage: newMessage)
-                lastMessage = newMessage
-                self.isManagerProcessing = false
+                 let data = try await chatService.getFinickMessage(promt: Prompt.message("Данил", "19", "Программировать", messageText))
+                 let newMessage = Message(id: UUID(), title: data, isYours: false)
+                 createMessage(newMessage: newMessage)
+                 lastMessage = newMessage
+                 self.isManagerProcessing = false
             } catch {
                 alertMessage()
+            }
+        }
+        /// Если думает больше 15 секунд - свапаем запрос
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            if !obtainMessageTask.isCancelled && self.isManagerProcessing {
+                obtainMessageTask.cancel()
+                self.isManagerProcessing = false
+                self.alertMessage()
             }
         }
     }
@@ -63,7 +70,7 @@ private extension ChatViewModel {
     func alertMessage() {
         isManagerProcessing = false
         let alertMessage = Message(id: UUID(),
-                title: "Упс... Технические неполадки! Проверь интернет соединение и попробуй еще раз🌐",
+                title: "Упс... Технические неполадки! Проверь интернет соединение и попробуй еще раз 🌐",
                 isYours: false)
         createMessage(newMessage: alertMessage)
         lastMessage = alertMessage

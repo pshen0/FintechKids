@@ -58,6 +58,7 @@ struct ChatScreen: View {
                     }
                     .background(.clear)
                 }
+                .toolbarBackground(.hidden, for: .navigationBar)
                 .setupKeyboardObservers(keyboardHeight:       $keyboardHeight,
                                         shouldScrollToBottom: $shouldScrollToBottom)
             }
