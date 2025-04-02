@@ -80,6 +80,8 @@ struct BackSideGoalCardView: View {
                     .opacity(viewModel.isEdit ? 0.5 : 1)
                 HStack {
                     Text("Приоритет: ")
+                    CustomDropDownList(values: [.low, .mid, .high], current: viewModel.goal.level, flag: viewModel.isEdit)
+                        .zIndex(1)
                 }
                 Text("Дата: \(String(describing: viewModel.goal.date.formattedDate()))")
                     .opacity(viewModel.isEdit ? 0.5 : 1)

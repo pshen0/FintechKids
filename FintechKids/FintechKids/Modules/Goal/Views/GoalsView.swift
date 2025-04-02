@@ -32,6 +32,7 @@ struct GoalsView: View {
         .frame(width: 0.9 * width)
         .font(Font.custom(Fonts.deledda, size: height * 0.05))
         .foregroundColor(Color.text)
+        .background(.clear)
     }
     
     private var scrollGoals: some View {

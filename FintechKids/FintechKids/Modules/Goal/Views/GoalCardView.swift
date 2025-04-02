@@ -33,7 +33,6 @@ struct GoalCardView: View {
                         axis: (x: 1.0, y: 0.001, z: 0.001)
                     )
             }
-            .rotation3DEffect(.degrees(viewModel.isFlipped ? 180: 360), axis: (1, 0.001, 0.001), perspective: 0.5)
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.8)) {
                     // TODO: нужно сделать какую-нить анимацию, чтобы показать пользователю что надо закомитить изменения (тыкнуть галку) перед тем как переворачивать
@@ -45,6 +44,7 @@ struct GoalCardView: View {
                     }
                 }
             }
+            .rotation3DEffect(.degrees(viewModel.isFlipped ? 180: 360), axis: (1, 0.001, 0.001), perspective: 0.5)
         }
     }
 }
