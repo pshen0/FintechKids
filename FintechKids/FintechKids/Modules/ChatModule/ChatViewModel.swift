@@ -69,10 +69,9 @@ final class ChatViewModel: ObservableObject {
 private extension ChatViewModel {
     
     func loadMessages() {
-        let descriptor = FetchDescriptor<Message>(sortBy: [SortDescriptor(\.date)])
         do {
-            messages = try modelContext.fetch(descriptor)
-            lastMessage = messages.last
+            messages = try modelContext.fetch(.init())
+            lastMessage = messages.max { $0.date < $1.date }
         } catch {
             print("Error loading messages: \(error.localizedDescription)")
         }
@@ -96,5 +95,6 @@ private extension ChatViewModel {
         modelContext.insert(alertMessage)
         messages.append(alertMessage)
         lastMessage = alertMessage
+        saveContext()
     }
 }
