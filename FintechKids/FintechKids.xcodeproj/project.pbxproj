@@ -68,7 +68,6 @@
 		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
 		CF1A23DB2D96B8100032844E /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D92D96B8100032844E /* Formatter.swift */; };
 		CF1A23DC2D96B8100032844E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23DA2D96B8100032844E /* Message.swift */; };
-		CF1A23DD2D96B8100032844E /* ChatDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23D82D96B8100032844E /* ChatDataMock.swift */; };
 		CF1A241C2D97BA410032844E /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A241B2D97BA410032844E /* Modifiers.swift */; };
 		CF1A241E2D97D1F20032844E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A241D2D97D1F20032844E /* Extensions.swift */; };
 		CF1A245F2D9829A30032844E /* MessageList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A245E2D9829A30032844E /* MessageList.swift */; };
@@ -165,7 +164,6 @@
 		83A6E9632D9588930007B577 /* CardGame.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CardGame.txt; sourceTree = "<group>"; };
 		83A6E9652D95945E0007B577 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = StorageModule/Storage.swift; sourceTree = "<group>"; };
 		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
-		CF1A23D82D96B8100032844E /* ChatDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDataMock.swift; sourceTree = "<group>"; };
 		CF1A23D92D96B8100032844E /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		CF1A23DA2D96B8100032844E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CF1A241B2D97BA410032844E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
@@ -498,7 +496,6 @@
 			isa = PBXGroup;
 			children = (
 				CF1A241D2D97D1F20032844E /* Extensions.swift */,
-				CF1A23D82D96B8100032844E /* ChatDataMock.swift */,
 				CF1A23D92D96B8100032844E /* Formatter.swift */,
 				CF1A23DA2D96B8100032844E /* Message.swift */,
 				CF1A254A2D999F990032844E /* ChatConstants.swift */,
@@ -703,7 +700,6 @@
 				CF1A241C2D97BA410032844E /* Modifiers.swift in Sources */,
 				CF1A23DB2D96B8100032844E /* Formatter.swift in Sources */,
 				CF1A23DC2D96B8100032844E /* Message.swift in Sources */,
-				CF1A23DD2D96B8100032844E /* ChatDataMock.swift in Sources */,
 				CF1A247A2D986D0C0032844E /* MessageCorner.swift in Sources */,
 				CF1A254B2D999F990032844E /* ChatConstants.swift in Sources */,
 				CF1A245F2D9829A30032844E /* MessageList.swift in Sources */,

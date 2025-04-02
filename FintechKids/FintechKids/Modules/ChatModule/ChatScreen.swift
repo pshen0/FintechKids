@@ -6,19 +6,18 @@
 //
 
 import SwiftUI
-
-#Preview {
-    ChatScreen(viewModel: ChatViewModel(chatService: ChatService()))
-}
+import SwiftData
 
 struct ChatScreen: View {
+    
+    @Environment(\.dismiss) var dismiss
+    @Environment(\.modelContext) private var modelContext
+    
+    @ObservedObject var viewModel: ChatViewModel
     
     @State private var text = ""
     @State private var keyboardHeight: CGFloat = 0
     @State private var shouldScrollToBottom = false
-    @State private var lastMessageCount = 0
-    @ObservedObject var viewModel: ChatViewModel
-    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         NavigationStack {
@@ -47,6 +46,7 @@ struct ChatScreen: View {
                         MessageList(
                             viewModel: viewModel,
                             shouldScrollToBottom: $shouldScrollToBottom,
+                            messages: viewModel.messages,
                             proxy: proxy,
                             dismiss: { dismiss() })
                         
@@ -59,8 +59,10 @@ struct ChatScreen: View {
                     .background(.clear)
                 }
                 .toolbarBackground(.hidden, for: .navigationBar)
-                .setupKeyboardObservers(keyboardHeight:       $keyboardHeight,
-                                        shouldScrollToBottom: $shouldScrollToBottom)
+                .setupKeyboardObservers(
+                    keyboardHeight: $keyboardHeight,
+                    shouldScrollToBottom: $shouldScrollToBottom
+                )
             }
         }
     }

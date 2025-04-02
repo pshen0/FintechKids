@@ -6,20 +6,27 @@
 //
 
 import SwiftUI
-
-#Preview {
-    ChatScreen(viewModel: ChatViewModel(chatService: ChatService()))
-}
+import SwiftData
 
 struct MessageList: View {
     @ObservedObject var viewModel: ChatViewModel
     @Binding var shouldScrollToBottom: Bool
+    
+    let messages: [Message]
     var proxy: ScrollViewProxy
     var dismiss: (() -> Void)
     
+    // TODO: переделать логику + кеширование?
+    private var grouppedMessages: [(Date, [Message])] {
+        let grouped = Dictionary(grouping: messages) { message in
+            Calendar.current.startOfDay(for: message.date)
+        }
+        return grouped.sorted { $0.key > $1.key }
+    }
+    
     var body: some View {
         List {
-            ForEach(viewModel.data, id: \.0) { (date, messages) in
+            ForEach(grouppedMessages, id: \.0) { (date, messages) in
                 Section {
                     HStack(alignment: .center) {
                         Spacer()
@@ -41,7 +48,7 @@ struct MessageList: View {
                     .listRowSeparator(.hidden)
                 }
                 
-                ForEach(messages, id: \.self) { message in
+                ForEach(messages) { message in
                     MessageView(message: message)
                         .listRowSeparator(.hidden)
                         .listRowBackground(Color.clear)
@@ -70,7 +77,7 @@ struct MessageList: View {
                 scrollToLastMessage(proxy: proxy)
             }
         }
-        .onChange(of: viewModel.lastMessage) { _, _ in
+        .onChange(of: messages) { _, _ in
             scrollToLastMessage(proxy: proxy)
         }
         .onTapGesture {
