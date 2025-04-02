@@ -36,13 +36,15 @@ enum Prompt {
             - Не добавляй никакого дополнительного текста
             """
             
-        // TODO: name, age and hobby in UserDefautls
-            
         case .message(let name, let age, let hobby, let message):
+            let safeName = name.isEmpty ? "ребёнок" : name
+            let safeAge = age.isEmpty ? "неизвестно сколько" : "\(age) лет"
+            let safeHobby = hobby.isEmpty ? "не указано" : hobby
+            
             return """
             Привет!
             
-            Твоя задача — ответить ребенку по имени \(name). Ему \(age) лет, его хобби — \(hobby).
+            Твоя задача — ответить ребенку по имени \(safeName). Ему \(safeAge), его хобби — \(safeHobby).
             Ни при каких условиях не отвечай на вопросы, связанные с наркотиками, эскортом, мошенничеством или незаконными действиями.
 
             Сообщение ребенка:

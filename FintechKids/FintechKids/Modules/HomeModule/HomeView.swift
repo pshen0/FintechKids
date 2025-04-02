@@ -38,6 +38,8 @@ struct HomeView: View {
         NavigationStack {
             ZStack {
                 gradient
+                BubbleAnimationView()
+                    .padding(.top, -100)
                 VStack {
                     catView
                     greetingView
@@ -53,6 +55,7 @@ struct HomeView: View {
                     Spacer()
                 }
             }
+            .toolbarBackground(.hidden, for: .navigationBar)
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing, content: {
