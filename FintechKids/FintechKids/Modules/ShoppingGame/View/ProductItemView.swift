@@ -54,7 +54,7 @@ struct ProductItemView: View {
             .foregroundStyle(.white)
             .background(.blue)
             .clipShape(Circle())
-            .padding(8)
+            .padding(8) 
             .transition(AnyTransition.scale.combined(with: .opacity))
     }
     

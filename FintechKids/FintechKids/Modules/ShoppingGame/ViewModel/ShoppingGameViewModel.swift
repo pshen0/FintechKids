@@ -29,13 +29,16 @@ class ShoppingGameViewModel: ObservableObject {
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
             guard let self else { return }
-            if progress > 0 {
-                progress -= 0.1 / 30
-            } else {
-                timer?.invalidate()
-                timer = nil
-                isTimeUp = true
-                showTimeUpSheet = true
+            
+            if !timePaused && !showOnboarding {
+                if progress > 0 {
+                    progress -= 0.1 / 30
+                } else {
+                    timer?.invalidate()
+                    timer = nil
+                    isTimeUp = true
+                    showTimeUpSheet = true
+                }
             }
         }
     }
