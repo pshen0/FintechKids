@@ -38,21 +38,3 @@ struct CustomDropDownList: View {
         }
     }
 }
-
-#Preview {
-    @Previewable @State var flag = true
-    
-    VStack {
-        CustomDropDownList(values: [GoalImportantLevels.high, GoalImportantLevels.mid, GoalImportantLevels.low], current: .high, flag: flag)
-            .frame(width: UIScreen.main.bounds.width * 0.3, height: UIScreen.main.bounds.height * 0.1)
-        
-        Text("Turn")
-            .onTapGesture {
-                withAnimation {
-                    flag.toggle()
-                }
-            }
-    }
-    .frame(maxWidth: .infinity, maxHeight: .infinity)
-    .background(Color.gray)
-}
