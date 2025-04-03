@@ -85,6 +85,8 @@
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
 		838CD9462D96E9A7006F1661 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CD9452D96E9A7006F1661 /* ScreenFactory.swift */; };
 		8390DB9F2D986C2600A414FD /* DeleddaOpen-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F71F7362D97D53D00A1A407 /* DeleddaOpen-Light.ttf */; };
+		839A91772D9D7B5400A7506C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A91762D9D7B5400A7506C /* CardView.swift */; };
+		83A6E9642D95889E0007B577 /* CardGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83A6E9632D9588930007B577 /* CardGame.txt */; };
 		83A6E9642D95889E0007B577 /* Products.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83A6E9632D9588930007B577 /* Products.txt */; };
 		83A6E9662D95945E0007B577 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6E9652D95945E0007B577 /* Storage.swift */; };
 		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
@@ -211,6 +213,8 @@
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
 		838CD9452D96E9A7006F1661 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenFactory.swift; path = StorageModule/ScreenFactory.swift; sourceTree = "<group>"; };
 		8390DB9E2D9869F900A414FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		839A91762D9D7B5400A7506C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		83A6E9632D9588930007B577 /* CardGame.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CardGame.txt; sourceTree = "<group>"; };
 		83A6E9632D9588930007B577 /* Products.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Products.txt; sourceTree = "<group>"; };
 		83A6E9652D95945E0007B577 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = StorageModule/Storage.swift; sourceTree = "<group>"; };
 		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
@@ -629,6 +633,8 @@
 				83869DA82D9499D2000A1EFD /* CardGameRound.swift */,
 				83869DA92D9499D2000A1EFD /* CardGameView.swift */,
 				83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */,
+				83A6E9632D9588930007B577 /* CardGame.txt */,
+				839A91762D9D7B5400A7506C /* CardView.swift */,
 				83A6E9632D9588930007B577 /* Products.txt */,
 			);
 			path = CardsGame;
@@ -904,6 +910,7 @@
 				CF7CA0292D9DA6A90035DEA0 /* MainBGGradient.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
 				CF1A25D82D9B47BA0032844E /* MessageModel.swift in Sources */,
+				839A91772D9D7B5400A7506C /* CardView.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
 				CF7CA0302D9E7CA20035DEA0 /* MessagesHistory.swift in Sources */,
 				53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */,
