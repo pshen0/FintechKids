@@ -12,13 +12,19 @@ enum Fonts {
 }
 
 struct AnalyticsView: View {
-    
+    @ObservedObject var viewModel: AnalyticsViewModel
     @State private var showAddingExpenseScreen = false
     @State private var showDocumentPicker = false
-    @State private var selectedFileURL: URL?
+    @State private var selectedFileURL: URL? = URL(string: "")
     @State private var progress: Double = 0.0
     
-    private var values: [Double] = [50.0, 20.0, 50, 30, 40.0]
+    private var values: [String:Double] {
+        return viewModel.catigorizedTransactions
+    }
+    
+    init (viewModel: AnalyticsViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         ZStack {
@@ -79,6 +85,7 @@ struct AnalyticsView: View {
         .sheet(isPresented: $showDocumentPicker) {
             DocumentPicker { url in
                 selectedFileURL = url
+                viewModel.loadFile(url: url)
                 showDocumentPicker = false
             }
         }
@@ -116,9 +123,8 @@ struct AnalyticsView: View {
     
     private var plot: some View {
         ZStack {
-            Image("plotStar")
-                .resizable()
-                .scaledToFit()
+            CoordinateAxes()
+                .stroke(Color.text, lineWidth: 1)
                 .frame(width: plotWidth, height: plotHeight)
             
             Plot(values)
@@ -141,11 +147,12 @@ struct AnalyticsView: View {
                         progress = 0.5
                     }
                 }
+                .onChange(of: viewModel.catigorizedTransactions) { newValues in}
         }
     }
     
     //MARK: - Constants
-
+    
     private let screenNameText: String = " Аналитика трат "
     private let addingFileText: String = "Добавить выгрузку трат"
     private let addingExpenseText: String = "Добавить новую трату"
@@ -175,6 +182,3 @@ struct AnalyticsView: View {
     private let color5 =  Color.init(red: 242/255, green: 151/255, blue: 76/255)
 }
 
-#Preview {
-    AnalyticsView()
-}
