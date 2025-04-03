@@ -79,17 +79,6 @@ struct CoordinateAxes: Shape {
             path.move(to: center)
             path.addLine(to: point)
         }
-        
-        
-        for i in PlotConstants.quarters {
-            path.addEllipse(in: CGRect(
-                x: center.x - radius / i,
-                y: center.y - radius / i,
-                width: (radius / i) * 2,
-                height: (radius / i) * 2
-            ))
-        }
-        
         return path
     }
     
@@ -104,7 +93,6 @@ enum PlotConstants {
     static let radiusRatio: Double = 2
     static let controlPointRatio: Double = 3.5
     static let pointsCount = 5
-    static let quarters: [Double] = [4.0, 2.0, (4/3.0), 1.0]
     static let maxValue: Double = 50
     static let markRadius: Double = 5
 }
