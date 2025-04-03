@@ -25,9 +25,9 @@
         "cost": 250
     },
     {
-        "name": "1 пачка масла (180г)",
-        "imageName": "ButterImage",
-        "cost": 150
+        "name": "1 кг клубники",
+        "imageName": "StrawberryImage",
+        "cost": 300
     },
     {
         "name": "1 свеча",
@@ -199,10 +199,4 @@
         "imageName": "SalmonImage",
         "cost": 1000
     },
-    {
-        "name": "1 кг клубники",
-        "imageName": "StrawberryImage",
-        "cost": 300
-    }
 ]
-

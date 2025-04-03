@@ -10,14 +10,12 @@ import SwiftUI
 struct GradientButton: View {
     let title: String
     let action: () -> Void
-    let width: CGFloat
-    let height: CGFloat
+    let fontSize: CGFloat
     
-    init(title: String, width: CGFloat = 50, height: CGFloat = 50, action: @escaping () -> Void) {
+    init(title: String, fontSize: CGFloat = 16, action: @escaping () -> Void) {
         self.title = title
         self.action = action
-        self.width = width
-        self.height = height
+        self.fontSize = fontSize
     }
     
     var body: some View {
@@ -25,10 +23,10 @@ struct GradientButton: View {
             action()
         } label: {
             Text(title)
-                .font(Font.custom(Fonts.deledda, size: 16))
+                .font(Font.custom(Fonts.deledda, size: fontSize))
                 .fontWeight(.medium)
                 .foregroundStyle(.white)
-                .frame(width: width, height: height)
+                .padding()
                 .background(
                     RoundedRectangle(cornerRadius: 12)
                         .fill(
