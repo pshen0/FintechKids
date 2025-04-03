@@ -123,8 +123,9 @@ struct AnalyticsView: View {
     
     private var plot: some View {
         ZStack {
-            CoordinateAxes()
-                .stroke(Color.text, lineWidth: 1)
+            Image("plotStar")
+                .resizable()
+                .scaledToFit()
                 .frame(width: plotWidth, height: plotHeight)
             
             Plot(values)
