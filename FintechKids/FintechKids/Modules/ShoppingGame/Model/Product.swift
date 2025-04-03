@@ -14,15 +14,15 @@ struct Product: Hashable {
     let price: Int
     
     static var sampleProducts: [Product] = [
-        Product(color: .red, name: "Красный", price: 100),
-        Product(color: .blue, name: "Синий", price: 150),
-        Product(color: .green, name: "Зеленый", price: 200),
-        Product(color: .yellow, name: "Желтый", price: 80),
-        Product(color: .orange, name: "Оранжевый", price: 120),
-        Product(color: .purple, name: "Фиолетовый", price: 180),
-        Product(color: .pink, name: "Розовый", price: 90),
-        Product(color: .mint, name: "Мятный", price: 160),
-        Product(color: .indigo, name: "Индиго", price: 140),
-        Product(color: .teal, name: "Бирюзовый", price: 110)
+        Product(color: .highlightedBackground, name: "Красный", price: 100),
+        Product(color: .highlightedBackground, name: "Синий", price: 150),
+        Product(color: .highlightedBackground, name: "Зеленый", price: 200),
+        Product(color: .highlightedBackground, name: "Желтый", price: 80),
+        Product(color: .highlightedBackground, name: "Оранжевый", price: 120),
+        Product(color: .highlightedBackground, name: "Фиолетовый", price: 180),
+        Product(color: .highlightedBackground, name: "Розовый", price: 90),
+        Product(color: .highlightedBackground, name: "Мятный", price: 160),
+        Product(color: .highlightedBackground, name: "Индиго", price: 140),
+        Product(color: .highlightedBackground, name: "Бирюзовый", price: 110)
     ]
 }

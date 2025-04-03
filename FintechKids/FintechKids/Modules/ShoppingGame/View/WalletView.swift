@@ -34,26 +34,26 @@ struct WalletView: View {
     
     private var backgroundView: some View {
         RoundedRectangle(cornerRadius: 12)
-            .fill(Color.blue.opacity(0.1))
+            .fill(Color.highlightedBackground.opacity(0.3))
             .frame(height: 80)
     }
     
     private var walletIcon: some View {
         Image(systemName: "wallet.pass.fill")
             .font(.title2)
-            .foregroundStyle(.blue)
+            .foregroundStyle(.text.opacity(0.9))
             .bold()
     }
     
     private var walletInfo: some View {
-        VStack(alignment: .leading, spacing: 0.4) {
+        VStack(alignment: .leading, spacing: 2) {
             Text("Кошелек")
-                .font(.subheadline)
+                .font(Font.custom(Fonts.deledda, size: 16))
                 .foregroundStyle(.gray)
-            Text("\(pocket)р")
-                .font(.title2)
+            Text("1000р")
+                .font(Font.custom(Fonts.deledda, size: 26))
                 .bold()
-                .foregroundStyle(.blue)
+                .foregroundStyle(.text.opacity(0.9))
         }
     }
     
@@ -61,7 +61,7 @@ struct WalletView: View {
         Button(action: onInfoTapped) {
             Image(systemName: "info.circle.fill")
                 .font(.title2)
-                .foregroundStyle(.blue)
+                .foregroundStyle(.text.opacity(0.9))
         }
     }
 }

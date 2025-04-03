@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardGameRound: Codable {
+struct CardGameRound: Codable, Hashable {
     var name: String
     var imageName: String
     var cost: Int

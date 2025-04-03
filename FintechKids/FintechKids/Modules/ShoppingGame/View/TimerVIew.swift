@@ -83,17 +83,17 @@ struct TimerView: View {
     private var timerIcon: some View {
         Image(systemName: "timer")
             .font(.title2)
-            .foregroundStyle(.blue)
+            .foregroundStyle(.text.opacity(0.9))
     }
     
     private var timeLabel: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text("Осталось времени")
-                .font(.subheadline)
+                .font(Font.custom(Fonts.deledda, size: 16))
                 .foregroundStyle(.gray)
             Text("\(remainingSeconds) сек")
-                .font(.system(size: Constants.iconSize, weight: .bold))
-                .foregroundStyle(.blue)
+                .font(Font.custom(Fonts.deledda, size: 26))
+                .foregroundStyle(.text.opacity(0.9))
         }
     }
     

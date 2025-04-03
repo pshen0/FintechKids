@@ -24,6 +24,16 @@ final class ChatViewModel: ObservableObject {
         loadMessages()
     }
     
+    func clearStorage() {
+        
+        do {
+            try modelContext.delete(model: Message.self)
+            resetMessages()
+        } catch {
+            print("Error of clearing storage: \(error.localizedDescription)")
+        }
+    }
+    
     @MainActor
     func createMessage(messageText: String) async {
         guard !messageText.isEmpty else { return }
@@ -47,9 +57,8 @@ final class ChatViewModel: ObservableObject {
                         messageText
                     )
                 )
+                MessagesHistory.updateHistory(isYours: false, message: data)
                 let newMessage = Message(id: UUID(), title: data, isYours: false)
-                
-                //let newMessage = Message(title: data, isYours: false)
                 
                 modelContext.insert(newMessage)
                 messages.append(newMessage)
@@ -60,7 +69,7 @@ final class ChatViewModel: ObservableObject {
                 alertMessage()
             }
         }
-        /// Если думает больше 15 секунд - свапаем запрос
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
             if !obtainMessageTask.isCancelled && self.isManagerProcessing {
                 obtainMessageTask.cancel()
@@ -80,6 +89,9 @@ private extension ChatViewModel {
     func loadMessages() {
         do {
             messages = try modelContext.fetch(.init())
+            if messages.isEmpty {
+                resetMessages()
+            }
             lastMessage = messages.max { $0.date < $1.date }
         } catch {
             print("Error loading messages: \(error.localizedDescription)")
@@ -105,5 +117,20 @@ private extension ChatViewModel {
         messages.append(alertMessage)
         lastMessage = alertMessage
         saveContext()
+    }
+    
+    func resetMessages() {
+        messages = [Message(
+            title:
+                """
+                Мяу-привет! 🐾
+                Ой, как здорово, что мы встретились! Меня зовут Финик — я не просто кот, а твой личный финансовый помощник (и немножко волшебник)! ✨
+                Я знаю всё о деньгах, сбережениях и даже секретных кошачьих трюках, чтобы стать настоящим мастером финансовой грамотности.
+
+                Хочешь, я научу тебя, как превратить карманные деньги в настоящие сокровища? Или расскажу, как копить на то, что ты очень-очень хочешь? Мур-р-р, будет весело!
+                """,
+            isYours: false)
+        ]
+        lastMessage = messages[0]
     }
 }

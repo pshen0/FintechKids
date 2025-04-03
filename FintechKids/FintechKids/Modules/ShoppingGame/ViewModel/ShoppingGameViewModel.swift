@@ -8,7 +8,8 @@
 import SwiftUI
 
 class ShoppingGameViewModel: ObservableObject {
-    @Published var selectedProducts: Set<Product> = []
+    @Published var selectedProducts: Set<CardGameRound> = []
+    @Published var allProducts: [CardGameRound] = []
     @Published var pocket: Int = 1000
     @Published var progress: Double = 1.0
     @Published var isTimeUp: Bool = false
@@ -16,10 +17,15 @@ class ShoppingGameViewModel: ObservableObject {
     @Published var showOnboarding: Bool = false
     @Published var timePaused: Bool = false
     
-    private var timer: Timer?
+    private var timer: DispatchSourceTimer?
     private var lastProgress: Double = 0
+    private let storage = Storage()
     
     let columns = Array(repeating: GridItem(.flexible()), count: 4)
+    
+    init() {
+        allProducts = storage.loadFromBundle()
+    }
     
     func startTimer() {
         progress = 1.0
@@ -27,20 +33,32 @@ class ShoppingGameViewModel: ObservableObject {
         showTimeUpSheet = false
         timePaused = false
         
-        timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
-            guard let self else { return }
+        timer?.cancel()
+        
+        let queue = DispatchQueue(label: "fintechkids.timer", qos: .userInteractive)
+        timer = DispatchSource.makeTimerSource(queue: queue)
+        
+        timer?.schedule(deadline: .now(), repeating: .milliseconds(100))
+        timer?.setEventHandler { [weak self] in
+            guard let self = self else { return }
             
             if !timePaused && !showOnboarding {
                 if progress > 0 {
-                    progress -= 0.1 / 30
+                    DispatchQueue.main.async {
+                        self.progress -= 0.1 / 30
+                    }
                 } else {
-                    timer?.invalidate()
-                    timer = nil
-                    isTimeUp = true
-                    showTimeUpSheet = true
+                    DispatchQueue.main.async {
+                        self.timer?.cancel()
+                        self.timer = nil
+                        self.isTimeUp = true
+                        self.showTimeUpSheet = true
+                    }
                 }
             }
         }
+        
+        timer?.resume()
     }
     
     func pauseTimer() {
@@ -53,14 +71,14 @@ class ShoppingGameViewModel: ObservableObject {
         progress = lastProgress
     }
     
-    func handleProductSelection(_ product: Product) {
+    func handleProductSelection(_ product: CardGameRound) {
         if selectedProducts.contains(product) {
             selectedProducts.remove(product)
-            pocket += product.price
+            pocket += product.cost
         } else {
-            if pocket >= product.price {
+            if pocket >= product.cost {
                 selectedProducts.insert(product)
-                pocket -= product.price
+                pocket -= product.cost
             }
         }
     }
@@ -72,3 +90,4 @@ class ShoppingGameViewModel: ObservableObject {
         startTimer()
     }
 }
+

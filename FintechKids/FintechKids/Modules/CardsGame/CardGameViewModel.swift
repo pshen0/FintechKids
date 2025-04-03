@@ -24,23 +24,28 @@ final class CardGameViewModel: ObservableObject {
         self.screen = screenFactory.createScreen(ofType: screen)
     }
 
-    
-    var model: CardGameRound {
+    var model: CardGameRound? {
         switch screen {
         case .cardsGame(let gameRounds):
             return gameRounds[currentRound]
+        default:
+            return nil
         }
     }
     
-    var roundsCount: Int {
+    var roundsCount: Int? {
         switch screen {
         case .cardsGame(let gameRounds):
             return gameRounds.count
+        default:
+            return nil
         }
     }
     
     func checkPrice() -> Bool {
         guard let guessedPrice = Int(userInput) else { return false }
+        guard let model else { return false }
+        
         if attempts > 0 {
             attempts -= 1
             feedback = getFeedback(for: guessedPrice)
@@ -58,6 +63,8 @@ final class CardGameViewModel: ObservableObject {
     }
     
     private func getFeedback(for guessedPrice: Int) -> String {
+        guard let model else { return "Ошибка! текущий экран не сущестует" }
+        
         switch guessedPrice {
         case model.cost:
             return "Правильно! 🎉"
@@ -78,12 +85,16 @@ final class CardGameViewModel: ObservableObject {
     }
     
     private func isCloseEnough(_ guessedPrice: Int) -> Bool {
+        guard let model else { return false }
+        
         let lowerBound = Int(Double(model.cost) * 0.9)
         let upperBound = Int(Double(model.cost) * 1.1)
         return guessedPrice >= lowerBound && guessedPrice <= upperBound
     }
     
     func nextCard() {
+        guard let roundsCount else { return }
+        
         attempts = 3
         userInput = ""
         feedback = ""

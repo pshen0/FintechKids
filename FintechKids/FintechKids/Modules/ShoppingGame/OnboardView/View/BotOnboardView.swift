@@ -45,6 +45,7 @@ struct BotOnboardView: View {
     private var productGrid: some View {
         ProductGridGame(
             columns: viewModel.columns,
+            allProducts: viewModel.allProducts,
             selectedProducts: viewModel.selectedProducts,
             isTimeUp: viewModel.isTimeUp,
             onProductSelected: { _ in }
