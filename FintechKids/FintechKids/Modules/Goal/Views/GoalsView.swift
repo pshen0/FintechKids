@@ -32,6 +32,7 @@ struct GoalsView: View {
         .frame(width: 0.9 * width)
         .font(Font.custom(Fonts.deledda, size: height * 0.05))
         .foregroundColor(Color.text)
+        .background(.clear)
     }
     
     private var scrollGoals: some View {
@@ -48,7 +49,7 @@ struct GoalsView: View {
         }
     }
     
-    var buttonForAdding: some View {
+    private var buttonForAdding: some View {
         Image(systemName: "plus")
             .onTapGesture {
                     let goal = GoalViewModel(id: viewModel.currentID, goal: GoalModel(), isEdit: true, isFlipped: true)

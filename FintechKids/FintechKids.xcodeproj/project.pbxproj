@@ -12,6 +12,7 @@
 		0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */; };
 		0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1D2D95B946007CB69B /* HomeView.swift */; };
 		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
+		2E136FAA2D9D5A3600089A4A /* CustomDropDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */; };
 		2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */; };
 		2E2551CC2D96C8F00007B2D9 /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */; };
 		2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */; };
@@ -98,6 +99,9 @@
 		CF1A25DA2D9B4A7C0032844E /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A25D92D9B4A7C0032844E /* Cloud.swift */; };
 		CF7CA0232D9D3AF80035DEA0 /* FinikAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0222D9D3AF80035DEA0 /* FinikAvatar.swift */; };
 		CF7CA0242D9D58880035DEA0 /* BubbleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3EF0A2D9D52B4007DBD20 /* BubbleAnimationView.swift */; };
+		CF7CA0262D9D656E0035DEA0 /* ClearChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */; };
+		CF7CA0292D9DA6A90035DEA0 /* MainBGGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0282D9DA6A90035DEA0 /* MainBGGradient.swift */; };
+		CF7CA0302D9E7CA20035DEA0 /* MessagesHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA02F2D9E7CA20035DEA0 /* MessagesHistory.swift */; };
 		CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F182D943CE20038AEAD /* Image+extension.swift */; };
 		CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F272D943DDA0038AEAD /* ChatScreen.swift */; };
 		CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F292D943DE60038AEAD /* ChatViewModel.swift */; };
@@ -129,6 +133,7 @@
 		0FC6DA1D2D95B946007CB69B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocumentPicker.swift; sourceTree = "<group>"; };
 		0FE3EF0A2D9D52B4007DBD20 /* BubbleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleAnimationView.swift; sourceTree = "<group>"; };
+		2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownList.swift; sourceTree = "<group>"; };
 		2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSideGoalCardView.swift; sourceTree = "<group>"; };
 		2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipOpacity.swift; sourceTree = "<group>"; };
@@ -216,6 +221,9 @@
 		CF1A25D72D9B47BA0032844E /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
 		CF1A25D92D9B4A7C0032844E /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		CF7CA0222D9D3AF80035DEA0 /* FinikAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinikAvatar.swift; sourceTree = "<group>"; };
+		CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearChatLabel.swift; sourceTree = "<group>"; };
+		CF7CA0282D9DA6A90035DEA0 /* MainBGGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBGGradient.swift; sourceTree = "<group>"; };
+		CF7CA02F2D9E7CA20035DEA0 /* MessagesHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesHistory.swift; sourceTree = "<group>"; };
 		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
 		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		CF964F292D943DE60038AEAD /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -317,6 +325,7 @@
 			children = (
 				2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */,
 				2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */,
+				2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */,
 				2E2551D82D97608A0007B2D9 /* CustomTextField.swift */,
 				2E2551E12D9A79290007B2D9 /* CropView.swift */,
 				2E2551DF2D9A11C30007B2D9 /* CustomImagePicker.swift */,
@@ -352,6 +361,7 @@
 				8390DB9E2D9869F900A414FD /* Info.plist */,
 				53B3D70A2D96CA6600B31D2D /* Model */,
 				83A6E9652D95945E0007B577 /* Storage.swift */,
+				CF7CA0272D9DA6970035DEA0 /* BackGroundViews */,
 				2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */,
 				2EA151572D94A9B1001ED73E /* Shared */,
 				53B3D73E2D986CE300B31D2D /* Networking */,
@@ -642,12 +652,29 @@
 				CF1A245E2D9829A30032844E /* MessageList.swift */,
 				CF1A24602D9829C50032844E /* CreateMessageTextField.swift */,
 				CF1A24622D9829E90032844E /* DismissButtonLabel.swift */,
+				CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */,
 				CF1A24792D986D0C0032844E /* MessageCorner.swift */,
 				CF1A25962D9ADD820032844E /* TypingIndicator.swift */,
 				CF1A25D92D9B4A7C0032844E /* Cloud.swift */,
 				CF7CA0222D9D3AF80035DEA0 /* FinikAvatar.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		CF7CA0272D9DA6970035DEA0 /* BackGroundViews */ = {
+			isa = PBXGroup;
+			children = (
+				CF7CA0282D9DA6A90035DEA0 /* MainBGGradient.swift */,
+			);
+			path = BackGroundViews;
+			sourceTree = "<group>";
+		};
+		CF7CA02E2D9E7C8C0035DEA0 /* MessagesHistory */ = {
+			isa = PBXGroup;
+			children = (
+				CF7CA02F2D9E7CA20035DEA0 /* MessagesHistory.swift */,
+			);
+			path = MessagesHistory;
 			sourceTree = "<group>";
 		};
 		CF964F172D943CCE0038AEAD /* Image+extension */ = {
@@ -667,6 +694,7 @@
 				CF1A23D72D96B80B0032844E /* Model */,
 				CF964F272D943DDA0038AEAD /* ChatScreen.swift */,
 				CF964F292D943DE60038AEAD /* ChatViewModel.swift */,
+				CF7CA02E2D9E7C8C0035DEA0 /* MessagesHistory */,
 			);
 			path = ChatModule;
 			sourceTree = "<group>";
@@ -845,6 +873,7 @@
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
 				2E5799C82D9BF3CA00994E20 /* GoalViewModel.swift in Sources */,
 				2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */,
+				2E136FAA2D9D5A3600089A4A /* CustomDropDownList.swift in Sources */,
 				CF7CA0232D9D3AF80035DEA0 /* FinikAvatar.swift in Sources */,
 				2E2551E02D9A11C30007B2D9 /* CustomImagePicker.swift in Sources */,
 				536509A52D9A9E7300797B3C /* TextToTransactionConverter.swift in Sources */,
@@ -860,10 +889,13 @@
 				53B3D74A2D986E2D00B31D2D /* StatementService.swift in Sources */,
 				53B3D7022D96CA3900B31D2D /* NetworkingError.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
+				CF7CA0292D9DA6A90035DEA0 /* MainBGGradient.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
 				CF1A25D82D9B47BA0032844E /* MessageModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
+				CF7CA0302D9E7CA20035DEA0 /* MessagesHistory.swift in Sources */,
 				53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */,
+				CF7CA0262D9D656E0035DEA0 /* ClearChatLabel.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
 				2E2551D72D975C210007B2D9 /* GoalCardRow.swift in Sources */,
 				2EA150AF2D9387E7001ED73E /* TabBar.swift in Sources */,
@@ -1054,7 +1086,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = FZ98CZDGW9;
+				DEVELOPMENT_TEAM = FUD5CPHJR9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1063,13 +1095,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.tag.FintechKids;
+				PRODUCT_BUNDLE_IDENTIFIER = yandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1085,7 +1117,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = FZ98CZDGW9;
+				DEVELOPMENT_TEAM = FUD5CPHJR9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1094,13 +1126,13 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.tag.FintechKids;
+				PRODUCT_BUNDLE_IDENTIFIER = yandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

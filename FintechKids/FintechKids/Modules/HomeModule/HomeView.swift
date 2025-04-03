@@ -94,16 +94,7 @@ struct HomeView: View {
     }
     
     private var chatButton: some View {
-        
-        lazy var container: ModelContainer = {
-            do {
-                return try ModelContainer(for: Message.self)
-            } catch {
-                fatalError("Error of creating container")
-            }
-        }()
-        
-        return Button(action: {
+        Button(action: {
             showChat = true
         }) {
             VStack {
@@ -126,9 +117,9 @@ struct HomeView: View {
             .cornerRadius(buttonCornerRadius)
         }
         .fullScreenCover(isPresented: $showChat) {
-            ChatScreen(viewModel: ChatViewModel(chatService: ChatService(), modelContext: container.mainContext))
-                .modelContainer(container)
-                .interactiveDismissDisabled(true)
+            if case let .chatScreen(chatViewModel) = screenFactory.createScreen(ofType: .chat) {
+                ChatScreen(viewModel: chatViewModel)
+            }
         }
         .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }

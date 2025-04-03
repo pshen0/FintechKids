@@ -40,7 +40,7 @@ struct CustomImagePickerView: View {
         }
     }
     
-    func loadImage(from item: PhotosPickerItem) {
+    private func loadImage(from item: PhotosPickerItem) {
         Task {
             if let data = try? await item.loadTransferable(type: Data.self),
                let image = UIImage(data: data) {

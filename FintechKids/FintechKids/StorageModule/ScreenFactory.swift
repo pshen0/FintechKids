@@ -6,16 +6,31 @@
 //
 
 import Foundation
+import SwiftData
 
 final class ScreenFactory: ObservableObject {
     private var cachedData: [Screen: ScreenData] = [:]
     
+    /// Chat screen data
+    private lazy var chatService: ChatService = ChatService()
+    private lazy var container: ModelContainer = {
+        do {
+            return try ModelContainer(for: Message.self)
+        } catch {
+            fatalError("Error of creating container")
+        }
+    }()
+    @MainActor private lazy var context: ModelContext = {
+        container.mainContext
+    }()
+    
+    /// Analytics screen data
     lazy private var analyticsData: [CardGameRound] = {
         let storage = Storage()
         return storage.loadFromBundle()
     }()
     
-    func createScreen(ofType screenType: Screen) -> ScreenData {
+    @MainActor func createScreen(ofType screenType: Screen) -> ScreenData {
         if let data = cachedData[screenType] {
             return data
         }
@@ -27,7 +42,8 @@ final class ScreenFactory: ObservableObject {
         case .cardsGame:
             newData = .cardsGame([])
         case .chat:
-            newData = .cardsGame([])
+            let chatViewModel = ChatViewModel(chatService: chatService, modelContext: self.context)
+            newData = .chatScreen(chatViewModel)
         case .goals:
             newData = .cardsGame([])
         case .settings:
@@ -41,6 +57,7 @@ final class ScreenFactory: ObservableObject {
 
 enum ScreenData {
     case cardsGame([CardGameRound])
+    case chatScreen(ChatViewModel)
 }
 
 enum Screen {

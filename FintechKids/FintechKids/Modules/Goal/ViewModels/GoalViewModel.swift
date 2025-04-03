@@ -8,11 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class GoalViewModel: ObservableObject /*Equatable*/ {
-//    static func == (lhs: GoalViewModel, rhs: GoalViewModel) -> Bool {
-//        return lhs.isEdit == rhs.isEdit
-//    }
-    
+final class GoalViewModel: ObservableObject /*Equatable*/ {    
     @Published var id: Int
     @Published var name: String = ""
     @Published var current: String = ""

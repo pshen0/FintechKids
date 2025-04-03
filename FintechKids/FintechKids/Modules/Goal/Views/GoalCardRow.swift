@@ -21,17 +21,19 @@ struct GoalCardRow: View {
             goalCardView
             if showDelete {
                 deleteBackground
+                    .transition(.move(edge: .trailing).combined(with: .opacity))
             }
         }
+        .animation(.easeInOut(duration: 0.2), value: showDelete)
     }
     
-    private var goalCardView: some View { 
+    private var goalCardView: some View {
         GoalCardView(viewModel: viewModel)
             .frame(width: 0.9 * width, height: (viewModel.isEdit ? 0.3: 0.2) * height)
             .offset(x: offset)
             .shadow(radius: 5)
             .gesture(
-                DragGesture()
+                DragGesture(minimumDistance: 30, coordinateSpace: .local)
                     .onChanged { gesture in
                         if gesture.translation.width < 0 {
                             offset = gesture.translation.width
@@ -40,16 +42,17 @@ struct GoalCardRow: View {
                     }
                     .onEnded { gesture in
                         if gesture.translation.width < -100 {
-                            withAnimation(.easeIn(duration: 0.6)) {
+                            withAnimation(.easeIn(duration: 0.2)) {
                                 offset = -UIScreen.main.bounds.width
                             }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                                 withAnimation {
                                     onDelete()
                                 }
                             }
                         } else if gesture.translation.width < -40 {
-                            withAnimation(.easeOut) {
+                            withAnimation(.easeOut(duration: 0.2))
+                            {
                                 offset = deleteOffset
                                 showDelete = true
                             }
@@ -65,10 +68,10 @@ struct GoalCardRow: View {
     
     private var deleteBackground: some View {
         Button(action: {
-            withAnimation(.easeIn(duration: 0.3)) {
+            withAnimation(.easeIn(duration: 0.2)) {
                 offset = -UIScreen.main.bounds.width
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                 withAnimation {
                     onDelete()
                 }
@@ -76,10 +79,9 @@ struct GoalCardRow: View {
         }) {
             Image(systemName: "trash.fill")
                 .foregroundColor(.white)
-                .frame(width: 60, height: (viewModel.isEdit ? 0.3 : 0.2) * height)
+                .frame(width: 100, height: (viewModel.isEdit ? 0.3 : 0.2) * height)
                 .background(Color.red)
                 .clipShape(RoundedRectangle(cornerRadius: 10))
         }
-        .transition(.move(edge: .trailing))
     }
 }
