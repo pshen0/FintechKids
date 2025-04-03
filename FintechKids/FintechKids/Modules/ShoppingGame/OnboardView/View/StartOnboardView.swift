@@ -31,11 +31,12 @@ struct StartOnboardView: View {
             
             Button(action: onReturnToGame) {
                 Text("Вернуться к игре")
+                
                     .font(.system(size: 20, weight: .bold))
                     .foregroundStyle(.white)
                     .frame(maxWidth: .infinity)
                     .padding()
-                    .background(.blue)
+                    .background(.highlightedBackground)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
             .padding(.horizontal)

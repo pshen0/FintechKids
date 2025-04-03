@@ -12,24 +12,39 @@ struct ShoppingGameView: View {
     @ObservedObject var viewModel: ShoppingGameViewModel
     @Environment(\.dismiss) var dismiss
     
+    private var gradient: some View {
+        LinearGradient (
+            gradient: Gradient(stops: [
+                .init(color: Color.highlightedBackground, location: 0.2),
+                .init(color: Color.background, location: 0.6),
+            ]),
+            startPoint: .top,
+            endPoint: .bottom
+        ).ignoresSafeArea()
+    }
+    
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading) {
-                WalletView(
-                    pocket: viewModel.pocket,
-                    onInfoTapped: {
-                        viewModel.pauseTimer()
-                        viewModel.showOnboarding = true
-                    }
-                )
-                TimerView(progress: viewModel.progress)
-                
-                ProductGridGame(
-                    columns: viewModel.columns,
-                    selectedProducts: viewModel.selectedProducts,
-                    isTimeUp: viewModel.isTimeUp,
-                    onProductSelected: viewModel.handleProductSelection
-                )
+            ZStack {
+                VStack(alignment: .leading) {
+                    WalletView(
+                        pocket: viewModel.pocket,
+                        onInfoTapped: {
+                            viewModel.pauseTimer()
+                            viewModel.showOnboarding = true
+                        }
+                    )
+                    TimerView(progress: viewModel.progress)
+                    
+                    ProductGridGame(
+                        columns: viewModel.columns,
+                        allProducts: viewModel.allProducts,
+                        selectedProducts: viewModel.selectedProducts,
+                        isTimeUp: viewModel.isTimeUp,
+                        onProductSelected: viewModel.handleProductSelection
+                    )
+                }
+                .padding(.top, 16)
             }
             .onAppear {
                 viewModel.startTimer()
@@ -50,6 +65,9 @@ struct ShoppingGameView: View {
                         viewModel.resumeTimer()
                     }
                 )
+                .onDisappear {
+                    viewModel.resumeTimer()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -61,7 +79,10 @@ struct ShoppingGameView: View {
                 }
             }
         }
-        
     }
+}
+
+#Preview {
+    ShoppingGameView(viewModel: ShoppingGameViewModel())
 }
 

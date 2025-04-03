@@ -10,7 +10,8 @@ import SwiftUI
 
 class OnboardsViewModel: ObservableObject {
     @Published var progress: Double = 1.0
-    @Published var selectedProducts: Set<Product> = []
+    @Published var selectedProducts: Set<CardGameRound> = []
+    @Published var allProducts: [CardGameRound] = []
     @Published var currentSelectionIndex: Int = 0
     @Published var isTimeUp: Bool = false
     
@@ -19,7 +20,12 @@ class OnboardsViewModel: ObservableObject {
     let columns = Array(repeating: GridItem(.flexible()), count: 4)
     
     var totalSpend: Int {
-        selectedProducts.reduce(0) { $0 + $1.price }
+        selectedProducts.reduce(0) { $0 + $1.cost }
+    }
+    
+    init() {
+        let storage = Storage()
+        allProducts = storage.loadFromBundle()
     }
     
     func handleProgressTimer() {
@@ -29,17 +35,17 @@ class OnboardsViewModel: ObservableObject {
     }
     
     func handleProductSelection() {
-        if currentSelectionIndex < Product.sampleProducts.count {
-            selectedProducts.insert(Product.sampleProducts[currentSelectionIndex])
+        if currentSelectionIndex < allProducts.count {
+            selectedProducts.insert(allProducts[currentSelectionIndex])
             currentSelectionIndex += 1
         } else {
             selectedProducts.removeAll()
             currentSelectionIndex = 0
         }
-        
     }
     
     func resetProgress() {
         progress = 1.0
     }
 }
+

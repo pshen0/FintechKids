@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TimeUpView: View {
-    let selectedProducts: Set<Product>
+    let selectedProducts: Set<CardGameRound>
     let pocket: Int
     let onRepeat: () -> Void
     @Environment(\.dismiss) private var dismiss
@@ -21,7 +21,7 @@ struct TimeUpView: View {
     }
     
     private var totalSpend: Int {
-        selectedProducts.reduce(0) { $0 + $1.price }
+        selectedProducts.reduce(0) { $0 + $1.cost }
     }
     
     private var clockIcon: some View {
@@ -36,18 +36,18 @@ struct TimeUpView: View {
             .bold()
     }
     
-    private func productCircle(for product: Product) -> some View {
+    private func productCircle(for product: CardGameRound) -> some View {
         Circle()
-            .fill(product.color)
+            .fill(Color.blue)
             .frame(width: Constants.circleSize, height: Constants.circleSize)
     }
     
-    private func productRow(for product: Product) -> some View {
+    private func productRow(for product: CardGameRound) -> some View {
         HStack {
             productCircle(for: product)
             Text(product.name)
             Spacer()
-            Text("\(product.price)р")
+            Text("\(product.cost)р")
                 .foregroundStyle(.gray)
         }
     }
