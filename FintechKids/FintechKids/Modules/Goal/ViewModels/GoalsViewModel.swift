@@ -9,24 +9,44 @@ import Foundation
 import SwiftUI
 
 final class GoalsViewModel: ObservableObject {
-    var currentID: Int = 8
+    @Published var currentID: Int = 10
     
-    @Published var goalViewModels: [GoalViewModel] = [
-        GoalViewModel(id: 0, goal: GoalModel(name: "Bike", goalSum: 50000, current: 25000, level: .high, image: "templateGoal0.jpg", date: Date()))
-//        GoalViewModel(id: 1, goal: GoalModel(name: "PSP", goalSum: 50000, current: 15000, level: .high, image: "templateGoal1.jpg", date: Date())),
-//        GoalViewModel(id: 2, goal: GoalModel(name: "Bike 2", goalSum: 50000, current: 35000, level: .high, image: "templateGoal2.jpg", date: Date())),
-//        GoalViewModel(id: 3, goal: GoalModel(name: "PSP 2", goalSum: 50000, current: 45000, level: .high, image: "templateGoal3.jpg", date: Date())),
-//        GoalViewModel(id: 4, goal: GoalModel(name: "Bike 3", goalSum: 50000, current: 20000, level: .high, image: "templateGoal4.jpg", date: Date())),
-//        GoalViewModel(id: 5, goal: GoalModel(name: "PSP 3", goalSum: 50000, current: 30000, level: .high, image: "templateGoal5.jpg", date: Date())),
-//        GoalViewModel(id: 6, goal: GoalModel(name: "Bike 4", goalSum: 50000, current: 40000, level: .high, image: "templateGoal6.jpg", date: Date())),
-//        GoalViewModel(id: 7, goal: GoalModel(name: "PSP 4", goalSum: 50000, current: 50000, level: .high, image: "templateGoal7.jpg", date: Date()))
-    ]
-    
-    func deleteGoal(at id: Int) {
-        goalViewModels.remove(at: getIndexById(at: id))
+    @Published var goalViewModels: [GoalViewModel] = [] {
+        didSet {
+            saveGoals()
+        }
     }
     
-    func getIndexById(at id: Int) -> Array<GoalModel>.Index {
+    init() {
+        loadGoals()
+    }
+    
+    func saveGoals() {
+        var goals: [GoalViewModelCodable] = []
+        
+        for i in goalViewModels {
+            goals.append(GoalViewModelCodable(from: i))
+        }
+        
+        if let encoded = try? JSONEncoder().encode(goals) {
+                UserDefaults.standard.set(encoded, forKey: "goals")
+            }
+        }
+
+    func loadGoals() {
+        currentID = UserDefaults.standard.integer(forKey: "id")
+        if let data = UserDefaults.standard.data(forKey: "goals"),
+           let decodedGoals = try? JSONDecoder().decode([GoalViewModelCodable].self, from: data) {
+            goalViewModels = decodedGoals.map({$0.toGoalViewModel()})
+        }
+    }
+    
+    func deleteGoal(at id: Int) {
+        goalViewModels.remove(at: getIndexById(with: id))
+        saveGoals()
+    }
+    
+    func getIndexById(with id: Int) -> Array<GoalModel>.Index {
         guard let index = goalViewModels.firstIndex(where: { $0.id == id }) else {
             fatalError("Goal with id \(id) not found")
         }
@@ -39,7 +59,16 @@ final class GoalsViewModel: ObservableObject {
     
     func addNew(goal: GoalViewModel) {
         currentID += 1
+        UserDefaults.standard.set(currentID, forKey: "id")
+        goal.id = currentID
         
         goalViewModels.insert(goal, at: 0)
+        saveGoals()
+    }
+    
+    func updateGoal(with id: Int, with newGoal: GoalViewModel) {
+        if let index = goalViewModels.firstIndex(where: { $0.id == id }) {
+            goalViewModels[index] = newGoal
+        }
     }
 }

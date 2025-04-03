@@ -6,13 +6,16 @@ struct CustomImagePickerView: View {
     @State private var selectedItem: PhotosPickerItem? = nil
     @State private var selectedImage: UIImage? = nil
     @State private var isCropping = false
-    let width = UIScreen.main.bounds.width
-    let height = UIScreen.main.bounds.height
+    let screenWidth = UIScreen.main.bounds.width
+    let screenHeight = UIScreen.main.bounds.height
+    @State var changed: Bool = false
     
     var body: some View {
         VStack {
             PhotosPicker(selection: $selectedItem, matching: .images) {
-                Image(systemName: "photo")
+                Image(uiImage: selectedImage ?? loadSavedImage(imageName: imageName))
+                    .resizable()
+                    .scaledToFill()
                     .foregroundColor(.black)
             }
         }
@@ -34,7 +37,7 @@ struct CustomImagePickerView: View {
             set: { if !$0 { isCropping = false } }
         )) {
             if let selectedImage {
-                CropView(image: selectedImage, croppedImage: $selectedImage, width: width * 0.9, height: height * 0.2, location: CGPoint(x: width / 2, y: height / 8))
+                CropView(image: selectedImage, croppedImage: $selectedImage, width: screenWidth * 0.783, height: screenHeight * 0.2, location: CGPoint(x: screenWidth / 2, y: screenHeight / 8))
                     .background(Color.background)
             }
         }
