@@ -141,6 +141,7 @@ struct AnalyticsView: View {
                         endPoint: .bottomTrailing
                     )
                 )
+                .stroke(Color.text, lineWidth: 1)
                 .frame(width: plotWidth, height: plotHeight)
                 .onAppear {
                     withAnimation(.easeInOut(duration: plotAnimationDuration ).repeatForever(autoreverses: true)) {
