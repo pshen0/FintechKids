@@ -9,19 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct HomeView: View {
-    enum Constants {
-        static let greetingTextSize: CGFloat = 35
-        static let buttonTextSize: CGFloat = 17
-        static let buttonCornerRadius: CGFloat = 20
-        static let buttonHeight: CGFloat = 150
-        static let buttonWidth: CGFloat = 150
-        static let profileHeight: CGFloat = 40
-        static let profileWidth: CGFloat = 40
-        static let catWidth: CGFloat = 135
-        static let catHeight: CGFloat = 231
-        static let catLPadding: CGFloat = 20
-    }
-    
     @ObservedObject private var viewModel: CardGameViewModel
     @ObservedObject var screenFactory: ScreenFactory
     
@@ -42,6 +29,7 @@ struct HomeView: View {
                 BubbleAnimationView()
                     .padding(.top, -100)
                 VStack {
+                    Spacer()
                     catView
                     greetingView
                     HStack {
@@ -52,7 +40,7 @@ struct HomeView: View {
                         Spacer()
                         shoppingGameButton
                         Spacer()
-                    }.padding(.top, 30)
+                    }
                     Spacer()
                 }
             }
@@ -196,7 +184,7 @@ struct HomeView: View {
             .resizable()
             .scaledToFit()
             .frame(width: catWidth, height: catHeight)
-            .padding(.top, catTPadding)
+            //.padding(.top, catTPadding)
     }
     
     private var greetingView: some View {
@@ -239,7 +227,7 @@ struct HomeView: View {
     private let catWidth: CGFloat = 135
     private let catHeight: CGFloat = 231
     private let catLPadding: CGFloat = 20
-    private let catTPadding: CGFloat = 80
+    //private let catTPadding: CGFloat = 80
     private let shadowButtonRadius: CGFloat = 6
 }
 

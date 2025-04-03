@@ -38,6 +38,7 @@ struct AnalyticsView: View {
                     Spacer()
                 }
                 catImage
+                Spacer()
             }
         }
     }
@@ -54,10 +55,13 @@ struct AnalyticsView: View {
     }
     
     private var screenName: some View {
-        Text(screenNameText)
-            .font(Font.custom(Fonts.deledda, size: screenNameSize))
-            .padding()
-            .foregroundColor(Color.text)
+        HStack {
+            Text(screenNameText)
+                .font(Font.custom(Fonts.deledda, size: screenNameSize))
+                .padding()
+                .foregroundColor(Color.text)
+            Spacer()
+        }
     }
     
     private var documentPickButton: some View {
@@ -112,8 +116,9 @@ struct AnalyticsView: View {
     
     private var plot: some View {
         ZStack {
-            CoordinateAxes()
-                .stroke(Color.text, lineWidth: 1)
+            Image("plotStar")
+                .resizable()
+                .scaledToFit()
                 .frame(width: plotWidth, height: plotHeight)
             
             Plot(values)
