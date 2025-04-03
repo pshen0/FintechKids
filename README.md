@@ -117,7 +117,7 @@ FintechKids — это интерактивное iOS-приложение, ко
 | Тагир |  |   |
 | Данил | |   |
 | Миша  |  |  |
-| Марго |  |  |
+| Марго | CardGame, DI, Tests | ScreenFactory.swift; Storage.swift; CardGameRound.swift; CardGameViewModel.swift; CardGameView.swift; CardView.swift; CardGameViewModelTests.swift; FintechKidsUITests.swift 
 
 ## 🔌 Настройка API ключа для работы моделей в приложении
 
