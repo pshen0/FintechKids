@@ -16,33 +16,31 @@ struct StartOnboardView: View {
             Image(systemName: "play.fill")
                 .imageScale(.large)
                 .font(.system(size: 60))
-                .foregroundStyle(.blue)
+                .foregroundStyle(.text)
             
-            Text("Приступип")
-                .font(.system(size: 28, weight: .bold))
-                .foregroundStyle(.blue)
+            Text("Приступим")
+                .font(Font.custom(Fonts.deledda, size: 28))
+                .bold()
+                .foregroundStyle(.text)
             
-            Text("Нажми на кнопку чтобы продолжить игру!")
-                .font(.system(size: 18))
-                .foregroundStyle(.secondary)
+            Text("Нажми на кнопку чтобы начать игру!")
+                .font(Font.custom(Fonts.deledda, size: 18))
+                .foregroundStyle(.text.opacity(0.9))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 4)
                 .lineSpacing(4)
             
-            Button(action: onReturnToGame) {
-                Text("Вернуться к игре")
-                
-                    .font(.system(size: 20, weight: .bold))
-                    .foregroundStyle(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(.highlightedBackground)
-                    .clipShape(RoundedRectangle(cornerRadius: 12))
+            GradientButton(
+                title: "Начать игру",
+                fontSize: 20
+            ) {
+                showInstructions = false
+                onReturnToGame()
             }
-            .padding(.horizontal)
+            .padding(.horizontal, 40)
+            .padding(.vertical, 16)
             .padding(.top, 20)
         }
         .padding()
     }
 }
-

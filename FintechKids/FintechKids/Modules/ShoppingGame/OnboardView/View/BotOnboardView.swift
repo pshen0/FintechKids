@@ -31,12 +31,14 @@ struct BotOnboardView: View {
     
     private var instructionSection: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Родители дали тебе 1000 рублей на еду")
-                .font(.system(size: 18, weight: .medium))
+            Text("Родители дали тебе 1000 рублей на еду сегодня")
+                .font(Font.custom(Fonts.deledda, size: 18))
+                .fontWeight(.medium)
+                .foregroundStyle(.text)
             
             Text("Потрать деньги с умом! Если ты потратишь больше, чем у тебя есть, родители будут недовольны. Выбирай продукты так, чтобы хватило на день")
-                .font(.system(size: 16))
-                .foregroundStyle(.secondary)
+                .font(Font.custom(Fonts.deledda, size: 16))
+                .foregroundStyle(.text.opacity(0.9))
                 .lineSpacing(4)
         }
         .padding(.horizontal)

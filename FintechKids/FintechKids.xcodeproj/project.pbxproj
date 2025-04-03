@@ -40,7 +40,7 @@
 		2EA151642D954BA7001ED73E /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151632D954BA7001ED73E /* DateExtension.swift */; };
 		2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA151652D954C5B001ED73E /* GoalModel.swift */; };
 		5323EB932D9C208C00100D17 /* ProductItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EB8E2D9C208C00100D17 /* ProductItemView.swift */; };
-		5323EB942D9C208C00100D17 /* TimerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EB8F2D9C208C00100D17 /* TimerVIew.swift */; };
+		5323EB942D9C208C00100D17 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EB8F2D9C208C00100D17 /* TimerView.swift */; };
 		5323EB952D9C208C00100D17 /* TimeUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EB902D9C208C00100D17 /* TimeUpView.swift */; };
 		5323EB962D9C208C00100D17 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EB912D9C208C00100D17 /* WalletView.swift */; };
 		5323EB9A2D9C22FD00100D17 /* ShoppingGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EB982D9C22FD00100D17 /* ShoppingGameViewModel.swift */; };
@@ -51,8 +51,6 @@
 		5323EC632D9D17B100100D17 /* StartOnboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EC622D9D17B100100D17 /* StartOnboardView.swift */; };
 		5323EC8A2D9D1C3600100D17 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5323EC892D9D1C3600100D17 /* OnboardingView.swift */; };
 		536509A52D9A9E7300797B3C /* TextToTransactionConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536509A32D9A9E7300797B3C /* TextToTransactionConverter.swift */; };
-		536509E22D9B4AB400797B3C /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536509E12D9B4AB400797B3C /* MockData.swift */; };
-		536509E42D9B4B4800797B3C /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536509E32D9B4B4800797B3C /* Product.swift */; };
 		536509E62D9B4C5900797B3C /* ShoppingGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536509E52D9B4C5900797B3C /* ShoppingGameView.swift */; };
 		536509EE2D9B5F1C00797B3C /* ProductGridGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536509ED2D9B5F1C00797B3C /* ProductGridGame.swift */; };
 		53B3D6FA2D96CA1E00B31D2D /* LLMService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D6F52D96CA1E00B31D2D /* LLMService.swift */; };
@@ -169,7 +167,7 @@
 		2EA151632D954BA7001ED73E /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		2EA151652D954C5B001ED73E /* GoalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalModel.swift; sourceTree = "<group>"; };
 		5323EB8E2D9C208C00100D17 /* ProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemView.swift; sourceTree = "<group>"; };
-		5323EB8F2D9C208C00100D17 /* TimerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerVIew.swift; sourceTree = "<group>"; };
+		5323EB8F2D9C208C00100D17 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		5323EB902D9C208C00100D17 /* TimeUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeUpView.swift; sourceTree = "<group>"; };
 		5323EB912D9C208C00100D17 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		5323EB982D9C22FD00100D17 /* ShoppingGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingGameViewModel.swift; sourceTree = "<group>"; };
@@ -180,8 +178,6 @@
 		5323EC622D9D17B100100D17 /* StartOnboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOnboardView.swift; sourceTree = "<group>"; };
 		5323EC892D9D1C3600100D17 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		536509A32D9A9E7300797B3C /* TextToTransactionConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToTransactionConverter.swift; sourceTree = "<group>"; };
-		536509E12D9B4AB400797B3C /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
-		536509E32D9B4B4800797B3C /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		536509E52D9B4C5900797B3C /* ShoppingGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingGameView.swift; sourceTree = "<group>"; };
 		536509ED2D9B5F1C00797B3C /* ProductGridGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductGridGame.swift; sourceTree = "<group>"; };
 		53B3D6F52D96CA1E00B31D2D /* LLMService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LLMService.swift; sourceTree = "<group>"; };
@@ -474,20 +470,11 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
-		5323EB8C2D9C206000100D17 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				536509E12D9B4AB400797B3C /* MockData.swift */,
-				536509E32D9B4B4800797B3C /* Product.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		5323EB922D9C208C00100D17 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				5323EB8E2D9C208C00100D17 /* ProductItemView.swift */,
-				5323EB8F2D9C208C00100D17 /* TimerVIew.swift */,
+				5323EB8F2D9C208C00100D17 /* TimerView.swift */,
 				5323EB902D9C208C00100D17 /* TimeUpView.swift */,
 				5323EB912D9C208C00100D17 /* WalletView.swift */,
 				536509E52D9B4C5900797B3C /* ShoppingGameView.swift */,
@@ -547,7 +534,6 @@
 				5323EC572D9D146A00100D17 /* OnboardView */,
 				5323EB992D9C22FD00100D17 /* ViewModel */,
 				5323EB922D9C208C00100D17 /* View */,
-				5323EB8C2D9C206000100D17 /* Model */,
 			);
 			path = ShoppingGame;
 			sourceTree = "<group>";
@@ -871,7 +857,6 @@
 				83A6E9662D95945E0007B577 /* Storage.swift in Sources */,
 				0F71F74C2D9A764200A1A407 /* AnalyticsView.swift in Sources */,
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
-				536509E42D9B4B4800797B3C /* Product.swift in Sources */,
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
 				5323EB9A2D9C22FD00100D17 /* ShoppingGameViewModel.swift in Sources */,
 				5323EC612D9D177000100D17 /* TimerOnboardView.swift in Sources */,
@@ -880,7 +865,7 @@
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
 				5323EB932D9C208C00100D17 /* ProductItemView.swift in Sources */,
 				0F5CE4B12D9E6E9A00BF7E47 /* AnalyticsViewModel.swift in Sources */,
-				5323EB942D9C208C00100D17 /* TimerVIew.swift in Sources */,
+				5323EB942D9C208C00100D17 /* TimerView.swift in Sources */,
 				5323EC5F2D9D171000100D17 /* BotOnboardView.swift in Sources */,
 				5323EB952D9C208C00100D17 /* TimeUpView.swift in Sources */,
 				5323EB962D9C208C00100D17 /* WalletView.swift in Sources */,
@@ -899,7 +884,6 @@
 				562D84C22D9E91EB00C39925 /* SettingsButtonStyle.swift in Sources */,
 				CF1A254B2D999F990032844E /* ChatConstants.swift in Sources */,
 				CF1A245F2D9829A30032844E /* MessageList.swift in Sources */,
-				536509E22D9B4AB400797B3C /* MockData.swift in Sources */,
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
 				2E5799C82D9BF3CA00994E20 /* GoalViewModel.swift in Sources */,
 				2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */,

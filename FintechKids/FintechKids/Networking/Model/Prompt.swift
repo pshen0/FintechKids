@@ -55,7 +55,9 @@ enum Prompt {
             - Используй простые и понятные предложения.
             - Ответ должен быть коротким (не более 5 предложений).
             - Не добавляй никакой лишней информации.
-            """ +  MessagesHistory.history
+            
+            НО учти что мы с тобой сегодня уже говорили на такие темы как старайся не переспрашивать много раз:
+            """ + MessagesHistory.history
             
             MessagesHistory.updateHistory(isYours: true, message: message)
             return prompt

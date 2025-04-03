@@ -21,7 +21,7 @@ struct MessageList: View {
         let grouped = Dictionary(grouping: messages) { message in
             Calendar.current.startOfDay(for: message.date)
         }
-        return grouped.sorted { $0.key > $1.key }
+        return grouped.sorted { $0.key < $1.key }
     }
     
     var body: some View {
