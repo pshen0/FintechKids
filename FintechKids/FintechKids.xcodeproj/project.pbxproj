@@ -28,7 +28,6 @@
 		2E2551E42D9AA0780007B2D9 /* ViewExtensionForLoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551E32D9AA0780007B2D9 /* ViewExtensionForLoadImage.swift */; };
 		2E5799C82D9BF3CA00994E20 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5799C72D9BF3CA00994E20 /* GoalViewModel.swift */; };
 		2E5799C92D9BF50B00994E20 /* FintechKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */; };
-		2E5799CA2D9BF51900994E20 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A2DDE62D95833500F853B3 /* SettingsView.swift */; };
 		2E5799CB2D9BF57A00994E20 /* StartAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA172D949037007CB69B /* StartAnalyticsView.swift */; };
 		2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507E2D9353DC001ED73E /* ContentView.swift */; };
 		2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150822D9353DD001ED73E /* Assets.xcassets */; };
@@ -75,6 +74,10 @@
 		53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53B3D74E2D99A26900B31D2D /* ChatService.swift */; };
 		560775192D9C017A004EA190 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560775182D9C017A004EA190 /* SplashScreen.swift */; };
 		5607751B2D9C9D94004EA190 /* UserSettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */; };
+		562D84BF2D9E91EB00C39925 /* AvatarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BB2D9E91EB00C39925 /* AvatarPickerView.swift */; };
+		562D84C02D9E91EB00C39925 /* EditableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BC2D9E91EB00C39925 /* EditableField.swift */; };
+		562D84C12D9E91EB00C39925 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */; };
+		562D84C22D9E91EB00C39925 /* SettingsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BE2D9E91EB00C39925 /* SettingsButtonStyle.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameRound.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
@@ -195,7 +198,10 @@
 		53B3D74E2D99A26900B31D2D /* ChatService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatService.swift; sourceTree = "<group>"; };
 		560775182D9C017A004EA190 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
-		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		562D84BB2D9E91EB00C39925 /* AvatarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerView.swift; sourceTree = "<group>"; };
+		562D84BC2D9E91EB00C39925 /* EditableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableField.swift; sourceTree = "<group>"; };
+		562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		562D84BE2D9E91EB00C39925 /* SettingsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonStyle.swift; sourceTree = "<group>"; };
 		83869DA82D9499D2000A1EFD /* CardGameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameRound.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
@@ -595,7 +601,10 @@
 		56A2DDE52D95831900F853B3 /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
-				56A2DDE62D95833500F853B3 /* SettingsView.swift */,
+				562D84BB2D9E91EB00C39925 /* AvatarPickerView.swift */,
+				562D84BC2D9E91EB00C39925 /* EditableField.swift */,
+				562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */,
+				562D84BE2D9E91EB00C39925 /* SettingsButtonStyle.swift */,
 			);
 			path = SettingsModule;
 			sourceTree = "<group>";
@@ -819,7 +828,6 @@
 			files = (
 				CF7CA0242D9D58880035DEA0 /* BubbleAnimationView.swift in Sources */,
 				2E5799CB2D9BF57A00994E20 /* StartAnalyticsView.swift in Sources */,
-				2E5799CA2D9BF51900994E20 /* SettingsView.swift in Sources */,
 				2E5799C92D9BF50B00994E20 /* FintechKidsApp.swift in Sources */,
 				2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */,
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
@@ -853,6 +861,10 @@
 				CF1A23DC2D96B8100032844E /* Message.swift in Sources */,
 				5607751B2D9C9D94004EA190 /* UserSettingsManager.swift in Sources */,
 				CF1A247A2D986D0C0032844E /* MessageCorner.swift in Sources */,
+				562D84BF2D9E91EB00C39925 /* AvatarPickerView.swift in Sources */,
+				562D84C02D9E91EB00C39925 /* EditableField.swift in Sources */,
+				562D84C12D9E91EB00C39925 /* ProfileSettingsView.swift in Sources */,
+				562D84C22D9E91EB00C39925 /* SettingsButtonStyle.swift in Sources */,
 				CF1A254B2D999F990032844E /* ChatConstants.swift in Sources */,
 				CF1A245F2D9829A30032844E /* MessageList.swift in Sources */,
 				536509E22D9B4AB400797B3C /* MockData.swift in Sources */,
@@ -1070,7 +1082,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = FUD5CPHJR9;
+				DEVELOPMENT_TEAM = M94G8RZ9KR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1101,7 +1113,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = FUD5CPHJR9;
+				DEVELOPMENT_TEAM = M94G8RZ9KR;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
