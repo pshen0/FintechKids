@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F5CE4B12D9E6E9A00BF7E47 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CE4B02D9E6E9A00BF7E47 /* AnalyticsViewModel.swift */; };
 		0F71F74C2D9A764200A1A407 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71F74B2D9A764200A1A407 /* AnalyticsView.swift */; };
 		0F71F7502D9AC97100A1A407 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71F74F2D9AC97100A1A407 /* Plot.swift */; };
 		0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */; };
@@ -130,6 +131,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F5CE4B02D9E6E9A00BF7E47 /* AnalyticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsViewModel.swift; sourceTree = "<group>"; };
 		0F71F7362D97D53D00A1A407 /* DeleddaOpen-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DeleddaOpen-Light.ttf"; sourceTree = "<group>"; };
 		0F71F74B2D9A764200A1A407 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		0F71F74F2D9AC97100A1A407 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
@@ -269,8 +271,18 @@
 			children = (
 				0F71F74B2D9A764200A1A407 /* AnalyticsView.swift */,
 				0F71F74F2D9AC97100A1A407 /* Plot.swift */,
+				0F5CE4B02D9E6E9A00BF7E47 /* AnalyticsViewModel.swift */,
 			);
 			path = AnalyticsModule;
+			sourceTree = "<group>";
+		};
+		0F7216FA2D9E829D008E7355 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0F71F7362D97D53D00A1A407 /* DeleddaOpen-Light.ttf */,
+				2EA150822D9353DD001ED73E /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		0FC6DA162D94900F007CB69B /* StartAnalyticsModule */ = {
@@ -367,6 +379,7 @@
 		2EA1507B2D9353DC001ED73E /* FintechKids */ = {
 			isa = PBXGroup;
 			children = (
+				0F7216FA2D9E829D008E7355 /* Resources */,
 				53DE19D62D9E8D3600BA6A33 /* CustomViews */,
 				8390DB9E2D9869F900A414FD /* Info.plist */,
 				53B3D70A2D96CA6600B31D2D /* Model */,
@@ -377,8 +390,6 @@
 				53B3D73E2D986CE300B31D2D /* Networking */,
 				2EA151562D94A98B001ED73E /* Modules */,
 				2EA151592D94ABDF001ED73E /* Navigation */,
-				0F71F7362D97D53D00A1A407 /* DeleddaOpen-Light.ttf */,
-				2EA150822D9353DD001ED73E /* Assets.xcassets */,
 				2EA150842D9353DD001ED73E /* Preview Content */,
 				838CD9452D96E9A7006F1661 /* ScreenFactory.swift */,
 			);
@@ -868,6 +879,7 @@
 				0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
 				5323EB932D9C208C00100D17 /* ProductItemView.swift in Sources */,
+				0F5CE4B12D9E6E9A00BF7E47 /* AnalyticsViewModel.swift in Sources */,
 				5323EB942D9C208C00100D17 /* TimerVIew.swift in Sources */,
 				5323EC5F2D9D171000100D17 /* BotOnboardView.swift in Sources */,
 				5323EB952D9C208C00100D17 /* TimeUpView.swift in Sources */,
@@ -1102,10 +1114,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = M94G8RZ9KR;
+				DEVELOPMENT_TEAM = D29HMVXL7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1120,8 +1133,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yandex;
+				PRODUCT_BUNDLE_IDENTIFIER = hse.Crowns;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1136,7 +1150,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = M94G8RZ9KR;
+				DEVELOPMENT_TEAM = D29HMVXL7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1151,7 +1165,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = yandex;
+				PRODUCT_BUNDLE_IDENTIFIER = hse.FintechKids;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

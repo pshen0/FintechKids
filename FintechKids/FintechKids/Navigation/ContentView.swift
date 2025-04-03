@@ -19,7 +19,7 @@ struct ContentView: View {
             case 1:
                 HomeView(screen: .analytics, screenFactory: screenFactory)
             case 2:
-                AnalyticsView()
+                AnalyticsView(viewModel: AnalyticsViewModel())
             default:
                 Text("AAA")
             }
