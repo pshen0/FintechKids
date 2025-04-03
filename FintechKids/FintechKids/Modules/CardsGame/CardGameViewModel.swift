@@ -13,6 +13,7 @@ final class CardGameViewModel: ObservableObject {
     @Published var feedback = ""
     @Published var attempts = 3
     @Published var showNext = false
+    @Published var wrongAnswer = false
     @Published private(set) var screen: ScreenData
     @ObservedObject var screenFactory: ScreenFactory
     @Published var isCorrect = false
@@ -23,23 +24,28 @@ final class CardGameViewModel: ObservableObject {
         self.screen = screenFactory.createScreen(ofType: screen)
     }
 
-    
-    var model: CardGameRound {
+    var model: CardGameRound? {
         switch screen {
         case .cardsGame(let gameRounds):
             return gameRounds[currentRound]
+        default:
+            return nil
         }
     }
     
-    var roundsCount: Int {
+    var roundsCount: Int? {
         switch screen {
         case .cardsGame(let gameRounds):
             return gameRounds.count
+        default:
+            return nil
         }
     }
     
     func checkPrice() -> Bool {
         guard let guessedPrice = Int(userInput) else { return false }
+        guard let model else { return false }
+        
         if attempts > 0 {
             attempts -= 1
             feedback = getFeedback(for: guessedPrice)
@@ -57,16 +63,21 @@ final class CardGameViewModel: ObservableObject {
     }
     
     private func getFeedback(for guessedPrice: Int) -> String {
+        guard let model else { return "Ошибка! текущий экран не сущестует" }
+        
         switch guessedPrice {
         case model.cost:
             return "Правильно! 🎉"
         case let price where isCloseEnough(price):
             return "Почти правильно! 🎉 Верный ответ: \(model.cost)"
         case let price where price != model.cost && attempts == 0:
+            wrongAnswer.toggle()
             return "Попытки закончились! Верный ответ: \(model.cost)"
         case let price where price > model.cost:
+            wrongAnswer.toggle()
             return "Слишком дорого! Попробуй снова."
         case let price where price < model.cost:
+            wrongAnswer.toggle()
             return "Слишком дешево! Попробуй снова."
         default:
             return "Неправильно! Верный ответ: \(model.cost)"
@@ -74,12 +85,16 @@ final class CardGameViewModel: ObservableObject {
     }
     
     private func isCloseEnough(_ guessedPrice: Int) -> Bool {
+        guard let model else { return false }
+        
         let lowerBound = Int(Double(model.cost) * 0.9)
         let upperBound = Int(Double(model.cost) * 1.1)
         return guessedPrice >= lowerBound && guessedPrice <= upperBound
     }
     
     func nextCard() {
+        guard let roundsCount else { return }
+        
         attempts = 3
         userInput = ""
         feedback = ""
