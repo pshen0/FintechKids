@@ -57,6 +57,7 @@ final class ChatViewModel: ObservableObject {
                         messageText
                     )
                 )
+                MessagesHistory.updateHistory(isYours: false, message: data)
                 let newMessage = Message(id: UUID(), title: data, isYours: false)
                 
                 modelContext.insert(newMessage)

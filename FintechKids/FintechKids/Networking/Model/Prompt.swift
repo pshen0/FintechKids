@@ -41,7 +41,7 @@ enum Prompt {
             let safeAge = age.isEmpty ? "неизвестно сколько" : "\(age) лет"
             let safeHobby = hobby.isEmpty ? "не указано" : hobby
             
-            return """
+            let prompt = """
             Привет!
             
             Твоя задача — ответить ребенку по имени \(safeName) (Но в начале сообщения ни за что не пиши ему \(safeName)). Ему \(safeAge), его хобби — \(safeHobby).
@@ -55,7 +55,10 @@ enum Prompt {
             - Используй простые и понятные предложения.
             - Ответ должен быть коротким (не более 5 предложений).
             - Не добавляй никакой лишней информации.
-            """
+            """ +  MessagesHistory.history
+            
+            MessagesHistory.updateHistory(isYours: true, message: message)
+            return prompt
         }
     }
 }

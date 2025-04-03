@@ -16,7 +16,7 @@ struct MessageList: View {
     var proxy: ScrollViewProxy
     var dismiss: (() -> Void)
     
-    // TODO: переделать логику + кеширование?
+    
     private var grouppedMessages: [(Date, [Message])] {
         let grouped = Dictionary(grouping: messages) { message in
             Calendar.current.startOfDay(for: message.date)

@@ -98,6 +98,8 @@
 		CF7CA0232D9D3AF80035DEA0 /* FinikAvatar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0222D9D3AF80035DEA0 /* FinikAvatar.swift */; };
 		CF7CA0242D9D58880035DEA0 /* BubbleAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE3EF0A2D9D52B4007DBD20 /* BubbleAnimationView.swift */; };
 		CF7CA0262D9D656E0035DEA0 /* ClearChatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */; };
+		CF7CA0292D9DA6A90035DEA0 /* MainBGGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA0282D9DA6A90035DEA0 /* MainBGGradient.swift */; };
+		CF7CA0302D9E7CA20035DEA0 /* MessagesHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7CA02F2D9E7CA20035DEA0 /* MessagesHistory.swift */; };
 		CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F182D943CE20038AEAD /* Image+extension.swift */; };
 		CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F272D943DDA0038AEAD /* ChatScreen.swift */; };
 		CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF964F292D943DE60038AEAD /* ChatViewModel.swift */; };
@@ -216,6 +218,8 @@
 		CF1A25D92D9B4A7C0032844E /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
 		CF7CA0222D9D3AF80035DEA0 /* FinikAvatar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinikAvatar.swift; sourceTree = "<group>"; };
 		CF7CA0252D9D656E0035DEA0 /* ClearChatLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearChatLabel.swift; sourceTree = "<group>"; };
+		CF7CA0282D9DA6A90035DEA0 /* MainBGGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBGGradient.swift; sourceTree = "<group>"; };
+		CF7CA02F2D9E7CA20035DEA0 /* MessagesHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesHistory.swift; sourceTree = "<group>"; };
 		CF964F182D943CE20038AEAD /* Image+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+extension.swift"; sourceTree = "<group>"; };
 		CF964F272D943DDA0038AEAD /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		CF964F292D943DE60038AEAD /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 				8390DB9E2D9869F900A414FD /* Info.plist */,
 				53B3D70A2D96CA6600B31D2D /* Model */,
 				83A6E9652D95945E0007B577 /* Storage.swift */,
+				CF7CA0272D9DA6970035DEA0 /* BackGroundViews */,
 				2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */,
 				2EA151572D94A9B1001ED73E /* Shared */,
 				53B3D73E2D986CE300B31D2D /* Networking */,
@@ -642,6 +647,22 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		CF7CA0272D9DA6970035DEA0 /* BackGroundViews */ = {
+			isa = PBXGroup;
+			children = (
+				CF7CA0282D9DA6A90035DEA0 /* MainBGGradient.swift */,
+			);
+			path = BackGroundViews;
+			sourceTree = "<group>";
+		};
+		CF7CA02E2D9E7C8C0035DEA0 /* MessagesHistory */ = {
+			isa = PBXGroup;
+			children = (
+				CF7CA02F2D9E7CA20035DEA0 /* MessagesHistory.swift */,
+			);
+			path = MessagesHistory;
+			sourceTree = "<group>";
+		};
 		CF964F172D943CCE0038AEAD /* Image+extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +680,7 @@
 				CF1A23D72D96B80B0032844E /* Model */,
 				CF964F272D943DDA0038AEAD /* ChatScreen.swift */,
 				CF964F292D943DE60038AEAD /* ChatViewModel.swift */,
+				CF7CA02E2D9E7C8C0035DEA0 /* MessagesHistory */,
 			);
 			path = ChatModule;
 			sourceTree = "<group>";
@@ -853,9 +875,11 @@
 				53B3D74A2D986E2D00B31D2D /* StatementService.swift in Sources */,
 				53B3D7022D96CA3900B31D2D /* NetworkingError.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
+				CF7CA0292D9DA6A90035DEA0 /* MainBGGradient.swift in Sources */,
 				83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */,
 				CF1A25D82D9B47BA0032844E /* MessageModel.swift in Sources */,
 				83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */,
+				CF7CA0302D9E7CA20035DEA0 /* MessagesHistory.swift in Sources */,
 				53B3D7502D99A26900B31D2D /* ChatService.swift in Sources */,
 				CF7CA0262D9D656E0035DEA0 /* ClearChatLabel.swift in Sources */,
 				83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */,
