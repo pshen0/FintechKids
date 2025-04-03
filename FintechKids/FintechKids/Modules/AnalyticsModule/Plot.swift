@@ -121,6 +121,6 @@ enum PlotConstants {
     static let controlPointRatio: Double = 3.5
     static let pointsCount = 5
     static let maxValue: Double = 50
-    static let markRadius: Double = 1
+    static let markRadius: Double = 4
     static let quarters = [2.0, 1.0]
 }

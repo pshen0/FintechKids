@@ -123,9 +123,8 @@ struct AnalyticsView: View {
     
     private var plot: some View {
         ZStack {
-            Image("plotStar")
-                .resizable()
-                .scaledToFit()
+            CoordinateAxes()
+                .stroke(Color.text, lineWidth: 1)
                 .frame(width: plotWidth, height: plotHeight)
             
             Plot(values)
@@ -142,6 +141,7 @@ struct AnalyticsView: View {
                         endPoint: .bottomTrailing
                     )
                 )
+                .stroke(Color.text, lineWidth: 1)
                 .frame(width: plotWidth, height: plotHeight)
                 .onAppear {
                     withAnimation(.easeInOut(duration: plotAnimationDuration ).repeatForever(autoreverses: true)) {
