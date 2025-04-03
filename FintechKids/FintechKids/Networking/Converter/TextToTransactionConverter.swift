@@ -25,7 +25,7 @@ final class TextToTransactionConverter {
             
             if let date = dateFormatter.date(from: String(transactionData[2])), let amount = Double(transactionData[1]) {
                 transactions.append(
-                    Transaction(date: date, amount: amount, category: String(transactionData[2]))
+                    Transaction(date: date, amount: amount, category: String(transactionData[0]))
                 )
             } else {
                 print("Date conversion error: \(transactionData[2])")

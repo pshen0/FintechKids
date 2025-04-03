@@ -77,16 +77,17 @@ struct SplashScreen: View {
                 }
                 
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                    startTripleBlinkingAnimation()
+                    startDoubleBlinkingAnimation()
                 }
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.5) {
-                    withAnimation(.easeInOut(duration: 1.0)) {
-                        self.catSize = 50
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    withAnimation(.spring(response: 1.2, dampingFraction: 0.7)) {
+                        self.catSize = 75
                         self.circleScale = 10
+                        self.catOffset = -155
                     }
                     
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
                         withAnimation(.easeIn(duration: 0.3)) {
                             self.isActive = true
                         }
@@ -96,18 +97,14 @@ struct SplashScreen: View {
         }
     }
     
-    private func startTripleBlinkingAnimation() {
+    private func startDoubleBlinkingAnimation() {
         let blinkSequence = ["cat1", "cat2", "cat3", "cat4", "cat5", "cat6", "cat5", "cat4", "cat3", "cat2", "cat1"]
         let duration = 0.015
-        let pauseBetweenBlinks = 0.5
+        let pauseBetweenBlinks = 0.2
         
         blinkOnce(sequence: blinkSequence, duration: duration) {
             DispatchQueue.main.asyncAfter(deadline: .now() + pauseBetweenBlinks) {
-                blinkOnce(sequence: blinkSequence, duration: duration) {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + pauseBetweenBlinks) {
-                        blinkOnce(sequence: blinkSequence, duration: duration)
-                    }
-                }
+                blinkOnce(sequence: blinkSequence, duration: duration)
             }
         }
     }

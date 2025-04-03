@@ -9,7 +9,7 @@ import Foundation
 
 struct MessagesHistory {
     
-    static var history: String = "Мы с тобой уже общались о:"
+    static var history: String = ""
     
     static func updateHistory(isYours: Bool, message: String) {
         history += isYours ? "Я тебя справивал: \(message)" : "Ты мне отвечал: \(message)"
