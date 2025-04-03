@@ -1,0 +1,208 @@
+[
+    {
+        "name": "1 кг яблок",
+        "imageName": "AppleImage",
+        "cost": 120
+    },
+    {
+        "name": "1 авокадо",
+        "imageName": "AvocadoImage",
+        "cost": 130
+    },
+    {
+        "name": "1 кг бананов",
+        "imageName": "BananaImage",
+        "cost": 90
+    },
+    {
+        "name": "1 кг брокколи",
+        "imageName": "BroccoliImage",
+        "cost": 200
+    },
+    {
+        "name": "1 бургер",
+        "imageName": "BurgerImage",
+        "cost": 250
+    },
+    {
+        "name": "1 пачка масла (180г)",
+        "imageName": "ButterImage",
+        "cost": 150
+    },
+    {
+        "name": "1 свеча",
+        "imageName": "CandleImage",
+        "cost": 100
+    },
+    {
+        "name": "1 кг моркови",
+        "imageName": "CarrotImage",
+        "cost": 50
+    },
+    {
+        "name": "1 кг сыра",
+        "imageName": "CheeseImage",
+        "cost": 600
+    },
+    {
+        "name": "1 куриная ножка",
+        "imageName": "ChickenLegImage",
+        "cost": 80
+    },
+    {
+        "name": "1 пачка чипсов",
+        "imageName": "ChipsImage",
+        "cost": 120
+    },
+    {
+        "name": "1 плитка шоколада",
+        "imageName": "ChocolateImage",
+        "cost": 100
+    },
+    {
+        "name": "1 бутылка Coca-Cola (1л)",
+        "imageName": "CocaColaImage",
+        "cost": 120
+    },
+    {
+        "name": "1 кокос",
+        "imageName": "CoconutImage",
+        "cost": 180
+    },
+    {
+        "name": "Пачка печенья",
+        "imageName": "CookieImage",
+        "cost": 80
+    },
+    {
+        "name": "1 початок кукурузы",
+        "imageName": "CornImage",
+        "cost": 70
+    },
+    {
+        "name": "1 кекс",
+        "imageName": "CupcakeImage",
+        "cost": 150
+    },
+    {
+        "name": "1 пончик",
+        "imageName": "DonatImage",
+        "cost": 80
+    },
+    {
+        "name": "1 десяток яиц",
+        "imageName": "EggImage",
+        "cost": 120
+    },
+    {
+        "name": "1 кг баклажанов",
+        "imageName": "EggplantImage",
+        "cost": 150
+    },
+    {
+        "name": "Картофель фри срений",
+        "imageName": "frenchfries",
+        "cost": 130
+    },
+    {
+        "name": "1 кг чеснока",
+        "imageName": "GarlicImage",
+        "cost": 200
+    },
+    {
+        "name": "1 банка мёда (500г)",
+        "imageName": "HoneyImage",
+        "cost": 300
+    },
+    {
+        "name": "1 хот-дог",
+        "imageName": "HotDogImage",
+        "cost": 150
+    },
+    {
+        "name": "1 порция мороженого",
+        "imageName": "IceCreamImage",
+        "cost": 100
+    },
+    {
+        "name": "1 литр сока",
+        "imageName": "JuiceImage",
+        "cost": 120
+    },
+    {
+        "name": "1 леденец",
+        "imageName": "LollypopImage",
+        "cost": 25
+    },
+    {
+        "name": "1 литр молока",
+        "imageName": "MilkImage",
+        "cost": 110
+    },
+    {
+        "name": "1 кг грибов",
+        "imageName": "MushroomImage",
+        "cost": 250
+    },
+    {
+        "name": "1 порция начос",
+        "imageName": "NachosImage",
+        "cost": 180
+    },
+    {
+        "name": "1 литр растительного масла",
+        "imageName": "OilImage",
+        "cost": 150
+    },
+    {
+        "name": "1 кг лука",
+        "imageName": "OnionImage",
+        "cost": 40
+    },
+    {
+        "name": "1 кг груш",
+        "imageName": "PearImage",
+        "cost": 140
+    },
+    {
+        "name": "1 кг гороха",
+        "imageName": "PeasImage",
+        "cost": 100
+    },
+    {
+        "name": "1 кг перца",
+        "imageName": "PepperImage",
+        "cost": 180
+    },
+    {
+        "name": "1 пицца",
+        "imageName": "PizzaImage",
+        "cost": 500
+    },
+    {
+        "name": "1 порция попкорна",
+        "imageName": "PopcornImage",
+        "cost": 80
+    },
+    {
+        "name": "1 кг картофеля",
+        "imageName": "PotatoImage",
+        "cost": 50
+    },
+    {
+        "name": "1 булочка",
+        "imageName": "RollsImage",
+        "cost": 30
+    },
+    {
+        "name": "1 кг лосося",
+        "imageName": "SalmonImage",
+        "cost": 1000
+    },
+    {
+        "name": "1 кг клубники",
+        "imageName": "StrawberryImage",
+        "cost": 300
+    }
+]
+

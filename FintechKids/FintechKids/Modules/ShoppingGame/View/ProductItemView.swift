@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProductItemView: View {
-    let product: Product
+    let product: CardGameRound
     let isSelected: Bool
     let isTimeUp: Bool
     let onTap: () -> Void
@@ -34,7 +34,7 @@ struct ProductItemView: View {
     
     private var backgroundRectangle: some View {
         RoundedRectangle(cornerRadius: 14)
-            .fill(product.color.gradient)
+            .fill(.highlightedBackground.gradient)
             .frame(height: 90)
             .overlay(selectionBorder)
             .opacity(isTimeUp ? 0.5 : 1.0)
@@ -42,6 +42,13 @@ struct ProductItemView: View {
             .animation(
                 Animation.spring(response: 0.3, dampingFraction: 0.6),
                 value: isSelected)
+            .overlay(
+                Image(product.imageName)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 60)
+                    .padding(.horizontal, 10)
+            )
     }
 
     private var selectedBorder: some View {
@@ -54,7 +61,7 @@ struct ProductItemView: View {
             .foregroundStyle(.white)
             .background(.blue)
             .clipShape(Circle())
-            .padding(8) 
+            .padding(8)
             .transition(AnyTransition.scale.combined(with: .opacity))
     }
     

@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ProductGridGame: View {
     let columns: [GridItem]
-    let selectedProducts: Set<Product>
+    let allProducts: [CardGameRound]
+    let selectedProducts: Set<CardGameRound>
     let isTimeUp: Bool
-    let onProductSelected: (Product) -> Void
+    let onProductSelected: (CardGameRound) -> Void
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(Product.sampleProducts, id: \.self) { product in
+                ForEach(allProducts, id: \.self) { product in
                     ProductItemView(product: product, isSelected: selectedProducts.contains(product), isTimeUp: isTimeUp) {
                         onProductSelected(product)
                     }
@@ -26,4 +27,3 @@ struct ProductGridGame: View {
         }
     }
 }
- 
