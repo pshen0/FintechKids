@@ -1,8 +1,8 @@
 //
-//  SettingsView.swift
+//  ProfileSettingsView.swift
 //  FintechKids
 //
-//  Created by George Petryaev on 27.03.2025.
+//  Created by George Petryaev on 03.04.2025.
 //
 
 import SwiftUI
@@ -19,7 +19,8 @@ struct ProfileSettingsView: View {
     @State private var selectedAvatar: String = UserSettingsManager.shared.userAvatar
     @State private var showingAvatarPicker = false
     
-    @State private var isEditing = false
+    @State private var isEditingAvatar = false
+    @State private var editingField: String? = nil
     
     var isFormValid: Bool {
         !name.isEmpty && !age.isEmpty && !hobbies.isEmpty
@@ -47,6 +48,26 @@ struct ProfileSettingsView: View {
                     .frame(width: 100, height: 100)
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
+            } else if selectedAvatar == "photo" {
+                if let savedImageData = UserDefaults.standard.data(forKey: "userAvatarImage"),
+                   let savedImage = UIImage(data: savedImageData) {
+                    Image(uiImage: savedImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 100, height: 100)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
+                } else {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 60, height: 60)
+                        .padding(20)
+                        .foregroundColor(.white)
+                        .background(Color("PrimaryOrange"))
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
+                }
             } else {
                 Image(systemName: selectedAvatar)
                     .resizable()
@@ -58,6 +79,9 @@ struct ProfileSettingsView: View {
                     .clipShape(Circle())
                     .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
             }
+        }
+        .onTapGesture {
+            isEditingAvatar = true
         }
     }
     
@@ -80,7 +104,7 @@ struct ProfileSettingsView: View {
                             currentAvatar
                                 .padding(.top, 20)
                             
-                            if isEditing {
+                            if isEditingAvatar {
                                 HStack(spacing: 16) {
                                     Button {
                                         // Photo picker action
@@ -106,25 +130,39 @@ struct ProfileSettingsView: View {
                                 .padding(.horizontal, 40)
                                 .padding(.vertical, 8)
                                 
-                                if isEditing {
-                                    Button(role: .destructive) {
-                                        avatarImage = nil
-                                        selectedAvatar = "person.crop.circle.fill"
-                                        avatarItem = nil
-                                    } label: {
-                                        Label("Сбросить аватарку", systemImage: "trash")
-                                            .frame(maxWidth: .infinity)
-                                    }
-                                    .buttonStyle(SettingsButtonStyle())
-                                    .padding(.horizontal, 40)
+                                Button(role: .destructive) {
+                                    avatarImage = nil
+                                    selectedAvatar = "person.crop.circle.fill"
+                                    avatarItem = nil
+                                } label: {
+                                    Label("Сбросить аватарку", systemImage: "trash")
+                                        .frame(maxWidth: .infinity)
                                 }
+                                .buttonStyle(SettingsButtonStyle())
+                                .padding(.horizontal, 40)
+                                
+                                Button {
+                                    UserSettingsManager.shared.saveUserData(
+                                        name: name,
+                                        age: age,
+                                        hobbies: hobbies,
+                                        avatar: selectedAvatar,
+                                        avatarImage: avatarImage
+                                    )
+                                    isEditingAvatar = false
+                                } label: {
+                                    Label("Сохранить", systemImage: "checkmark")
+                                        .frame(maxWidth: .infinity)
+                                }
+                                .buttonStyle(SettingsButtonStyle())
+                                .padding(.horizontal, 40)
                             }
                         }
                         
                         // Form Fields
                         VStack(spacing: 15) {
-                            CustomTextField(label: "Имя*", text: $name, isEditing: isEditing)
-                            CustomTextField(label: "Возраст*", text: $age, isEditing: isEditing, keyboardType: .numberPad)
+                            EditableField(label: "Имя*", text: $name, isEditing: editingField == "name", fieldType: "name", editingField: $editingField)
+                            EditableField(label: "Возраст*", text: $age, isEditing: editingField == "age", fieldType: "age", editingField: $editingField, keyboardType: .numberPad)
                             
                             VStack(alignment: .leading, spacing: 5) {
                                 Text("Хобби и интересы*")
@@ -138,7 +176,19 @@ struct ProfileSettingsView: View {
                                     .background(Color.white)
                                     .clipShape(RoundedRectangle(cornerRadius: 15))
                                     .shadow(color: .highlightedBackground, radius: 6)
-                                    .disabled(!isEditing)
+                                    .disabled(editingField != "hobbies")
+                                    .onTapGesture {
+                                        editingField = "hobbies"
+                                    }
+                                    .onChange(of: hobbies) { newValue in
+                                        UserSettingsManager.shared.saveUserData(
+                                            name: UserSettingsManager.shared.userName,
+                                            age: UserSettingsManager.shared.userAge,
+                                            hobbies: newValue,
+                                            avatar: UserSettingsManager.shared.userAvatar,
+                                            avatarImage: nil
+                                        )
+                                    }
                             }
                             .padding(.horizontal, 20)
                         }
@@ -163,24 +213,6 @@ struct ProfileSettingsView: View {
                     .font(Font.custom(Fonts.deledda, size: 20))
                     .fontWeight(.bold)
                     .foregroundStyle(Color.text)
-                }
-                
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(isEditing ? "Готово" : "Изменить") {
-                        if isEditing && isFormValid {
-                            UserSettingsManager.shared.saveUserData(
-                                name: name,
-                                age: age,
-                                hobbies: hobbies,
-                                avatar: selectedAvatar
-                            )
-                        }
-                        isEditing.toggle()
-                    }
-                    .font(Font.custom(Fonts.deledda, size: 20))
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.text)
-                    .disabled(isEditing && !isFormValid)
                 }
             }
             .sheet(isPresented: $showingAvatarPicker) {
@@ -209,103 +241,8 @@ struct ProfileSettingsView: View {
     }
 }
 
-struct CustomTextField: View {
-    let label: String
-    @Binding var text: String
-    var isEditing: Bool
-    var keyboardType: UIKeyboardType = .default
-    
-    var body: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(label)
-                .font(Font.custom(Fonts.deledda, size: 16))
-                .foregroundColor(.text)
-            
-            TextField("", text: $text)
-                .font(Font.custom(Fonts.deledda, size: 15))
-                .fontWeight(.medium)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 15)
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .shadow(color: .highlightedBackground, radius: 6)
-                .disabled(!isEditing)
-                .keyboardType(keyboardType)
-        }
-        .padding(.horizontal, 20)
-    }
-}
-
-struct SettingsButtonStyle: ButtonStyle {
-    var backgroundColor: Color = .highlightedBackground
-    
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(Font.custom(Fonts.deledda, size: 18))
-            .fontWeight(.bold)
-            .foregroundColor(.text)
-            .padding()
-            .background(backgroundColor)
-            .cornerRadius(10)
-            .scaleEffect(configuration.isPressed ? 0.95 : 1)
-            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
-            .shadow(color: .highlightedBackground, radius: 6)
-    }
-}
-
-struct AvatarPickerView: View {
-    @Binding var selectedAvatar: String
-    let avatars: [String]
-    @Environment(\.dismiss) var dismiss
-    
-    var body: some View {
-        NavigationStack {
-            ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))], spacing: 20) {
-                    ForEach(avatars, id: \.self) { avatar in
-                        Button {
-                            selectedAvatar = avatar
-                            dismiss()
-                        } label: {
-                            Image(systemName: avatar)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 30, height: 30)
-                                .padding(20)
-                                .foregroundColor(.white)
-                                .background(Color("PrimaryOrange"))
-                                .clipShape(Circle())
-                                .overlay(
-                                    Circle()
-                                        .stroke(selectedAvatar == avatar ? Color.white : Color.clear, lineWidth: 3)
-                                )
-                        }
-                    }
-                }
-                .padding()
-            }
-            .background(Color(.systemGroupedBackground))
-            .navigationTitle("Выберите аватарку")
-            .font(Font.custom(Fonts.deledda, size: 20))
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: .confirmationAction) {
-                    Button("Готово") {
-                        dismiss()
-                    }
-                    .font(Font.custom(Fonts.deledda, size: 20))
-                    .fontWeight(.bold)
-                    .foregroundStyle(Color.text)
-                }
-            }
-        }
-        .presentationDetents([.medium, .large])
-        .presentationDragIndicator(.visible)
-    }
-}
-
 struct ProfileSettingsView_Previews: PreviewProvider {
     static var previews: some View {
         ProfileSettingsView()
     }
-}
+} 

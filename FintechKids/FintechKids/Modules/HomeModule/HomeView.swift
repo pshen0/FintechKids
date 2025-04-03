@@ -24,11 +24,12 @@ struct HomeView: View {
     
     @ObservedObject private var viewModel: CardGameViewModel
     @ObservedObject var screenFactory: ScreenFactory
+    @StateObject private var settingsManager = UserSettingsManager.shared
     
     init(screen: Screen, screenFactory: ScreenFactory) {
         self.screenFactory = screenFactory
         self.viewModel = CardGameViewModel(screen: screen, screenFactory: screenFactory)
-       }
+    }
 
     @State var showChat: Bool = false
     @State var showCardGame: Bool = false
@@ -81,11 +82,37 @@ struct HomeView: View {
         Button(action: {
             showProfile = true
         }) {
-            Image(systemName: profileImage)
-                .resizable()
-                .scaledToFit()
+            if settingsManager.userAvatar == "photo" {
+                if let uiImage = settingsManager.currentAvatarImage {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: profileWidth, height: profileHeight)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
+                } else {
+                    Image(systemName: "person.crop.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: profileWidth, height: profileHeight)
+                        .tint(Color.text)
+                }
+            } else {
+                ZStack {
+                    Circle()
+                        .fill(Color("PrimaryOrange"))
+                        .frame(width: profileWidth, height: profileHeight)
+                    
+                    Image(systemName: settingsManager.userAvatar)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: profileWidth - 16, height: profileHeight - 16)
+                        .clipShape(Circle())
+                }
                 .frame(width: profileWidth, height: profileHeight)
-                .tint(Color.text)
+                .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
+                .foregroundColor(.white)
+            }
         }
         .fullScreenCover(isPresented: $showProfile) {
             ProfileSettingsView()
@@ -94,7 +121,16 @@ struct HomeView: View {
     }
     
     private var chatButton: some View {
-        Button(action: {
+        
+        lazy var container: ModelContainer = {
+            do {
+                return try ModelContainer(for: Message.self)
+            } catch {
+                fatalError("Error of creating container")
+            }
+        }()
+        
+        return Button(action: {
             showChat = true
         }) {
             VStack {
@@ -117,9 +153,9 @@ struct HomeView: View {
             .cornerRadius(buttonCornerRadius)
         }
         .fullScreenCover(isPresented: $showChat) {
-            if case let .chatScreen(chatViewModel) = screenFactory.createScreen(ofType: .chat) {
-                ChatScreen(viewModel: chatViewModel)
-            }
+            ChatScreen(viewModel: ChatViewModel(chatService: ChatService(), modelContext: container.mainContext))
+                .modelContainer(container)
+                .interactiveDismissDisabled(true)
         }
         .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }
