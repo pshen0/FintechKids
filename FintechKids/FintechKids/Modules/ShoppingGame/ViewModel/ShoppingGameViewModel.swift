@@ -16,6 +16,15 @@ class ShoppingGameViewModel: ObservableObject {
     @Published var showTimeUpSheet: Bool = false
     @Published var showOnboarding: Bool = false
     @Published var timePaused: Bool = false
+    @Published var purchaseResult: PurchaseResult = .nothingBought
+    @Published var totalSpent: Int = 0
+    
+    enum PurchaseResult {
+        case nothingBought
+        case parentsProud
+        case parentsWorried
+        case parentsNotProud
+    }
     
     private var timer: DispatchSourceTimer?
     private var lastProgress: Double = 0
@@ -32,6 +41,8 @@ class ShoppingGameViewModel: ObservableObject {
         isTimeUp = false
         showTimeUpSheet = false
         timePaused = false
+        totalSpent = 0
+        purchaseResult = .nothingBought
         
         timer?.cancel()
         
@@ -52,6 +63,7 @@ class ShoppingGameViewModel: ObservableObject {
                         self.timer?.cancel()
                         self.timer = nil
                         self.isTimeUp = true
+                        self.checkBudget()
                         self.showTimeUpSheet = true
                     }
                 }
@@ -59,6 +71,27 @@ class ShoppingGameViewModel: ObservableObject {
         }
         
         timer?.resume()
+    }
+    
+    private func checkBudget() {
+        if selectedProducts.isEmpty {
+            purchaseResult = .nothingBought
+            return
+        }
+        
+        let budgetLimit = 1000
+        let allowedOverspending = Double(budgetLimit) * 0.1
+        let totalSpent = budgetLimit - pocket
+        
+        if Double(totalSpent) <= (Double(budgetLimit) + allowedOverspending) {
+            if Double(totalSpent) < Double(budgetLimit) * 0.5 {
+                purchaseResult = .parentsWorried
+            } else {
+                purchaseResult = .parentsProud
+            }
+        } else {
+            purchaseResult = .parentsNotProud
+        }
     }
     
     func pauseTimer() {
@@ -75,19 +108,19 @@ class ShoppingGameViewModel: ObservableObject {
         if selectedProducts.contains(product) {
             selectedProducts.remove(product)
             pocket += product.cost
+            totalSpent -= product.cost
         } else {
-            if pocket >= product.cost {
-                selectedProducts.insert(product)
-                pocket -= product.cost
-            }
+            selectedProducts.insert(product)
+            pocket -= product.cost
+            totalSpent += product.cost
         }
     }
     
     func resetGame() {
         selectedProducts.removeAll()
         pocket = 1000
+        totalSpent = 0
         showTimeUpSheet = false
         startTimer()
     }
 }
-

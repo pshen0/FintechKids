@@ -10,23 +10,23 @@ import SwiftUI
 struct WelcomeOnboardView: View {
     @Binding var showInstructions: Bool
     let onReturnToGame: () -> Void
+    let userDefaults = UserDefaults.standard
     
     var body: some View {
         VStack(spacing: 20) {
             Image(systemName: "gamecontroller.fill")
                 .imageScale(.large)
                 .font(.system(size: 60))
-                .foregroundStyle(.blue)
+                .foregroundStyle(.text)
             
             Text("Добро пожаловать!")
-                .font(.system(size: 28, weight: .bold))
-                .foregroundStyle(.blue)
-            
-            // TODO: \(name) добавить имя пользователя
-            
-            Text("Привет Данил! Прокрути вправо, чтобы узнать больше о правилах и управлении")
-                .font(.system(size: 18))
-                .foregroundStyle(.secondary)
+                .font(Font.custom(Fonts.deledda, size: 28))
+                .bold()
+                .foregroundStyle(.text)
+
+            Text("Привет \(String(describing: userDefaults.value(forKey: "userName")))! Прокрути вправо, чтобы узнать больше о правилах и управлении")
+                .font(Font.custom(Fonts.deledda, size: 18))
+                .foregroundStyle(.text.opacity(0.9))
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 4)
                 .lineSpacing(4)

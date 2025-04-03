@@ -11,6 +11,7 @@ import SwiftUI
 struct ShoppingGameView: View {
     @ObservedObject var viewModel: ShoppingGameViewModel
     @Environment(\.dismiss) var dismiss
+    @AppStorage("hasSeenShoppingOnboarding") private var hasSeenShoppingOnboarding = false
     
     private var gradient: some View {
         LinearGradient (
@@ -47,27 +48,34 @@ struct ShoppingGameView: View {
                 .padding(.top, 16)
             }
             .onAppear {
-                viewModel.startTimer()
+                if !hasSeenShoppingOnboarding {
+                    viewModel.showOnboarding = true
+                    hasSeenShoppingOnboarding = true
+                } else {
+                    viewModel.startTimer()
+                }
             }
             
             .sheet(isPresented: $viewModel.showTimeUpSheet) {
                 TimeUpView(
                     selectedProducts: viewModel.selectedProducts,
                     pocket: viewModel.pocket,
+                    purchaseResult: viewModel.purchaseResult,
                     onRepeat: viewModel.resetGame)
             }
             
-            .sheet(isPresented: $viewModel.showOnboarding) {
+            .sheet(isPresented: $viewModel.showOnboarding, onDismiss: {
+                viewModel.resumeTimer()
+            }) {
                 OnboardingView(
                     showInstructions: $viewModel.showOnboarding,
                     onReturnToGame: {
                         viewModel.showOnboarding = false
-                        viewModel.resumeTimer()
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            viewModel.resumeTimer()
+                        }
                     }
                 )
-                .onDisappear {
-                    viewModel.resumeTimer()
-                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
