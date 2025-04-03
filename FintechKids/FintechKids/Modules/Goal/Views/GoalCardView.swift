@@ -9,7 +9,8 @@ import SwiftUI
 
 struct GoalCardView: View {
     @StateObject var viewModel: GoalViewModel
-    @State private var rotation: Double = -180
+    @StateObject var goalsViewModel: GoalsViewModel
+    @State private var rotation: Double = 0
     
     var body: some View {
         GeometryReader { size in
@@ -18,14 +19,14 @@ struct GoalCardView: View {
             
             ZStack {
                 RoundedRectangle(cornerRadius: 20)
-                    .fill(Color.lerp(to: Color.cardBackSide, from: Color.text, progress: (rotation + 180) / 180))
+                    .fill(Color.cardBackSide)
                     .frame(width: width, height: height)
                 
-                FrontSideGoalCardView(height: height, width: width, goal: viewModel.goal)
+                FrontSideGoalCardView(height: height, width: width, viewModel: viewModel, goalsViewModel: goalsViewModel)
                     .modifier(FlipOpacity(percentage: viewModel.isFlipped ? 0 : 1))
                     .frame(width: width, height: height)
                 
-                BackSideGoalCardView(viewModel: viewModel, contentWidth: width)
+                BackSideGoalCardView(viewModel: viewModel, goalsViewModel: goalsViewModel, contentWidth: width, contentHeight: height)
                     .frame(width: 0.9 * width, height: 0.8 * height)
                     .modifier(FlipOpacity(percentage: viewModel.isFlipped ? 1 : 0))
                     .rotation3DEffect(
@@ -33,12 +34,18 @@ struct GoalCardView: View {
                         axis: (x: 1.0, y: 0.001, z: 0.001)
                     )
             }
+            .onAppear {
+                if viewModel.isEdit {
+                    rotation = -180
+                }
+            }
             .onTapGesture {
                 withAnimation(.easeInOut(duration: 0.8)) {
                     // TODO: нужно сделать какую-нить анимацию, чтобы показать пользователю что надо закомитить изменения (тыкнуть галку) перед тем как переворачивать
                     if !viewModel.isEdit {
                         viewModel.isFlipped.toggle()
                         rotation = viewModel.isFlipped ? -180 : 0
+                        goalsViewModel.updateGoal(with: viewModel.id, with: viewModel)
                     } else {
                         print("locked")
                     }

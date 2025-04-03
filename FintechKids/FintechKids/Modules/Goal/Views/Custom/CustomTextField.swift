@@ -11,6 +11,7 @@ struct CustomtextField: View {
     @Binding var text: String
     @Binding var flag: Bool
     let width: CGFloat?
+    let placeholder: String
     
     @Namespace private var namespace
     
@@ -20,7 +21,7 @@ struct CustomtextField: View {
             Text(text)
                 .matchedGeometryEffect(id: "text", in: namespace)
         case true:
-            TextField("Goal", text: $text)
+            TextField(placeholder, text: $text)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .frame(width: width == nil ? nil: width! * 0.8)
                 .matchedGeometryEffect(id: "text", in: namespace)
