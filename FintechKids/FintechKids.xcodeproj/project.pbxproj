@@ -81,6 +81,7 @@
 		562D84C02D9E91EB00C39925 /* EditableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BC2D9E91EB00C39925 /* EditableField.swift */; };
 		562D84C12D9E91EB00C39925 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */; };
 		562D84C22D9E91EB00C39925 /* SettingsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BE2D9E91EB00C39925 /* SettingsButtonStyle.swift */; };
+		8343667A2D9EB5BC00577A32 /* CardGameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameRound.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
@@ -203,6 +204,8 @@
 		53DE19D82D9E8D6300BA6A33 /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
 		560775182D9C017A004EA190 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
+		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModelTests.swift; sourceTree = "<group>"; };
 		562D84BB2D9E91EB00C39925 /* AvatarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerView.swift; sourceTree = "<group>"; };
 		562D84BC2D9E91EB00C39925 /* EditableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableField.swift; sourceTree = "<group>"; };
 		562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
@@ -397,6 +400,7 @@
 		2EA1508E2D9353DD001ED73E /* FintechKidsTests */ = {
 			isa = PBXGroup;
 			children = (
+				834366762D9EB4F500577A32 /* CardGameTests */,
 				2EA1508F2D9353DD001ED73E /* FintechKidsTests.swift */,
 			);
 			path = FintechKidsTests;
@@ -614,6 +618,14 @@
 				562D84BE2D9E91EB00C39925 /* SettingsButtonStyle.swift */,
 			);
 			path = SettingsModule;
+			sourceTree = "<group>";
+		};
+		834366762D9EB4F500577A32 /* CardGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */,
+			);
+			path = CardGameTests;
 			sourceTree = "<group>";
 		};
 		83869DAD2D9499D2000A1EFD /* CardsGame */ = {
@@ -936,6 +948,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8343667A2D9EB5BC00577A32 /* CardGameViewModelTests.swift in Sources */,
 				2EA150902D9353DD001ED73E /* FintechKidsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
