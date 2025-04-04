@@ -20,6 +20,7 @@ struct CropView: View {
         GeometryReader { geometry in
             let aspect = image.size.height / image.size.width
             ZStack {
+                CustomGradient()
                 fullImage
                     .overlay(
                         rectFrame
@@ -38,14 +39,11 @@ struct CropView: View {
                 
                 VStack {
                     Spacer()
-                    Button("Обрезать") {
-                        croppedImage = cropImage(geometry.size)
+                    GradientButton(title: "Обрезать", action:
+                                    {croppedImage = cropImage(geometry.size)
                         dismiss()
-                    }
+                    })
                     .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(10)
                 }
             }
         }
@@ -79,7 +77,3 @@ struct CropView: View {
     }
 }
 
-#Preview {
-    GoalsView()
-        .background(Color.background)
-}

@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GoalsView: View {
+    @State private var keyboardHeight: CGFloat = 0
+    @Binding var isHiddenBar: Bool
     @StateObject private var viewModel = GoalsViewModel()
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
@@ -23,7 +25,12 @@ struct GoalsView: View {
                 scrollGoals
             }
         }
-//        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .onAppear {
+            setupKeyboardObservers()
+        }
+        .onDisappear {
+            removeKeyboardObservers()
+        }
     }
     
     private var header: some View {
@@ -62,9 +69,27 @@ struct GoalsView: View {
                 }
             }
     }
-}
-
-#Preview {
-    GoalsView()
-        .background(Color.background)
+    
+    private func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
+            let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+            let height = value?.height ?? 0
+            withAnimation(.easeOut(duration: 0.2)) {
+                keyboardHeight = height
+                isHiddenBar = true
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+            withAnimation(.easeOut(duration: 0.2)) {
+                keyboardHeight = 0
+                isHiddenBar = false
+            }
+        }
+    }
+    
+    private func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 }

@@ -11,11 +11,12 @@ import SwiftData
 struct ContentView: View {
     @EnvironmentObject var screenFactory: ScreenFactory
     @State var index = 1
+    @State var isHiddenBar: Bool = false
     var body: some View {
         ZStack {
             switch index {
             case 0:
-                GoalsView()
+                GoalsView(isHiddenBar: $isHiddenBar)
             case 1:
                 HomeView(screen: .analytics, screenFactory: screenFactory)
             case 2:
@@ -26,7 +27,9 @@ struct ContentView: View {
             VStack {
                 Spacer()
                 
-                TabBar(index: $index)
+                if !isHiddenBar {
+                    TabBar(index: $index)
+                }
             }
         }
         .frame(maxWidth: .infinity)
