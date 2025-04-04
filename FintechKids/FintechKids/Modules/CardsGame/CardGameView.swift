@@ -216,17 +216,9 @@ struct CardGameView: View {
     }
     
     private var checkButton: some View {
-        Button(action: {
+        
+        GradientButton(title: "Проверить", fontSize: 18, width: UIScreen.main.bounds.width * 0.95, height: nil) {
             viewModel.checkPrice()
-        }) {
-            Text("Проверить")
-                .font(Font.custom(Fonts.deledda, size: 18))
-                .fontWeight(.bold)
-                .foregroundColor(Color.text)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(Color.highlightedBackground)
-                .cornerRadius(10)
         }
     }
     
