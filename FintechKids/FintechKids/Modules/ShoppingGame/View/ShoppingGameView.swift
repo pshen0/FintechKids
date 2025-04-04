@@ -54,6 +54,14 @@ struct ShoppingGameView: View {
                 } else {
                     viewModel.startTimer()
                 }
+                
+                NotificationCenter.default.addObserver(
+                    forName: NSNotification.Name("DismissShoppingGame"),
+                    object: nil,
+                    queue: .main
+                ) { _ in
+                    dismiss()
+                }
             }
             
             .sheet(isPresented: $viewModel.showTimeUpSheet) {
@@ -65,15 +73,13 @@ struct ShoppingGameView: View {
             }
             
             .sheet(isPresented: $viewModel.showOnboarding, onDismiss: {
-                viewModel.resumeTimer()
+                
             }) {
                 OnboardingView(
                     showInstructions: $viewModel.showOnboarding,
                     onReturnToGame: {
                         viewModel.showOnboarding = false
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                            viewModel.resumeTimer()
-                        }
+                        viewModel.startTimer()
                     }
                 )
             }
@@ -93,4 +99,3 @@ struct ShoppingGameView: View {
 #Preview {
     ShoppingGameView(viewModel: ShoppingGameViewModel())
 }
-
