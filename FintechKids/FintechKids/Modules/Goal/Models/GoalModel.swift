@@ -8,9 +8,9 @@
 import Foundation
 
 class GoalModel: ObservableObject {
-    @Published var name: String = "Goal"
+    @Published var name: String = ""
     @Published var goalSum: Int = 1
-    @Published var level: GoalImportantLevels = .high
+    @Published var level: Bool = false
     @Published var current: Int = 0
     @Published var image: String = "templateGoal"
     @Published var date: Date = Date.now
@@ -21,7 +21,7 @@ class GoalModel: ObservableObject {
         }
     }
     
-    init(name: String = "", goalSum: Int = 0, current: Int = 0, level: GoalImportantLevels = .high, image: String = "", date: Date = Date.now) {
+    init(name: String = "", goalSum: Int, current: Int, level: Bool = false, image: String = "", date: Date = Date.now) {
         self.name = name
         self.goalSum = goalSum
         self.current = current
@@ -31,10 +31,4 @@ class GoalModel: ObservableObject {
     }
     
     init() { }
-}
-
-enum GoalImportantLevels: String {
-    case high = "Высокий"
-    case mid = "Средний"
-    case low = "Низкий"
 }

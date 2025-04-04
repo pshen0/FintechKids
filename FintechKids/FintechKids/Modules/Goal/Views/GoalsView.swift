@@ -16,11 +16,14 @@ struct GoalsView: View {
     @Namespace private var namespace
     
     var body: some View {
-        VStack {
-            header
-            
-            scrollGoals
+        ZStack {
+            CustomGradient()
+            VStack {
+                header
+                scrollGoals
+            }
         }
+//        .ignoresSafeArea(.keyboard, edges: .bottom)
     }
     
     private var header: some View {
@@ -29,8 +32,8 @@ struct GoalsView: View {
             Spacer()
             buttonForAdding
         }
-        .frame(width: 0.9 * width)
-        .font(Font.custom(Fonts.deledda, size: height * 0.05))
+        .frame(width: width * 0.9)
+        .font(Font.custom(Fonts.deledda, size: 40))
         .foregroundColor(Color.text)
         .background(.clear)
     }
@@ -38,13 +41,14 @@ struct GoalsView: View {
     private var scrollGoals: some View {
         ScrollView {
             LazyVStack {
-                ForEach($viewModel.goalViewModels, id: \.id) { $goal in
-                    GoalCardRow(viewModel: goal, height: height, width: width) {
+                ForEach($viewModel.goalViewModels.sorted(by: {$0.goal.level.wrappedValue && !$1.goal.level.wrappedValue}), id: \.id) { $goal in
+                    GoalCardRow(viewModel: goal, goalsViewModel: viewModel, height: height, width: width) {
                         viewModel.deleteGoal(at: goal.id)
                     }
                     .transition(.scale.combined(with: .opacity))
                 }
                 .frame(width: width)
+                .offset(y: 20)
             }
         }
     }
