@@ -115,7 +115,7 @@ FintechKids — это интерактивное iOS-приложение, ко
 | Аня   |    |  |
 | Егор  | Профиль, SplashScreen | SplashScreen.swift; AvatarPickerView.swift; EditableField.swift; ProfileSettingsView.swift; SettingsButtonStyle.swift; UserSettingsManager.swift |
 | Тагир |  |   |
-| Данил | |   |
+| Данил | Модуль чата, интеграция swiftData| ChatScreen, ChatViewModel, Modifiers |
 | Миша  |  |  |
 | Марго | Игра Карточки, DI, Tests | ScreenFactory.swift; Storage.swift; CardGameRound.swift; CardGameViewModel.swift; CardGameView.swift; CardView.swift; CardGameViewModelTests.swift; FintechKidsUITests.swift 
 
