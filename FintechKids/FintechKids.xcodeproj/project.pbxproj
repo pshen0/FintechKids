@@ -10,17 +10,18 @@
 		0F5CE4B12D9E6E9A00BF7E47 /* AnalyticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5CE4B02D9E6E9A00BF7E47 /* AnalyticsViewModel.swift */; };
 		0F71F74C2D9A764200A1A407 /* AnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71F74B2D9A764200A1A407 /* AnalyticsView.swift */; };
 		0F71F7502D9AC97100A1A407 /* Plot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F71F74F2D9AC97100A1A407 /* Plot.swift */; };
-		0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */; };
+		0F7216FE2D9F71E9008E7355 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7216FD2D9F71E9008E7355 /* CustomFont.swift */; };
+		0F7217002D9F73D3008E7355 /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7216FF2D9F73D3008E7355 /* PdfDocumentPicker.swift */; };
 		0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1D2D95B946007CB69B /* HomeView.swift */; };
-		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
 		2E136FAA2D9D5A3600089A4A /* CustomDropDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */; };
+		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
 		2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */; };
 		2E2551CC2D96C8F00007B2D9 /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */; };
 		2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */; };
 		2E2551CE2D96C8F00007B2D9 /* FrontSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C72D96C8F00007B2D9 /* FrontSideGoalCardView.swift */; };
 		2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */; };
 		2E2551D02D96C8F00007B2D9 /* GoalsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C92D96C8F00007B2D9 /* GoalsView.swift */; };
-		2E2551D12D96C8F00007B2D9 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */; };
+		2E2551D12D96C8F00007B2D9 /* CustomProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551CA2D96C8F00007B2D9 /* CustomProgressView.swift */; };
 		2E2551D72D975C210007B2D9 /* GoalCardRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551D62D975C210007B2D9 /* GoalCardRow.swift */; };
 		2E2551D92D97608A0007B2D9 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551D82D97608A0007B2D9 /* CustomTextField.swift */; };
 		2E2551DC2D97703F0007B2D9 /* CustomImageEditButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551DB2D97703F0007B2D9 /* CustomImageEditButton.swift */; };
@@ -29,7 +30,8 @@
 		2E2551E42D9AA0780007B2D9 /* ViewExtensionForLoadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551E32D9AA0780007B2D9 /* ViewExtensionForLoadImage.swift */; };
 		2E5799C82D9BF3CA00994E20 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5799C72D9BF3CA00994E20 /* GoalViewModel.swift */; };
 		2E5799C92D9BF50B00994E20 /* FintechKidsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */; };
-		2E5799CB2D9BF57A00994E20 /* StartAnalyticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA172D949037007CB69B /* StartAnalyticsView.swift */; };
+		2E5BEB5F2D9E364200C2E150 /* CustomGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E5BEB5E2D9E364200C2E150 /* CustomGradient.swift */; };
+		2E83F9F02D9EA9560042B94E /* CodableModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E83F9EF2D9EA9560042B94E /* CodableModels.swift */; };
 		2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA1507E2D9353DC001ED73E /* ContentView.swift */; };
 		2EA150832D9353DD001ED73E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150822D9353DD001ED73E /* Assets.xcassets */; };
 		2EA150862D9353DD001ED73E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EA150852D9353DD001ED73E /* Preview Assets.xcassets */; };
@@ -79,13 +81,13 @@
 		562D84C02D9E91EB00C39925 /* EditableField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BC2D9E91EB00C39925 /* EditableField.swift */; };
 		562D84C12D9E91EB00C39925 /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */; };
 		562D84C22D9E91EB00C39925 /* SettingsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562D84BE2D9E91EB00C39925 /* SettingsButtonStyle.swift */; };
+		8343667A2D9EB5BC00577A32 /* CardGameViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */; };
 		83869DAE2D9499D2000A1EFD /* CardGameRound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA82D9499D2000A1EFD /* CardGameRound.swift */; };
 		83869DAF2D9499D2000A1EFD /* CardGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DA92D9499D2000A1EFD /* CardGameView.swift */; };
 		83869DB22D9499D2000A1EFD /* CardGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */; };
 		838CD9462D96E9A7006F1661 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 838CD9452D96E9A7006F1661 /* ScreenFactory.swift */; };
 		8390DB9F2D986C2600A414FD /* DeleddaOpen-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0F71F7362D97D53D00A1A407 /* DeleddaOpen-Light.ttf */; };
 		839A91772D9D7B5400A7506C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 839A91762D9D7B5400A7506C /* CardView.swift */; };
-		83A6E9642D95889E0007B577 /* CardGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83A6E9632D9588930007B577 /* CardGame.txt */; };
 		83A6E9642D95889E0007B577 /* Products.txt in Resources */ = {isa = PBXBuildFile; fileRef = 83A6E9632D9588930007B577 /* Products.txt */; };
 		83A6E9662D95945E0007B577 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A6E9652D95945E0007B577 /* Storage.swift */; };
 		CF1A23932D9461360032844E /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF1A23922D9461360032844E /* MessageView.swift */; };
@@ -133,19 +135,17 @@
 		0F71F7362D97D53D00A1A407 /* DeleddaOpen-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DeleddaOpen-Light.ttf"; sourceTree = "<group>"; };
 		0F71F74B2D9A764200A1A407 /* AnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsView.swift; sourceTree = "<group>"; };
 		0F71F74F2D9AC97100A1A407 /* Plot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plot.swift; sourceTree = "<group>"; };
-		0FC6DA172D949037007CB69B /* StartAnalyticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartAnalyticsView.swift; sourceTree = "<group>"; };
-		0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingExpensesView.swift; sourceTree = "<group>"; };
+		0F7216FD2D9F71E9008E7355 /* CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFont.swift; sourceTree = "<group>"; };
+		0F7216FF2D9F73D3008E7355 /* PdfDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocumentPicker.swift; sourceTree = "<group>"; };
 		0FC6DA1D2D95B946007CB69B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PdfDocumentPicker.swift; sourceTree = "<group>"; };
 		0FE3EF0A2D9D52B4007DBD20 /* BubbleAnimationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleAnimationView.swift; sourceTree = "<group>"; };
-		2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDownList.swift; sourceTree = "<group>"; };
 		2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsViewModel.swift; sourceTree = "<group>"; };
 		2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackSideGoalCardView.swift; sourceTree = "<group>"; };
 		2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipOpacity.swift; sourceTree = "<group>"; };
 		2E2551C72D96C8F00007B2D9 /* FrontSideGoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrontSideGoalCardView.swift; sourceTree = "<group>"; };
 		2E2551C82D96C8F00007B2D9 /* GoalCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalCardView.swift; sourceTree = "<group>"; };
 		2E2551C92D96C8F00007B2D9 /* GoalsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsView.swift; sourceTree = "<group>"; };
-		2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		2E2551CA2D96C8F00007B2D9 /* CustomProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressView.swift; sourceTree = "<group>"; };
 		2E2551D62D975C210007B2D9 /* GoalCardRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCardRow.swift; sourceTree = "<group>"; };
 		2E2551D82D97608A0007B2D9 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2E2551DB2D97703F0007B2D9 /* CustomImageEditButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageEditButton.swift; sourceTree = "<group>"; };
@@ -153,6 +153,8 @@
 		2E2551E12D9A79290007B2D9 /* CropView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropView.swift; sourceTree = "<group>"; };
 		2E2551E32D9AA0780007B2D9 /* ViewExtensionForLoadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensionForLoadImage.swift; sourceTree = "<group>"; };
 		2E5799C72D9BF3CA00994E20 /* GoalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
+		2E5BEB5E2D9E364200C2E150 /* CustomGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGradient.swift; sourceTree = "<group>"; };
+		2E83F9EF2D9EA9560042B94E /* CodableModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableModels.swift; sourceTree = "<group>"; };
 		2EA150792D9353DC001ED73E /* FintechKids.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FintechKids.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EA1507C2D9353DC001ED73E /* FintechKidsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FintechKidsApp.swift; sourceTree = "<group>"; };
 		2EA1507E2D9353DC001ED73E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,8 @@
 		53DE19D82D9E8D6300BA6A33 /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
 		560775182D9C017A004EA190 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
+		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModelTests.swift; sourceTree = "<group>"; };
 		562D84BB2D9E91EB00C39925 /* AvatarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerView.swift; sourceTree = "<group>"; };
 		562D84BC2D9E91EB00C39925 /* EditableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableField.swift; sourceTree = "<group>"; };
 		562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
@@ -212,7 +216,6 @@
 		838CD9452D96E9A7006F1661 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ScreenFactory.swift; path = StorageModule/ScreenFactory.swift; sourceTree = "<group>"; };
 		8390DB9E2D9869F900A414FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		839A91762D9D7B5400A7506C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		83A6E9632D9588930007B577 /* CardGame.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = CardGame.txt; sourceTree = "<group>"; };
 		83A6E9632D9588930007B577 /* Products.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = Products.txt; sourceTree = "<group>"; };
 		83A6E9652D95945E0007B577 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = StorageModule/Storage.swift; sourceTree = "<group>"; };
 		CF1A23922D9461360032844E /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
@@ -268,6 +271,7 @@
 				0F71F74B2D9A764200A1A407 /* AnalyticsView.swift */,
 				0F71F74F2D9AC97100A1A407 /* Plot.swift */,
 				0F5CE4B02D9E6E9A00BF7E47 /* AnalyticsViewModel.swift */,
+				0F7216FF2D9F73D3008E7355 /* PdfDocumentPicker.swift */,
 			);
 			path = AnalyticsModule;
 			sourceTree = "<group>";
@@ -277,25 +281,9 @@
 			children = (
 				0F71F7362D97D53D00A1A407 /* DeleddaOpen-Light.ttf */,
 				2EA150822D9353DD001ED73E /* Assets.xcassets */,
+				0F7216FD2D9F71E9008E7355 /* CustomFont.swift */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		0FC6DA162D94900F007CB69B /* StartAnalyticsModule */ = {
-			isa = PBXGroup;
-			children = (
-				0FC6DA172D949037007CB69B /* StartAnalyticsView.swift */,
-				0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */,
-			);
-			path = StartAnalyticsModule;
-			sourceTree = "<group>";
-		};
-		0FC6DA192D949874007CB69B /* AddingExpensesModule */ = {
-			isa = PBXGroup;
-			children = (
-				0FC6DA1A2D9498D3007CB69B /* AddingExpensesView.swift */,
-			);
-			path = AddingExpensesModule;
 			sourceTree = "<group>";
 		};
 		0FC6DA1C2D95B929007CB69B /* HomeModule */ = {
@@ -312,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				2EA151652D954C5B001ED73E /* GoalModel.swift */,
+				2E83F9EE2D9E97440042B94E /* Codable */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,14 +331,22 @@
 			isa = PBXGroup;
 			children = (
 				2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */,
-				2E2551CA2D96C8F00007B2D9 /* ProgressBar.swift */,
-				2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */,
+				2E2551CA2D96C8F00007B2D9 /* CustomProgressView.swift */,
 				2E2551D82D97608A0007B2D9 /* CustomTextField.swift */,
 				2E2551E12D9A79290007B2D9 /* CropView.swift */,
 				2E2551DF2D9A11C30007B2D9 /* CustomImagePicker.swift */,
 				2E2551DB2D97703F0007B2D9 /* CustomImageEditButton.swift */,
+				2E5BEB5E2D9E364200C2E150 /* CustomGradient.swift */,
 			);
 			path = Custom;
+			sourceTree = "<group>";
+		};
+		2E83F9EE2D9E97440042B94E /* Codable */ = {
+			isa = PBXGroup;
+			children = (
+				2E83F9EF2D9EA9560042B94E /* CodableModels.swift */,
+			);
+			path = Codable;
 			sourceTree = "<group>";
 		};
 		2EA150702D9353DC001ED73E = {
@@ -403,6 +400,7 @@
 		2EA1508E2D9353DD001ED73E /* FintechKidsTests */ = {
 			isa = PBXGroup;
 			children = (
+				834366762D9EB4F500577A32 /* CardGameTests */,
 				2EA1508F2D9353DD001ED73E /* FintechKidsTests.swift */,
 			);
 			path = FintechKidsTests;
@@ -434,8 +432,6 @@
 				0FC6DA1C2D95B929007CB69B /* HomeModule */,
 				56A2DDE52D95831900F853B3 /* SettingsModule */,
 				0F71F74A2D9A75F000A1A407 /* AnalyticsModule */,
-				0FC6DA162D94900F007CB69B /* StartAnalyticsModule */,
-				0FC6DA192D949874007CB69B /* AddingExpensesModule */,
 				83869DAD2D9499D2000A1EFD /* CardsGame */,
 				CF964F262D943D920038AEAD /* ChatModule */,
 				2EA151552D94A977001ED73E /* Goal */,
@@ -624,13 +620,20 @@
 			path = SettingsModule;
 			sourceTree = "<group>";
 		};
+		834366762D9EB4F500577A32 /* CardGameTests */ = {
+			isa = PBXGroup;
+			children = (
+				834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */,
+			);
+			path = CardGameTests;
+			sourceTree = "<group>";
+		};
 		83869DAD2D9499D2000A1EFD /* CardsGame */ = {
 			isa = PBXGroup;
 			children = (
 				83869DA82D9499D2000A1EFD /* CardGameRound.swift */,
 				83869DA92D9499D2000A1EFD /* CardGameView.swift */,
 				83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */,
-				83A6E9632D9588930007B577 /* CardGame.txt */,
 				839A91762D9D7B5400A7506C /* CardView.swift */,
 				83A6E9632D9588930007B577 /* Products.txt */,
 			);
@@ -844,7 +847,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF7CA0242D9D58880035DEA0 /* BubbleAnimationView.swift in Sources */,
-				2E5799CB2D9BF57A00994E20 /* StartAnalyticsView.swift in Sources */,
 				2E5799C92D9BF50B00994E20 /* FintechKidsApp.swift in Sources */,
 				2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */,
 				2EA1507F2D9353DC001ED73E /* ContentView.swift in Sources */,
@@ -859,9 +861,9 @@
 				CF964F2A2D943DE60038AEAD /* ChatViewModel.swift in Sources */,
 				CF964F282D943DDA0038AEAD /* ChatScreen.swift in Sources */,
 				5323EB9A2D9C22FD00100D17 /* ShoppingGameViewModel.swift in Sources */,
+				0F7217002D9F73D3008E7355 /* PdfDocumentPicker.swift in Sources */,
 				5323EC612D9D177000100D17 /* TimerOnboardView.swift in Sources */,
 				53B3D6FA2D96CA1E00B31D2D /* LLMService.swift in Sources */,
-				0FC6DA1B2D9498D3007CB69B /* AddingExpensesView.swift in Sources */,
 				CF964F192D943CE20038AEAD /* Image+extension.swift in Sources */,
 				5323EB932D9C208C00100D17 /* ProductItemView.swift in Sources */,
 				0F5CE4B12D9E6E9A00BF7E47 /* AnalyticsViewModel.swift in Sources */,
@@ -887,7 +889,6 @@
 				CF1A23932D9461360032844E /* MessageView.swift in Sources */,
 				2E5799C82D9BF3CA00994E20 /* GoalViewModel.swift in Sources */,
 				2E2551CF2D96C8F00007B2D9 /* GoalCardView.swift in Sources */,
-				2E136FAA2D9D5A3600089A4A /* CustomDropDownList.swift in Sources */,
 				CF7CA0232D9D3AF80035DEA0 /* FinikAvatar.swift in Sources */,
 				2E2551E02D9A11C30007B2D9 /* CustomImagePicker.swift in Sources */,
 				536509A52D9A9E7300797B3C /* TextToTransactionConverter.swift in Sources */,
@@ -895,6 +896,7 @@
 				536509EE2D9B5F1C00797B3C /* ProductGridGame.swift in Sources */,
 				53B3D7412D986DA900B31D2D /* LLMKeyProvider.swift in Sources */,
 				53B3D7012D96CA3900B31D2D /* PDFError.swift in Sources */,
+				2E83F9F02D9EA9560042B94E /* CodableModels.swift in Sources */,
 				53B3D7472D986E2D00B31D2D /* StatementController.swift in Sources */,
 				CF1A25972D9ADD820032844E /* TypingIndicator.swift in Sources */,
 				53B3D7482D986E2D00B31D2D /* StatementFileStore.swift in Sources */,
@@ -928,16 +930,17 @@
 				2EA151662D954C5B001ED73E /* GoalModel.swift in Sources */,
 				2E2551E22D9A79290007B2D9 /* CropView.swift in Sources */,
 				2E2551DC2D97703F0007B2D9 /* CustomImageEditButton.swift in Sources */,
+				2E5BEB5F2D9E364200C2E150 /* CustomGradient.swift in Sources */,
 				2E2551E42D9AA0780007B2D9 /* ViewExtensionForLoadImage.swift in Sources */,
 				2E2551CE2D96C8F00007B2D9 /* FrontSideGoalCardView.swift in Sources */,
-				2E2551D12D96C8F00007B2D9 /* ProgressBar.swift in Sources */,
+				2E2551D12D96C8F00007B2D9 /* CustomProgressView.swift in Sources */,
 				53B3D7132D96CB4F00B31D2D /* Transaction.swift in Sources */,
 				53DE19D92D9E8D6300BA6A33 /* TransparentButton.swift in Sources */,
 				53DE19DA2D9E8D6300BA6A33 /* GradientButton.swift in Sources */,
 				CF1A241E2D97D1F20032844E /* Extensions.swift in Sources */,
 				536509E62D9B4C5900797B3C /* ShoppingGameView.swift in Sources */,
+				0F7216FE2D9F71E9008E7355 /* CustomFont.swift in Sources */,
 				0F71F7502D9AC97100A1A407 /* Plot.swift in Sources */,
-				0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -945,6 +948,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8343667A2D9EB5BC00577A32 /* CardGameViewModelTests.swift in Sources */,
 				2EA150902D9353DD001ED73E /* FintechKidsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1102,7 +1106,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = D29HMVXL7B;
+				DEVELOPMENT_TEAM = FUD5CPHJR9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1117,7 +1121,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hse.Crowns;
+				PRODUCT_BUNDLE_IDENTIFIER = yandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1134,7 +1138,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = D29HMVXL7B;
+				DEVELOPMENT_TEAM = FUD5CPHJR9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1149,7 +1153,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = hse.FintechKids;
+				PRODUCT_BUNDLE_IDENTIFIER = yandex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

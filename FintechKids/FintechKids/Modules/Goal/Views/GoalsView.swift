@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct GoalsView: View {
+    @State private var keyboardHeight: CGFloat = 0
+    @Binding var isHiddenBar: Bool
     @StateObject private var viewModel = GoalsViewModel()
     let width = UIScreen.main.bounds.width
     let height = UIScreen.main.bounds.height
@@ -16,10 +18,18 @@ struct GoalsView: View {
     @Namespace private var namespace
     
     var body: some View {
-        VStack {
-            header
-            
-            scrollGoals
+        ZStack {
+            CustomGradient()
+            VStack {
+                header
+                scrollGoals
+            }
+        }
+        .onAppear {
+            setupKeyboardObservers()
+        }
+        .onDisappear {
+            removeKeyboardObservers()
         }
     }
     
@@ -29,8 +39,8 @@ struct GoalsView: View {
             Spacer()
             buttonForAdding
         }
-        .frame(width: 0.9 * width)
-        .font(Font.custom(Fonts.deledda, size: height * 0.05))
+        .frame(width: width * 0.9)
+        .font(Font.custom(Fonts.deledda, size: 40))
         .foregroundColor(Color.text)
         .background(.clear)
     }
@@ -38,13 +48,14 @@ struct GoalsView: View {
     private var scrollGoals: some View {
         ScrollView {
             LazyVStack {
-                ForEach($viewModel.goalViewModels, id: \.id) { $goal in
-                    GoalCardRow(viewModel: goal, height: height, width: width) {
+                ForEach($viewModel.goalViewModels.sorted(by: {$0.goal.level.wrappedValue && !$1.goal.level.wrappedValue}), id: \.id) { $goal in
+                    GoalCardRow(viewModel: goal, goalsViewModel: viewModel, height: height, width: width) {
                         viewModel.deleteGoal(at: goal.id)
                     }
                     .transition(.scale.combined(with: .opacity))
                 }
                 .frame(width: width)
+                .offset(y: 20)
             }
         }
     }
@@ -58,9 +69,27 @@ struct GoalsView: View {
                 }
             }
     }
-}
-
-#Preview {
-    GoalsView()
-        .background(Color.background)
+    
+    private func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillShowNotification, object: nil, queue: .main) { notification in
+            let value = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+            let height = value?.height ?? 0
+            withAnimation(.easeOut(duration: 0.2)) {
+                keyboardHeight = height
+                isHiddenBar = true
+            }
+        }
+        
+        NotificationCenter.default.addObserver(forName: UIResponder.keyboardWillHideNotification, object: nil, queue: .main) { _ in
+            withAnimation(.easeOut(duration: 0.2)) {
+                keyboardHeight = 0
+                isHiddenBar = false
+            }
+        }
+    }
+    
+    private func removeKeyboardObservers() {
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
 }

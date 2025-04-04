@@ -84,7 +84,7 @@ struct SplashScreen: View {
                     withAnimation(.spring(response: 1.2, dampingFraction: 0.7)) {
                         self.catSize = 75
                         self.circleScale = 10
-                        self.catOffset = -155
+                        self.catOffset = -95
                     }
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
