@@ -13,7 +13,7 @@ struct StartOnboardView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Image(systemName: "play.fill")
+            Image(systemName: "flag.filled.and.flag.crossed")
                 .imageScale(.large)
                 .font(.system(size: 60))
                 .foregroundStyle(.text)
@@ -32,13 +32,13 @@ struct StartOnboardView: View {
             
             GradientButton(
                 title: "Начать игру",
-                fontSize: 20
+                fontSize: 20,
+                width: UIScreen.main.bounds.width * 0.85,
+                height: 60
             ) {
                 showInstructions = false
                 onReturnToGame()
             }
-            .padding(.horizontal, 40)
-            .padding(.vertical, 16)
             .padding(.top, 20)
         }
         .padding()

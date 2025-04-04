@@ -23,7 +23,7 @@ final class CardGameViewModel: ObservableObject {
     @Published var flipp = false
     
     private var allCards: [CardGameRound] = []
-    private var currentRoundCards: [CardGameRound] = []
+    var currentRoundCards: [CardGameRound] = []
     var currentCardIndex = 0
     
     init(screen: Screen, screenFactory: ScreenFactory) {
@@ -162,7 +162,7 @@ final class CardGameViewModel: ObservableObject {
            }
        }
     
-    private func getFeedback(for guessedPrice: Int) -> String {
+    func getFeedback(for guessedPrice: Int) -> String {
         switch guessedPrice {
         case let price where isCloseEnough(price):
             return "Почти правильно! 🎉 Верный ответ: \(model.cost)"
@@ -175,7 +175,7 @@ final class CardGameViewModel: ObservableObject {
         }
     }
     
-    private func isCloseEnough(_ guessedPrice: Int) -> Bool {
+    func isCloseEnough(_ guessedPrice: Int) -> Bool {
         let range = Int(Double(model.cost) * 0.7)...Int(Double(model.cost) * 1.3)
         return range.contains(guessedPrice)
     }

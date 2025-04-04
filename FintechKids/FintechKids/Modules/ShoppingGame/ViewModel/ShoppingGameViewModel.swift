@@ -43,7 +43,8 @@ class ShoppingGameViewModel: ObservableObject {
         timePaused = false
         totalSpent = 0
         purchaseResult = .nothingBought
-        
+        selectedProducts.removeAll()
+        pocket = 1000
         timer?.cancel()
         
         let queue = DispatchQueue(label: "fintechkids.timer", qos: .userInteractive)

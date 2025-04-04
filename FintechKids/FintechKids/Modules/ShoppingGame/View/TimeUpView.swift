@@ -164,14 +164,19 @@ struct TimeUpView: View {
         HStack(spacing: Constants.spacingStack) {
             TransparentButton(
                 title: "Закрыть",
-                fontSize: 16
+                fontSize: 16,
+                width: UIScreen.main.bounds.width * 0.35,
+                height: 50
             ) {
                 dismiss()
+                NotificationCenter.default.post(name: NSNotification.Name("DismissShoppingGame"), object: nil)
             }
             
             GradientButton(
                 title: "Повторить",
-                fontSize: 16
+                fontSize: 16,
+                width: UIScreen.main.bounds.width * 0.35,
+                height: 50
             ) {
                 onRepeat()
             }
