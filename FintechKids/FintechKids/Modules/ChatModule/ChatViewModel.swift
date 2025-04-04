@@ -25,7 +25,7 @@ final class ChatViewModel: ObservableObject {
     }
     
     func clearStorage() {
-        
+        ChatService.replied = false
         do {
             try modelContext.delete(model: Message.self)
             resetMessages()
