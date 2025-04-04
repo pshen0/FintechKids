@@ -11,11 +11,15 @@ struct TransparentButton: View {
     let title: String
     let action: () -> Void
     let fontSize: CGFloat
+    let width: CGFloat?
+    let height: CGFloat?
     
-    init(title: String, fontSize: CGFloat = 16, action: @escaping () -> Void) {
+    init(title: String, fontSize: CGFloat = 16, width: CGFloat? = nil, height: CGFloat? = nil, action: @escaping () -> Void) {
         self.title = title
         self.action = action
         self.fontSize = fontSize
+        self.width = width
+        self.height = height
     }
     
     var body: some View {
@@ -27,6 +31,7 @@ struct TransparentButton: View {
                 .fontWeight(.medium)
                 .foregroundStyle(.primary)
                 .padding()
+                .frame(width: width, height: height)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
                         .fill(.ultraThinMaterial)
