@@ -77,7 +77,3 @@ struct CropView: View {
     }
 }
 
-#Preview {
-    GoalsView()
-        .background(Color.background)
-}
