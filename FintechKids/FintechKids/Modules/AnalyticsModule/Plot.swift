@@ -28,8 +28,10 @@ struct Plot: Shape {
         
         var positions: [CGPoint] = []
         var i = 0
+
+        let sortedKeys = values.keys.sorted()
         
-        for key in values.keys {
+        for key in sortedKeys {
             if let number = values[key] {
                 let transformedValue = transformValue(number, maxValue: maxValue)
                 
@@ -39,6 +41,10 @@ struct Plot: Shape {
                 positions.append(CGPoint(x: x, y: y))
             }
             i += 1
+        }
+
+        while positions.count < points {
+            positions.append(center)
         }
         
         path.move(to: positions[0])
@@ -62,13 +68,219 @@ struct Plot: Shape {
                                        height: PlotConstants.markRadius * 2))
         }
         
-        
         path.closeSubpath()
         return path
     }
     
     func path(in rect: CGRect) -> Path {
         return drawPlot(in: rect)
+    }
+}
+
+struct PlotView: View {
+    let values: [String: Double]
+    let transactions: [Transaction]
+    @State private var progress: Double = 0.0
+    @State private var scale: CGFloat = 0.8
+    @State private var selectedCategory: String? = nil
+    
+    var body: some View {
+        ZStack {
+            PlotWithGradient(values: values, progress: progress)
+                .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 5)
+            CategoryLabels(values: values, transactions: transactions, selectedCategory: $selectedCategory)
+        }
+        .frame(width: 320, height: 320)
+        .padding(20)
+        .scaleEffect(scale)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            withAnimation(.spring()) {
+                selectedCategory = nil
+            }
+        }
+        .onAppear {
+            withAnimation(.easeInOut(duration: 10).repeatForever(autoreverses: true)) {
+                progress = 0.5
+            }
+            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                scale = 1.0
+            }
+        }
+    }
+}
+
+struct PlotWithGradient: View {
+    let values: [String: Double]
+    let progress: Double
+    
+    private var gradient: LinearGradient {
+        let colors = [
+            Color(red: 209/255, green: 129/255, blue: 240/255),
+            Color(red: 115/255, green: 163/255, blue: 239/255),
+            Color(red: 182/255, green: 224/255, blue: 155/255),
+            Color(red: 255/255, green: 231/255, blue: 110/255),
+            Color(red: 242/255, green: 151/255, blue: 76/255)
+        ]
+        
+        let stops = zip(colors, [0.0, 0.2, 0.4, 0.6, 0.8].map { $0 + progress })
+            .map { Gradient.Stop(color: $0, location: $1) }
+        
+        return LinearGradient(
+            gradient: Gradient(stops: stops),
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+    }
+    
+    var body: some View {
+        ZStack {
+            Plot(values)
+                .fill(gradient.opacity(0.8))
+                .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
+            
+            Plot(values)
+                .stroke(Color.text.opacity(0.8), lineWidth: 2)
+        }
+    }
+}
+
+struct CategoryLabels: View {
+    let values: [String: Double]
+    let transactions: [Transaction]
+    @Binding var selectedCategory: String?
+    @State private var appear = false
+    
+    private func getRecentTransactions(for category: String) -> [Transaction] {
+        return transactions
+            .filter { $0.category == category }
+            .sorted { $0.date > $1.date }
+    }
+    
+    var body: some View {
+        ForEach(Array(values.keys.sorted().enumerated()), id: \.element) { index, category in
+            CategoryLabel(
+                category: category,
+                index: index,
+                total: values.count,
+                amount: values[category] ?? 0,
+                recentTransactions: getRecentTransactions(for: category),
+                isSelected: selectedCategory == category,
+                onSelect: { selected in
+                    withAnimation(.spring()) {
+                        selectedCategory = selected ? category : nil
+                    }
+                }
+            )
+            .opacity(appear ? 1 : 0)
+            .offset(y: appear ? 0 : 20)
+            .animation(.easeOut(duration: 0.5).delay(Double(index) * 0.1), value: appear)
+        }
+        .onAppear {
+            appear = true
+        }
+    }
+}
+
+struct CategoryLabel: View {
+    let category: String
+    let index: Int
+    let total: Int
+    let amount: Double
+    let recentTransactions: [Transaction]
+    let isSelected: Bool
+    let onSelect: (Bool) -> Void
+    
+    private var position: CGPoint {
+        let angle = Double(index) * (2 * .pi / Double(total)) - .pi / 2
+        let radius: CGFloat = 140
+        let x = cos(angle) * radius
+        let y = sin(angle) * radius
+        return CGPoint(x: 160 + x, y: 160 + y)
+    }
+    
+    var body: some View {
+        ZStack {
+            Text(category)
+                .font(Font.custom(Fonts.deledda, size: 14))
+                .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+                .padding(.horizontal, 10)
+                .padding(.vertical, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .fill(Color.white)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(Color(red: 0.2, green: 0.4, blue: 0.8).opacity(0.3), lineWidth: 1.5)
+                        )
+                )
+                .shadow(color: Color.black.opacity(0.2), radius: 4, x: 0, y: 2)
+                .onTapGesture {
+                    onSelect(!isSelected)
+                }
+            
+            if isSelected {
+                CategoryInfo(
+                    category: category,
+                    amount: amount,
+                    recentTransactions: recentTransactions,
+                    position: position
+                )
+                .transition(.scale.combined(with: .opacity))
+            }
+        }
+        .position(position)
+    }
+}
+
+struct CategoryInfo: View {
+    let category: String
+    let amount: Double
+    let recentTransactions: [Transaction]
+    let position: CGPoint
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(category)
+                .font(Font.custom(Fonts.deledda, size: 18))
+                .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+            
+            Text("Общая сумма: \(String(format: "%.2f", amount)) ₽")
+                .font(Font.custom(Fonts.deledda, size: 16))
+                .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+            
+            if !recentTransactions.isEmpty {
+                Text("Последние траты:")
+                    .font(Font.custom(Fonts.deledda, size: 14))
+                    .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+                    .padding(.top, 4)
+                
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 4) {
+                        ForEach(recentTransactions.prefix(3)) { transaction in
+                            VStack(alignment: .leading, spacing: 2) {
+                                Text(transaction.description)
+                                    .font(Font.custom(Fonts.deledda, size: 14))
+                                    .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+                                    .lineLimit(2)
+                                Text("\(String(format: "%.2f", abs(transaction.amount))) ₽")
+                                    .font(Font.custom(Fonts.deledda, size: 14))
+                                    .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+                            }
+                            .padding(.vertical, 4)
+                            Divider()
+                        }
+                    }
+                }
+                .frame(maxHeight: 120)
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(12)
+        .shadow(color: Color.black.opacity(0.2), radius: 8, x: 0, y: 4)
+        .frame(width: 200)
+        .position(x: 160, y: 160)
     }
 }
 
@@ -121,6 +333,6 @@ enum PlotConstants {
     static let controlPointRatio: Double = 3.5
     static let pointsCount = 5
     static let maxValue: Double = 50
-    static let markRadius: Double = 1
+    static let markRadius: Double = 4
     static let quarters = [2.0, 1.0]
 }
