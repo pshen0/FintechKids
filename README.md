@@ -9,9 +9,21 @@ FintechKids — это интерактивное iOS-приложение, ко
 <table>
 <tr>
 <td width="40%">
-<img src="https://github.com/user-attachments/assets/3851caa3-05b6-4050-a195-cc199712b0a1" width="300">
+<img src="https://github.com/user-attachments/assets/6ab13336-71b9-4782-86f7-999132412525" width="300">
 </td>
 <td width="60%">
+
+### Сплэш-скрин
+- Анимация появления маскота
+
+</td>
+</tr>
+
+<tr>
+<td>
+<img src="https://github.com/user-attachments/assets/0c20ba85-c914-4ce9-94be-9f2097c87ed4" width="300">
+</td>
+<td>
 
 ### 1. Главный экран
 - Чат с маскотом (персональным помощником)
@@ -26,7 +38,6 @@ FintechKids — это интерактивное iOS-приложение, ко
 <tr>
 <td>
 <img src="https://github.com/user-attachments/assets/6e5ebb22-9044-473f-9464-8b2ffb037d60" width="300">
-</td>
 <td>
 
 ### 2. Чат с маскотом
@@ -81,7 +92,7 @@ FintechKids — это интерактивное iOS-приложение, ко
 
 <tr>
 <td>
-<img src="https://github.com/user-attachments/assets/46bf1874-e59b-495c-a88a-2a37124986e8" width="300">
+<img src="https://github.com/user-attachments/assets/281528fb-8104-4ac3-b212-f84e8ae0d044" width="300">
 </td>
 <td>
 
@@ -95,7 +106,7 @@ FintechKids — это интерактивное iOS-приложение, ко
 
 <tr>
 <td>
-<img src="https://github.com/user-attachments/assets/216c5c8e-e98f-4b25-bc26-4e1b5188341c" width="300">
+<img src="https://github.com/user-attachments/assets/6ed45bc6-d9be-4b50-9d8d-68565e7308f1" width="300">
 </td>
 <td>
 
@@ -112,7 +123,7 @@ FintechKids — это интерактивное iOS-приложение, ко
 
 | Имя   | Разработанные экраны | Имена файлов      |
 |-------|--------------------|---------------------------------|
-| Аня   |    |  |
+| Аня   | Главный экран, Экран аналитики | HomeView.swift, BubbleAnimationView.swift, AnalyticsView.swift, AnalyticsViewModel.swift, Plot.swift, PdfDocumentPicker.swift |
 | Егор  | Профиль, SplashScreen | SplashScreen.swift; AvatarPickerView.swift; EditableField.swift; ProfileSettingsView.swift; SettingsButtonStyle.swift; UserSettingsManager.swift |
 | Тагир |  |   |
 | Данил | Модуль чата, интеграция swiftData, интеграция с ИИ сервисом| ChatScreen, ChatViewModel, Modifiers |
