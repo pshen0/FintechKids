@@ -57,7 +57,3 @@ struct FrontSideGoalCardView: View {
             .clipped()
     }
 }
-
-#Preview {
-    GoalsView()
-}

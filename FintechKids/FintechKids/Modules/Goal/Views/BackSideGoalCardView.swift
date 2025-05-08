@@ -104,8 +104,3 @@ struct BackSideGoalCardView: View {
         }
     }
 }
-
-#Preview {
-    GoalsView()
-}
-
