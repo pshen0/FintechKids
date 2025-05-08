@@ -13,8 +13,6 @@
 		0F7216FE2D9F71E9008E7355 /* CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7216FD2D9F71E9008E7355 /* CustomFont.swift */; };
 		0F7217002D9F73D3008E7355 /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7216FF2D9F73D3008E7355 /* PdfDocumentPicker.swift */; };
 		0FC6DA1E2D95B946007CB69B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA1D2D95B946007CB69B /* HomeView.swift */; };
-		2E136FAA2D9D5A3600089A4A /* CustomDropDownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E136FA92D9D5A3600089A4A /* CustomDropDownList.swift */; };
-		0FC6DA222D95CC73007CB69B /* PdfDocumentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6DA212D95CC73007CB69B /* PdfDocumentPicker.swift */; };
 		2E1F4C012D95F3AA0024F7B2 /* GoalsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F4C002D95F3AA0024F7B2 /* GoalsViewModel.swift */; };
 		2E2551CC2D96C8F00007B2D9 /* BackSideGoalCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C52D96C8F00007B2D9 /* BackSideGoalCardView.swift */; };
 		2E2551CD2D96C8F00007B2D9 /* FlipOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2551C62D96C8F00007B2D9 /* FlipOpacity.swift */; };
@@ -204,12 +202,11 @@
 		53DE19D82D9E8D6300BA6A33 /* TransparentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentButton.swift; sourceTree = "<group>"; };
 		560775182D9C017A004EA190 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		5607751A2D9C9D89004EA190 /* UserSettingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsManager.swift; sourceTree = "<group>"; };
-		56A2DDE62D95833500F853B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModelTests.swift; sourceTree = "<group>"; };
 		562D84BB2D9E91EB00C39925 /* AvatarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerView.swift; sourceTree = "<group>"; };
 		562D84BC2D9E91EB00C39925 /* EditableField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableField.swift; sourceTree = "<group>"; };
 		562D84BD2D9E91EB00C39925 /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
 		562D84BE2D9E91EB00C39925 /* SettingsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonStyle.swift; sourceTree = "<group>"; };
+		834366792D9EB5BC00577A32 /* CardGameViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModelTests.swift; sourceTree = "<group>"; };
 		83869DA82D9499D2000A1EFD /* CardGameRound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameRound.swift; sourceTree = "<group>"; };
 		83869DA92D9499D2000A1EFD /* CardGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameView.swift; sourceTree = "<group>"; };
 		83869DAA2D9499D2000A1EFD /* CardGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGameViewModel.swift; sourceTree = "<group>"; };
@@ -269,8 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				0F71F74B2D9A764200A1A407 /* AnalyticsView.swift */,
-				0F71F74F2D9AC97100A1A407 /* Plot.swift */,
 				0F5CE4B02D9E6E9A00BF7E47 /* AnalyticsViewModel.swift */,
+				0F71F74F2D9AC97100A1A407 /* Plot.swift */,
 				0F7216FF2D9F73D3008E7355 /* PdfDocumentPicker.swift */,
 			);
 			path = AnalyticsModule;
@@ -1106,7 +1103,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"FintechKids/Preview Content\"";
-				DEVELOPMENT_TEAM = M94G8RZ9KR;
+				DEVELOPMENT_TEAM = D29HMVXL7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FintechKids/Info.plist;
@@ -1115,7 +1112,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1147,7 +1144,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

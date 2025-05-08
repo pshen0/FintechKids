@@ -16,7 +16,8 @@ final class AnalyticsViewModel: ObservableObject {
     @Published var catigorizedTransactions: [String:Double] = [:]
     @Published var unloadRequest: String = ""
     @Published var loadingProcess: String = ""
-    @Published var isLoading: Bool = false
+    @Published var loadedResult: String = ""
+    @Published var isLoading: LoadCases = .unloaded
     
     private let savedFileURLKey = "savedStatementFileURL"
     private let savedTransactionsKey = "savedCategorizedTransactions"
@@ -61,17 +62,18 @@ final class AnalyticsViewModel: ObservableObject {
         if let transactions = transactions,
            let encodedData = try? JSONEncoder().encode(transactions) {
             UserDefaults.standard.set(encodedData, forKey: savedRawTransactionsKey)
+            
         }
     }
     
     func loadFile(url: URL) {
         saveFileURL(url)
-        isLoading = true
+        isLoading = .loading
         let statementController = StatementController(statementService: StatementService(llmService: LLMService.shared), statementFileStore: StatementFileStore())
         Task {
             try await statementController.processStatement(pdfURL:url)
             DispatchQueue.main.async {
-                self.isLoading = false
+                self.isLoading = .loaded
             }
         }
     }
@@ -92,5 +94,12 @@ final class AnalyticsViewModel: ObservableObject {
                 self.saveRawTransactions()
             }
         }
+    }
+    
+    // MARK: - Constants
+    enum LoadCases {
+        case unloaded
+        case loading
+        case loaded
     }
 }

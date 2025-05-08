@@ -199,6 +199,14 @@ struct CategoryLabel: View {
         return CGPoint(x: 160 + x, y: 160 + y)
     }
     
+    private var infoPosition: CGPoint {
+        let angle = Double(index) * (2 * .pi / Double(total)) - .pi / 2
+        let radius: CGFloat = -30
+        let x = cos(angle) * radius
+        let y = sin(angle) * radius
+        return CGPoint(x: 160 + x, y: 160 + y)
+    }
+    
     var body: some View {
         ZStack {
             Text(category)
@@ -223,10 +231,10 @@ struct CategoryLabel: View {
                 CategoryInfo(
                     category: category,
                     amount: amount,
-                    recentTransactions: recentTransactions,
-                    position: position
+                    recentTransactions: recentTransactions
                 )
                 .transition(.scale.combined(with: .opacity))
+                .position(infoPosition)
             }
         }
         .position(position)
@@ -237,28 +245,30 @@ struct CategoryInfo: View {
     let category: String
     let amount: Double
     let recentTransactions: [Transaction]
-    let position: CGPoint
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text(category)
                 .font(Font.custom(Fonts.deledda, size: 18))
                 .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+                .padding(.horizontal, 10)
+                .padding(.top, 6)
             
             Text("Общая сумма: \(String(format: "%.2f", amount)) ₽")
-                .font(Font.custom(Fonts.deledda, size: 16))
+                .font(Font.custom(Fonts.deledda, size: 14))
                 .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
+                .padding(.horizontal, 10)
             
             if !recentTransactions.isEmpty {
                 Text("Последние траты:")
                     .font(Font.custom(Fonts.deledda, size: 14))
                     .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
-                    .padding(.top, 4)
+                    .padding(.horizontal, 10)
                 
                 ScrollView {
-                    VStack(alignment: .leading, spacing: 4) {
+                    VStack(alignment: .leading) {
                         ForEach(recentTransactions.prefix(3)) { transaction in
-                            VStack(alignment: .leading, spacing: 2) {
+                            VStack(alignment: .leading) {
                                 Text(transaction.description)
                                     .font(Font.custom(Fonts.deledda, size: 14))
                                     .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
@@ -267,20 +277,19 @@ struct CategoryInfo: View {
                                     .font(Font.custom(Fonts.deledda, size: 14))
                                     .foregroundColor(Color(red: 0.2, green: 0.4, blue: 0.8))
                             }
-                            .padding(.vertical, 4)
                             Divider()
                         }
                     }
                 }
-                .frame(maxHeight: 120)
+                .frame(maxHeight: 45)
+                .padding(.horizontal, 10)
+                .padding(.bottom, 6)
             }
         }
-        .padding()
         .background(Color.white)
         .cornerRadius(12)
         .shadow(color: Color.black.opacity(0.2), radius: 8, x: 0, y: 4)
-        .frame(width: 200)
-        .position(x: 160, y: 160)
+        .frame(width: 190)
     }
 }
 

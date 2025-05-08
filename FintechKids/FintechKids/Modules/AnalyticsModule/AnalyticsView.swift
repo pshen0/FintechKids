@@ -19,10 +19,6 @@ struct AnalyticsView: View {
         return viewModel.catigorizedTransactions
     }
     
-    private var shouldShowMessages: Bool {
-        return viewModel.isLoading || values.isEmpty
-    }
-    
     init (viewModel: AnalyticsViewModel) {
         self.viewModel = viewModel
     }
@@ -31,7 +27,7 @@ struct AnalyticsView: View {
         ZStack {
             screenName
             Color.background.ignoresSafeArea()
-            gradient
+            MainBGGradient()
             VStack {
                 screenName
                 Spacer()
@@ -42,30 +38,20 @@ struct AnalyticsView: View {
                     Spacer()
                 }
                 Spacer()
-                if shouldShowMessages {
-                    HStack {
-                        catImage
-                        ZStack {
-                            speechImage
-                            speechText
-                        }
-                        Spacer()
+                
+                HStack {
+                    Spacer()
+                    catImage
+                    ZStack {
+                        speechImage
+                        speechText
                     }
+                    Spacer()
                 }
+                
                 Spacer()
             }
         }
-    }
-    
-    private var gradient: some View {
-        LinearGradient (
-            gradient: Gradient(stops: [
-                .init(color: Color.highlightedBackground, location: 0.2),
-                .init(color: Color.background, location: 0.6),
-            ]),
-            startPoint: .top,
-            endPoint: .bottom
-        ).ignoresSafeArea()
     }
     
     private var screenName: some View {
@@ -126,40 +112,55 @@ struct AnalyticsView: View {
         Image(speechImageName)
             .resizable()
             .scaledToFit()
-            .frame(height: speechHeight)
+            .frame(width: speechWidth)
             .padding(.trailing, 20)
     }
     
     private var speechText: some View {
-        Text(viewModel.isLoading ? viewModel.loadingProcess : viewModel.unloadRequest)
+        var displayedText: String = ""
+        var targetProperty: ReferenceWritableKeyPath<AnalyticsViewModel, String>
+        
+        switch viewModel.isLoading {
+        case .loaded:
+            targetProperty = \.loadedResult
+        case .loading:
+            targetProperty = \.loadingProcess
+        case .unloaded:
+            targetProperty = \.unloadRequest
+        }
+        
+        displayedText = viewModel[keyPath: targetProperty]
+        
+        return Text(displayedText)
             .font(Font.custom(Fonts.deledda, size: 15))
             .foregroundColor(Color.text)
+            .frame(width: speechWidth - speechPadding)
             .padding(.trailing, 20)
             .multilineTextAlignment(.center)
             .padding(.leading, 8.5)
             .onAppear {
-                let speechCase = viewModel.isLoading ? "loading" : "unload"
-                startTypingAnimation(speechCase)
+                startTypingAnimation(viewModel.isLoading)
             }
             .onChange(of: viewModel.isLoading) {
-                let speechCase = viewModel.isLoading ? "loading" : "unload"
-                startTypingAnimation(speechCase)
+                startTypingAnimation(viewModel.isLoading)
             }
     }
+
     
-    private func startTypingAnimation(_ speechCase: String) {
+    private func startTypingAnimation(_ speechCase: AnalyticsViewModel.LoadCases) {
         var targetText: String
         var targetProperty: ReferenceWritableKeyPath<AnalyticsViewModel, String>
 
         switch speechCase {
-        case "unload":
+        case .unloaded:
             targetText = unloadRequestText
             targetProperty = \.unloadRequest
-        case "loading":
+        case .loading:
             targetText = loadingText
             targetProperty = \.loadingProcess
-        default:
-            return
+        case .loaded:
+            targetText = loadedText
+            targetProperty = \.loadedResult
         }
 
         viewModel[keyPath: targetProperty] = ""
@@ -182,6 +183,7 @@ struct AnalyticsView: View {
     private let addingExpenseText: String = "Добавить новую трату"
     private let unloadRequestText: String = "Чтобы начать отслеживать финансы, необходимо выгрузить траты"
     private let loadingText: String = "Идет загрузка..."
+    private let loadedText: String = "Вот твоя аналитика трат"
     
     private let catImageName: String = "cat"
     private let speechImageName: String = "speech"
@@ -191,11 +193,12 @@ struct AnalyticsView: View {
     private let buttonWidth: CGFloat = 150
     private let buttonHeight: CGFloat = 40
     private let buttonCornerRadius: CGFloat = 40
-    private let catWidth: CGFloat = 110
-    private let catHeight: CGFloat = 140
+    private let catWidth: CGFloat = 70
+    private let catHeight: CGFloat = 120
     private let catLPadding: CGFloat = 20
     private let catBPadding: CGFloat = 20
-    private let speechHeight: CGFloat = 93
+    private let speechWidth: CGFloat = 280
+    private let speechPadding: CGFloat = 10
     private let shadowButtonRadius: CGFloat = 6
     private let plotAnimationDuration: Double = 10
     private let typingAnimationDuration: Double = 0.03

@@ -16,7 +16,7 @@ class LLMService {
     
     private func encodeRequest(prompt: String) throws -> Data {
         let requestBody = RequestBody(
-            model: "google/gemini-2.0-flash-thinking-exp:free",
+            model: "google/gemini-2.0-flash-exp:free",
             messages: [
                 MessageRequest(
                     role: "user",
@@ -27,7 +27,13 @@ class LLMService {
             ]
         )
         
-        return try JSONEncoder().encode(requestBody)
+        let body = try JSONEncoder().encode(requestBody)
+        
+        /*sendDebugRequest(url: URL(string: "https://openrouter.ai/api/v1/chat/completions")!,
+                         apiKey: LLMKeyProvider.apiKey.rawValue,
+                         body: body)*/
+        
+        return body
     }
     
     private func sendRequest(body: Data) async throws -> Data {
@@ -66,6 +72,35 @@ class LLMService {
             throw NetworkingError.invalidServerResponse
         }
     }
+    
+    /*private func sendDebugRequest(url: URL, apiKey: String, body: Data?) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("Bearer \(apiKey)", forHTTPHeaderField: "Authorization")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = body
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let error = error {
+                print("❌ Error: \(error.localizedDescription)")
+                return
+            }
+            
+            if let httpResponse = response as? HTTPURLResponse {
+                print("✅ Status code: \(httpResponse.statusCode)")
+            } else {
+                print("⚠️ No HTTPURLResponse received")
+            }
+            
+            if let data = data, let responseBody = String(data: data, encoding: .utf8) {
+                print("📦 Response body:\n\(responseBody)")
+            } else {
+                print("⚠️ No data received or failed to decode as UTF-8")
+            }
+        }
+        
+        task.resume()
+    }*/
 }
 
 

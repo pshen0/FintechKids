@@ -20,10 +20,10 @@ struct BubbleAnimationView: View {
     private var bubbles: [Bubble] = (0..<25).map { _ in
         Bubble(
             x: CGFloat.random(in: 0...UIScreen.main.bounds.width),
-            y: CGFloat.random(in: 0...UIScreen.main.bounds.height),
+            y: CGFloat.random(in: UIScreen.main.bounds.height / 2...UIScreen.main.bounds.height),
             size: CGFloat.random(in: 20...80),
             speed: CGFloat.random(in: 5...50),
-            opacity: Double.random(in: 0.6...0.8)
+            opacity: Double.random(in: 0.6...0.9)
         )
     }
     
