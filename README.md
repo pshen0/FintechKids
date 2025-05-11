@@ -21,9 +21,10 @@ FintechKids — это интерактивное iOS-приложение, ко
 
 <tr>
 <td>
-<img src="https://github.com/user-attachments/assets/0c20ba85-c914-4ce9-94be-9f2097c87ed4" width="300">
+<img src="https://github.com/user-attachments/assets/f8a39b1a-bf60-401f-9811-3e8788a630c5" width="300">
 </td>
 <td>
+
 
 ### 1. Главный экран
 - Чат с маскотом (персональным помощником)
@@ -31,6 +32,7 @@ FintechKids — это интерактивное iOS-приложение, ко
   - «Покупки»
   - «Карточки»
 - Переход в профиль пользователя
+- Добавлена анимация лопания пузырьков по нажатию пльзователя
 
 </td>
 </tr>
@@ -123,7 +125,7 @@ FintechKids — это интерактивное iOS-приложение, ко
 
 | Имя   | Разработанные экраны | Имена файлов      |
 |-------|--------------------|---------------------------------|
-| Аня   | Главный экран, Экран аналитики | HomeView.swift, BubbleAnimationView.swift, AnalyticsView.swift, AnalyticsViewModel.swift, Plot.swift, PdfDocumentPicker.swift |
+| Аня   | Главный экран, Экран аналитики, Дизайн | HomeView.swift, BubbleAnimationView.swift, AnalyticsView.swift, AnalyticsViewModel.swift, Plot.swift, PdfDocumentPicker.swift |
 | Егор  | Профиль, SplashScreen | SplashScreen.swift; AvatarPickerView.swift; EditableField.swift; ProfileSettingsView.swift; SettingsButtonStyle.swift; UserSettingsManager.swift |
 | Тагир |  |   |
 | Данил | Модуль чата, интеграция swiftData, интеграция с ИИ сервисом| ChatScreen, ChatViewModel, Modifiers |
