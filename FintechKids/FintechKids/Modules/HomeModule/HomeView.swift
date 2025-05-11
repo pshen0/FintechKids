@@ -17,7 +17,7 @@ struct HomeView: View {
         self.screenFactory = screenFactory
         self.viewModel = CardGameViewModel(screen: screen, screenFactory: screenFactory)
     }
-
+    
     @State var showChat: Bool = false
     @State var showCardGame: Bool = false
     @State var showShoppingGame: Bool = false
@@ -28,7 +28,7 @@ struct HomeView: View {
             ZStack {
                 MainBGGradient()
                 BubbleAnimationView()
-                    .padding(.top, -100)
+                    .padding(.top, bubbleTPadding)
                 VStack {
                     Spacer()
                     catView
@@ -59,7 +59,7 @@ struct HomeView: View {
         Button(action: {
             showProfile = true
         }) {
-            if settingsManager.userAvatar == "photo" {
+            if settingsManager.userAvatar == userAvatar {
                 if let uiImage = settingsManager.currentAvatarImage {
                     Image(uiImage: uiImage)
                         .resizable()
@@ -68,7 +68,7 @@ struct HomeView: View {
                         .clipShape(Circle())
                         .overlay(Circle().stroke(Color.accentColor, lineWidth: 2))
                 } else {
-                    Image(systemName: "person.crop.circle")
+                    Image(systemName: startUserAvatar)
                         .resizable()
                         .scaledToFit()
                         .frame(width: profileWidth, height: profileHeight)
@@ -77,7 +77,7 @@ struct HomeView: View {
             } else {
                 ZStack {
                     Circle()
-                        .fill(Color("PrimaryOrange"))
+                        .fill(Color.primaryOrange)
                         .frame(width: profileWidth, height: profileHeight)
                     
                     Image(systemName: settingsManager.userAvatar)
@@ -186,12 +186,31 @@ struct HomeView: View {
         .shadow(color: Color.highlightedBackground, radius: shadowButtonRadius)
     }
     
+    struct CatStyle: ButtonStyle {
+        let normalImage: Image
+        let pressedImage: Image
+        let height: CGFloat
+        let width: CGFloat
+        
+        func makeBody(configuration: Configuration) -> some View {
+            (configuration.isPressed ? pressedImage : normalImage)
+                .resizable()
+                .scaledToFit()
+                .frame(width: width, height: height)
+                .animation(nil, value: configuration.isPressed)
+        }
+    }
+    
     private var catView: some View {
-        Image(catImage)
-            .resizable()
-            .scaledToFit()
-            .frame(width: catWidth, height: catHeight)
-            //.padding(.top, catTPadding)
+        Button(action: { }) {
+            EmptyView()
+        }
+        .buttonStyle(CatStyle(
+            normalImage: Image(catImage),
+            pressedImage: Image(tappedCatImage),
+            height: catHeight,
+            width: catWidth
+        ))
     }
     
     private var greetingView: some View {
@@ -217,8 +236,11 @@ struct HomeView: View {
     private let cardsGameButtonImage: String = "catCards"
     private let shoppingGameButtonImage: String = "catShopping"
     private let catImage: String = "cat"
+    private let tappedCatImage: String = "cat6"
     private let greetingText1: String = "Привет!"
     private let greetingText2: String = "Выбери, чем хочешь сегодня заняться:"
+    private let userAvatar: String = "photo"
+    private let startUserAvatar: String = "person.crop.circle"
     
     private let greetingTextSize1: CGFloat = 40
     private let greetingTextSize2: CGFloat = 20
@@ -227,6 +249,7 @@ struct HomeView: View {
     private let buttonCornerRadius: CGFloat = 20
     private let buttonBPadding: CGFloat = 20
     private let buttonTPadding: CGFloat = 20
+    private let bubbleTPadding: CGFloat = -100
     private let buttonHeight: CGFloat = 140
     private let buttonWidth: CGFloat = 110
     private let profileHeight: CGFloat = 40
@@ -234,7 +257,6 @@ struct HomeView: View {
     private let catWidth: CGFloat = 135
     private let catHeight: CGFloat = 231
     private let catLPadding: CGFloat = 20
-    //private let catTPadding: CGFloat = 80
     private let shadowButtonRadius: CGFloat = 6
 }
 
